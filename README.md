@@ -1,2 +1,2 @@
 # Grand-_Bishoftu_Hospital
-Here’s a **350-character version** of that description, perfe A modern and responsive hospital website that provides easy access to medical services, doctor profiles, and appointment booking. Built to enhance communication between Grand Bishoftu Hospital and its community, ensuring accessible healthcare anytime, anywhere.
+A modern and responsive hospital website that provides easy access to medical services, doctor profiles, and appointment booking. Built to enhance communication between Grand Bishoftu Hospital and its community, ensuring accessible healthcare anytime, anywhere.
