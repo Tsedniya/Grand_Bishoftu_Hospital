@@ -1,2 +1,10 @@
 @import "tailwindcss";
 
+/* index.css */
+
+body {
+  background-color: #ffc0cb; /* soft pink */
+  min-height: 100vh;         /* ensures full viewport height */
+  margin: 0;                 /* removes default body margin */
+  font-family: sans-serif;   /* optional: makes text look cleaner */
+}
