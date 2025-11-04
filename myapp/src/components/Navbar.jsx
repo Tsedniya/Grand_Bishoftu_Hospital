@@ -15,10 +15,22 @@ const Navbar = () => {
   </div>
 
   <ul className="flex gap-6 text-gray-700 font-medium">
-    <NavLink to="/">Home</NavLink>
-    <NavLink to="/about">About</NavLink>
-    <NavLink to="/services">Services</NavLink>
-    <NavLink to="/contact">Contact</NavLink>
+    <NavLink to="/" className="text-gray-700 hover:text-sky-400 transition-colors">
+        <p>Home</p>
+        <hr className='w-13 border-none h-[1.5px] bg-sky-400 hidden'/>
+    </NavLink>
+    <NavLink to="/about" className="text-gray-700 hover:text-sky-400  transition-colors">
+        <p>About</p>
+        <hr className='w-13 border-none h-[1.5px] bg-sky-400 hidden'/>
+    </NavLink>
+    <NavLink to="/services" className="text-gray-700 hover:text-sky-400  transition-colors">
+        <p>Services</p>
+        <hr className='w-13 border-none h-[1.5px] bg-sky-400 hidden'/>
+    </NavLink>
+    <NavLink to="/contact" className="text-gray-700 hover:text-sky-400  transition-colors">
+        <p>Contact</p>
+        <hr className='w-2/4 border-none h-[1.5px] hover:text-sky-400 hidden'/>
+    </NavLink>
   </ul>
 </nav>
 
