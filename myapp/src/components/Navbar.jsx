@@ -9,7 +9,7 @@ const Navbar = () => {
   <nav className="fixed top-0 left-0 right-0 mx-13 my-5 flex items-center justify-between px-6 py-1 bg-white rounded-full shadow-md z-50">
   <div className="flex items-center space-x-2">
     <img className='w-12 rounded-full border border-gray' src={logo} alt="logo"/>
-    <span className="text-2xl  text-gray-700">
+    <span className="text-2xl  font-bold bg-gradient-to-r from-gray-700 to-sky-400 bg-clip-text text-transparent">
       Grand Bishoftu Hospital
     </span>
   </div>
