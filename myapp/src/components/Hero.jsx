@@ -14,14 +14,14 @@ const Hero = () => {
 
   <div className="relative z-10 flex flex-col items-start justify-center h-full text-left px-10">
 
-    <button className="mt-3 mb-4 px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-blue-700 transition">
+    <button className="mt-3 mb-4 px-5 py-1 bg-sky-400 text-white rounded-full transition">
           Leading Health Specialists
     </button>
     
-    <h1 className="text-4xl md:text-6xl font-bold text-white">
+    <h1 className="text-4xl md:text-5xl font-bold text-white">
       Grand Bishoftu Hospital
     </h1>
-    <p className="mt-6 text-lg text-white max-w-xl">
+    <p className="mt-6 text-lg text-white max-w-2xl text-justify">
       Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment, personalized care, and a patient-first approach.
     </p>
     <div className='mt-3 flex space-x-4'>
