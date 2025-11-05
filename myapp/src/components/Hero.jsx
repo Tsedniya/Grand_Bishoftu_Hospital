@@ -12,20 +12,24 @@ const Hero = () => {
   />
   <div className="absolute inset-0 bg-black opacity-50"></div>
 
-  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-4">
-    <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
+  <div className="relative z-10 flex flex-col items-start justify-center h-full text-left px-10">
+
+    <button className="mt-3 mb-4 px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-blue-700 transition">
           Leading Health Specialists
     </button>
     
     <h1 className="text-4xl md:text-6xl font-bold text-white">
       Grand Bishoftu Hospital
     </h1>
-    <p className="mt-4 text-lg text-white max-w-xl">
-      Providing trusted healthcare services with compassion and excellence.
+    <p className="mt-6 text-lg text-white max-w-xl">
+      Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment, personalized care, and a patient-first approach.
     </p>
-    <button className="mt-6 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition">
-      Learn More
-    </button>
+    <div className='mt-3 flex space-x-4'>
+      <button className="font-bold mt-6 px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-sky-700 transition">
+        Learn More
+      </button>
+      <button className="border border-sky-400 font-bold mt-6 px-6 py-3 bg-transparent text-white rounded-full hover:bg-sky-400 transition">Explore Services</button>
+    </div>
   </div>
 </section>
 
