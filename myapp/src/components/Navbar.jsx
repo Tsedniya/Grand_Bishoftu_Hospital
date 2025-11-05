@@ -1,14 +1,14 @@
 import React from 'react'
 import {Link,NavLink} from 'react-router-dom'
-import logo from '../assets/logo.png'
+import logo from '../assets/logo.jpg'
 import { Hospital } from 'lucide-react';
 
 
 const Navbar = () => {
   return (
-  <nav className="fixed top-0 left-0 right-0 mx-13 my-5 flex items-center justify-between px-6 py-3 bg-white rounded-full shadow-md z-50">
+  <nav className="fixed top-0 left-0 right-0 mx-13 my-5 flex items-center justify-between px-6 py-1 bg-white rounded-full shadow-md z-50">
   <div className="flex items-center space-x-2">
-    <Hospital className="h-8 w-8 text-sky-400" />
+    <img className='w-12 rounded-full border border-gray' src={logo} alt="logo"/>
     <span className="text-2xl  text-gray-700">
       Grand Bishoftu Hospital
     </span>
