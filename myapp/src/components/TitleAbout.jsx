@@ -18,7 +18,13 @@ const About = () => {
             <p className='mt-8 text-gray-700 text-justify leading-relaxed'>At Grand Bishoftu Hospital, we are committed to providing exceptional healthcare with compassion and expertise. Our experienced medical specialists work tirelessly to ensure the well-being of every patient, offering advanced treatments, personalized care, and a patient-first approach. </p>
             <p className='mt-8 text-gray-700 text-justify leading-relaxed'>We strive to create a safe and welcoming environment where health, comfort, and trust come first.Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment, personalized care, and a patient-first approach</p>
         </div>
+
+        <div className='mt-8 flex item center gap-10 max-w-3xl p-6 bg-white rounded-lg shadow-md'>
+            <p className='text-sky-400 text-4xl font-bold'>25+</p>
+            <p className='text-sky-400 text-4xl font-bold'>3000</p>
         </div>
+         
+      </div>
            
         {/*right*/}
         <div>
