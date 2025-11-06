@@ -12,11 +12,17 @@ const Navbar = () => {
       {/* Logo and Name */}
       <div className="flex items-center space-x-2">
         <img className="w-12 rounded-full border border-gray" src={logo} alt="logo" />
+        
         <span className="text-2xl font-bold bg-gradient-to-r from-gray-700 to-sky-400 bg-clip-text text-transparent">
-            <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
-            <span className="inline sm:hidden">GBH</span>
+          {visible ? 'GBH' : (
+            <>
+              <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
+              <span className="inline sm:hidden">GBH</span>
+            </>
+          )}
         </span>
       </div>
+
 
       {/* Navbar Links (visible on larger screens) */}
       <ul className="hidden md:flex gap-6 text-gray-700 font-medium">
