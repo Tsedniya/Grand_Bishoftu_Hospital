@@ -1,42 +1,61 @@
-import React from 'react'
-import {Link,NavLink} from 'react-router-dom'
-import logo from '../assets/logo.jpg'
-import { Hospital } from 'lucide-react';
-
+import { Link, NavLink } from 'react-router-dom';
+import logo from '../assets/logo.jpg';
+import menu from '../assets/menu.svg';
+import { useState } from 'react';
 
 const Navbar = () => {
+  const [visible, setVisible] = useState(false);
+
   return (
-  <nav className="fixed top-0 left-0 right-0 mx-13 my-5 flex items-center justify-between px-6 py-1 bg-white rounded-full shadow-md z-50">
-  <div className="flex items-center space-x-2">
-    <img className='w-12 rounded-full border border-gray' src={logo} alt="logo"/>
-    <span className="text-2xl  font-bold bg-gradient-to-r from-gray-700 to-sky-400 bg-clip-text text-transparent">
-      Grand Bishoftu Hospital
-    </span>
-  </div>
+    <nav className="fixed top-0 left-0 right-0 mx-13 my-5 flex items-center justify-between px-6 py-2 bg-white rounded-full shadow-md z-50">
+      
+      {/* Logo and Name */}
+      <div className="flex items-center space-x-2">
+        <img className="w-12 rounded-full border border-gray" src={logo} alt="logo" />
+        <span className="text-2xl font-bold bg-gradient-to-r from-gray-700 to-sky-400 bg-clip-text text-transparent">
+            <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
+            <span className="inline sm:hidden">GBH</span>
+        </span>
+      </div>
 
-  <ul className="flex gap-6 text-gray-700 font-medium">
-    <NavLink to="/" className="mx-auto hover:text-sky-400 hover:font-bold text-gray-700  transition-colors">
-        <p>Home</p>
-        <hr className='mx-auto w-10 border-none h-[1.5px] bg-sky-400 hidden'/>
-    </NavLink>
-    <NavLink to="/about" className="text-gray-700 hover:text-sky-400  hover:font-bold transition-colors">
-        <p>About</p>
-        <hr className='mx-auto w-10 border-none h-[1.5px] bg-sky-400 hidden'/>
-    </NavLink>
-    <NavLink to="/services" className="text-gray-700 hover:text-sky-400 hover:font-bold transition-colors">
-        <p>Services</p>
-        <hr className='mx-auto w-10 border-none h-[1.5px] bg-sky-400 hidden'/>
-    </NavLink>
-    <NavLink to="/contact" className="text-gray-700 hover:text-sky-400 hover:font-bold transition-colors">
-        <p>Contact</p>
-        <hr className='mx-auto w-10 border-none h-[1.5px] bg-sky-400 hidden'/>
-    </NavLink>
-  </ul>
-</nav>
+      {/* Navbar Links (visible on larger screens) */}
+      <ul className="hidden md:flex gap-6 text-gray-700 font-medium">
+        <NavLink to="/" className="hover:text-sky-400 hover:font-bold">Home</NavLink>
+        <NavLink to="/about" className="hover:text-sky-400 hover:font-bold">About</NavLink>
+        <NavLink to="/services" className="hover:text-sky-400 hover:font-bold">Services</NavLink>
+        <NavLink to="/contact" className="hover:text-sky-400 hover:font-bold">Contact</NavLink>
+      </ul>
 
+      {/* Menu Icon (visible on small screens) */}
+      <img 
+        src={menu} 
+        alt="menu" 
+        onClick={() => setVisible(true)} 
+        className="w-8 h-8 cursor-pointer md:hidden"
+      />
 
+      {/* Slide-out Mobile Menu */}
+      <div className={`fixed top-0 right-0 h-full bg-white transition-all duration-300 ease-in-out ${visible ? 'w-full' : 'w-0'}`}>
+        <div className="flex flex-col p-6">
+          {/* Close Button */}
+          <img 
+            src={menu} 
+            alt="close" 
+            onClick={() => setVisible(false)} 
+            className="w-8 h-8 self-end cursor-pointer"
+          />
+          
+          {/* Mobile Links */}
+          <ul className="flex flex-col mt-8 space-y-4 text-lg font-medium text-gray-700">
+            <NavLink to="/" onClick={() => setVisible(false)}>Home</NavLink>
+            <NavLink to="/about" onClick={() => setVisible(false)}>About</NavLink>
+            <NavLink to="/services" onClick={() => setVisible(false)}>Services</NavLink>
+            <NavLink to="/contact" onClick={() => setVisible(false)}>Contact</NavLink>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
+};
 
-  )
-}
-
-export default Navbar
+export default Navbar;
