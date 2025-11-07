@@ -1,5 +1,7 @@
 import React from 'react'
 import hospital from "../assets/hospital.jpg";
+import doctor from "../assets/doctor.jpg"
+import inside from "../assets/inside.jpg"
 
 
 const About = () => {
@@ -32,7 +34,11 @@ const About = () => {
 
 
     <div className='my-15 flex flex-col md:flex-row gap-10 items-center md:items-start'>
-
+       
+        <div className='w-full flex md:max-w-[200px] ' >
+          <img  className="border border-gray-500 rounded-2xl"src={doctor} alt=''/>
+          <img className="ml-12 border border-gray-500 rounded-2xl" src={inside} alt=''/>
+        </div>
      
 
 
