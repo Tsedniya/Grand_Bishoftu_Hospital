@@ -2,6 +2,7 @@ import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
 import menu from '../assets/menu.svg';
 import { useState } from 'react';
+import x from '../assets/x.svg';
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -44,12 +45,15 @@ const Navbar = () => {
       <div className={`fixed top-0 right-0 h-full bg-white transition-all duration-300 ease-in-out ${visible ? 'w-full' : 'w-0'}`}>
         <div className="flex flex-col p-6">
           {/* Close Button */}
-          <img 
-            src={menu} 
-            alt="close" 
-            onClick={() => setVisible(false)} 
-            className="w-8 h-8 self-end cursor-pointer"
-          />
+          {/* Close Button */}
+              <img 
+                src={x} 
+                alt="close" 
+                onClick={() => setVisible(false)} 
+                className="w-8 h-8 self-end cursor-pointer transition-transform duration-200 hover:rotate-90"
+              />
+
+          
           
           {/* Mobile Links */}
           <ul className="flex flex-col mt-8 space-y-4 text-lg font-medium text-gray-700">
