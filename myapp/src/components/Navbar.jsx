@@ -8,7 +8,7 @@ const Navbar = () => {
   const [visible, setVisible] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 mx-4 sm:mx-8 md:mx-13 my-3 sm:my-5 flex items-center justify-between px-4 sm:px-6 py-1 bg-white rounded-full shadow-md z-50">
+    <nav className="fixed top-0 left-0 right-0 mx-4 sm:mx-8 md:mx-12 my-3 sm:my-5 flex items-center justify-between px-4 sm:px-6 py-1 bg-white rounded-full shadow-md z-50">
 
       {/* Logo and Name */}
       <div className="flex items-center space-x-2">
@@ -45,7 +45,7 @@ const Navbar = () => {
       <div className={`fixed top-0 right-0 h-full bg-white transition-all duration-300 ease-in-out ${visible ? 'w-full' : 'w-0'}`}>
         <div className="flex flex-col p-6">
           {/* Close Button */}
-          {/* Close Button */}
+         
               <img 
                 src={x} 
                 alt="close" 
