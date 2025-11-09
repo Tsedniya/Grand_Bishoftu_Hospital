@@ -7,7 +7,7 @@ const About = () => {
   return (
     <div className="pt-20">
 
-      {/* Header */}
+      {/* Header Section */}
       <div className='flex flex-col items-center px-4 md:px-16'>
         <p className='text-center font-poppins text-3xl md:text-6xl text-sky-400 mt-8 md:mt-16'>About</p>
         <p className="text-center text-gray-700 mt-4 md:mt-6 mx-0 md:mx-16 mb-4 ">
@@ -17,49 +17,61 @@ const About = () => {
 
       <hr className="border-gray-200 border-t-2 mt-8" />
 
-              {/* Main Section */}
-      <div className='my-15 flex flex-col md:flex-row gap-10 items-center md:items-start'>
+      {/* Main Section */}
+      <div className='my-15 flex flex-col gap-16'>
 
-        {/* Left Column — Hospital + Doctor + Inside */}
-        <div className='flex flex-col items-center gap-6 md:max-w-[450px] w-full'>
+        {/* Row 1 — Hospital + About Text */}
+        <div className='flex flex-col md:flex-row gap-10 items-center md:items-start'>
+          
           {/* Hospital Image */}
-          <img className='w-full rounded-2xl' src={hospital} alt='Hospital'/>
-
-          {/* Doctor & Inside Images */}
-          <div className='mt-6 flex gap-6 justify-center flex-wrap'>
-            <img className="border border-gray-500 rounded-2xl max-w-[200px]  h-[230px] object-cover transition-transform duration-300 hover:scale-105" src={doctor} alt='Doctor'/>
-            <img className="border border-gray-500 rounded-2xl max-w-[200px] h-[230px] object-cover transition-transform duration-300 hover:scale-105" src={inside} alt='Inside'/>
+          <div className='flex justify-center md:max-w-[450px] w-full'>
+            <img 
+              className='w-full rounded-2xl transition-transform duration-300 hover:scale-105' 
+              src={hospital} 
+              alt='Hospital'
+            />
           </div>
+
+          {/* Main About Text */}
+          <div className='flex-1 flex flex-col justify-center gap-6 text-gray-600 text-justify'>
+            <p>
+              At Grand Bishoftu Hospital, we are committed to providing exceptional healthcare with compassion and expertise. Our experienced medical specialists work tirelessly to ensure the well-being of every patient, offering advanced treatments, personalized care, and a patient-first approach.
+            </p>
+            <p className='mt-5'>
+              We strive to create a safe and welcoming environment where health, comfort, and trust come first. Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment, personalized care, and a patient-first approach.
+            </p>
+            
+          </div>
+
         </div>
 
-      {/* Right Column — Main Text + New Text Below */}
-      <div className='flex-1 flex flex-col justify-center text-gray-600 text-justify'>
+        {/* Row 2 — Doctor & Inside Images + New Text */}
+        <div className='flex flex-col md:flex-row gap-10 items-center md:items-start'>
+          
+          {/* Doctor & Inside Images */}
+          <div className='flex justify-center gap-6 flex-wrap md:max-w-[450px] w-full'>
+            <img 
+              className="border border-gray-500 rounded-2xl max-w-[200px] h-[230px] object-cover transition-transform duration-300 hover:scale-105" 
+              src={doctor} 
+              alt='Doctor'
+            />
+            <img 
+              className="border border-gray-500 rounded-2xl max-w-[200px] h-[230px] object-cover transition-transform duration-300 hover:scale-105" 
+              src={inside} 
+              alt='Inside'
+            />
+          </div>
 
-        {/* Main About Text */}
-        <div className='flex flex-col gap-6'>
-          <p>
-            At Grand Bishoftu Hospital, we are committed to providing exceptional healthcare with compassion and expertise. Our experienced medical specialists work tirelessly to ensure the well-being of every patient, offering advanced treatments, personalized care, and a patient-first approach.
-          </p>
-          <p className='mt-5'>
-            We strive to create a safe and welcoming environment where health, comfort, and trust come first. Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment, personalized care, and a patient-first approach.
-          </p>
-        </div>
+          {/* New Text Beside Doctor & Inside */}
+            <div class="w-74 h-40 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-300 flex items-center justify-center">
+              <p class="text-gray-700 font-semibold">25+</p>
+              <p class="ml-4 text-gray-700 font-semibold"></p>
+            </div>
 
-        {/* New Text Below */}
-        <div className='mt-8'>
-          <h3 className='text-xl font-semibold text-sky-500 mb-3'>Our Commitment</h3>
-          <p>
-            Beyond medical excellence, we believe in building lasting relationships with our patients.
-            Every visit is guided by compassion, respect, and understanding, ensuring that you feel supported every step of the way.
-          </p>
+
         </div>
 
       </div>
-
-    </div>
-
-
-
     </div>
   );
 }
