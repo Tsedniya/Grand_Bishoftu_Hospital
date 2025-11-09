@@ -26,9 +26,9 @@ const About = () => {
           <img className='w-full rounded-2xl' src={hospital} alt='Hospital'/>
 
           {/* Doctor & Inside Images */}
-          <div className='flex gap-6 justify-center flex-wrap'>
-            <img className="border border-gray-500 rounded-2xl max-w-[200px]" src={doctor} alt='Doctor'/>
-            <img className="border border-gray-500 rounded-2xl max-w-[200px]" src={inside} alt='Inside'/>
+          <div className='mt-6 flex gap-6 justify-center flex-wrap'>
+            <img className="border border-gray-500 rounded-2xl max-w-[200px]  h-[230px] object-cover transition-transform duration-300 hover:scale-105" src={doctor} alt='Doctor'/>
+            <img className="border border-gray-500 rounded-2xl max-w-[200px] h-[230px] object-cover transition-transform duration-300 hover:scale-105" src={inside} alt='Inside'/>
           </div>
         </div>
 
