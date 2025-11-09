@@ -17,14 +17,26 @@ const About = () => {
 
       <hr className="border-gray-200 border-t-2 mt-8" />
 
-      {/* Main Section */}
+              {/* Main Section */}
       <div className='my-15 flex flex-col md:flex-row gap-10 items-center md:items-start'>
 
-        {/* Hospital Image */}
-        <img className='w-full md:max-w-[450px] rounded-2xl' src={hospital} alt=''/>
-        
-        {/* Text Section */}
-        <div className='flex-1 flex flex-col justify-center gap-6 text-gray-600 text-justify'>
+        {/* Left Column — Hospital + Doctor + Inside */}
+        <div className='flex flex-col items-center gap-6 md:max-w-[450px] w-full'>
+          {/* Hospital Image */}
+          <img className='w-full rounded-2xl' src={hospital} alt='Hospital'/>
+
+          {/* Doctor & Inside Images */}
+          <div className='flex gap-6 justify-center flex-wrap'>
+            <img className="border border-gray-500 rounded-2xl max-w-[200px]" src={doctor} alt='Doctor'/>
+            <img className="border border-gray-500 rounded-2xl max-w-[200px]" src={inside} alt='Inside'/>
+          </div>
+        </div>
+
+      {/* Right Column — Main Text + New Text Below */}
+      <div className='flex-1 flex flex-col justify-center text-gray-600 text-justify'>
+
+        {/* Main About Text */}
+        <div className='flex flex-col gap-6'>
           <p>
             At Grand Bishoftu Hospital, we are committed to providing exceptional healthcare with compassion and expertise. Our experienced medical specialists work tirelessly to ensure the well-being of every patient, offering advanced treatments, personalized care, and a patient-first approach.
           </p>
@@ -33,13 +45,20 @@ const About = () => {
           </p>
         </div>
 
+        {/* New Text Below */}
+        <div className='mt-8'>
+          <h3 className='text-xl font-semibold text-sky-500 mb-3'>Our Commitment</h3>
+          <p>
+            Beyond medical excellence, we believe in building lasting relationships with our patients.
+            Every visit is guided by compassion, respect, and understanding, ensuring that you feel supported every step of the way.
+          </p>
+        </div>
+
       </div>
 
-      {/* Doctors & Inside Images Section */}
-      <div className='my-15 flex gap-10 items-center justify-center flex-wrap'>
-        <img className="border border-gray-500 rounded-2xl max-w-[200px]" src={doctor} alt=''/>
-        <img className="border border-gray-500 rounded-2xl max-w-[200px]" src={inside} alt=''/>
-      </div>
+    </div>
+
+
 
     </div>
   );
