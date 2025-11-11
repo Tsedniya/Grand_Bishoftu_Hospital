@@ -65,7 +65,7 @@ const About = () => {
           {/* New Text Beside Doctor & Inside */}
            <div class="flex-1 flex flex-col items-center justify-center gap-2 h-40 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-300 text-gray-700 font-semibold">
             <p>25+</p>
-            <p>Patients</p>
+            <p>5000</p>
           </div>
 
 
