@@ -2,8 +2,30 @@ import React from 'react'
 import hospital from "../assets/hospital.jpg";
 import doctor from "../assets/doctor.jpg";
 import inside from "../assets/inside.jpg";
+import { useState, useEffect } from 'react'
 
 const About = () => {
+
+  const [count, setCount] = useState(0);
+  const target = 5000;
+  const duration = 2000; // 2 seconds
+
+  useEffect(() => {
+    let start = 0;
+    const increment = target / (duration / 16);
+
+    const counter = setInterval(() => {
+      start += increment;
+      if (start >= target) {
+        start = target;
+        clearInterval(counter);
+      }
+      setCount(Math.floor(start));
+    }, 16);
+
+    return () => clearInterval(counter);
+  }, []);
+
   return (
     <div className="pt-20">
 
@@ -63,9 +85,10 @@ const About = () => {
           </div>
 
           {/* New Text Beside Doctor & Inside */}
-           <div class="flex-1 flex flex-col items-center justify-center gap-2 h-40 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-300 text-gray-700 font-semibold">
+           <div className="flex-1 flex flex-col items-center justify-center gap-2 h-40 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-300 text-gray-700 font-semibold">
             <p>25+</p>
-            <p>5000</p>
+             <p className="text-2xl font-bold">{count}</p>
+             <p className="text-sm text-gray-500">Patients</p>
           </div>
 
 
