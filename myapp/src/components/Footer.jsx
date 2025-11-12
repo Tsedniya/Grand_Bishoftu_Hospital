@@ -1,33 +1,40 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div className='flex flex-col md:flex'>
-        {/*<!-- Left side: Logo or name -->*/}
-        <div class="text-center md:text-left">
-            <h2 class="text-xl font-semibold text-white">Grand Bishoftu Hospital</h2>
-            <p class="text-sm text-gray-400">Providing quality healthcare since 2002</p>
+        <div className="flex flex-col items-center justify-between  gap-6 text-center">
+        {/* <!-- Left side: Logo or name --> */}
+        <div>
+            <h2 className="text-xl font-semibold text-white">Grand Bishoftu Hospital</h2>
+            <p className="text-sm text-gray-400">
+                Providing quality healthcare since 2002
+            </p>
         </div>
 
-    {/*<!-- Center: Navigation links -->*/}
-    <div class="flex flex-wrap justify-center gap-4 text-sm">
-      <a href="/" class="hover:text-white transition">Home</a>
-      <a href="/about" class="hover:text-white transition">About</a>
-      <a href="/services" class="hover:text-white transition">Services</a>
-      <a href="/contact" class="hover:text-white transition">Contact</a>
+        {/* <!-- Center: Navigation links --> */}
+        <div className="flex flex-col md:flex-row justify-center gap-4 text-sm">
+        <Link href="/" className="hover:text-white transition">Home</Link>
+        <Link href="/about" className="hover:text-white transition">About</Link>
+        <Link href="/services" className="hover:text-white transition">Services</Link>
+        <Link href="/contact" className="hover:text-white transition">Contact</Link>
+        </div>
+
+        {/* <!-- Right side: Social icons --> */}
+        <div className="flex justify-center gap-4 text-lg">
+        <Link href="#" className="hover:text-white transition"><i className="fab fa-facebook"></i></Link>
+        <Link href="#" className="hover:text-white transition"><i className="fab fa-twitter"></i></Link>
+        <Link href="#" className="hover:text-white transition"><i className="fab fa-instagram"></i></Link>
+        </div>
+
+        {/* <!-- Bottom text --> */}
+        <div className="text-sm text-gray-400 mt-4 border-t border-gray-700 pt-4">
+             © {new Date().getFullYear()} Grand Bishoftu Hospital. All rights reserved.
+        </div>
     </div>
 
-    <div class="flex justify-center gap-4">
-      <a href="#" class="hover:text-white transition"><i class="fab fa-facebook"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-twitter"></i></a>
-      <a href="#" class="hover:text-white transition"><i class="fab fa-instagram"></i></a>
-    </div>
 
-      <div class="border-t border-gray-700 mt-6 pt-4 text-center text-sm text-gray-400">
-           © 2025 Grand Bishoftu Hospital. All rights reserved.
-      </div>
-
-    </div>
+  
   )
 }
 
