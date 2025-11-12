@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
-
+import Services  from './pages/Services'
 
 
 const PaddedPage = ({ children }) => (
@@ -26,6 +26,8 @@ const App = () => {
         {/* About and Contact: inside padding wrapper */}
         <Route path='/about' element={<PaddedPage><About /></PaddedPage>} />
         <Route path='/contact' element={<PaddedPage><Contact /></PaddedPage>} />
+        <Route path='/services' element={<PaddedPage>< Services  /></PaddedPage>} />
+
       </Routes>
       <PaddedPage>
         <Footer/>
