@@ -3,6 +3,9 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Footer from './components/Footer';
+
+
 
 const PaddedPage = ({ children }) => (
   <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>{children}</div>
@@ -24,6 +27,10 @@ const App = () => {
         <Route path='/about' element={<PaddedPage><About /></PaddedPage>} />
         <Route path='/contact' element={<PaddedPage><Contact /></PaddedPage>} />
       </Routes>
+      <PaddedPage>
+        <Footer/>
+      </PaddedPage>
+
     </>
   );
 };
