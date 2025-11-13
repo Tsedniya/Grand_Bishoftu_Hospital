@@ -22,9 +22,9 @@ const Footer = () => {
 
         {/* <!-- Right side: Social icons --> */}
         <div className="flex justify-center gap-4 text-lg">
-        <Link href="#" className="hover:text-white transition"><i className="fab fa-facebook"></i></Link>
-        <Link href="#" className="hover:text-white transition"><i className="fab fa-twitter"></i></Link>
-        <Link href="#" className="hover:text-white transition"><i className="fab fa-instagram"></i></Link>
+        <Link href="#" className="hover:text-white transition"></Link>
+        <Link href="#" className="hover:text-white transition"></Link>
+        <Link href="#" className="hover:text-white transition"></Link>
         </div>
 
         {/* <!-- Bottom text --> */}
