@@ -1,8 +1,13 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 import logo from '../assets/logo.jpg';
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+    const navigate = useNavigate();
+    const goTo = (path) => navigate(path);
+
+  
   return (
         <div className='bg-blue-50 py-12 px-15 w-full'>
           <div className="grid md:grid-cols-4 gap-8">
@@ -24,7 +29,7 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <button
-                  onClick={() => scrollToSection("home")}
+                  onClick={() => goTo("/")}
                   className="text-gray-400 font-bold hover:text-sky-400 transition-colors text-sm"
                 >
                   Home
@@ -32,7 +37,7 @@ const Footer = () => {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("about")}
+                  onClick={() => goTo("/about")}
                   className="text-gray-400 font-bold hover:text-sky-400 transition-colors text-sm"
                 >
                   About Us
@@ -40,23 +45,15 @@ const Footer = () => {
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("treatments")}
+                  onClick={() => goTo("/services")}
                   className="text-gray-400 font-bold hover:text-sky-400 transition-colors text-sm"
                 >
-                  Treatments
+                  Services
                 </button>
               </li>
               <li>
                 <button
-                  onClick={() => scrollToSection("gallery")}
-                  className="text-gray-400 hover:text-sky-400 font-bold transition-colors text-sm"
-                >
-                  Gallery
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => scrollToSection("contact")}
+                  onClick={() => goTo("/contact")}
                   className="text-gray-400 hover:text-sky-400 transition-colors font-bold text-sm"
                 >
                   Contact

@@ -1,12 +1,29 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.jpg';
 import menu from '../assets/menu.svg';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import x from '../assets/x.svg';
+import { useNavigate } from "react-router-dom";
+
 
 const Navbar = () => {
-  const [visible, setVisible] = useState(false);
 
+  const [visible, setVisible] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const goTo = (path) => {
+    navigate(path);
+    setVisible(false); // closes menu on mobile
+  };
+  
   return (
     <nav className="fixed top-0 left-0 right-0 mx-4 sm:mx-8 md:mx-12 my-3 sm:my-5 flex items-center justify-between px-4 sm:px-6 py-1 bg-white rounded-full shadow-md z-50">
 
