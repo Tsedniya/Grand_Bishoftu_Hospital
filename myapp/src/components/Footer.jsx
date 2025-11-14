@@ -19,7 +19,7 @@ const Footer = () => {
                       Grand Bishoftu Hospital
                   </span>
                 </div>
-                <p className="text-gray-400 leading-relaxed mb-4">
+                <p className="text-gray-700 leading-relaxed mb-4 font-bold">
                    Our experienced medical specialists work tirelessly to ensure the well-being of every patient, offering advanced treatments, personalized care, and a patient-first approach.
                 </p>
               </div>
@@ -30,7 +30,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/")}
-                  className="text-gray-400 font-bold hover:text-sky-400 transition-colors text-sm"
+                  className="text-gray-700 font-bold hover:text-sky-400 transition-colors text-sm"
                 >
                   Home
                 </button>
@@ -38,7 +38,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/about")}
-                  className="text-gray-400 font-bold hover:text-sky-400 transition-colors text-sm"
+                  className="text-gray-700 font-bold hover:text-sky-400 transition-colors text-sm"
                 >
                   About Us
                 </button>
@@ -46,7 +46,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/services")}
-                  className="text-gray-400 font-bold hover:text-sky-400 transition-colors text-sm"
+                  className="text-gray-700 font-bold hover:text-sky-400 transition-colors text-sm"
                 >
                   Services
                 </button>
@@ -54,7 +54,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/contact")}
-                  className="text-gray-400 hover:text-sky-400 transition-colors font-bold text-sm"
+                  className="text-gray-700 hover:text-sky-400 transition-colors font-bold text-sm"
                 >
                   Contact
                 </button>
