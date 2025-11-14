@@ -29,9 +29,9 @@ const App = () => {
         <Route path='/services' element={<PaddedPage>< Services  /></PaddedPage>} />
 
       </Routes>
-      <PaddedPage>
+    
         <Footer/>
-      </PaddedPage>
+     
 
     </>
   );

@@ -3,35 +3,27 @@ import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
-        <div className="flex flex-col items-center justify-between  gap-6 text-center">
-        {/* <!-- Left side: Logo or name --> */}
-        <div>
-            <h2 className="text-xl font-semibold text-white">Grand Bishoftu Hospital</h2>
-            <p className="text-sm text-gray-400">
-                Providing quality healthcare since 2002
-            </p>
-        </div>
+        <div className='bg-blue-50 py-12 px-15 w-full'>
+          <div className="grid md:grid-cols-4 gap-8">
+            {/* Brand */}
+            <div className="md:col-span-2">
+                <div className="flex items-center space-x-2 mb-4">
+           
+                  <span className="text-2xl font-bold bg-gradient-to-r from-gray-700 to-sky-400 bg-clip-text text-transparent">
+                      Grand Bishoftu Hospital
+                  </span>
+                </div>
+                <p className="text-gray-400 leading-relaxed mb-4">
+                  Your premier destination for professional skin care treatments. We specialize exclusively in advanced skin
+                  care solutions designed to enhance your natural beauty and promote healthy, radiant skin.
+                </p>
+                <p className="text-sm text-gray-500">Licensed • Certified • Trusted by 100+ clients</p>
+              </div>
+          </div>
 
-        {/* <!-- Center: Navigation links --> */}
-        <div className="flex flex-col md:flex-row justify-center gap-4 text-sm">
-        <Link href="/" className="hover:text-white transition">Home</Link>
-        <Link href="/about" className="hover:text-white transition">About</Link>
-        <Link href="/services" className="hover:text-white transition">Services</Link>
-        <Link href="/contact" className="hover:text-white transition">Contact</Link>
-        </div>
 
-        {/* <!-- Right side: Social icons --> */}
-        <div className="flex justify-center gap-4 text-lg">
-        <Link href="#" className="hover:text-white transition"></Link>
-        <Link href="#" className="hover:text-white transition"></Link>
-        <Link href="#" className="hover:text-white transition"></Link>
-        </div>
 
-        {/* <!-- Bottom text --> */}
-        <div className="text-sm text-gray-400 mt-4 border-t border-gray-700 pt-4">
-             © {new Date().getFullYear()} Grand Bishoftu Hospital. All rights reserved.
-        </div>
-    </div>
+       </div>
 
 
   
