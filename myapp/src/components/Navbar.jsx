@@ -9,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
 
   const [visible, setVisible] = useState(false);
+  const [isScrolled, setIsScrolled]= useState(false); 
   const navigate = useNavigate();
 
   useEffect(() => {
