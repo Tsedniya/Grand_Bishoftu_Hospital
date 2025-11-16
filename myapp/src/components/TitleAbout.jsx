@@ -5,7 +5,7 @@ import inside from "../assets/inside.jpg";
 
 const TitleAbout = ({ className = "" }) => {
   return (
-    <div className={className}>
+    <div className='pt-20'>
       {/* Header Section */}
       <div className="flex flex-col items-center">
         <p className="text-center font-poppins text-3xl md:text-6xl text-sky-400 mt-8 md:mt-16">
@@ -19,10 +19,10 @@ const TitleAbout = ({ className = "" }) => {
         </p>
       </div>
 
-      <hr className="border-gray-200 border-t-2 mt-8" />
+      <hr className="border-gray-200 border-t-2 mt-15" />
 
       {/* Main Section */}
-      <div className="my-16 flex flex-col gap-16">
+      <div className="my-20 flex flex-col gap-16">
 
         {/* Row 1 — Hospital + About Text */}
         <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
@@ -71,7 +71,7 @@ const TitleAbout = ({ className = "" }) => {
           {/* Stats */}
           <div className="flex-1 flex flex-col items-center justify-center gap-2 h-40 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-300 text-gray-700 font-semibold">
             <p>25+</p>
-            <p className="text-2xl font-bold">800</p>
+            <p className="text-2xl font-bold">8000</p>
             <p className="text-sm text-gray-500">Patients</p>
           </div>
         </div>
