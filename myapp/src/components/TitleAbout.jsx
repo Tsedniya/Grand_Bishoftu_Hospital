@@ -71,7 +71,7 @@ const TitleAbout = ({ className = "" }) => {
           {/* Stats */}
           <div className="flex-1 flex flex-col items-center justify-center gap-2 h-40 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-300 text-gray-700 font-semibold">
             <p>25+</p>
-            <p className="text-2xl font-bold">8000</p>
+            <p className="text-5xl font-bold">800</p>
             <p className="text-sm text-gray-500">Patients</p>
           </div>
         </div>
