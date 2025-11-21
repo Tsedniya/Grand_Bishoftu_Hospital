@@ -10,12 +10,11 @@ const Hero = () => {
             backgroundPosition: "center 85%"   
           }}
     >
+      
      <div className="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-sky-900/40 to-transparent" />
-
-
-    
-      <div className="relative z-10 flex flex-col justify-between min-h-screen px-6 md:px-16 lg:px-24 pt-65 pb-24">
   
+        <div className="relative z-10 flex flex-col justify-between min-h-screen px-6 md:px-16 lg:px-24 pt-65 pb-50">
+
         {/* Top content */}
         <div className="flex flex-col items-start gap-6 md:gap-8">
           <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
@@ -34,16 +33,15 @@ const Hero = () => {
               Explore Services
             </button>
           </div>
-        </div>
 
-        {/* Bottom centered card */}
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-4 border border-amber-600 py-5 px-6 bg-black/40 text-white rounded-xl">
-          <p>Cardiology</p>
-          <p>Pulmonogy</p>
-          <p>Diagnostics</p>
+         {/* <div className="flex justify-center mt-10">
+              <div className="flex flex-col sm:flex-row gap-4 border border-amber-600 py-5 px-6 bg-black/40 text-white rounded-xl">
+                <p>Cardiology</p>
+                <p>Pulmonogy</p>
+                <p>Diagnostics</p>
+              </div>*/}
         </div>
-
-</div>
+    </div>
 
     </section>
   );
