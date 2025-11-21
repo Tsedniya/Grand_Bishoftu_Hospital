@@ -1,26 +1,19 @@
 import React from "react";
-import frontal from "../assets/frontal.jpg"; // your single image
+import home from "../assets/home.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen pt-16">
-      {/* Background Image */}
-      <img
-        src={frontal}
-        alt="Hero"
-        className="absolute inset-0 w-full h-full object-cover object-center"
-        style={{ objectPosition: "center 30%" }}   // ← This actually works!
-        loading="eager"
-      />
-
-      {/* Optional transparent overlay */}
-      <div className="absolute inset-0 bg-black opacity-30"></div>
+    <section
+          className="relative w-full h-screen bg-cover bg-center bg-no-repeat bg-fixed"
+          style={{ 
+            backgroundImage: `url(${home})`,
+            backgroundPosition: "center 20%"   // tweak 10%-30% until the building looks perfect on phone
+          }}
+        >
+      <div className="absolute inset-0 bg-gradient-to-t from-sky-950/80 via-sky-900/20 to-transparent" />
 
       {/* Content */}
       <div className="relative z-10 flex flex-col items-start justify-center h-full px-6 md:px-16 lg:px-24">
-        <button className="mt-3 mb-4 px-4 md:px-5 py-1 bg-sky-400 text-white text-sm md:text-base rounded-full">
-          Leading Health Specialists
-        </button>
 
         <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
           Grand Bishoftu Hospital
@@ -37,6 +30,12 @@ const Hero = () => {
           <button className="font-bold px-6 py-3 border border-sky-400 text-white rounded-full hover:bg-sky-400">
             Explore Services
           </button>
+        </div>
+
+        <div className="">
+          <p></p>
+          <p></p>
+          <p></p>
         </div>
       </div>
     </section>
