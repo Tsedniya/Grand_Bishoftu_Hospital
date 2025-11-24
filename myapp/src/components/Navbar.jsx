@@ -1,5 +1,5 @@
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/logo.jpg';
+import logo from '../assets/logo.jpeg';
 import menu from '../assets/menu.svg';
 import { useState, useEffect } from 'react';
 import x from '../assets/x.svg';
