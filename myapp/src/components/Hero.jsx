@@ -3,12 +3,16 @@ import home from "../assets/home.jpg";
 
 const Hero = () => {
   return (
-    <section
-          className="relative w-full h-screen bg-cover bg-center bg-no-repeat bg-fixed"
-          style={{ 
-            backgroundImage: `url(${home})`,
-            backgroundPosition: "center 85%"   
-          }}>
+     <section
+  className="
+    relative w-full h-screen bg-no-repeat bg-cover 
+    bg-[center_50%]        /* mobile/tablet */
+    lg:bg-[center_85%]     /* desktop */
+  "
+  style={{ backgroundImage: `url(${home})` }}
+>
+
+
         <div className="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-sky-900/40 to-transparent" />
     
           <div className="relative z-10 flex flex-col justify-between min-h-screen px-6 md:px-16 lg:px-24 pt-65 pb-50">
