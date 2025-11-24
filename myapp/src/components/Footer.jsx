@@ -8,14 +8,14 @@ const Footer = () => {
   const goTo = (path) => navigate(path);
 
   return (
-    <footer className="px-6 md:px-16 lg:px-24 xl:px-32 pt-8 w-full text-gray-500">
+    <footer className="px-6 bg-sky-100 md:px-16 lg:px-24 xl:px-32 pt-8 w-full  text-gray-500">
       <div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500/30 pb-6">
 
         {/* Logo + Title + Paragraph */}
         <div className="md:max-w-96">
           <div className="flex items-start gap-3">
             <img 
-              className="w-15 rounded-full border border-gray-700"
+              className="w-15 rounded-full font-bold border border-gray-900"
               src={logo}
               alt="logo"
             />
@@ -81,7 +81,7 @@ const Footer = () => {
       </div>
 
       <p className="pt-4 text-center text-gray-700 font-bold text-xs md:text-sm pb-5">
-        Copyright 2025 © Grand Bishoftu Hospital. All Right Reserved.
+          © {new Date().getFullYear()} Grand Bishoftu Hospital. All Right Reserved.
       </p>
     </footer>
   );
