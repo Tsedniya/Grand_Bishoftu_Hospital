@@ -5,8 +5,7 @@ import inside from "../assets/inside.jpg";
 
 const TitleAbout = ({ className = "" }) => {
   return (
-    <div className='pt-20'>
-      {/* Header Section */}
+    <div className='py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <div className="flex flex-col items-center">
         <p className="text-center font-poppins text-3xl md:text-6xl text-sky-400 mt-8 md:mt-16">
           About
