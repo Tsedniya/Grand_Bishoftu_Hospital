@@ -4,13 +4,13 @@ import home from "../assets/home.jpg";
 const Hero = () => {
   return (
      <section
-  className="
-    relative w-full h-screen bg-no-repeat bg-cover 
-    bg-[center_50%]        /* mobile/tablet */
-    lg:bg-[center_85%]     /* desktop */
-  "
-  style={{ backgroundImage: `url(${home})` }}
->
+            className="
+              relative w-full h-screen bg-no-repeat bg-cover 
+              bg-[center_50%]        /* mobile/tablet */
+              lg:bg-[center_85%]     /* desktop */
+            "
+            style={{ backgroundImage: `url(${home})` }}
+          >
 
 
         <div className="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-sky-900/40 to-transparent" />
