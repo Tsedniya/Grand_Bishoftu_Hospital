@@ -51,12 +51,12 @@ const Navbar = () => {
         <NavLink to="/contact" className="hover:text-sky-400 hover:font-bold">Contact</NavLink>
       </ul>
 
-      {/* Menu Icon (visible on small screens) */}
+      
       <img 
         src={menu} 
         alt="menu" 
         onClick={() => setVisible(true)} 
-        className="w-8 h-8 cursor-pointer md:hidden"
+        className="w-8 h-8 cursor-pointer sm:hidden"
       />
 
       {/* Slide-out Mobile Menu */}

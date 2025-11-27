@@ -51,31 +51,32 @@ const TitleAbout = ({ className = "" }) => {
           </div>
         </div>
 
-        {/* Row 2 — Doctor & Inside Images + Stats */}
+                {/* Row 2 — Doctor & Inside Images + Stats */}
         <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
-          
+
           {/* Images */}
-          <div className="flex justify-center gap-6 flex-wrap md:max-w-[450px] w-full">
+          <div className="flex justify-center gap-6 w-full md:w-[450px]">
             <img
-              className="border border-gray-500 rounded-2xl max-w-[200px] h-[230px] object-cover transition-transform duration-300 hover:scale-105"
+              className="border border-gray-500 rounded-2xl w-1/2 h-[230px] object-cover transition-transform duration-300 hover:scale-105"
               src={doctor}
               alt="Doctor"
             />
             <img
-              className="border border-gray-500 rounded-2xl max-w-[200px] h-[230px] object-cover transition-transform duration-300 hover:scale-105"
+              className="border border-gray-500 rounded-2xl w-1/2 h-[230px] object-cover transition-transform duration-300 hover:scale-105"
               src={inside}
               alt="Inside"
             />
           </div>
 
           {/* Stats */}
-          <div className="flex-1 flex flex-col items-center justify-center gap-2 h-40 bg-white rounded-xl shadow-md hover:shadow-2xl transition-shadow duration-300 text-gray-700 font-semibold">
+          <div className="flex-1 flex flex-col items-center justify-center gap-2 h-40 bg-white rounded-xl shadow-md hover:shadow-3xl transition-shadow duration-300 text-gray-700 font-semibold">
             <p>25+</p>
 
             <p className="text-5sm font-bold">80000</p>
             <p className="text-sm text-gray-500">Patients</p>
           </div>
         </div>
+
 
       </div>
     </div>
