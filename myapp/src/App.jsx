@@ -7,26 +7,19 @@ import Footer from './components/Footer';
 import Services  from './pages/Services'
 
 
-const PaddedPage = ({ children }) => (
-  <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>{children}</div>
-);
-
 const App = () => {
   return (
     <>
-      {/* Navbar is always padded */}
-      <PaddedPage>
-        <Navbar />
-      </PaddedPage>
+          
+      <Navbar />
+      
 
       <Routes>
-        {/* Home: full width background */}
+      
         <Route path='/' element={<Home />} />
-
-        {/* About and Contact: inside padding wrapper */}
-        <Route path='/about' element={<PaddedPage> <About /></PaddedPage>} />
-        <Route path='/contact' element={<PaddedPage><Contact /></PaddedPage>} />
-        <Route path='/services' element={<PaddedPage>< Services  /></PaddedPage>} />
+        <Route path='/about' element={<About />} />
+        <Route path='/contact' element={<Contact />} />
+        <Route path='/services' element={< Services  />} />
 
       </Routes>
     
