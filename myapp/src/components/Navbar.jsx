@@ -51,7 +51,7 @@ const Navbar = () => {
         <NavLink to="/contact" className="hover:text-sky-400 hover:font-bold">Contact</NavLink>
       </ul>
 
-      {/* Menu Icon (visible on small screens) */}
+      
       <img 
         src={menu} 
         alt="menu" 
