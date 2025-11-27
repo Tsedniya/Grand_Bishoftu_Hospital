@@ -24,7 +24,7 @@ const App = () => {
         <Route path='/' element={<Home />} />
 
         {/* About and Contact: inside padding wrapper */}
-        <Route path='/about' element={<PaddedPage><About /></PaddedPage>} />
+        <Route path='/about' element={<PaddedPage> <About /></PaddedPage>} />
         <Route path='/contact' element={<PaddedPage><Contact /></PaddedPage>} />
         <Route path='/services' element={<PaddedPage>< Services  /></PaddedPage>} />
 

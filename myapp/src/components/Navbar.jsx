@@ -56,7 +56,7 @@ const Navbar = () => {
         src={menu} 
         alt="menu" 
         onClick={() => setVisible(true)} 
-        className="w-8 h-8 cursor-pointer md:hidden"
+        className="w-8 h-8 cursor-pointer sm:hidden"
       />
 
       {/* Slide-out Mobile Menu */}
