@@ -14,7 +14,7 @@ const Homeone = () => {
 
 
         <div className='w-full sm:w-1/2'>
-               
+                <p>pull request</p>
         </div>
     </div>
   )
