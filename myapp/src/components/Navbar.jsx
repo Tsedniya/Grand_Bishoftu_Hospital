@@ -44,7 +44,7 @@ const Navbar = () => {
 
 
       {/* Navbar Links (visible on larger screens) */}
-      <ul className="hidden md:flex gap-6 text-gray-700 font-medium">
+      <ul className="hidden md:flex gap-6 text-black font-medium">
         <NavLink to="/" className="hover:text-sky-400 hover:font-bold">Home</NavLink>
         <NavLink to="/about" className="hover:text-sky-400 hover:font-bold">About</NavLink>
         <NavLink to="/services" className="hover:text-sky-400 hover:font-bold">Services</NavLink>

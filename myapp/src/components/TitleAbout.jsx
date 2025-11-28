@@ -2,6 +2,7 @@ import React from 'react';
 import hospital from "../assets/hospital.jpg";
 import doctor from "../assets/doctor.jpg";
 import inside from "../assets/inside.jpg";
+import middle from "../assets/middle.jpg"
 
 const TitleAbout = ({ className = "" }) => {
   return (
@@ -62,7 +63,7 @@ const TitleAbout = ({ className = "" }) => {
             />
             <img
               className="border border-gray-500 rounded-2xl w-1/2 h-[230px] object-cover transition-transform duration-300 hover:scale-105"
-              src={inside}
+              src={middle}
               alt="Inside"
             />
           </div>
