@@ -19,19 +19,19 @@ const Hero = () => {
 
           
           <div className="flex flex-col items-start gap-6 md:gap-8">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white leading-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white leading-tight">
                 Grand Bishoftu Hospital
               </h1>
 
-              <p className="text-sm sm:text-base md:text-lg text-white max-w-xl md:max-w-2xl">
-                Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care.
-              </p>
+          <p className="text-base sm:text-lg md:text-xl font-opensans text-white max-w-full md:max-w-2xl text-left md:text-justify leading-relaxed text-justify-inter-word">
+            Providing trusted healthcare services with compassion and excellence.Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care.
+          </p>
 
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <button className="font-bold px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-sky-700 hover:cursor-pointer">
+                <button className="font-bold font-opensans px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-sky-700 hover:cursor-pointer">
                   Learn More
                 </button>
-                <button className="font-bold px-6 py-3 border border-sky-400 text-white rounded-full hover:bg-sky-400 hover:cursor-pointer">
+                <button className="font-bold font-opensans px-6 py-3 border border-sky-400 text-white rounded-full hover:bg-sky-400 hover:cursor-pointer">
                   Explore Services
                 </button>
               </div>
