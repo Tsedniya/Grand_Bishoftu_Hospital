@@ -1,11 +1,13 @@
 import React from 'react'
 import opration from '../assets/opration.jpg'
+import star from '../assets/star.svg'
+import heart from '../assets/heart.svg'
 
 const Homeone = () => {
   return (
    <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between my-10 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
 
-      {/* Image + overlay */}
+     
       <div className="relative w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0 my-20 ">
         <img
           className="rounded-2xl w-full max-w-xl object-cover relative z-0"
@@ -39,16 +41,18 @@ const Homeone = () => {
           </div>
       
 
-        <div className='sm:flex flex-row gap-8 text-center mt-4 py-5 px-6'>
+        <div className='sm:flex flex-row gap-8 text-center mt-4 '>
 
-          <div className='bg-white border w-80 h-40 border-white transition-transform duration-300 hover:scale-105 shadow-md '>
-                <p className='pt-4 pb-2'>Compassionate Care</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div className='bg-white border w-80 h-40 border-white  text-left transition-transform duration-300 hover:scale-105 pt-4 pb-2 shadow-md '>
+                <img src= {star} className='px-5 mb-4 w-18'/>
+                <p className='px-5 mb-2'>Compassionate Care</p>
+                <p className='px-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
           
-          <div className='bg-white border flex-row items-center w-80 h-40 justify-center border-white transition-transform duration-300 hover:scale-105 shadow-md '>
-                <p className='pt-4 pb-2'>Compassionate Care</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div className='bg-white border flex-row text-left items-center w-80 h-40 justify-center border-white pt-4 pb-2 transition-transform duration-300 hover:scale-105 shadow-md '>
+                <img src= {heart} className='px-5 mb-4 w-19'/>
+                <p className='px-5'>Compassionate Care</p>
+                <p className='px-5'>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
           
         </div>
