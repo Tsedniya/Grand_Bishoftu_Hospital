@@ -3,8 +3,8 @@ import opration from '../assets/opration.jpg'
 
 const Homeone = () => {
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
-  
+   <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between my-10 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
+
       {/* Image + overlay */}
       <div className="relative w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0 my-20 ">
         <img
@@ -20,19 +20,41 @@ const Homeone = () => {
         >
           <div className="flex flex-col items-center justify-center">
             <p className="font-bold text-4xl">25+</p>
-            <p>Years of experience</p>
+            <p className='font-opensans'>Years of experience</p>
           </div>
         </div>
       </div>
 
-      {/* Text heading */}
-      <div className="w-full sm:w-1/2 text-left sm:text-right mt-10">
-        <h1 className="text-3xl font-bold">
-          Committed to Exceptional Patient Care
-        </h1>
-        <p className='text-justify'>Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care.
-          </p>
-      </div>
+      <div className="w-full sm:w-1/2 sm:text-right flex-col mt-8">
+          < div >
+              <h3 className="text-3xl text-left  font-poppins leading-tight ">
+                Committed to Exceptional Patient Care
+              </h3>
+
+                <p className='mt-4 font-opensans text-justify '>Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care.
+                </p>
+                <p  className='mt-4 font-opensans text-justify'>
+                  At Grand Bishoftu Hospital, we are committed to providing exceptional healthcare with compassion and expertise. Our experienced medical specialists work tirelessly to ensure every patient's well-being through advanced treatments and personalized care.
+                </p>
+          </div>
+      
+
+        <div className='sm:flex flex-row gap-8 text-center mt-4 py-5 px-6'>
+
+          <div className='bg-white border w-80 h-40 border-white transition-transform duration-300 hover:scale-105 shadow-md '>
+                <p className='pt-4 pb-2'>Compassionate Care</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          
+          <div className='bg-white border flex-row items-center w-80 h-40 justify-center border-white transition-transform duration-300 hover:scale-105 shadow-md '>
+                <p className='pt-4 pb-2'>Compassionate Care</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          
+        </div>
+
+        </div>
+      
 
     </div>
   ) 
