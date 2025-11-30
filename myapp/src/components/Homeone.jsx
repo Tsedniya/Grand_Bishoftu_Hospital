@@ -5,7 +5,7 @@ import heart from '../assets/heart.svg'
 
 const Homeone = () => {
   return (
-   <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between my-10 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
+   <div className="flex flex-col sm:flex-row items-center sm:items-start justify-between my-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
 
      
       <div className="relative w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0 my-20 ">
@@ -59,8 +59,9 @@ const Homeone = () => {
 
         </div>
       
-
+      
     </div>
+    
   ) 
 }
 
