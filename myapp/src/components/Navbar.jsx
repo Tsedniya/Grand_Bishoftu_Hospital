@@ -26,13 +26,14 @@ const Navbar = () => {
   };
   
   return (
-    <nav className="fixed top-0 left-0 right-0 mx-4 sm:mx-8 md:mx-12 my-3 sm:my-5 flex items-center justify-between px-4 sm:px-6 py-1 bg-white rounded-full shadow-md z-50">
+    <nav className="fixed top-0 left-0 right-0 flex items-center justify-between px-7 sm:px-6 py-4 text-white drop-shadow-lg shadow-md z-50">
+
 
       {/* Logo and Name */}
       <div className="flex items-center space-x-2">
-        <img className="w-12 rounded-full border border-gray" src={logo} alt="logo" />
+        <img className="w-12 rounded-full border border-gray-900" src={logo} alt="logo" />
         
-        <span className="text-2xl font-poppins font-bold bg-gradient-to-r from-gray-700 to-sky-400 bg-clip-text text-transparent">
+        <span className="text-2xl font-poppins font-bold text-white">
           {visible ? 'GBH' : (
             <>
               <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
@@ -44,11 +45,11 @@ const Navbar = () => {
 
 
       {/* Navbar Links (visible on larger screens) */}
-      <ul className="hidden md:flex gap-6 text-black font-medium">
-        <NavLink to="/" className="hover:text-sky-400 hover:font-bold">Home</NavLink>
-        <NavLink to="/about" className="hover:text-sky-400 hover:font-bold">About</NavLink>
-        <NavLink to="/services" className="hover:text-sky-400 hover:font-bold">Services</NavLink>
-        <NavLink to="/contact" className="hover:text-sky-400 hover:font-bold">Contact</NavLink>
+      <ul className="hidden md:flex gap-6 text-white font-bold text-xl">
+        <NavLink to="/" className="hover:text-black hover:font-bold">Home</NavLink>
+        <NavLink to="/about" className="hover:text-black hover:font-bold">About</NavLink>
+        <NavLink to="/services" className="hover:text-black hover:font-bold">Services</NavLink>
+        <NavLink to="/contact" className="hover:text-black hover:font-bold">Contact</NavLink>
       </ul>
 
       
