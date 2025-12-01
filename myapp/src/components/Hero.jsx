@@ -13,7 +13,8 @@ const Hero = () => {
           >
 
 
-         <div className="absolute inset-0 bg-gradient-to-t from-sky-950/90 via-sky-900/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-sky-950/50 via-sky-900/35 to-transparent" />
+
 
     
           <div className="relative z-10 flex flex-col justify-between min-h-screen px-6 md:px-16 lg:px-24 pt-65 pb-50">
