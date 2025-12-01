@@ -33,7 +33,7 @@ const Navbar = () => {
       <div className="flex items-center space-x-2">
         <img className="w-12 rounded-full border border-gray-900" src={logo} alt="logo" />
         
-        <span className="text-2xl font-poppins font-bold text-sky-400">
+        <span className="text-2xl font-poppins font-bold text-white">
           {visible ? 'GBH' : (
             <>
               <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
@@ -45,7 +45,7 @@ const Navbar = () => {
 
 
       {/* Navbar Links (visible on larger screens) */}
-      <ul className="hidden md:flex gap-6 text-sky-400 font-bold text-xl">
+      <ul className="hidden md:flex gap-6 text-white font-bold text-xl">
         <NavLink to="/" className="hover:text-black hover:font-bold">Home</NavLink>
         <NavLink to="/about" className="hover:text-black hover:font-bold">About</NavLink>
         <NavLink to="/services" className="hover:text-black hover:font-bold">Services</NavLink>
