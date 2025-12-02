@@ -15,7 +15,7 @@ import cancer from '../assets/cancer.jpg'
 const Departements = () => {
   return (
     
-   <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 my-12 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
+   <div className=" grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-8 my-12 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] ">
      
     
     <div className='relative bg-white border w-80 h-100 rounded-2xl border-white mb-5 transition-transform duration-300 hover:scale-105 shadow-md'>
