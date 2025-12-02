@@ -32,7 +32,7 @@ const Navbar = () => {
       <div className="flex items-center space-x-2">
         <img className="w-12 rounded-full border border-gray-900" src={logo} alt="logo" />
         
-        <span className="text-2xl font-poppins font-bold text-sky-400">
+        <span className="text-2xl font-opensans font-bold text-sky-400">
           {visible ? 'GBH' : (
             <>
               <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
