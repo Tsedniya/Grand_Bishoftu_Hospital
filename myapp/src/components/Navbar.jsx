@@ -26,14 +26,13 @@ const Navbar = () => {
   };
   
   return (
-    <nav className="fixed top-0 left-0 right-0 flex items-center justify-between px-7 sm:px-6 py-4 text-white drop-shadow-lg shadow-md z-50">
-
+ <nav className="fixed top-0 left-0 right-0 flex items-center justify-between px-7 sm:px-6 py-4 text-white bg-black/50 drop-shadow-lg shadow-md z-50">
 
       {/* Logo and Name */}
       <div className="flex items-center space-x-2">
         <img className="w-12 rounded-full border border-gray-900" src={logo} alt="logo" />
         
-        <span className="text-2xl font-poppins font-bold text-white">
+        <span className="text-2xl font-poppins font-bold text-sky-400">
           {visible ? 'GBH' : (
             <>
               <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
@@ -45,7 +44,7 @@ const Navbar = () => {
 
 
       {/* Navbar Links (visible on larger screens) */}
-      <ul className="hidden md:flex gap-6 text-white font-bold text-xl">
+      <ul className="hidden md:flex gap-6 text-sky-400 font-bold text-base">
         <NavLink to="/" className="hover:text-black hover:font-bold">Home</NavLink>
         <NavLink to="/about" className="hover:text-black hover:font-bold">About</NavLink>
         <NavLink to="/services" className="hover:text-black hover:font-bold">Services</NavLink>
@@ -75,7 +74,7 @@ const Navbar = () => {
           
           
           {/* Mobile Links */}
-          <ul className="flex flex-col mt-8 space-y-4 text-lg font-medium text-gray-700">
+          <ul className="flex flex-col items-center mt-8 space-y-4 text-lg font-medium text-black overflow-hidden">
             <NavLink to="/" onClick={() => setVisible(false)}>Home</NavLink>
             <NavLink to="/about" onClick={() => setVisible(false)}>About</NavLink>
             <NavLink to="/services" onClick={() => setVisible(false)}>Services</NavLink>
