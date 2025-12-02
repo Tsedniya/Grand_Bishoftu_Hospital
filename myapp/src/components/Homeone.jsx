@@ -15,7 +15,7 @@ const Homeone = () => {
           src={opration}
           alt="Operation"
         />
-        <div className="absolute bottom-[-50px] right-10 h-28 w-40 flex items-center justify-center rounded-2xl text-sm bg-sky-400 text-white z-40">
+        <div className="absolute bottom-[-20px] right-10 h-28 w-40 flex items-center justify-center rounded-2xl text-sm bg-sky-400 text-white z-40">
           <div className="flex flex-col items-center justify-center">
             <p className="font-bold text-4xl ">25+</p>
             <p className="font-opensans text-center">Years of experience</p>
@@ -28,7 +28,7 @@ const Homeone = () => {
 
         {/* Text */}
         <div>
-          <h3 className="text-3xl text-left font-poppins pt-7 leading-tight">
+          <h3 className="text-3xl text-left font-poppins  leading-tight">
             Committed to Exceptional Patient Care
           </h3>
           <p className="mt-4 font-opensans text-justify">
