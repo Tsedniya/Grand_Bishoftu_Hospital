@@ -21,7 +21,7 @@ const Footer = () => {
             />
 
             <div className='mt-3'>
-              <span className="text-2xl font-bold bg-gradient-to-r from-gray-700 to-sky-400 bg-clip-text text-transparent">
+              <span className="text-2xl font-bold  text-white ">
                 Grand Bishoftu Hospital
               </span>
             </div>
@@ -32,12 +32,12 @@ const Footer = () => {
         <div className="flex flex-col md:flex-row md:justify-end gap-8 md:gap-20">
 
           <div>
-            <h2 className="font-semibold mb-5 text-sky-400">Company</h2>
+            <h2 className="font-semibold mb-5 text-white">Our Hospital</h2>
             <ul className="space-y-2">
               <li>
                 <button
                   onClick={() => goTo("/")}
-                  className="text-gray-700 font-bold hover:text-sky-400 transition-colors text-sm"
+                  className="text-black font-bold  text-sm"
                 >
                   Home
                 </button>
@@ -45,7 +45,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/about")}
-                  className="text-gray-700 font-bold hover:text-sky-400 transition-colors text-sm"
+                  className="text-black font-bold  text-sm"
                 >
                   About Us
                 </button>
@@ -53,7 +53,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/services")}
-                  className="text-gray-700 font-bold hover:text-sky-400 transition-colors text-sm"
+                  className="text-black font-bold  text-sm"
                 >
                   Services
                 </button>
@@ -61,7 +61,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/contact")}
-                  className="text-gray-700 hover:text-sky-400 transition-colors font-bold text-sm"
+                  className="text-black font-bold  text-sm"
                 >
                   Contact
                 </button>
@@ -70,8 +70,8 @@ const Footer = () => {
           </div>
 
           <div>
-            <h2 className="font-semibold mb-5 text-sky-400">Get in touch</h2>
-            <div className="text-sm text-gray-700 font-bold space-y-2">
+            <h2 className="font-semibold mb-5 text-white">Get in touch</h2>
+            <div className="text-sm text-black font-bold space-y-2">
               <p>+1-212-456-7890</p>
               <p>contact@example.com</p>
             </div>
@@ -80,7 +80,7 @@ const Footer = () => {
 
       </div>
 
-      <p className="pt-4 text-center text-gray-700 font-bold text-xs md:text-sm pb-5">
+      <p className="pt-4 text-center text-white font-bold text-xs md:text-sm pb-5">
           © {new Date().getFullYear()} Grand Bishoftu Hospital. All Right Reserved.
       </p>
     </footer>
