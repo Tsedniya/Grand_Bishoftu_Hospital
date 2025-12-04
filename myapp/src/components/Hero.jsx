@@ -41,11 +41,11 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-5 mt-10">
             <div className="text-left">
-              <p className="text-black font-bold">Emergency Line</p>
+              <p className="text-white font-bold">Emergency Line</p>
               <p className="text-white font-bold pt-2 text-xl">+1 (555) 987-6543</p>
             </div>
            <div className="text-left">
-             <p className="text-black font-bold">Working Hours</p>
+             <p className="text-white font-bold">Working Hours</p>
              <p className="text-white font-bold pt-2 text-xl">Mon-Fri: 8AM-8PM</p>
            </div>
           </div>
