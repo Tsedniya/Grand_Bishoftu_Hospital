@@ -4,7 +4,8 @@ import home from "../assets/home.jpg";
 const Hero = () => {
   return (
     <>
-      <section className="relative w-full h-[30vh] sm:h-[40vh] md:h-[40vh] lg:h-[80vh] min-h-[250px] overflow-hidden">
+      <section className="relative w-full h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[80vh] min-h-[250px] overflow-hidden">
+
         
         {/* Hero background image + clip-path curve */}
         <div className="hero-clip absolute inset-0">
@@ -12,34 +13,37 @@ const Hero = () => {
             src={home}
             alt="Hospital"
             className="w-full h-full object-cover"
+            style={{ objectPosition: "center 70%" }}
           />
         </div>
 
+
         {/* Gradient overlay - also clipped to the curve */}
         <div
-          className="hero-clip absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(3,10,30,1), rgba(5,20,60,0.95), rgba(10,30,80,0.75), rgba(10,30,80,0.4), transparent)",
-          }}
-        />
+            className="hero-clip absolute inset-0"
+            style={{
+              background: ` linear-gradient( to right, #023E8A 0%, rgba(2,62,138,0.85) 15%, rgba(2,62,138,0.6) 30%, rgba(2,62,138,0.35) 45%, rgba(2,62,138,0.18) 60%, rgba(255,255,255,0.35) 72%, rgba(255,255,255,0.35) 100%
+                )
+              `,
+            }}
+          />
 
         {/* Main content */}
         <div className="relative z-10 flex flex-col justify-center h-full px-6 md:px-16 lg:px-24">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-opensans font-bold text-white leading-tight drop-shadow-2xl">
+          <h1 className=" text-center text-3xl sm:text-4xl md:text-5xl font-opensans font-bold text-white leading-tight drop-shadow-2xl">
             <span>Health is a treasure </span>
             <span>we care together</span>
           </h1>
         </div>
 
         {/* Overlapping cards at bottom */}
-         <div className="absolute bottom-[-30px]  left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-8 pb-10 px-4 z-[50]">
-          <div className="bg-[#081830]/95 backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
+         <div className="absolute bottom-[-40px]  left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-8 pb-10 px-4 z-[50]">
+          <div className="bg-[#023E8A] backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
             <p className="text-white font-bold mb-2">Compassionate Care</p>
             <p className="text-white/80 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
 
-          <div className="bg-[#081830]/95 backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
+          <div className="bg-[#023E8A] backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
             <p className="text-white font-bold mb-2">Expert Team</p>
             <p className="text-white/80 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
