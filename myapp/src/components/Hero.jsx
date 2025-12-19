@@ -3,59 +3,65 @@ import home from "../assets/home.jpg";
 
 const Hero = () => {
   return (
-    <div className="flex flex-col h-screen">
-      {/* Hero image */}
-      <section
-        className="relative flex-1 w-full"
-        style={{
-          backgroundImage: `url(${home})`,
-          backgroundPosition: "center 70%",
-          backgroundSize: "cover",
-          backgroundRepeat: "no-repeat" ,
-        }}
-      >
-        {/* Gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-sky-950/90 via-sky-900/35 to-white/0" />
+    <>
+      <section className="relative w-full h-[30vh] sm:h-[40vh] md:h-[40vh] lg:h-[80vh] min-h-[250px] overflow-hidden">
+        
+        {/* Hero background image + clip-path curve */}
+        <div className="hero-clip absolute inset-0">
+          <img
+            src={home}
+            alt="Hospital"
+            className="w-full h-full object-cover"
+          />
+        </div>
 
-        {/* Content on image */}
-        <div className="relative z-10 flex flex-col justify-center h-full mt-10 px-6 md:px-16 lg:px-24">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-poppins font-bold text-white leading-tight">
-            Grand Bishoftu Hospital
+        {/* Gradient overlay - also clipped to the curve */}
+        <div
+          className="hero-clip absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(3,10,30,1), rgba(5,20,60,0.95), rgba(10,30,80,0.75), rgba(10,30,80,0.4), transparent)",
+          }}
+        />
+
+        {/* Main content */}
+        <div className="relative z-10 flex flex-col justify-center h-full px-6 md:px-16 lg:px-24">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-opensans font-bold text-white leading-tight drop-shadow-2xl">
+            <span>Health is a treasure </span>
+            <span>we care together</span>
           </h1>
+        </div>
 
-          <p className="text-base sm:text-lg md:text-xl font-opensans text-white max-w-full md:max-w-2xl leading-relaxed mt-4">
-            Providing trusted healthcare services with compassion and excellence.
-            Our experienced medical specialists are committed to ensuring the
-            well-being of every patient through advanced treatment and
-            personalized care.
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-6">
-            <button className="font-bold font-opensans px-6 py-3 bg-sky-400 text-white rounded-full hover:bg-sky-700">
-              Learn More
-            </button>
-            <button className="font-bold font-opensans px-6 py-3 border border-sky-400 text-white rounded-full hover:bg-sky-400">
-              Explore Services
-            </button>
+        {/* Overlapping cards at bottom */}
+         <div className="absolute bottom-[-30px]  left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-8 pb-10 px-4 z-[50]">
+          <div className="bg-[#081830]/95 backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
+            <p className="text-white font-bold mb-2">Compassionate Care</p>
+            <p className="text-white/80 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-5 mt-10">
-            <div className="text-left">
-              <p className="text-white font-bold">Emergency Line</p>
-              <p className="text-white font-bold pt-2 text-xl">+1 (555) 987-6543</p>
-            </div>
-           <div className="text-left">
-             <p className="text-white font-bold">Working Hours</p>
-             <p className="text-white font-bold pt-2 text-xl">Mon-Fri: 8AM-8PM</p>
-           </div>
+          <div className="bg-[#081830]/95 backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
+            <p className="text-white font-bold mb-2">Expert Team</p>
+            <p className="text-white/80 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
           </div>
         </div>
+       
+
+        {/* White wavy divider with upward soft shadow → creates the blurry/shadowy blend at curve */}
+        <div className="absolute inset-x-0 bottom-0 pointer-events-none z-30">
+          <svg
+            viewBox="0 0 1440 320"
+            preserveAspectRatio="none"
+            className="w-full h-24 sm:h-32 md:h-40 lg:h-48"
+            style={{ filter: "drop-shadow(0 -12px 24px rgba(0,0,0,0.35))" }}
+          >
+            <path
+              fill="#ffffff" // White to match page background below
+              d="M0,192L48,197.3C96,203,192,213,288,208C384,203,480,181,576,170.7C672,160,768,160,864,165.3C960,171,1056,181,1152,186.7C1248,192,1344,192,1392,192L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            />
+          </svg>
+        </div>
       </section>
-
-      
-    </div>
-
-
+    </>
   );
 };
 
