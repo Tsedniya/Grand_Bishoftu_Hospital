@@ -7,15 +7,70 @@
   --font-opensans: "Open Sans", sans-serif;
 }
 
-
 body {
-  min-height: 100vh;         
-  margin: 0;                
-  font-family: var(--font-opensans);   
+  min-height: 100vh;
+  margin: 0;
+  font-family: var(--font-opensans);
 }
+
 .font-poppins {
   font-family: var(--font-poppins);
 }
-a.active hr{
-    display: block;
+
+a.active hr {
+  display: block;
+}
+
+/* New improved hero curve - soft asymmetric wave, responsive */
+.hero-clip {
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 92%,
+    92% 100%,
+    8% 100%,
+    0 92%
+  );
+}
+
+/* Tablet (md) - slightly softer curve */
+@media (min-width: 768px) {
+  .hero-clip {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 88%,
+      90% 100%,
+      10% 100%,
+      0 88%
+    );
+  }
+}
+
+/* Desktop (lg) - beautiful subtle wave, matching the SVG feel */
+@media (min-width: 1024px) {
+  .hero-clip {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 85%,
+      88% 100%,
+      12% 100%,
+      0 85%
+    );
+  }
+}
+
+/* Extra large screens - even more refined */
+@media (min-width: 1280px) {
+  .hero-clip {
+    clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 82%,
+      85% 100%,
+      15% 100%,
+      0 82%
+    );
+  }
 }
