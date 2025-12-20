@@ -33,6 +33,7 @@ a.active hr {
   );
 }
 
+
 /* Tablet (md) - slightly softer curve */
 @media (min-width: 768px) {
   .hero-clip {

@@ -4,8 +4,7 @@ import home from "../assets/home.jpg";
 const Hero = () => {
   return (
     <>
-      <section className="relative w-full h-[30vh] sm:h-[40vh] md:h-[50vh] lg:h-[80vh] min-h-[250px] overflow-hidden">
-
+      <section className="relative w-full h-[45vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] min-h-[350px] overflow-hidden">
         
         {/* Hero background image + clip-path curve */}
         <div className="hero-clip absolute inset-0">
@@ -36,19 +35,46 @@ const Hero = () => {
           </h1>
         </div>
 
-        {/* Overlapping cards at bottom */}
-         <div className="absolute bottom-[-40px]  left-1/2 -translate-x-1/2 flex flex-col sm:flex-row gap-8 pb-10 px-4 z-[50]">
-          <div className="bg-[#023E8A] backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
-            <p className="text-white font-bold mb-2">Compassionate Care</p>
-            <p className="text-white/80 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-
-          <div className="bg-[#023E8A] backdrop-blur-sm border border-white/20 w-80 h-40 rounded-lg text-left p-6 transition-transform duration-300 hover:scale-105 shadow-2xl">
-            <p className="text-white font-bold mb-2">Expert Team</p>
-            <p className="text-white/80 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-          </div>
-        </div>
        
+                  {/* Overlapping cards - Hidden on mobile, shown from sm+ with overlap on md+ */}
+          <div className="
+            hidden                  /* Hide on mobile */
+            sm:flex                 /* Show as flex row from sm (640px) upwards */
+            sm:absolute sm:inset-x-0 sm:bottom-[-40px]   /* Overlap below hero from sm+ */
+            sm:pb-12 sm:px-8 
+            gap-8 
+            justify-center 
+            items-end             /* Align to bottom for overlap effect */
+            z-50
+          ">
+            <div className="
+              bg-[#023E8A]/95 backdrop-blur-md 
+              border border-white/20 
+              rounded-xl shadow-2xl 
+              w-80 h-40 p-6 
+              flex flex-col justify-center text-left
+              transition-transform duration-300 hover:scale-105
+            ">
+              <p className="text-white font-bold mb-2 text-xl">Compassionate Care</p>
+              <p className="text-white/80 text-base">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+
+            <div className="
+              bg-[#023E8A]/95 backdrop-blur-md 
+              border border-white/20 
+              rounded-xl shadow-2xl 
+              w-80 h-40 p-6 
+              flex flex-col justify-center text-left
+              transition-transform duration-300 hover:scale-105
+            ">
+              <p className="text-white font-bold mb-2 text-xl">Expert Team</p>
+              <p className="text-white/80 text-base">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              </p>
+            </div>
+          </div>
 
         {/* White wavy divider with upward soft shadow → creates the blurry/shadowy blend at curve */}
         <div className="absolute inset-x-0 bottom-0 pointer-events-none z-30">
