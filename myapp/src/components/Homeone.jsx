@@ -1,67 +1,95 @@
-import React from 'react'
-import opration from '../assets/opration.jpg'
-import star from '../assets/star.svg'
-import heart from '../assets/heart.svg'
+import React from "react";
+import opration from "../assets/opration.jpg";
+import star from "../assets/star.svg";
+import heart from "../assets/heart.svg";
 
 const Homeone = () => {
   return (
-    <div className="flex flex-col lg:flex-row bg-sky-100 items-center justify-between pt-10 pb-15 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-6">
+    <div className="mt-4 flex flex-col lg:flex-row bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
 
+      {/* Blob Image Section */}
+         
+      <div className="relative w-full lg:w-1/2 flex items-center justify-center py-6">
 
-      {/* Image */}
-      <div className="relative w-full lg:w-1/2 flex items-center justify-center py-6 sm:py-8 md:py-10 my-4 md:my-6">
-        <img
-          className="rounded-2xl w-full max-w-2xl md:max-w-3xl lg:max-w-xl object-cover relative z-0"
-          src={opration}
-          alt="Operation"
-        />
-        <div className="absolute bottom-[-20px] right-10 h-28 w-40 flex items-center justify-center rounded-2xl text-sm bg-sky-400 text-white z-40">
-          <div className="flex flex-col items-center justify-center">
-            <p className="font-bold text-4xl ">25+</p>
-            <p className="font-opensans text-center">Years of experience</p>
-          </div>
+        {/* Softer, smaller background glow */}
+        <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl"></div>
+
+        {/* Smaller blob wrapper */}
+        <div className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg aspect-[5/4]">
+
+          {/* SVG Blob Mask */}
+          <svg width="0" height="0" className="absolute">
+            <defs>
+              <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
+                <path
+                  d="
+                    M0.83,0.14
+                    C0.92,0.28 0.98,0.45 0.96,0.6
+                    C0.94,0.75 0.84,0.88 0.7,0.94
+                    C0.56,1 0.38,0.98 0.23,0.9
+                    C0.08,0.82 -0.02,0.68 0.01,0.52
+                    C0.04,0.36 0.2,0.18 0.38,0.1
+                    C0.56,0.02 0.74,0.01 0.83,0.14
+                    Z
+                  "
+                />
+              </clipPath>
+            </defs>
+          </svg>
+
+          {/* Image */}
+          <img
+            src={opration}
+            alt="Operation"
+            className="w-full h-full object-cover shadow-xl"
+            style={{ clipPath: "url(#blobClip)" }}
+          />
         </div>
       </div>
 
-      {/* Text + Cards */}
-      <div className="w-full lg:w-1/2 flex flex-col md:mt-6 lg:mt-0">
 
-        {/* Text */}
-        <div>
-          <h3 className="text-3xl text-left font-poppins  leading-tight">
-            Committed to Exceptional Patient Care
-          </h3>
-          <p className="mt-4 font-opensans text-justify">
-            Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care.
-          </p>
-          <p className="mt-4 font-opensans text-justify">
-            At Grand Bishoftu Hospital, we are committed to providing exceptional healthcare with compassion and expertise. Our experienced medical specialists work tirelessly to ensure every patient's well-being through advanced treatments and personalized care.
-          </p>
-        </div>
+      {/* Text & Info Cards */}
+      <div className="w-full lg:w-1/2 flex flex-col">
 
-        {/* Cards Container */}
-        <div className="flex flex-col md:flex-row gap-6 text-center my-6 justify-center">
+        <h3 className="text-3xl font-poppins leading-tight">
+          Committed to Exceptional Patient Care
+        </h3>
 
-          {/* Card 1 */}
-          <div className="bg-white w-full md:w-80 h-40 rounded-2xl text-left transition-transform duration-300 hover:scale-105 pt-4 pb-2 shadow-md">
-            <img src={star} className="px-5 mb-4 w-18"/>
-            <p className="px-5 mb-2 font-semibold">Compassionate Care</p>
-            <p className="px-5 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        <p className="mt-4 font-opensans text-justify">
+          Providing trusted healthcare services with compassion and excellence.
+          Our experienced medical specialists are committed to ensuring the
+          well-being of every patient through advanced treatment and personalized
+          care.
+        </p>
+
+        <p className="mt-4 font-opensans text-justify">
+          At Grand Bishoftu Hospital, we are dedicated to delivering world-class
+          healthcare with empathy and innovation, ensuring safety, comfort, and
+          trust for every patient we serve.
+        </p>
+
+        <div className="flex flex-col md:flex-row gap-6 my-8 justify-center md:justify-start">
+
+          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 transition-transform duration-300 hover:scale-105">
+            <img src={star} alt="Star" className="mb-3 w-10" />
+            <p className="font-semibold mb-1">Compassionate Care</p>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
           </div>
 
-          {/* Card 2 */}
-          <div className="bg-white  w-full md:w-80 h-40 rounded-2xl flex-row text-left items-center justify-center pt-4 pb-2 transition-transform duration-300 hover:scale-105 shadow-md">
-            <img src={heart} className="px-5 mb-4 w-19"/>
-            <p className="px-5 font-semibold">Patient Safety</p>
-            <p className="px-5 text-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 transition-transform duration-300 hover:scale-105">
+            <img src={heart} alt="Heart" className="mb-3 w-10" />
+            <p className="font-semibold mb-1">Patient Safety</p>
+            <p className="text-sm">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            </p>
           </div>
 
         </div>
-
       </div>
-
     </div>
-  )
-}
+  );
+};
 
-export default Homeone
+export default Homeone;
