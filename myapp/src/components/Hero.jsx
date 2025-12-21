@@ -1,10 +1,13 @@
 import React from "react";
 import home from "../assets/home.jpg";
+import star from "../assets/star.svg";
+import heart from "../assets/heart.svg";
+
 
 const Hero = () => {
   return (
     <>
-      <section className="relative w-full h-[45vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] min-h-[350px] overflow-hidden">
+      <section className="bg-white mt-26 relative w-full h-[45vh] sm:h-[50vh] md:h-[60vh] lg:h-[80vh] min-h-[350px] overflow-hidden">
 
         {/* Hero background image + clip-path curve */}
         <div className="hero-clip absolute inset-0">
@@ -12,7 +15,7 @@ const Hero = () => {
             src={home}
             alt="Hospital"
             className="w-full h-full object-cover"
-            style={{ objectPosition: "center 70%" }}
+            style={{ objectPosition: "center 75%" }}
           />
         </div>
 
@@ -63,22 +66,21 @@ const Hero = () => {
                 flex flex-col justify-center p-6 text-left
                 backface-hidden
               ">
-                <p className="text-white font-bold mb-2 text-xl">Compassionate Care</p>
-                <p className="text-white/80 text-base">
+                <p className="text-white font-bold mb-2 text-xl font-poppins">Compassionate Care</p>
+                <p className="text-white/80 text-base font-poppins">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
               </div>
               {/* Back */}
-              <div className="
-                absolute inset-0 bg-[#01497C] text-white rounded-xl shadow-2xl
+              <div className="bg-white  absolute inset-0  text-black font-semibold  rounded-xl shadow-2xl
                 flex flex-col justify-center p-6 text-left
-                rotate-y-180 backface-hidden
-              ">
-                <p className="font-bold mb-2 text-xl">Our Promise</p>
-                <p className="text-white/80 text-base">
-                  We provide personalized care and attention for every patient.
-                </p>
-              </div>
+                rotate-y-180 backface-hidden">
+                    <img src={star} alt="Star" className="mb-3 w-10" />
+                    <p className="font-semibold mb-1 font-poppins">Compassionate Care</p>
+                    <p className="text-sm font-poppins">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    </div>
             </div>
           </div>
 
@@ -96,22 +98,21 @@ const Hero = () => {
                 flex flex-col justify-center p-6 text-left
                 backface-hidden
               ">
-                <p className="text-white font-bold mb-2 text-xl">Expert Team</p>
-                <p className="text-white/80 text-base">
+                <p className="text-white font-bold mb-2 text-xl font-poppins">Expert Team</p>
+                <p className="text-white/80 text-base font-poppins">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                 </p>
               </div>
               {/* Back */}
-              <div className="
-                absolute inset-0 bg-[#01497C] text-white rounded-xl shadow-2xl
+              <div className="bg-white  absolute inset-0 text-black font-semibold  rounded-xl shadow-2xl
                 flex flex-col justify-center p-6 text-left
-                rotate-y-180 backface-hidden
-              ">
-                <p className="font-bold mb-2 text-xl">Experience Matters</p>
-                <p className="text-white/80 text-base">
-                  Our specialists bring years of experience to deliver best care.
-                </p>
-              </div>
+                rotate-y-180 backface-hidden">
+                    <img src={heart} alt="Heart" className="mb-3 w-10" />
+                    <p className="font-semibold mb-1 font-poppins">Patient Safety</p>
+                    <p className="text-sm font-poppins">
+                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    </p>
+                    </div>
             </div>
           </div>
         </div>
