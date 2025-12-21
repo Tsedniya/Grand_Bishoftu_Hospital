@@ -10,14 +10,13 @@ const Navbar = () => {
   return (
     <>
       {/* Top info bar */}
-      <div className="fixed top-0 left-0 w-full h-[50px] bg-[#023E8A] z-50">
+      <div className="fixed top-0 left-0 w-full h-[70px] bg-[#023E8A] z-51">
         <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-4 text-white text-sm font-semibold">
             <h3>test@email.com</h3>
             <h3>09876543</h3>
           </div>
           <div className="flex items-center gap-4 text-white text-sm font-semibold">
-            {/* Optional right side */}
             <span>FB</span>
             <span>TW</span>
             <span>IG</span>
@@ -26,12 +25,13 @@ const Navbar = () => {
       </div>
 
 
+
       {/* Main navbar directly below top bar */}
-      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-3 bg-white z-51 shadow-md">
+      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-51 mt-7 shadow-md">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img className="w-12 rounded-full border border-gray-900" src={logo} alt="logo" />
-          <span className="text-2xl font-opensans font-bold text-gray-900">
+          <img className="w-12 rounded-full border border-black" src={logo} alt="logo" />
+          <span className="text-2xl font-opensans font-bold text-gray-600">
             <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
             <span className="inline sm:hidden">GBH</span>
           </span>
