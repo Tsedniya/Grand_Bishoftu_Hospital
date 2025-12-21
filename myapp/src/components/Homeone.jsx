@@ -6,7 +6,7 @@ import heart from "../assets/heart.svg";
 
 const Homeone = () => {
   return (
-    <div className="mt-4 flex flex-col lg:flex-row bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
+    <div className="mt-4 flex flex-col lg:flex-row  bg-sky-100 items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
       {/* Image Section */}
       <div className="relative w-full lg:w-1/2 flex items-center justify-center py-6">
         {/* Soft background glow */}
@@ -36,7 +36,7 @@ const Homeone = () => {
 
       {/* Text Section */}
       <div className="w-full lg:w-1/2 flex flex-col">
-        <h3 className="text-3xl font-poppins leading-tight">
+        <h3 className="text-3xl text-[#023E8A] font-poppins leading-tight">
           Committed to Exceptional Patient Care
         </h3>
         <p className="mt-4 font-opensans text-justify">
