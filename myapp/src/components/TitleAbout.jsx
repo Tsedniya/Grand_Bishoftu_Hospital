@@ -4,11 +4,11 @@ import doctor from "../assets/doctor.jpg";
 import inside from "../assets/inside.jpg";
 import middle from "../assets/middle.jpg"
 
-const TitleAbout = ({ className = "" }) => {
+const TitleAbout = () => {
   return (
-    <div className=' bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <div className='mt-10 bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
       <div className="flex flex-col items-center">
-        <p className="text-center font-poppins text-3xl md:text-6xl text-sky-400 mt-8 md:mt-16">
+        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
           About
         </p>
         <p className="text-center text-gray-700 mt-4 md:mt-6 max-w-3xl">
