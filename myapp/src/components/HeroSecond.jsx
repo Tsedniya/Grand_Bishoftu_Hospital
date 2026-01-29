@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import home from "../assets/home.jpg";
-import bone from "../assets/bone.svg";
-import brain from "../assets/brain.svg";
-import testtube from "../assets/testtube.svg";
+import calendar from "../assets/calendar.svg";
+import users from "../assets/users.svg";
+import activity from "../assets/activity.svg";
 import FlipCard from "./FlipCard";
 
 const HeroSecond = () => {
@@ -83,13 +83,19 @@ const HeroSecond = () => {
         </div>
 
         {/* Flip cards */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-[120px] z-50 flex">
+          <div className="
+          absolute left-1/2 -translate-x-1/2 z-50 
+    flex flex-col md:flex-row justify-center items-center
+    w-full max-w-4xl px-0 gap-0
+    bottom-auto md:bottom-0
+    top-[calc(100%-270px)] md:top-[calc(100%-30px)]
+            ">
           <FlipCard
             frontTitle="Our Care"
             frontText="We put patients first"
             backTitle="Our Promise"
             backText="Quality healthcare with compassion"
-            frontImage={bone} 
+            frontImage={calendar} 
             bg="bg-[#023E8A]"
           />
 
@@ -98,7 +104,7 @@ const HeroSecond = () => {
             frontText="Trusted professionals"
             backTitle="Expertise"
             backText="Years of medical experience"
-            frontImage={brain} 
+            frontImage={users} 
             bg="bg-sky-400"
           />
 
@@ -107,7 +113,7 @@ const HeroSecond = () => {
             frontText="Health for everyone"
             backTitle="Commitment"
             backText="Accessible and affordable care"
-            frontImage={testtube} 
+            frontImage={activity} 
             bg="bg-[#023E8A]"
           />
         </div>
