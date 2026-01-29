@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 import HeroSecond from '../components/HeroSecond'
 import TitleAbout from '../components/TitleAbout'
 import Homeone from '../components/Homeone'
-import Departements from '../components/Departements'
+
 
 
 const Home = () => {
@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       <HeroSecond />
       <Homeone/>
-      <Departements/>
+      
     </div>
   )
 }
