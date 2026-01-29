@@ -37,7 +37,7 @@ const Hero = () => {
         <div className="relative z-40 flex flex-col justify-center items-center h-full px-6 md:px-16 lg:px-24">
           <h1 className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight drop-shadow-xl">
             <span className="block">Health is a treasure</span>
-            <span className="block">we care together</span>
+            <span className="block">We care together</span>
           </h1>
         </div>
 

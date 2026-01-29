@@ -13,15 +13,15 @@ const Navbar = () => {
   return (
     <>
       {/* Top info bar */}
-      <div className="fixed top-0 left-0 w-full h-[70px] bg-[#023E8A] z-51">
+      <div className="fixed top-0 left-0 w-full h-[70px] bg-[#023E8A] z-70">
         <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
          <div className="flex items-center gap-6 text-white text-sm font-semibold">
-            <div className="flex items-center">
+            <div className="flex items-center gap-1">
               <img src={phonecall} className="w-5" alt="" />
               <h3 className="text-lg">test@email.com</h3>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center gap-1">
               <img className="w-5" src={mailopen} alt="" />
               <h3 className="text-lg">09876543</h3>
             </div>
@@ -37,7 +37,7 @@ const Navbar = () => {
 
 
       {/* Main navbar directly below top bar */}
-      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-51 mt-7 shadow-md">
+      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-70 mt-7 shadow-md">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img className="w-12 rounded-full border border-black" src={logo} alt="logo" />
