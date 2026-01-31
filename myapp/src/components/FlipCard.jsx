@@ -9,8 +9,8 @@ const FlipCard = ({
   bg = "bg-sky-200",
 }) => {
   return (
-    <div className="group perspective w-64 h-64">
-      <div className="relative w-full h-60 transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+     <div className="group perspective w-[90%] sm:w-96 lg:w-64 h-40 lg:h-64">
+      <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
 
         {/* Front */}
         <div
