@@ -83,16 +83,17 @@ const HeroSecond = () => {
         </div>
 
         {/* Flip cards */}
-          <div
-            className="
-              absolute left-1/2 -translate-x-1/2 z-50
-              flex flex-col lg:flex-row
-              justify-center items-center
-              w-full max-w-4xl
-              gap-0
-              top-[calc(100%-270px)] lg:top-[calc(100%-30px)]
-            "
-          >
+         <div
+  className="
+    absolute left-1/2 -translate-x-1/2 z-50
+    flex flex-col lg:flex-row
+    justify-center items-center
+    w-full max-w-4xl
+    gap-0
+    top-full
+    -translate-y-[270px] lg:-translate-y-[80px]
+  "
+>
 
           <FlipCard
             frontTitle="Our Care"
