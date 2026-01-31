@@ -9,7 +9,14 @@ const FlipCard = ({
   bg = "bg-sky-200",
 }) => {
   return (
-     <div className="group perspective w-[90%] sm:w-96 lg:w-64 h-40 lg:h-64">
+      <div
+  className="
+    group perspective
+    w-[90%] h-40         /* mobile default (rectangle) */
+    md:w-[90%] md:h-40   /* tablet keeps rectangle */
+    lg:w-64 lg:h-64       /* desktop switches to square */
+  "
+>
       <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
 
         {/* Front */}
