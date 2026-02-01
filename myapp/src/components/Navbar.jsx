@@ -13,20 +13,28 @@ const Navbar = () => {
   return (
     <>
       {/* Top info bar */}
-      <div className="fixed top-0 left-0 w-full h-[70px] bg-[#023E8A] z-51">
-        <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
-         <div className="flex items-center gap-6 text-white text-sm font-semibold">
-            <div className="flex items-center">
+      <div className="fixed top-0 left-0 w-full h-[50px] bg-[#023E8A] z-70">
+        <div className="
+          max-w-7xl mx-auto h-full
+          flex items-center
+          justify-center lg:justify-between
+          px-4 sm:px-6 lg:px-8
+        ">
+          {/* Phone + Email */}
+          <div className="flex items-center gap-6 text-white text-sm font-semibold">
+            <div className="flex items-center gap-1">
               <img src={phonecall} className="w-5" alt="" />
-              <h3 className="text-lg">test@email.com</h3>
+              <h3 className="text-base sm:text-lg">09876543</h3>
             </div>
 
-            <div className="flex items-center">
+            <div className="flex items-center gap-1">
               <img className="w-5" src={mailopen} alt="" />
-              <h3 className="text-lg">09876543</h3>
+              <h3 className="text-base sm:text-lg">test@email.com</h3>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-white text-sm font-semibold">
+
+          {/* Social icons — desktop only */}
+          <div className="hidden lg:flex items-center gap-4 text-white text-sm font-semibold">
             <span>FB</span>
             <span>TW</span>
             <span>IG</span>
@@ -35,9 +43,8 @@ const Navbar = () => {
       </div>
 
 
-
       {/* Main navbar directly below top bar */}
-      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-51 mt-7 shadow-md">
+      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-70 mt-2 shadow-md">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img className="w-12 rounded-full border border-black" src={logo} alt="logo" />
@@ -60,11 +67,19 @@ const Navbar = () => {
           src={menu} 
           alt="menu" 
           onClick={() => setVisible(true)} 
-          className="w-8 h-8 cursor-pointer sm:hidden"
+          className="w-8 h-8 cursor-pointer md:hidden"
+
         />
 
         {/* Slide-out Mobile Menu */}
-        <div className={`fixed top-10 right-0 h-full bg-white transition-all duration-300 ease-in-out ${visible ? 'w-full' : 'w-0'}`}>
+        <div
+            className={`
+              fixed top-0 right-0 h-screen bg-white
+              transition-all duration-300 ease-in-out
+              z-[100]
+              ${visible ? 'w-full' : 'w-0'}
+            `}
+          >
           <div className="flex flex-col p-6">
             <img 
               src={x} 
