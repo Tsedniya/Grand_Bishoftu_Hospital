@@ -50,6 +50,7 @@ const HeroSecond = () => {
           src={home}
           alt="Hero"
           className="absolute inset-0 w-full h-full object-cover"
+          style={{ objectPosition: "center 75%" }}
         />
 
         {/* Gradient overlay */}
@@ -84,16 +85,15 @@ const HeroSecond = () => {
 
         {/* Flip cards */}
          <div
-  className="
-    absolute left-1/2 -translate-x-1/2 z-50
-    flex flex-col lg:flex-row
-    justify-center items-center
-    w-full max-w-4xl
-    gap-0
-    top-full
-    -translate-y-[270px] lg:-translate-y-[80px]
-  "
->
+              className="
+              absolute left-1/2 -translate-x-1/2 z-50
+              flex flex-col lg:flex-row
+              justify-center items-center
+              w-full max-w-4xl
+              gap-0
+              top-full
+              -translate-y-[150px] lg:-translate-y-[100px]
+            ">
 
           <FlipCard
             frontTitle="Our Care"

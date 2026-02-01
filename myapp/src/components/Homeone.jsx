@@ -6,7 +6,7 @@ import heart from "../assets/heart.svg";
 
 const Homeone = () => {
   return (
-    <div className="mt-30 flex flex-col lg:flex-row  bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
+    <div className="mt-43 flex flex-col lg:flex-row  bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
       {/* Image Section */}
       <div className="relative w-full lg:w-1/2 flex items-center justify-center py-6">
         {/* Soft background glow */}
@@ -45,7 +45,7 @@ const Homeone = () => {
           well-being of every patient through advanced treatment and personalized
           care.
         </p>
-        <p className="mt-4 font-opensans text-justify">
+        <p className="mt-4 font-opensans text-justify ">
           At Grand Bishoftu Hospital, we are dedicated to delivering world-class
           healthcare with empathy and innovation, ensuring safety, comfort, and
           trust for every patient we serve.
