@@ -13,7 +13,7 @@ const Navbar = () => {
   return (
     <>
       {/* Top info bar */}
-      <div className="fixed top-0 left-0 w-full h-[70px] bg-[#023E8A] z-70">
+      <div className="fixed top-0 left-0 w-full h-[50px] bg-[#023E8A] z-70">
         <div className="
           max-w-7xl mx-auto h-full
           flex items-center
@@ -44,7 +44,7 @@ const Navbar = () => {
 
 
       {/* Main navbar directly below top bar */}
-      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-70 mt-7 shadow-md">
+      <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-70 mt-2 shadow-md">
         {/* Logo */}
         <div className="flex items-center space-x-2">
           <img className="w-12 rounded-full border border-black" src={logo} alt="logo" />
@@ -72,7 +72,14 @@ const Navbar = () => {
         />
 
         {/* Slide-out Mobile Menu */}
-        <div className={`fixed top-10 right-0 h-full bg-white transition-all duration-300 ease-in-out ${visible ? 'w-full' : 'w-0'}`}>
+        <div
+            className={`
+              fixed top-0 right-0 h-screen bg-white
+              transition-all duration-300 ease-in-out
+              z-[100]
+              ${visible ? 'w-full' : 'w-0'}
+            `}
+          >
           <div className="flex flex-col p-6">
             <img 
               src={x} 
