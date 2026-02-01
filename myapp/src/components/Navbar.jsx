@@ -14,26 +14,33 @@ const Navbar = () => {
     <>
       {/* Top info bar */}
       <div className="fixed top-0 left-0 w-full h-[70px] bg-[#023E8A] z-70">
-        <div className="max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
-         <div className="flex items-center gap-6 text-white text-sm font-semibold">
+        <div className="
+          max-w-7xl mx-auto h-full
+          flex items-center
+          justify-center lg:justify-between
+          px-4 sm:px-6 lg:px-8
+        ">
+          {/* Phone + Email */}
+          <div className="flex items-center gap-6 text-white text-sm font-semibold">
             <div className="flex items-center gap-1">
               <img src={phonecall} className="w-5" alt="" />
-              <h3 className="text-lg">test@email.com</h3>
+              <h3 className="text-base sm:text-lg">09876543</h3>
             </div>
 
             <div className="flex items-center gap-1">
               <img className="w-5" src={mailopen} alt="" />
-              <h3 className="text-lg">09876543</h3>
+              <h3 className="text-base sm:text-lg">test@email.com</h3>
             </div>
           </div>
-          <div className="flex items-center gap-4 text-white text-sm font-semibold">
+
+          {/* Social icons — desktop only */}
+          <div className="hidden lg:flex items-center gap-4 text-white text-sm font-semibold">
             <span>FB</span>
             <span>TW</span>
             <span>IG</span>
           </div>
         </div>
       </div>
-
 
 
       {/* Main navbar directly below top bar */}
@@ -60,7 +67,8 @@ const Navbar = () => {
           src={menu} 
           alt="menu" 
           onClick={() => setVisible(true)} 
-          className="w-8 h-8 cursor-pointer sm:hidden"
+          className="w-8 h-8 cursor-pointer md:hidden"
+
         />
 
         {/* Slide-out Mobile Menu */}
