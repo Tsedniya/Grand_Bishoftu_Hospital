@@ -1,14 +1,12 @@
 import React from "react";
 import CountUp from "../components/CountUp";
-
 import hospital from "../assets/hospital.jpg";
 import doctor from "../assets/doctor.jpg";
 import middle from "../assets/middle.jpg";
 
 const TitleAbout = () => {
 
-  const imgStyle =
-    "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
+  const imgStyle ="rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
 
   return (
     <div className="mt-10 bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
