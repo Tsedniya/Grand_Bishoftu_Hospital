@@ -3,6 +3,7 @@ import Hero from '../components/Hero'
 import HeroSecond from '../components/HeroSecond'
 import TitleAbout from '../components/TitleAbout'
 import Homeone from '../components/Homeone'
+import ContactUs from '../components/ContactUs'
 
 
 
@@ -11,6 +12,7 @@ const Home = () => {
     <div>
       <HeroSecond />
       <Homeone/>
+      <ContactUs/>
       
     </div>
   )
