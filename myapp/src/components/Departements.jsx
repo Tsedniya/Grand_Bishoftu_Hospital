@@ -150,7 +150,7 @@ const Departements = () => {
               />
             </div>
 
-            <p className="mt-6 px-4 sm:px-7 text-2xl font-bold text-[#40ABD7]">
+            <p className="mt-6 px-4 sm:px-7 text-2xl font-bold text-[#023E8A]">
               {dept.title}
             </p>
 

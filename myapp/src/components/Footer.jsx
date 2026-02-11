@@ -8,7 +8,7 @@ const Footer = () => {
   const goTo = (path) => navigate(path);
 
   return (
-    <footer className="px-6 bg-sky-900 md:px-16 lg:px-24 xl:px-32 pt-8 w-full  text-gray-500">
+    <footer className="px-6 bg-[#023E8A] md:px-16 lg:px-24 xl:px-32 pt-8 w-full  text-gray-500">
       <div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500/30 pb-6">
 
         {/* Logo + Title + Paragraph */}
@@ -37,7 +37,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/")}
-                  className="text-black font-bold  text-sm"
+                  className="text-white font-bold  text-sm"
                 >
                   Home
                 </button>
@@ -45,7 +45,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/about")}
-                  className="text-black font-bold  text-sm"
+                  className="text-white font-bold  text-sm"
                 >
                   About Us
                 </button>
@@ -53,7 +53,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/services")}
-                  className="text-black font-bold  text-sm"
+                  className="text-white font-bold  text-sm"
                 >
                   Services
                 </button>
@@ -61,7 +61,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/contact")}
-                  className="text-black font-bold  text-sm"
+                  className="text-white font-bold  text-sm"
                 >
                   Contact
                 </button>
@@ -71,8 +71,9 @@ const Footer = () => {
 
           <div>
             <h2 className="font-semibold mb-5 text-white">Get in touch</h2>
-            <div className="text-sm text-black font-bold space-y-2">
-              <p>+1-212-456-7890</p>
+            <div className="text-sm text-white font-bold space-y-2">
+              <p>+251-977434445</p>
+              <p>+251-978434445</p>
               <p>contact@example.com</p>
             </div>
           </div>

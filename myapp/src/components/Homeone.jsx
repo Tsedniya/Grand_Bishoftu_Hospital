@@ -36,7 +36,7 @@ const Homeone = () => {
 
       {/* Text Section */}
       <div className="w-full lg:w-1/2 flex flex-col">
-        <h3 className="text-3xl text-[#023E8A] font-poppins leading-tight">
+        <h3 className="text-4xl text-[#023E8A] font-poppins leading-tight">
           Committed to Exceptional Patient Care
         </h3>
         <p className="mt-4 font-opensans text-justify">
