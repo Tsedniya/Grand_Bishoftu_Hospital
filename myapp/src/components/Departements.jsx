@@ -11,6 +11,12 @@ import photo_2 from '../assets/photo_2.jpg';
 import photo from '../assets/photo.jpg';
 import men from '../assets/men.jpg';
 import cancer from '../assets/cancer.jpg';
+import stethoscope from '../assets/stethoscope.svg';
+import bubbles from '../assets/bubbles.svg';
+import testtube from '../assets/testtube.svg';
+import camera from '../assets/camera.svg';
+import eye from '../assets/eye.svg';
+import pill from '../assets/pill.svg';
 
 const Departements = () => {
   const departments = [
@@ -54,35 +60,35 @@ const Departements = () => {
       title: 'Pulmonology',
       desc: 'Specialized care for respiratory and lung conditions including asthma, pneumonia, tuberculosis, and chronic lung diseases, providing advanced diagnosis and personalized treatment for better breathing health.',
       img:  men, 
-      icon: ambulance, 
+      icon: stethoscope, 
     },
 
     {
       title: 'Laboratory Services',
       desc: 'Comprehensive diagnostic testing services providing accurate and timely analysis of blood, urine, and other samples to support disease detection, monitoring, and effective treatment decisions.',
       img:  men,
-      icon: ambulance,
+      icon: testtube,
     },
 
     {
       title: 'Infectious Disease',
       desc: 'Expert care for the prevention, diagnosis, and treatment of bacterial, viral, and fungal infections, offering advanced therapies and infection control to protect patient health and safety.',
       img:  men,
-      icon: ambulance,
+      icon: bubbles,
     },
 
     {
       title: 'Laparoscopic Surgery',
       desc: 'Minimally invasive surgical procedures using advanced technology and small incisions, ensuring faster recovery, less pain, and improved patient outcomes across various medical conditions.',
       img:  men,
-      icon: ambulance,
+      icon: camera,
     },
 
     {
       title: 'Ophthalmology',
       desc: 'Comprehensive eye care services including diagnosis and treatment of vision problems, eye diseases, and surgical procedures to maintain and improve overall eye health.',
       img:  men,
-      icon: ambulance,
+      icon: eye,
     },
 
     {
@@ -108,7 +114,7 @@ const Departements = () => {
       title: 'Pharmacy',
       desc: 'Comprehensive pharmacy services providing safe and effective medication management, prescription dispensing, patient counseling, and guidance to ensure optimal therapeutic outcomes.',
       img: men, 
-      icon: ambulance, 
+      icon: pill, 
     },
 
 
