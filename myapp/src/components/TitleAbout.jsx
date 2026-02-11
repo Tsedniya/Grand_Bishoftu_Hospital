@@ -3,12 +3,16 @@ import CountUp from "../components/CountUp";
 
 import hospital from "../assets/hospital.jpg";
 import doctor from "../assets/doctor.jpg";
-import inside from "../assets/inside.jpg";
 import middle from "../assets/middle.jpg";
 
 const TitleAbout = () => {
+
+  const imgStyle =
+    "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
+
   return (
     <div className="mt-10 bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+
       {/* Title */}
       <div className="flex flex-col items-center">
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
@@ -23,82 +27,78 @@ const TitleAbout = () => {
       </div>
 
       {/* Main Section */}
-      <div className="my-20 flex flex-col gap-16">
-        {/* Row 1 — Hospital + Text */}
-        <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
-          {/* Image */}
-          <div className="flex justify-center md:max-w-[450px] w-full">
-            <img
-              className="w-full rounded-2xl transition-transform duration-300 hover:scale-105"
-              src={hospital}
-              alt="Hospital"
-            />
+      <div className="my-20 flex flex-col md:flex-row gap-10 items-start">
+
+        {/* Left: Image Group */}
+        <div className="w-full md:w-7/12 flex flex-col gap-4">
+
+          {/* Big image */}
+          <div className="h-[320px] overflow-hidden">
+            <img src={hospital} alt="Hospital" className={imgStyle} />
           </div>
 
-          {/* Text */}
-          <div className="flex-1 flex flex-col justify-center gap-6 text-justify">
+          {/* Container for 2 small images */}
+          <div className="flex gap-4 h-[180px]">
+            <div className="flex-1 overflow-hidden">
+              <img src={doctor} alt="Doctor" className={imgStyle} />
+            </div>
+            <div className="flex-1 overflow-hidden">
+              <img src={middle} alt="Inside" className={imgStyle} />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Right: Text + Stats Card */}
+        <div className="w-full md:w-5/12 flex flex-col justify-between gap-6">
+
+          {/* Top Text */}
+          <div className="text-justify">
             <p>
               At Grand Bishoftu Hospital, we are committed to providing exceptional
               healthcare with compassion and expertise. Our experienced medical
               specialists work tirelessly to ensure every patient's well-being
-              through advanced treatments and personalized care.
+              through advanced treatments and personalized care. Providing trusted
+              healthcare services with compassion and excellence. Our experienced
+              medical specialists are committed to ensuring the well-being of every
+              patient through advanced treatment, personalized care, and a
+              patient-first approach.
             </p>
+
             <p className="mt-5">
               We strive to create a safe and welcoming environment where health,
               comfort, and trust come first. Our mission is to deliver trusted
               healthcare services with excellence and compassion.
             </p>
           </div>
-        </div>
 
-        {/* Row 2 — Images + Stats */}
-        <div className="flex flex-col md:flex-row gap-10 items-center md:items-start">
-          {/* Images */}
-          <div className="flex justify-center gap-6 w-full md:w-[450px]">
-            <img
-              className="border border-gray-500 rounded-2xl w-1/2 h-[230px] object-cover transition-transform duration-300 hover:scale-105"
-              src={doctor}
-              alt="Doctor"
-            />
-            <img
-              className="border border-gray-500 rounded-2xl w-1/2 h-[230px] object-cover transition-transform duration-300 hover:scale-105"
-              src={middle}
-              alt="Inside"
-            />
-          </div>
-                    
-          {/* Stats */}
-          <div className="w-full md:flex-1">
-            <div className="bg-white rounded-xl shadow-md p-8">
+          {/* Stats Card aligned with bottom images */}
+          <div className="bg-[#023E8A] rounded-2xl shadow-lg p-8 w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 mt-auto h-[180px] flex items-center">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 text-center w-full">
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 text-center">
-
-                {/* Stat 1 */}
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
-                    <CountUp end={25} suffix="+" />
-                  </div>
-                  <p className="mt-2 text-sm text-gray-600">
-                    Years of Experience
-                  </p>
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white">
+                  <CountUp end={25} suffix="+" />
                 </div>
-
-                {/* Stat 2 */}
-                <div>
-                  <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
-                    <CountUp end={50000} suffix="+" />
-                  </div>
-                  <p className="mt-2 text-sm text-gray-600">
-                    Patients Treated
-                  </p>
-                </div>
-
+                <p className="mt-2 text-sm text-gray-200">
+                  Years of Experience
+                </p>
               </div>
+
+              <div>
+                <div className="text-3xl md:text-4xl font-bold text-white">
+                  <CountUp end={50000} suffix="+" />
+                </div>
+                <p className="mt-2 text-sm text-gray-200">
+                  Patients Treated
+                </p>
+              </div>
+
             </div>
           </div>
 
-
         </div>
+
       </div>
     </div>
   );
