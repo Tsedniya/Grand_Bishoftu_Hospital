@@ -3,7 +3,7 @@ import opration from "../assets/opration.jpg";
 
 const Hometwo = () => {
   return (
-    <div className="mt-2 flex flex-col lg:flex-row-reverse bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
+    <div className="-mt-20 flex flex-col lg:flex-row-reverse bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
 
       {/* Image Section (now right side on large screens) */}
       <div className="relative w-full lg:w-1/2 flex items-center justify-center py-6">
@@ -31,18 +31,18 @@ const Hometwo = () => {
 
       {/* Text Section (now left side) */}
       <div className="w-full lg:w-1/2 flex flex-col">
-        <h3 className="text-5xl text-[#023E8A] font-poppins leading-tight">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
           We Take Care of You
         </h3>
 
-        <p className="mt-4 font-opensans text-justify">
+        <p className="mt-4 font-opensans text-lg text-justify">
           Providing trusted healthcare services with compassion and excellence.
           Our experienced medical specialists are committed to ensuring the
           well-being of every patient through advanced treatment and personalized
           care.
         </p>
 
-        <p className="mt-4 font-opensans text-justify">
+        <p className="mt-4 font-opensans text-lg text-justify">
           At Grand Bishoftu Hospital, we are dedicated to delivering world-class
           healthcare with empathy and innovation, ensuring safety, comfort, and
           trust for every patient we serve.

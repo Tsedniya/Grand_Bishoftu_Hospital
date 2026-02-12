@@ -58,7 +58,7 @@ const Meet = () => {
   const movePercent = 100 / visibleCards;
 
   return (
-    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] -mt-25 mb-3">
 
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
@@ -66,7 +66,7 @@ const Meet = () => {
           Meet Our Doctors
         </h3>
 
-        <p className="mt-3 sm:mt-4 text-sm sm:text-base text-gray-600">
+        <p className="mt-3 sm:mt-4 text-base sm:text-xl font-opensans">
           Our experienced medical professionals provide compassionate care.
         </p>
       </div>
@@ -97,9 +97,9 @@ const Meet = () => {
                     {doctor.name}
                   </h3>
 
-                  <p className="text-gray-500 text-sm">{doctor.role}</p>
+                  <p className="text-base">{doctor.role}</p>
                   <Link to='/services'>
-                    <button className="mt-3 sm:mt-4 px-5 py-2 bg-[#023E8A] text-white rounded-lg text-sm sm:text-base">
+                    <button className="mt-3 sm:mt-4 px-5 py-2 bg-[#023E8A] font-opensans text-white rounded-3xl text-sm sm:text-base hover:opacity-90">
                       Learn more
                     </button>
                   </Link>
