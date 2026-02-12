@@ -3,6 +3,7 @@ import photo_1 from "../assets/photo_1.jpg";
 import photo_2 from "../assets/photo_2.jpg";
 import after from "../assets/after.jpg";
 import place from "../assets/place.jpg";
+import { Link } from 'react-router-dom';
 
 const Meet = () => {
   const doctors = [
@@ -97,10 +98,11 @@ const Meet = () => {
                   </h3>
 
                   <p className="text-gray-500 text-sm">{doctor.role}</p>
-
-                  <button className="mt-3 sm:mt-4 px-5 py-2 bg-[#023E8A] text-white rounded-lg text-sm sm:text-base">
-                    Make Appointment
-                  </button>
+                  <Link to='/services'>
+                    <button className="mt-3 sm:mt-4 px-5 py-2 bg-[#023E8A] text-white rounded-lg text-sm sm:text-base">
+                      Learn more
+                    </button>
+                  </Link>
                 </div>
 
               </div>

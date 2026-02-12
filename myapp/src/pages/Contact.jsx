@@ -1,8 +1,11 @@
 import React from 'react'
+import ContactUs from '../components/ContactUs'
 
 const Contact = () => {
   return (
-    <div>Contact</div>
+    <div className='mt-10 mb-10'>
+       <ContactUs/>
+    </div>
   )
 }
 
