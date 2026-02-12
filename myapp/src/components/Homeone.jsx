@@ -6,7 +6,7 @@ import heart from "../assets/heart.svg";
 
 const Homeone = () => {
   return (
-    <div className="mt-43 flex flex-col lg:flex-row  bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
+    <div className="mt-63 flex flex-col lg:flex-row  bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-8">
       {/* Image Section */}
       <div className="relative w-full lg:w-1/2 flex items-center justify-center py-6">
         {/* Soft background glow */}
@@ -36,34 +36,38 @@ const Homeone = () => {
 
       {/* Text Section */}
       <div className="w-full lg:w-1/2 flex flex-col">
-        <h3 className="text-3xl text-[#023E8A] font-poppins leading-tight">
-          Committed to Exceptional Patient Care
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
+             Exceptional Patient Care
         </h3>
-        <p className="mt-4 font-opensans text-justify">
+        <p className="mt-4 text-lg font-opensans text-justify">
           Providing trusted healthcare services with compassion and excellence.
           Our experienced medical specialists are committed to ensuring the
           well-being of every patient through advanced treatment and personalized
           care.
         </p>
-        <p className="mt-4 font-opensans text-justify ">
+        <p className="mt-4 text-lg font-opensans text-justify ">
           At Grand Bishoftu Hospital, we are dedicated to delivering world-class
           healthcare with empathy and innovation, ensuring safety, comfort, and
           trust for every patient we serve.
         </p>
 
         <div className="flex flex-col md:flex-row gap-6 my-8 justify-center md:justify-start">
-          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 hover:scale-105 transition duration-300">
-            <img src={star} alt="Star" className="mb-3 w-10" />
-            <p className="font-semibold mb-1">Compassionate Care</p>
-            <p className="text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 hover:scale-110 transition duration-300">
+            <div className="flex items-center gap-3 mb-2">
+                <img src={star} alt="Star" className="w-10" />
+                <p className="font-semibold">Compassionate Care</p>
+            </div>
+            <p className="text-base">
+               We provide personalized and compassionate care, ensuring every patient feels supported and valued.
             </p>
           </div>
-          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 hover:scale-105 transition duration-300">
-            <img src={heart} alt="Heart" className="mb-3 w-10" />
-            <p className="font-semibold mb-1">Patient Safety</p>
-            <p className="text-sm">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 hover:scale-110 transition duration-300">
+            <div className="flex items-center gap-3 mb-2">
+              <img src={heart} alt="Heart" className="w-10" />
+              <p className="font-semibold">Patient Safety</p>
+            </div>
+            <p className="text-base">
+               We follow strict medical standards to deliver safe, reliable, and high-quality healthcare services.
             </p>
           </div>
         </div>

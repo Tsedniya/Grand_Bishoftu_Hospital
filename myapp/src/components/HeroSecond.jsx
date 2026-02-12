@@ -3,6 +3,9 @@ import home from "../assets/home.jpg";
 import calendar from "../assets/calendar.svg";
 import users from "../assets/users.svg";
 import activity from "../assets/activity.svg";
+import hearthandshake from "../assets/hearthandshake.svg";
+import userstar from "../assets/userstar.svg";
+import infinity from "../assets/infinity.svg";
 import FlipCard from "./FlipCard";
 
 const HeroSecond = () => {
@@ -95,32 +98,36 @@ const HeroSecond = () => {
               -translate-y-[150px] lg:-translate-y-[100px]
             ">
 
-          <FlipCard
-            frontTitle="Our Care"
-            frontText="We put patients first"
-            backTitle="Our Promise"
-            backText="Quality healthcare with compassion"
-            frontImage={calendar} 
-            bg="bg-[#023E8A]"
-          />
+            <FlipCard
+              frontTitle="Our Care"
+              frontText="We put patients first"
+              backTitle="Our Promise"
+              backText="Quality healthcare with compassion"
+              frontImage={calendar}
+              backImage={hearthandshake}   // 👈 add this
+              bg="bg-[#023E8A]"
+            />
 
-          <FlipCard
-            frontTitle="Our Doctors"
-            frontText="Trusted professionals"
-            backTitle="Expertise"
-            backText="Years of medical experience"
-            frontImage={users} 
-            bg="bg-sky-400"
-          />
+            <FlipCard
+              frontTitle="Our Doctors"
+              frontText="Trusted professionals"
+              backTitle="Expertise"
+              backText="Years of medical experience"
+              frontImage={users}
+              backImage={userstar}   // 👈 add this
+              bg="bg-sky-400"
+             />
 
-          <FlipCard
-            frontTitle="Our Mission"
-            frontText="Health for everyone"
-            backTitle="Commitment"
-            backText="Accessible and affordable care"
-            frontImage={activity} 
-            bg="bg-[#023E8A]"
-          />
+            <FlipCard
+              frontTitle="Our Mission"
+              frontText="Health for everyone"
+              backTitle="Commitment"
+              backText="Accessible and affordable care"
+              frontImage={activity}
+              backImage={infinity}  // 👈 add this
+              bg="bg-[#023E8A]"
+            />
+
         </div>
       </div>
 

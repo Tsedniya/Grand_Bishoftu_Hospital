@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
-//import Footer from './components/Footer';
+import Footer from './components/Footer';
 import Services  from './pages/Services'
 
 
@@ -22,6 +22,8 @@ const App = () => {
         <Route path='/services' element={< Services  />} />
 
       </Routes>
+
+      <Footer/>
     
     
      
