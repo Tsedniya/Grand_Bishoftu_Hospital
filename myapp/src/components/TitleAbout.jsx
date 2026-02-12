@@ -16,7 +16,7 @@ const TitleAbout = () => {
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
           About
         </p>
-        <p className="text-center mt-4 md:mt-6 max-w-3xl">
+        <p className="text-center text-lg mt-4 md:mt-6 max-w-3xl">
           Providing trusted healthcare services with compassion and excellence.
           Our experienced medical specialists are committed to ensuring the
           well-being of every patient through advanced treatment, personalized
@@ -51,7 +51,7 @@ const TitleAbout = () => {
         <div className="w-full md:w-5/12 flex flex-col justify-between gap-6">
 
           {/* Top Text */}
-          <div className="text-justify">
+          <div className="text-justify text-base">
             <p>
               At Grand Bishoftu Hospital, we are committed to providing exceptional
               healthcare with compassion and expertise. Our experienced medical
