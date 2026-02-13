@@ -36,15 +36,15 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full bg-gray-50 py-20 px-6">
+    <section className="w-full bg-white py-20 px-6 sm:-mt-23 ">
       <div className="max-w-4xl mx-auto">
 
         {/* Title */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-[#023E8A]">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-gray-600">
+          <p className="mt-3 sm:mt-4 text-base sm:text-xl font-opensans">
             Find answers to common questions about our services and appointments.
           </p>
         </div>

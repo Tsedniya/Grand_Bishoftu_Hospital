@@ -5,12 +5,12 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
 import Services  from './pages/Services'
-
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <>
-          
+      <ScrollToTop />   
       <Navbar />
       
 
