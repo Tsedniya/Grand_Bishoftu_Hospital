@@ -1,18 +1,24 @@
 import React from "react";
+import { motion } from "framer-motion";
 import CountUp from "../components/CountUp";
 import hospital from "../assets/hospital.jpg";
 import doctor from "../assets/doctor.jpg";
 import middle from "../assets/middle.jpg";
 
 const TitleAbout = () => {
-
-  const imgStyle ="rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
+  const imgStyle =
+    "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-120";
 
   return (
     <div className="mt-10 bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Title */}
-      <div className="flex flex-col items-center">
+      <motion.div
+        className="flex flex-col items-center"
+        initial={{ y: 80, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6 }}
+      >
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
           About
         </p>
@@ -22,14 +28,18 @@ const TitleAbout = () => {
           well-being of every patient through advanced treatment, personalized
           care, and a patient-first approach.
         </p>
-      </div>
+      </motion.div>
 
       {/* Main Section */}
       <div className="my-20 flex flex-col md:flex-row gap-10 items-start">
 
         {/* Left: Image Group */}
-        <div className="w-full md:w-7/12 flex flex-col gap-4">
-
+        <motion.div
+          className="w-full md:w-7/12 flex flex-col gap-4"
+          initial={{ y: 80, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
           {/* Big image */}
           <div className="h-[320px] overflow-hidden">
             <img src={hospital} alt="Hospital" className={imgStyle} />
@@ -44,15 +54,19 @@ const TitleAbout = () => {
               <img src={middle} alt="Inside" className={imgStyle} />
             </div>
           </div>
+        </motion.div>
 
-        </div>
-
-        {/* Right: Text + Stats Card */}
+        {/* Right: Text + Stats */}
         <div className="w-full md:w-5/12 flex flex-col justify-between gap-6">
 
-          {/* Top Text */}
-          <div className="text-justify text-base">
-            <p>
+          {/* Text */}
+          <motion.div
+            className="text-justify text-base"
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            <p className="text-lg mt-4 md:mt-6 max-w-3xl">
               At Grand Bishoftu Hospital, we are committed to providing exceptional
               healthcare with compassion and expertise. Our experienced medical
               specialists work tirelessly to ensure every patient's well-being
@@ -62,41 +76,39 @@ const TitleAbout = () => {
               patient through advanced treatment, personalized care, and a
               patient-first approach.
             </p>
+          </motion.div>
 
-            <p className="mt-5">
-              We strive to create a safe and welcoming environment where health,
-              comfort, and trust come first. Our mission is to deliver trusted
-              healthcare services with excellence and compassion.
-            </p>
-          </div>
-
-          {/* Stats Card aligned with bottom images */}
-          <div className="bg-[#023E8A] rounded-2xl shadow-lg p-8 w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 mt-auto h-[180px] flex items-center">
+          {/* Stats Card */}
+          <motion.div
+            className="bg-white rounded-2xl shadow-2xl p-8 w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 mt-auto h-[180px] flex items-center"
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+          >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 text-center w-full">
 
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-white">
+                <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
                   <CountUp end={25} suffix="+" />
                 </div>
-                <p className="mt-2 text-sm text-gray-200">
+                <p className="mt-2 text-sm ">
                   Years of Experience
                 </p>
               </div>
 
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-white">
+                <div className="text-3xl md:text-4xl font-bold text-[#023E8A] ">
                   <CountUp end={50000} suffix="+" />
                 </div>
-                <p className="mt-2 text-sm text-gray-200">
+                <p className="mt-2 text-sm ">
                   Patients Treated
                 </p>
               </div>
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
-
       </div>
     </div>
   );

@@ -8,7 +8,8 @@ const Footer = () => {
   const goTo = (path) => navigate(path);
 
   return (
-    <footer className="px-6 bg-[#023E8A] md:px-16 lg:px-24 xl:px-32 pt-8 w-full  text-gray-500">
+    <footer className="px-6 bg-[#023E8A] md:px-16 lg:px-24 xl:px-32 pt-8 w-full text-gray-500">
+
       <div className="flex flex-col md:flex-row justify-between w-full gap-10 border-b border-gray-500/30 pb-6">
 
         {/* Logo + Title + Paragraph */}
