@@ -42,7 +42,7 @@ const ContactUs = () => {
       </div>
 
       {/* Floating Appointment Box */}
-      <div className="-mt-80 absolute left-1/2 transform -translate-x-1/2 top-[550px] sm:top-[600px] lg:top-[650px] w-10/12 sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white rounded-3xl shadow-2xl px-4 sm:px-12 py-16 sm:py-20 lg:py-24 z-20">
+      <div className="-mt-70 sm:-mt-80  pt-24 sm:pt-20 lg:pt-24 absolute left-1/2 transform -translate-x-1/2 top-[550px] sm:top-[600px] lg:top-[650px] w-10/12 sm:w-3/4 md:w-2/3 lg:w-1/2 bg-white rounded-3xl shadow-2xl px-4 sm:px-12 py-16 sm:py-20 lg:py-24 z-20">
         
         <div className="flex items-center justify-center gap-3 -mt-15 mb-3">
           <img src={call} alt="Phone" className="w-8 sm:w-10" /> 

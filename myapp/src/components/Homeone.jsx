@@ -18,7 +18,7 @@ const Homeone = () => {
   };
 
   return (
-    <div className="mt-75 sm:mt-63 flex flex-col lg:flex-row gap-4 lg:gap-8 bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="mt-75 md:mt-83 lg:mt-63 flex flex-col lg:flex-row gap-4 lg:gap-8 bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Image Section — slides from left */}
       <motion.div
@@ -78,20 +78,20 @@ const Homeone = () => {
 
         {/* Cards */}
         <div className="flex flex-col md:flex-row gap-6 my-8 justify-center md:justify-start">
-          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 hover:scale-110 transition duration-300">
+          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
             <div className="flex items-center gap-3 mb-2">
               <img src={star} alt="Star" className="w-10" />
-              <p className="font-semibold">Compassionate Care</p>
+              <p className="font-semibold font-opensans">Compassionate Care</p>
             </div>
             <p className="text-base">
               We provide personalized and compassionate care, ensuring every patient feels supported.
             </p>
           </div>
 
-          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-md p-5 hover:scale-110 transition duration-300">
+          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
             <div className="flex items-center gap-3 mb-2">
               <img src={heart} alt="Heart" className="w-10" />
-              <p className="font-semibold">Patient Safety</p>
+              <p className="font-semibold font-opensans">Patient Safety</p>
             </div>
             <p className="text-base">
               We follow strict medical standards to deliver safe and reliable healthcare services.
