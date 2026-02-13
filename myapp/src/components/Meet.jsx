@@ -58,7 +58,7 @@ const Meet = () => {
   const movePercent = 100 / visibleCards;
 
   return (
-    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] -mt-25 mb-3">
+    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] -mt-18 sm:-mt-25 mb-3 ">
 
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
