@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import notebook from "../assets/notebook.svg";
 import call from '../assets/call.svg';
 
-const ContactUs = () => {
+const ContactForm = () => {
   return (
     <div className="relative w-full bg-white pb-48 lg:pb-64">
       {/* Hero / Background */}
@@ -18,7 +18,7 @@ const ContactUs = () => {
         />
 
         {/* Gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#023E8A]/80 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0077B6]/80 to-transparent"></div>
 
         {/* Floating image + Hero text */}
         <div className="-mt-10 absolute inset-0 flex flex-col items-center justify-start pt-20 sm:pt-24 lg:pt-28 text-center px-6 z-10">
@@ -90,6 +90,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
-
-
+export default ContactForm;
