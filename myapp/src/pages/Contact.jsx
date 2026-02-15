@@ -4,9 +4,10 @@ import EmergencyBox from '../components/EmergencyBox'
 
 const Contact = () => {
   return (
-    <div className='mt-40 mb-10'>
+    <div className='mt-28 mb-10'>
+      <ContactForm/>
       <EmergencyBox/>
-       <ContactForm/>
+     
     </div>
   )
 }
