@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 const FlipCard = ({
   frontTitle,
@@ -6,25 +6,35 @@ const FlipCard = ({
   backTitle,
   backText,
   frontImage,
-  backImage, // ✅ new prop for back image
+  backImage,
   bg = "bg-sky-200",
 }) => {
+  const [flipped, setFlipped] = useState(false);
+
   return (
     <div
       className="
-        group perspective
+        group perspective cursor-pointer
         w-[90%] h-40
         md:w-[90%] md:h-40
         lg:w-80 lg:h-70
       "
+      onClick={() => setFlipped(!flipped)}
     >
-      <div className="relative w-full h-full transition-transform duration-700 transform-style-preserve-3d group-hover:rotate-y-180">
+      <div
+        className={`
+          relative w-full h-full
+          transition-transform duration-700
+          transform-style-preserve-3d
+          ${flipped ? "rotate-y-180" : ""}
+          lg:group-hover:rotate-y-180
+        `}
+      >
 
         {/* Front */}
         <div
           className={`absolute inset-0 ${bg} shadow-xl text-white p-4 flex flex-col justify-center items-center backface-hidden`}
         >
-          {/* Front Image */}
           {frontImage && (
             <img
               src={frontImage}
@@ -33,10 +43,10 @@ const FlipCard = ({
             />
           )}
 
-          {/* Front Text */}
           <h3 className="text-xl font-semibold text-center">
             {frontTitle}
           </h3>
+
           <p className="text-lg opacity-90 text-center">
             {frontText}
           </p>
@@ -46,7 +56,6 @@ const FlipCard = ({
         <div
           className={`absolute inset-0 ${bg} shadow-xl text-white p-6 flex flex-col justify-center items-center rotate-y-180 backface-hidden`}
         >
-          {/* Back Image */}
           {backImage && (
             <img
               src={backImage}
@@ -55,10 +64,10 @@ const FlipCard = ({
             />
           )}
 
-          {/* Back Text */}
           <h3 className="text-xl font-semibold mb-2 text-center">
             {backTitle}
           </h3>
+
           <p className="text-center text-lg opacity-90">
             {backText}
           </p>
