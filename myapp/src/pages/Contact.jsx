@@ -1,11 +1,11 @@
 import React from 'react'
-import ContactForm from '../components/ContactForm'
+import ContactUs from '../components/ContactUs'
 import EmergencyBox from '../components/EmergencyBox'
 
 const Contact = () => {
   return (
     <div className='mt-28 mb-10'>
-      <ContactForm/>
+      <ContactUs/>
       <EmergencyBox/>
      
     </div>
