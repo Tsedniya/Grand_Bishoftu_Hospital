@@ -3,7 +3,7 @@ import Departements from '../components/Departements'
 
 const Services = () => {
   return (
-    <div className='mt-15'>
+    <div className='mt-25'>
       <Departements/>
     </div>
   )
