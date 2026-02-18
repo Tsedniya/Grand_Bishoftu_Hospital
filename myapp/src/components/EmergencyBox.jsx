@@ -4,7 +4,7 @@ import { PhoneCall, Clock } from "lucide-react";
 
 const cardStyle = `
   w-full
-  bg-gradient-to-br from-[#023E8A] to-[#0077B6]
+  bg-[#023E8A] 
   text-white
   rounded-3xl
   shadow-2xl

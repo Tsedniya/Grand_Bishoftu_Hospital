@@ -1,9 +1,32 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 
 const CountUp = ({ end, duration = 2000, suffix = "" }) => {
   const [count, setCount] = useState(0);
+  const [hasCounted, setHasCounted] = useState(false);
+  const ref = useRef(null);
 
   useEffect(() => {
+    if (!ref.current) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasCounted) {
+            setHasCounted(true);
+          }
+        });
+      },
+      { threshold: 0.5 } // trigger when 50% of element is visible
+    );
+
+    observer.observe(ref.current);
+
+    return () => observer.disconnect();
+  }, [hasCounted]);
+
+  useEffect(() => {
+    if (!hasCounted) return;
+
     let current = 0;
     const stepTime = 16;
     const increment = end / (duration / stepTime);
@@ -20,14 +43,9 @@ const CountUp = ({ end, duration = 2000, suffix = "" }) => {
     }, stepTime);
 
     return () => clearInterval(timer);
-  }, [end, duration]);
+  }, [hasCounted, end, duration]);
 
-  return (
-    <span>
-      {count}
-      {suffix}
-    </span>
-  );
+  return <span ref={ref}>{count}{suffix}</span>;
 };
 
 export default CountUp;

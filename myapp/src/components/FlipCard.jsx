@@ -11,6 +11,13 @@ const FlipCard = ({
 }) => {
   const [flipped, setFlipped] = useState(false);
 
+  // only allow click flipping on mobile / tablet
+  const handleClick = () => {
+    if (window.innerWidth < 1024) {
+      setFlipped(!flipped);
+    }
+  };
+
   return (
     <div
       className="
@@ -19,7 +26,7 @@ const FlipCard = ({
         md:w-[90%] md:h-40
         lg:w-80 lg:h-70
       "
-      onClick={() => setFlipped(!flipped)}
+      onClick={handleClick}
     >
       <div
         className={`
@@ -30,7 +37,6 @@ const FlipCard = ({
           lg:group-hover:rotate-y-180
         `}
       >
-
         {/* Front */}
         <div
           className={`absolute inset-0 ${bg} shadow-xl text-white p-4 flex flex-col justify-center items-center backface-hidden`}
@@ -72,7 +78,6 @@ const FlipCard = ({
             {backText}
           </p>
         </div>
-
       </div>
     </div>
   );

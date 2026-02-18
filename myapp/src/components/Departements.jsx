@@ -126,7 +126,7 @@ const Departements = () => {
 
   return (
     <div className="max-w-[1200px] mx-auto my-12 px-4 sm:px-6">
-      <div className="flex flex-col items-center mt-25 mb-15">
+      <div  className="flex flex-col items-center mt-10 md:mt-25 mb-6 md:mb-15">
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
           Services
         </p>
