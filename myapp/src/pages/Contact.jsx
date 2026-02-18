@@ -6,11 +6,11 @@ import ContactFAQ from '../components/ContactFAQ';
 
 const Contact = () => {
   return (
-    <div className='mt-45'>
+    <div className='mt-25'>
       <EmergencyBox/>
-      <ContactMap/>
       <ContactForm/>
       <ContactFAQ/>
+      <ContactMap/>
   
      
      
