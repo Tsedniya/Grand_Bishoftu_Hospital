@@ -1,86 +1,68 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { PhoneCall, Clock } from "lucide-react";
+import men from "../assets/men.jpg";       // left card image
+import inside from "../assets/inside.jpg"; // right card image
+import map from "../assets/map.svg";
+import heartpulse from "../assets/heartpulse.svg";
+import notebook from "../assets/notebook.svg";
+import logo from "../assets/logo.jpeg";
 
-const cardStyle = `
-  w-full
-  bg-[#023E8A] 
-  text-white
-  rounded-3xl
-  shadow-2xl
-  p-8 mt-15
-`;
+const EmergencyBox = () => {
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.25, // delay between cards
+      },
+    },
+  };
 
-const ClinicInfoCards = () => {
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  // content for each card
+  const cards = [
+    { title: "Emergency Services", icon: heartpulse, bgImage: men },
+    { title: "Get Directions", icon: map, bgImage: logo },
+    { title: "Book Appointment", icon: notebook, bgImage: inside },
+  ];
+
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-13">
-
-      {/* ONE COMBINED CARD */}
+    <div className="w-full mt-15 mb-25 px-4 sm:px-8 md:px-16">
       <motion.div
-        initial={{ y: 80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className={cardStyle}
+        className="grid grid-cols-1 md:grid-cols-3 w-full gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Row layout */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16">
-
-          {/* Emergency Services */}
-          <div className="flex-1 flex flex-col gap-4">
-            <div className="bg-white/20 w-fit p-3 rounded-full">
-              <PhoneCall size={28} />
+        {cards.map((card, index) => (
+          <motion.div
+            key={index}
+            variants={cardVariants}
+            className="relative h-[420px] flex items-center justify-center text-white p-10 overflow-hidden rounded-2xl shadow-2xl"
+            style={{
+              backgroundImage: `linear-gradient(rgba(2,62,138,0.75), rgba(2,62,138,0.75)), url(${card.bgImage})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            {/* Icon + Text */}
+            <div className="flex items-center gap-4">
+              <img src={card.icon} alt={card.title} className="w-12 h-12" />
+              <h3 className="text-2xl md:text-3xl font-semibold">{card.title}</h3>
             </div>
-
-            <h3 className="text-2xl font-semibold">Emergency Services</h3>
-
-            <p className="text-white/90 text-sm">
-              We provide 24/7 emergency medical care with expert doctors
-              and advanced equipment to ensure immediate treatment.
-            </p>
-
-            <div className="text-xl font-bold">
-              Call: +251-977434445
-            </div>
-          </div>
-
-          {/* Vertical Divider */}
-          <div className="hidden md:block w-px bg-white/20"></div>
-
-          {/* Opening Hours */}
-          <div className="flex-1 flex flex-col gap-4">
-            <div className="bg-white/20 w-fit p-3 rounded-full">
-              <Clock size={28} />
-            </div>
-
-            <h3 className="text-2xl font-semibold">Opening Hours</h3>
-
-            <p className="text-white/90 text-sm">
-              Visit us during our working hours for consultations,
-              treatments, and healthcare services.
-            </p>
-
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between border-b border-white/20 pb-1">
-                <span>Mon – Wed</span>
-                <span>10AM – 4PM</span>
-              </div>
-
-              <div className="flex justify-between border-b border-white/20 pb-1">
-                <span>Thu – Fri</span>
-                <span>9AM – 6PM</span>
-              </div>
-
-              <div className="flex justify-between">
-                <span>Sat – Sun</span>
-                <span>Closed</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
 };
 
-export default ClinicInfoCards;
+export default EmergencyBox;

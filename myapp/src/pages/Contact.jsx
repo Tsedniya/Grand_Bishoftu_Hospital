@@ -1,12 +1,18 @@
 import React from 'react'
-import ContactUs from '../components/ContactUs'
-import EmergencyBox from '../components/EmergencyBox'
+import ContactForm from '../components/ContactForm';
+import EmergencyBox from '../components/EmergencyBox';
+import ContactMap from '../components/ContactMap';
+import ContactFAQ from '../components/ContactFAQ';
 
 const Contact = () => {
   return (
-    <div className='mt-28 mb-10'>
-      <ContactUs/>
+    <div className='mt-45'>
       <EmergencyBox/>
+      <ContactMap/>
+      <ContactForm/>
+      <ContactFAQ/>
+  
+     
      
     </div>
   )
