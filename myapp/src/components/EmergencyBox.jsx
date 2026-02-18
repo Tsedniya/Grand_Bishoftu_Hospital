@@ -1,40 +1,57 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import men from "../assets/men.jpg";       // left card image
-import inside from "../assets/inside.jpg"; // right card image
+import men from "../assets/men.jpg";
+import cancer from "../assets/cancer.jpg";
+import photo_1 from "../assets/photo_1.jpg";
+import inside from "../assets/inside.jpg";
+import opration from "../assets/opration.jpg";
+import photo_2 from "../assets/photo_2.jpg";
+import logo from "../assets/logo.jpeg";
+import machine from "../assets/machine.jpg";
+import home from "../assets/home.jpg";
 import map from "../assets/map.svg";
 import heartpulse from "../assets/heartpulse.svg";
 import notebook from "../assets/notebook.svg";
-import logo from "../assets/logo.jpeg";
 
 const EmergencyBox = () => {
+  const [currentImages, setCurrentImages] = useState([0, 0, 0]);
+
   const containerVariants = {
     hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.25, // delay between cards
-      },
-    },
+    visible: { transition: { staggerChildren: 0.25 } },
   };
 
   const cardVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  // content for each card
   const cards = [
-    { title: "Emergency Services", icon: heartpulse, bgImage: men },
-    { title: "Get Directions", icon: map, bgImage: logo },
-    { title: "Book Appointment", icon: notebook, bgImage: inside },
+    { title: "Emergency Services", icon: heartpulse, bgImages: [men, cancer, photo_1] },
+    { title: "Get Directions", icon: map, bgImages: [logo, machine, home] },
+    { title: "Book Appointment", icon: notebook, bgImages: [inside, opration, photo_2] },
   ];
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImages((prev) =>
+        prev.map((index, i) => (index + 1) % cards[i].bgImages.length)
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="w-full mt-15 mb-25 px-4 sm:px-8 md:px-16">
+    <div className="w-full mt-5 mb-25 px-4 sm:px-8 md:px-16">
+
+      {/* Heading on top */}
+      <div className="flex flex-col items-center mt-10 md:mt-25 mb-6 md:mb-15">
+        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
+          Contact
+        </p>
+      </div>
+
+      {/* Cards */}
       <motion.div
         className="grid grid-cols-1 md:grid-cols-3 w-full gap-6"
         variants={containerVariants}
@@ -48,12 +65,11 @@ const EmergencyBox = () => {
             variants={cardVariants}
             className="relative h-[420px] flex items-center justify-center text-white p-10 overflow-hidden rounded-2xl shadow-2xl"
             style={{
-              backgroundImage: `linear-gradient(rgba(2,62,138,0.75), rgba(2,62,138,0.75)), url(${card.bgImage})`,
+              backgroundImage: `linear-gradient(rgba(2,62,138,0.75), rgba(2,62,138,0.75)), url(${card.bgImages[currentImages[index]]})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
           >
-            {/* Icon + Text */}
             <div className="flex items-center gap-4">
               <img src={card.icon} alt={card.title} className="w-12 h-12" />
               <h3 className="text-2xl md:text-3xl font-semibold">{card.title}</h3>
