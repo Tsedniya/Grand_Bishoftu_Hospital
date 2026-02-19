@@ -17,6 +17,11 @@ import testtube from '../assets/testtube.svg';
 import camera from '../assets/camera.svg';
 import eye from '../assets/eye.svg';
 import pill from '../assets/pill.svg';
+import photo20 from '../assets/new/photo20.jpg';
+import photo8 from '../assets/new/photo8.jpg';
+import photo21 from '../assets/new/photo21.jpg';
+import photo9 from '../assets/new/photo9.jpg';
+import photo23 from '../assets/new/photo23.jpg';
 import { motion } from "framer-motion";
 
 const Departements = () => {
@@ -60,13 +65,13 @@ const Departements = () => {
       {
         title: 'Pulmonology',
         desc: 'Specialized care for respiratory and lung conditions including asthma, pneumonia, tuberculosis, and chronic lung diseases, providing advanced diagnosis and personalized treatment for better breathing health.',
-        img: men,
+        img: photo20,
         icon: stethoscope,
       },
       {
         title: 'Laboratory Services',
         desc: 'Comprehensive diagnostic testing services providing accurate and timely analysis of blood, urine, and other samples to support disease detection, monitoring, and effective treatment decisions.',
-        img: men,
+        img: photo8,
         icon: testtube,
       },
       {
@@ -78,13 +83,13 @@ const Departements = () => {
       {
         title: 'Laparoscopic Surgery',
         desc: 'Minimally invasive surgical procedures using advanced technology and small incisions, ensuring faster recovery, less pain, and improved patient outcomes across various medical conditions.',
-        img: men,
+        img: photo21,
         icon: camera,
       },
       {
         title: 'Ophthalmology',
         desc: 'Comprehensive eye care services including diagnosis and treatment of vision problems, eye diseases, and surgical procedures to maintain and improve overall eye health.',
-        img: men,
+        img: photo23,
         icon: eye,
       },
       {
@@ -96,7 +101,7 @@ const Departements = () => {
       {
         title: 'Urology',
         desc: 'Comprehensive care for disorders of the urinary tract and male reproductive system, including kidney stones, prostate issues, urinary infections, and infertility treatments, using advanced diagnostics and therapies.',
-        img: men,
+        img: photo9,
         icon: ambulance,
       },
       {

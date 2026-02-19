@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import opration from "../assets/opration.jpg";
+import photo12 from "../assets/new/photo12.jpg";
 
 const Hometwo = () => {
   // slide-in from right
@@ -35,7 +35,7 @@ const Hometwo = () => {
           </svg>
 
           <img
-            src={opration}
+            src={photo12}
             alt="Operation"
             className="w-full h-full object-cover shadow-xl rounded-lg"
             style={{ clipPath: "url(#blobClip)" }}

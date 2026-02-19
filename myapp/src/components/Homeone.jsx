@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import opration from "../assets/opration.jpg";
+import photo15 from "../assets/new/photo15.jpg";
 import star from "../assets/star.svg";
 import heart from "../assets/heart.svg";
 
@@ -43,7 +43,7 @@ const Homeone = () => {
           </svg>
 
           <img
-            src={opration}
+            src={photo15}
             alt="Operation"
             className="w-full h-full object-cover shadow-xl rounded-lg"
             style={{ clipPath: "url(#blobClip)" }}

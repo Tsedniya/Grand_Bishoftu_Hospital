@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactMap = () => {
   return (
-    <div className="w-full mt-10 px-4 sm:px-8 md:px-16 mb-20">
+    <div className="w-full mt-5 px-4 sm:px-8 md:px-16 mb-20">
       <div className="flex flex-col md:flex-row gap-12 items-start">
         {/* Left: Map */}
         <div className="w-full md:w-1/2 h-[400px] rounded-xl overflow-hidden shadow-lg">

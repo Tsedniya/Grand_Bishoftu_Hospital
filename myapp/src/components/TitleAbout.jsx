@@ -1,13 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CountUp from "../components/CountUp";
-import hospital from "../assets/hospital.jpg";
-import doctor from "../assets/doctor.jpg";
-import middle from "../assets/middle.jpg";
+import photo5 from "../assets/new/photo5.jpg";
+import photo6 from "../assets/new/photo6.jpg";
+import photo13 from "../assets/new/photo13.jpg";
 
 const TitleAbout = () => {
-  const imgStyle =
-    "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
+    const imgStyle = "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
 
   return (
     <div className="mt-10 bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
@@ -40,24 +39,24 @@ const TitleAbout = () => {
 
           {/* Big image (row 1) */}
           <motion.div
-            className="overflow-hidden h-[320px] md:h-full"
+            className="overflow-hidden h-[320px] sm:h-[360px] md:h-[400px] lg:h-[400px]"
             initial={{ y: 80, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <img src={hospital} alt="Hospital" className={imgStyle} />
+            <img src={photo5} alt="Hospital" className={imgStyle} />
           </motion.div>
 
           {/* Small images (row 2) */}
-          <div className="flex gap-4 h-[180px]">
+          <div className="flex gap-4 h-[180px] sm:h-[200px] md:h-[220px]">
             <motion.div
               className="flex-1 overflow-hidden"
               initial={{ y: 50, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
             >
-              <img src={doctor} alt="Doctor" className={imgStyle} />
+              <img src={photo6} alt="Doctor" className={imgStyle} />
             </motion.div>
 
             <motion.div
@@ -66,7 +65,7 @@ const TitleAbout = () => {
               whileInView={{ y: 0, opacity: 1 }}
               viewport={{ once: true }}
             >
-              <img src={middle} alt="Inside" className={imgStyle} />
+              <img src={photo13} alt="Inside" className={imgStyle} />
             </motion.div>
           </div>
         </div>
@@ -98,7 +97,7 @@ const TitleAbout = () => {
 
           {/* Stats card (row 2) */}
           <motion.div
-            className="bg-white rounded-2xl shadow-2xl p-6 flex items-center justify-center h-[180px] hover:shadow-xl transition"
+            className="bg-white rounded-2xl shadow-2xl p-6 flex items-center justify-center h-[180px] sm:h-[200px] md:h-[220px] hover:shadow-xl transition"
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
