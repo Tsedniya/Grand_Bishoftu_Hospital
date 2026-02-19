@@ -27,18 +27,33 @@ const Navbar = () => {
               <h3 className="text-base sm:text-lg">+251-977434445</h3>
             </div>
 
-            <div className="flex items-center gap-1">
-              <img className="w-5" src={mailopen} alt="" />
-              <h3 className="text-base sm:text-lg">test@email.com</h3>
-            </div>
+            <a
+              href="https://www.facebook.com/p/Grand-Bishoftu-Hospital-100064801448190/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:opacity-80 transition"
+            >
+              <h3 className="text-base sm:text-lg">Facebook</h3>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@grand_bishoftu_hospital?lang=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:opacity-80 transition"
+            >
+              <h3 className="text-base sm:text-lg">Tiktok</h3>
+            </a>
+
           </div>
 
           {/* Social icons — desktop only */}
-          <div className="hidden lg:flex items-center gap-4 text-white text-sm font-semibold">
-            <span>FB</span>
-            <span>TW</span>
-            <span>IG</span>
+          <div className="hidden lg:flex items-center gap-2 text-white text-base font-semibold">
+            <img className="w-5 h-5" src={mailopen} alt="email icon" />
+            <span>grandbishoftuhospital@gmail.com</span>
           </div>
+
+
         </div>
       </div>
 
