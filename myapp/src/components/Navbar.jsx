@@ -23,7 +23,6 @@ const Navbar = () => {
           {/* Phone + Email */}
           <div className="flex items-center gap-6 text-white text-sm font-semibold">
             <div className="flex items-center gap-1">
-              <img src={phonecall} className="w-5" alt="" />
               <h3 className="text-base sm:text-lg">+251-977434445</h3>
             </div>
 

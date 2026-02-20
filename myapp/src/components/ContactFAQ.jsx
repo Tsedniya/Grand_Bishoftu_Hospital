@@ -4,12 +4,12 @@ const ContactFaqData = [
   {
     question: "How can I contact the hospital?",
     answer:
-      "You can reach us by phone at +251 912 345 678, email at info@grandbishoftuhospital.com, or by filling out our contact form.",
+      "You can reach us by phone at +251 978434445, email at grandbishoftuhospital@gmail.com, or by filling out our contact form.",
   },
   {
     question: "Where is the hospital located?",
     answer:
-      "Grand Bishoftu Hospital is located at 123 Main Street, Bishoftu, Ethiopia. You can also find directions on our map.",
+      "Grand Bishoftu Hospital is located at Bishoftu,Inova-Behind Yaden Hotel, Ethiopia. You can also find directions on our map.",
   },
   {
     question: "How do I book an appointment?",

@@ -3,15 +3,21 @@ import { motion } from "framer-motion";
 import men from "../assets/men.jpg";
 import cancer from "../assets/cancer.jpg";
 import photo_1 from "../assets/photo_1.jpg";
-import inside from "../assets/inside.jpg";
-import opration from "../assets/opration.jpg";
 import photo_2 from "../assets/photo_2.jpg";
-import logo from "../assets/logo.jpeg";
 import machine from "../assets/machine.jpg";
 import home from "../assets/home.jpg";
 import map from "../assets/map.svg";
 import heartpulse from "../assets/heartpulse.svg";
 import notebook from "../assets/notebook.svg";
+import photo23 from "../assets/new/photo23.jpg";
+import photo14 from "../assets//new/photo14.jpg";
+import photo15 from "../assets/new/photo15.jpg";
+import photo16 from "../assets/new/photo16.jpg";
+import photo22 from "../assets/new/photo22.jpg";
+import photo19 from "../assets/new/photo19.jpg";
+import photo8 from "../assets/new/photo8.jpg";
+import photo10 from "../assets/new/photo10.jpg";
+import photo13 from "../assets/new/photo13.jpg";
 
 const EmergencyBox = () => {
   const [currentImages, setCurrentImages] = useState([0, 0, 0]);
@@ -27,9 +33,9 @@ const EmergencyBox = () => {
   };
 
   const cards = [
-    { title: "Emergency Services", icon: heartpulse, bgImages: [men, cancer, photo_1] },
-    { title: "Get Directions", icon: map, bgImages: [logo, machine, home] },
-    { title: "Book Appointment", icon: notebook, bgImages: [inside, opration, photo_2] },
+    { title: "Emergency Services", icon: heartpulse, bgImages: [cancer, photo_1, photo14,photo16] },
+    { title: "Get Directions", icon: map, bgImages: [photo15, photo13, home,photo23] },
+    { title: "Book Appointment", icon: notebook, bgImages: [photo10, photo8, photo22,photo19,] },
   ];
 
   useEffect(() => {

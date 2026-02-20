@@ -29,13 +29,13 @@ const ContactMap = () => {
           </p>
           <div className="text-lg">
             <p className="mb-2">
-              <strong>Address:</strong> 123 Main Street, Bishoftu, Ethiopia
+              <strong>Address:</strong> Bishoftu,Inova-Behind Yaden Hotel
             </p>
             <p className="mb-2">
-              <strong>Phone:</strong> +251 912 345 678
+              <strong>Phone:</strong> +251 977434445
             </p>
             <p className="mb-2">
-              <strong>Email:</strong> info@grandbishoftuhospital.com
+              <strong>Email:</strong> grandbishoftuhospital@gmail.com
             </p>
           </div>
         </div>
