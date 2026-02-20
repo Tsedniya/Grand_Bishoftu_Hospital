@@ -1,13 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import CountUp from "../components/CountUp";
-import hospital from "../assets/hospital.jpg";
-import doctor from "../assets/doctor.jpg";
-import middle from "../assets/middle.jpg";
+import photo5 from "../assets/new/photo5.jpg";
+import photo6 from "../assets/new/photo6.jpg";
+import photo13 from "../assets/new/photo13.jpg";
 
 const TitleAbout = () => {
-  const imgStyle =
-    "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-120";
+    const imgStyle = "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
 
   return (
     <div className="mt-10 bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
@@ -16,12 +15,14 @@ const TitleAbout = () => {
       <motion.div
         className="flex flex-col items-center"
         initial={{ y: 80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
           About
         </p>
+
         <p className="text-center text-lg mt-4 md:mt-6 max-w-3xl">
           Providing trusted healthcare services with compassion and excellence.
           Our experienced medical specialists are committed to ensuring the
@@ -30,43 +31,59 @@ const TitleAbout = () => {
         </p>
       </motion.div>
 
-      {/* Main Section */}
-      <div className="my-20 flex flex-col md:flex-row gap-10 items-start">
+      {/* MAIN GRID */}
+      <div className="my-20 grid grid-cols-1 md:grid-cols-2 gap-10">
 
-        {/* Left: Image Group */}
-        <motion.div
-          className="w-full md:w-7/12 flex flex-col gap-4"
-          initial={{ y: 80, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          {/* Big image */}
-          <div className="h-[320px] overflow-hidden">
-            <img src={hospital} alt="Hospital" className={imgStyle} />
-          </div>
+        {/* LEFT COLUMN */}
+        <div className="grid grid-rows-[1fr_180px] gap-4">
 
-          {/* Container for 2 small images */}
-          <div className="flex gap-4 h-[180px]">
-            <div className="flex-1 overflow-hidden">
-              <img src={doctor} alt="Doctor" className={imgStyle} />
-            </div>
-            <div className="flex-1 overflow-hidden">
-              <img src={middle} alt="Inside" className={imgStyle} />
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Right: Text + Stats */}
-        <div className="w-full md:w-5/12 flex flex-col justify-between gap-6">
-
-          {/* Text */}
+          {/* Big image (row 1) */}
           <motion.div
-            className="text-justify text-base"
+            className="overflow-hidden h-[320px] sm:h-[360px] md:h-[400px] lg:h-[400px]"
             initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
           >
-            <p className="text-lg mt-4 md:mt-6 max-w-3xl">
+            <img src={photo5} alt="Hospital" className={imgStyle} />
+          </motion.div>
+
+          {/* Small images (row 2) */}
+          <div className="flex gap-4 h-[180px] sm:h-[200px] md:h-[220px]">
+            <motion.div
+              className="flex-1 overflow-hidden"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <img src={photo6} alt="Doctor" className={imgStyle} />
+            </motion.div>
+
+            <motion.div
+              className="flex-1 overflow-hidden"
+              initial={{ y: 50, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              viewport={{ once: true }}
+            >
+              <img src={photo13} alt="Inside" className={imgStyle} />
+            </motion.div>
+          </div>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="grid grid-rows-[1fr_180px] gap-4">
+
+          {/* Text (row 1) */}
+          <motion.div
+            initial={{ y: 80, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
+              Exceptional Patient Care
+            </h3>
+
+            <p className="text-lg mt-4 md:mt-6">
               At Grand Bishoftu Hospital, we are committed to providing exceptional
               healthcare with compassion and expertise. Our experienced medical
               specialists work tirelessly to ensure every patient's well-being
@@ -78,37 +95,31 @@ const TitleAbout = () => {
             </p>
           </motion.div>
 
-          {/* Stats Card */}
+          {/* Stats card (row 2) */}
           <motion.div
-            className="bg-white rounded-2xl shadow-2xl p-8 w-full transition-all duration-300 hover:shadow-xl hover:-translate-y-1 mt-auto h-[180px] flex items-center"
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            className="bg-white rounded-2xl shadow-2xl p-6 flex items-center justify-center h-[180px] sm:h-[200px] md:h-[220px] hover:shadow-xl transition"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-6 gap-x-12 text-center w-full">
-
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center w-full">
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
                   <CountUp end={25} suffix="+" />
                 </div>
-                <p className="mt-2 text-sm ">
-                  Years of Experience
-                </p>
+                <p className="mt-2 text-sm">Years of Experience</p>
               </div>
 
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#023E8A] ">
+                <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
                   <CountUp end={50000} suffix="+" />
                 </div>
-                <p className="mt-2 text-sm ">
-                  Patients Treated
-                </p>
+                <p className="mt-2 text-sm">Patients Treated</p>
               </div>
-
             </div>
           </motion.div>
-
         </div>
+
       </div>
     </div>
   );

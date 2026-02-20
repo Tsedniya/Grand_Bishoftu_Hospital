@@ -1,86 +1,90 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { PhoneCall, Clock } from "lucide-react";
+import men from "../assets/men.jpg";
+import cancer from "../assets/cancer.jpg";
+import photo_1 from "../assets/photo_1.jpg";
+import photo_2 from "../assets/photo_2.jpg";
+import machine from "../assets/machine.jpg";
+import home from "../assets/home.jpg";
+import map from "../assets/map.svg";
+import heartpulse from "../assets/heartpulse.svg";
+import notebook from "../assets/notebook.svg";
+import photo23 from "../assets/new/photo23.jpg";
+import photo14 from "../assets//new/photo14.jpg";
+import photo15 from "../assets/new/photo15.jpg";
+import photo16 from "../assets/new/photo16.jpg";
+import photo22 from "../assets/new/photo22.jpg";
+import photo19 from "../assets/new/photo19.jpg";
+import photo8 from "../assets/new/photo8.jpg";
+import photo10 from "../assets/new/photo10.jpg";
+import photo13 from "../assets/new/photo13.jpg";
 
-const cardStyle = `
-  w-full
-  bg-gradient-to-br from-[#023E8A] to-[#0077B6]
-  text-white
-  rounded-3xl
-  shadow-2xl
-  p-8 mt-15
-`;
+const EmergencyBox = () => {
+  const [currentImages, setCurrentImages] = useState([0, 0, 0]);
 
-const ClinicInfoCards = () => {
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.25 } },
+  };
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
+  const cards = [
+    { title: "Emergency Services", icon: heartpulse, bgImages: [cancer, photo_1, photo14,photo16] },
+    { title: "Get Directions", icon: map, bgImages: [photo15, photo13, home,photo23] },
+    { title: "Book Appointment", icon: notebook, bgImages: [photo10, photo8, photo22,photo19,] },
+  ];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImages((prev) =>
+        prev.map((index, i) => (index + 1) % cards[i].bgImages.length)
+      );
+    }, 3000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
-    <div className="w-full max-w-6xl mx-auto px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-13">
+    <div className="w-full mt-5 mb-25 px-4 sm:px-8 md:px-16">
 
-      {/* ONE COMBINED CARD */}
+      {/* Heading on top */}
+      <div className="flex flex-col items-center mt-10 md:mt-25 mb-6 md:mb-15">
+        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
+          Contact
+        </p>
+      </div>
+
+      {/* Cards */}
       <motion.div
-        initial={{ y: 80, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className={cardStyle}
+        className="grid grid-cols-1 md:grid-cols-3 w-full gap-6"
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Row layout */}
-        <div className="flex flex-col md:flex-row gap-10 md:gap-16">
-
-          {/* Emergency Services */}
-          <div className="flex-1 flex flex-col gap-4">
-            <div className="bg-white/20 w-fit p-3 rounded-full">
-              <PhoneCall size={28} />
+        {cards.map((card, index) => (
+          <motion.div
+            key={index}
+            variants={cardVariants}
+            className="relative h-[420px] flex items-center justify-center text-white p-10 overflow-hidden rounded-2xl shadow-2xl"
+            style={{
+              backgroundImage: `linear-gradient(rgba(2,62,138,0.75), rgba(2,62,138,0.75)), url(${card.bgImages[currentImages[index]]})`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          >
+            <div className="flex items-center gap-4">
+              <img src={card.icon} alt={card.title} className="w-12 h-12" />
+              <h3 className="text-2xl md:text-3xl font-semibold">{card.title}</h3>
             </div>
-
-            <h3 className="text-2xl font-semibold">Emergency Services</h3>
-
-            <p className="text-white/90 text-sm">
-              We provide 24/7 emergency medical care with expert doctors
-              and advanced equipment to ensure immediate treatment.
-            </p>
-
-            <div className="text-xl font-bold">
-              Call: +251-977434445
-            </div>
-          </div>
-
-          {/* Vertical Divider */}
-          <div className="hidden md:block w-px bg-white/20"></div>
-
-          {/* Opening Hours */}
-          <div className="flex-1 flex flex-col gap-4">
-            <div className="bg-white/20 w-fit p-3 rounded-full">
-              <Clock size={28} />
-            </div>
-
-            <h3 className="text-2xl font-semibold">Opening Hours</h3>
-
-            <p className="text-white/90 text-sm">
-              Visit us during our working hours for consultations,
-              treatments, and healthcare services.
-            </p>
-
-            <div className="space-y-2 text-sm">
-              <div className="flex justify-between border-b border-white/20 pb-1">
-                <span>Mon – Wed</span>
-                <span>10AM – 4PM</span>
-              </div>
-
-              <div className="flex justify-between border-b border-white/20 pb-1">
-                <span>Thu – Fri</span>
-                <span>9AM – 6PM</span>
-              </div>
-
-              <div className="flex justify-between">
-                <span>Sat – Sun</span>
-                <span>Closed</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
+          </motion.div>
+        ))}
       </motion.div>
     </div>
   );
 };
 
-export default ClinicInfoCards;
+export default EmergencyBox;

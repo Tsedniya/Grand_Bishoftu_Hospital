@@ -3,9 +3,6 @@ import logo from '../assets/logo.jpeg';
 import menu from '../assets/menu.svg';
 import x from '../assets/x.svg';
 import { useState } from 'react';
-import phonecall from '../assets/phonecall.svg';
-import mailopen from '../assets/mailopen.svg';
-
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
@@ -23,27 +20,37 @@ const Navbar = () => {
           {/* Phone + Email */}
           <div className="flex items-center gap-6 text-white text-sm font-semibold">
             <div className="flex items-center gap-1">
-              <img src={phonecall} className="w-5" alt="" />
               <h3 className="text-base sm:text-lg">+251-977434445</h3>
             </div>
 
-            <div className="flex items-center gap-1">
-              <img className="w-5" src={mailopen} alt="" />
-              <h3 className="text-base sm:text-lg">test@email.com</h3>
-            </div>
+            <a
+              href="https://www.facebook.com/p/Grand-Bishoftu-Hospital-100064801448190/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:opacity-80 transition"
+            >
+              <h3 className="text-base sm:text-lg">Facebook</h3>
+            </a>
+
+            <a
+              href="https://www.tiktok.com/@grand_bishoftu_hospital?lang=en"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1 hover:opacity-80 transition"
+            >
+              <h3 className="text-base sm:text-lg">Tiktok</h3>
+            </a>
+
           </div>
 
-          {/* Social icons — desktop only */}
-          <div className="hidden lg:flex items-center gap-4 text-white text-sm font-semibold">
-            <span>FB</span>
-            <span>TW</span>
-            <span>IG</span>
+          {/* Email desktop */}
+          <div className="hidden lg:flex items-center gap-2 text-white text-base font-semibold">
+            <span>grandbishoftuhospital@gmail.com</span>
           </div>
         </div>
       </div>
 
-
-      {/* Main navbar directly below top bar */}
+      {/* Main navbar */}
       <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-70 mt-2 shadow-md">
         {/* Logo */}
         <div className="flex items-center space-x-2">
@@ -55,11 +62,14 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Links */}
-        <ul className="hidden md:flex gap-6 text-gray-600 font-bold text-base">
+        <ul className="hidden md:flex gap-6 text-gray-600 font-bold text-base items-center">
           <NavLink to="/" className="hover:text-black hover:font-bold">Home</NavLink>
           <NavLink to="/about" className="hover:text-black hover:font-bold">About</NavLink>
           <NavLink to="/services" className="hover:text-black hover:font-bold">Services</NavLink>
           <NavLink to="/contact" className="hover:text-black hover:font-bold">Contact</NavLink>
+          <NavLink to="/contact" className="px-3 py-2 bg-sky-500 text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300">
+            Make Appointment
+          </NavLink>
         </ul>
 
         {/* Mobile menu icon */}
@@ -68,7 +78,6 @@ const Navbar = () => {
           alt="menu" 
           onClick={() => setVisible(true)} 
           className="w-8 h-8 cursor-pointer md:hidden"
-
         />
 
         {/* Slide-out Mobile Menu */}
@@ -92,6 +101,15 @@ const Navbar = () => {
               <NavLink to="/about" onClick={() => setVisible(false)}>About</NavLink>
               <NavLink to="/services" onClick={() => setVisible(false)}>Services</NavLink>
               <NavLink to="/contact" onClick={() => setVisible(false)}>Contact</NavLink>
+
+              {/* Mobile Make Appointment Button */}
+              <NavLink
+                to="/contact"
+                onClick={() => setVisible(false)}
+                className="px-3 py-2 bg-sky-500 text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300"
+              >
+                Make Appointment
+              </NavLink>
             </ul>
           </div>
         </div>

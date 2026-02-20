@@ -1,5 +1,6 @@
 import React from 'react'
 import TitleAbout from '../components/TitleAbout'
+import RatingBox from '../components/RatingBox'
 
 
 const About = () => {
@@ -7,6 +8,7 @@ const About = () => {
     <div >
 
       <TitleAbout/>
+      <RatingBox/>
 
     </div>
   )

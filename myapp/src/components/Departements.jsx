@@ -13,10 +13,25 @@ import men from '../assets/men.jpg';
 import cancer from '../assets/cancer.jpg';
 import stethoscope from '../assets/stethoscope.svg';
 import bubbles from '../assets/bubbles.svg';
+import syringe from '../assets/syringe.svg';
+import microscope from '../assets/microscope.svg';
 import testtube from '../assets/testtube.svg';
 import camera from '../assets/camera.svg';
 import eye from '../assets/eye.svg';
 import pill from '../assets/pill.svg';
+import photo20 from '../assets/new/photo20.jpg';
+import photo8 from '../assets/new/photo8.jpg';
+import photo21 from '../assets/new/photo21.jpg';
+import photo9 from '../assets/new/photo9.jpg';
+import photo23 from '../assets/new/photo23.jpg';
+import photo25 from '../assets/new/photo25.jpg';
+import photo32 from '../assets/new/photo32.jpg';
+import photo34 from '../assets/new/photo34.jpg';
+import photo33 from '../assets/new/photo33.jpg';
+import photo36 from '../assets/new/photo36.jpg';
+import photo35 from '../assets/new/photo35.jpg';
+import photo15 from '../assets/new/photo15.jpg';
+import venus from '../assets/venus.svg';
 import { motion } from "framer-motion";
 
 const Departements = () => {
@@ -24,19 +39,19 @@ const Departements = () => {
       {
         title: 'Cardiology',
         desc: 'Comprehensive cardiovascular care with advanced diagnostic techniques and treatment options for heart conditions, ensuring optimal cardiac health for all patients.',
-        img: patient,
+        img: photo34,
         icon: pulse,
       },
       {
         title: 'Neurology',
         desc: 'Expert neurological care specializing in brain and nervous system disorders, providing cutting-edge treatments and compassionate support for neurological conditions.',
-        img: photo,
+        img: photo36,
         icon: brain,
       },
       {
         title: 'Orthopedics',
         desc: 'Advanced musculoskeletal care focusing on bones, joints, and muscles with innovative surgical and non-surgical treatment approaches for mobility restoration.',
-        img: photo_1,
+        img: photo35,
         icon: bone,
       },
       {
@@ -60,55 +75,55 @@ const Departements = () => {
       {
         title: 'Pulmonology',
         desc: 'Specialized care for respiratory and lung conditions including asthma, pneumonia, tuberculosis, and chronic lung diseases, providing advanced diagnosis and personalized treatment for better breathing health.',
-        img: men,
+        img: photo20,
         icon: stethoscope,
       },
       {
         title: 'Laboratory Services',
         desc: 'Comprehensive diagnostic testing services providing accurate and timely analysis of blood, urine, and other samples to support disease detection, monitoring, and effective treatment decisions.',
-        img: men,
+        img: photo8,
         icon: testtube,
       },
       {
         title: 'Infectious Disease',
         desc: 'Expert care for the prevention, diagnosis, and treatment of bacterial, viral, and fungal infections, offering advanced therapies and infection control to protect patient health and safety.',
-        img: men,
+        img: photo32,
         icon: bubbles,
       },
       {
         title: 'Laparoscopic Surgery',
         desc: 'Minimally invasive surgical procedures using advanced technology and small incisions, ensuring faster recovery, less pain, and improved patient outcomes across various medical conditions.',
-        img: men,
+        img: photo21,
         icon: camera,
       },
       {
         title: 'Ophthalmology',
         desc: 'Comprehensive eye care services including diagnosis and treatment of vision problems, eye diseases, and surgical procedures to maintain and improve overall eye health.',
-        img: men,
+        img: photo23,
         icon: eye,
       },
       {
         title: 'Gynecology',
         desc: 'Specialized healthcare services focused on women’s reproductive health, providing diagnosis, treatment, and preventive care for various gynecological conditions in a supportive environment.',
-        img: men,
-        icon: ambulance,
+        img: photo25,
+        icon: venus,
       },
       {
         title: 'Urology',
         desc: 'Comprehensive care for disorders of the urinary tract and male reproductive system, including kidney stones, prostate issues, urinary infections, and infertility treatments, using advanced diagnostics and therapies.',
-        img: men,
-        icon: ambulance,
+        img: photo9,
+        icon: microscope,
       },
       {
         title: 'Plastic Surgery',
         desc: 'Expert reconstructive and cosmetic surgery services for restoring function, correcting defects, and enhancing appearance, including procedures for burns, injuries, congenital defects, and aesthetic improvements.',
-        img: men,
-        icon: ambulance,
+        img: photo15,
+        icon: syringe,
       },
       {
         title: 'Pharmacy',
         desc: 'Comprehensive pharmacy services providing safe and effective medication management, prescription dispensing, patient counseling, and guidance to ensure optimal therapeutic outcomes.',
-        img: men,
+        img: photo33,
         icon: pill,
       },
     ];
@@ -126,7 +141,7 @@ const Departements = () => {
 
   return (
     <div className="max-w-[1200px] mx-auto my-12 px-4 sm:px-6">
-      <div className="flex flex-col items-center mt-25 mb-15">
+      <div  className="flex flex-col items-center mt-10 md:mt-25 mb-6 md:mb-15">
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
           Services
         </p>
