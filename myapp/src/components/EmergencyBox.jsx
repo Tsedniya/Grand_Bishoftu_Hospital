@@ -10,7 +10,7 @@ import map from "../assets/map.svg";
 import heartpulse from "../assets/heartpulse.svg";
 import notebook from "../assets/notebook.svg";
 import photo23 from "../assets/new/photo23.jpg";
-import photo14 from "../assets//new/photo14.jpg";
+import photo14 from "../assets/new/photo14.jpg";
 import photo15 from "../assets/new/photo15.jpg";
 import photo16 from "../assets/new/photo16.jpg";
 import photo22 from "../assets/new/photo22.jpg";
