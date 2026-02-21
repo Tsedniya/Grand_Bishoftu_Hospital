@@ -19,20 +19,13 @@ const TitleAbout = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
-          About
-        </p>
-
-        <p className="text-center text-lg mt-4 md:mt-6 max-w-3xl">
-          Providing trusted healthcare services with compassion and excellence.
-          Our experienced medical specialists are committed to ensuring the
-          well-being of every patient through advanced treatment, personalized
-          care, and a patient-first approach.
+        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-10 ">
+            About
         </p>
       </motion.div>
 
       {/* MAIN GRID */}
-      <div className="my-20 grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="mt-6 md:my-17 grid grid-cols-1 md:grid-cols-2 gap-10">
 
         {/* LEFT COLUMN */}
         <div className="grid grid-rows-[1fr_180px] gap-4">
@@ -83,7 +76,7 @@ const TitleAbout = () => {
               Exceptional Patient Care
             </h3>
 
-            <p className="text-lg mt-4 md:mt-6">
+            <p className="text-lg mt-4 md:mt-2 text-justify">
               At Grand Bishoftu Hospital, we are committed to providing exceptional
               healthcare with compassion and expertise. Our experienced medical
               specialists work tirelessly to ensure every patient's well-being
@@ -107,14 +100,14 @@ const TitleAbout = () => {
                 <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
                   <CountUp end={25} suffix="+" />
                 </div>
-                <p className="mt-2 text-sm">Years of Experience</p>
+                <p className="mt-2 font-poppins text-base">Years of Experience</p>
               </div>
 
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
                   <CountUp end={50000} suffix="+" />
                 </div>
-                <p className="mt-2 text-sm">Patients Treated</p>
+                <p className="mt-2 font-poppins text-base">Patients Treated</p>
               </div>
             </div>
           </motion.div>

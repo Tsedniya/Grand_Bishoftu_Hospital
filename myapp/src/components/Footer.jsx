@@ -25,31 +25,31 @@ const Footer = () => {
               <span className="text-2xl font-bold text-white">
                 Grand Bishoftu Hospital
               </span>
-              <span className="text-lg font-bold text-white">
+              <span className="text-base font-bold text-white">
                 <strong>Address:</strong> Bishoftu, Ethiopia
               </span>
-              <span className="text-lg font-bold text-white">
+              <span className="text-base font-bold text-white">
                  Inova-Behind Yaden Hotel
               </span>
               
-              <span className="text-lg font-bold text-white">
+              <span className="text-base font-bold text-white">
                  <a
                   href="https://www.facebook.com/p/Grand-Bishoftu-Hospital-100064801448190/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:opacity-80 transition"
                 >
-                  <span className="text-base sm:text-lg">Facebook</span>
+                  <span className="text-base">Facebook</span>
                 </a>
               </span>
-              <span className="text-lg font-bold text-white">
+              <span className="text-base font-bold text-white">
                   <a
                   href="https://www.tiktok.com/@grand_bishoftu_hospital?lang=en"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-1 hover:opacity-80 transition"
                 >
-                  <span className="text-base sm:text-lg">Tiktok</span>
+                  <span className="text-base">Tiktok</span>
                 </a>
               </span>
 
