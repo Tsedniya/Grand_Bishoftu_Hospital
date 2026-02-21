@@ -36,11 +36,11 @@ const TestimonialCard = ({ rating, title, review, name }) => (
   <div
     className="
       bg-white rounded-xl shadow-lg p-4 text-center flex-shrink-0 mx-2
-      w-[260px] flex flex-col
+      w-[260px] flex flex-col 
     "
   >
     {/* Avatar as initial */}
-    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-blue-500 text-white flex items-center justify-center mx-auto mb-3 text-lg sm:text-xl font-semibold">
+    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#023E8A] text-white flex items-center justify-center mx-auto mb-3 text-lg sm:text-xl font-semibold">
       {name.charAt(0)}
     </div>
 
@@ -57,10 +57,10 @@ const TestimonialCard = ({ rating, title, review, name }) => (
     </h3>
 
     {/* Name */}
-    <p className="text-gray-900 text-sm font-medium mb-2">{name}</p>
+    <p className=" text-xs sm:text-base font-bold mb-2">{name}</p>
 
     {/* Review */}
-    <p className="text-gray-600 text-xs sm:text-sm mb-3 break-words whitespace-normal">
+    <p className="text-center text-xs sm:text-base mb-3 break-words whitespace-normal">
       {review}
     </p>
   </div>
@@ -79,7 +79,7 @@ const TestimonialSlider = () => {
     );
 
   return (
-    <div className="py-10 bg-gray-100">
+    <div className="py-10 bg-gray-100 mb-8 md:mb-12 md:-mt-6 -mt-10">
       {/* MOBILE — ONE CARD */}
       <div className="relative md:hidden px-6 flex justify-center items-center">
         <button

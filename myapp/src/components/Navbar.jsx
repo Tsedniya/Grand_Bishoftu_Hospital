@@ -67,7 +67,7 @@ const Navbar = () => {
           <NavLink to="/about" className="hover:text-black hover:font-bold">About</NavLink>
           <NavLink to="/services" className="hover:text-black hover:font-bold">Services</NavLink>
           <NavLink to="/contact" className="hover:text-black hover:font-bold">Contact</NavLink>
-          <NavLink to="/contact" className="px-3 py-2 bg-sky-500 text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300">
+          <NavLink to="/contact" className="px-3 py-2 bg-sky-500 md:text-center text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300">
             Make Appointment
           </NavLink>
         </ul>

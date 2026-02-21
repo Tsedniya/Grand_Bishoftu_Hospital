@@ -48,11 +48,11 @@ const EmergencyBox = () => {
   }, []);
 
   return (
-    <div className="w-full mt-5 mb-25 px-4 sm:px-8 md:px-16">
+    <div className="w-full -mt-2 mb-25 px-4 sm:px-8 md:px-16">
 
       {/* Heading on top */}
-      <div className="flex flex-col items-center mt-10 md:mt-25 mb-6 md:mb-15">
-        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-16">
+      <div className="flex flex-col items-center mt-2 md:mt-25 mb-6 md:mb-7">
+        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-12 md:mt-13">
           Contact
         </p>
       </div>
@@ -77,8 +77,8 @@ const EmergencyBox = () => {
             }}
           >
             <div className="flex items-center gap-4">
-              <img src={card.icon} alt={card.title} className="w-12 h-12" />
-              <h3 className="text-2xl md:text-3xl font-semibold">{card.title}</h3>
+              <img src={card.icon} alt={card.title} className="w-12 h-12 text-center" />
+              <h3 className="text-2xl md:text-3xl text-center font-semibold">{card.title}</h3>
             </div>
           </motion.div>
         ))}

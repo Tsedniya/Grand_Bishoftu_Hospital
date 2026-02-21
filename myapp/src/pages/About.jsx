@@ -1,6 +1,7 @@
 import React from 'react'
 import TitleAbout from '../components/TitleAbout'
 import RatingBox from '../components/RatingBox'
+import Treatment from '../components/Treatment'
 
 
 const About = () => {
@@ -9,6 +10,7 @@ const About = () => {
 
       <TitleAbout/>
       <RatingBox/>
+      <Treatment/>
 
     </div>
   )
