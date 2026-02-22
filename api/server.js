@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import authRoutes from './routes/auth.route.js'
 import bookRoutes from './routes/book.route.js'
 import cookieParser from 'cookie-parser';
+import cors from "cors";
 dotenv.config()
 
 
@@ -15,6 +16,12 @@ mongoose.connect(process.env.MONGO).then(() =>{
 })
 const app = express()
 
+app.use(
+  cors({
+    origin: "http://localhost:5174", // your frontend
+    credentials: true
+  })
+);
 app.use(express.json())
 app.use(cookieParser());
 
