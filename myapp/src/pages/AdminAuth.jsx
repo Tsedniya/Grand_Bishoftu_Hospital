@@ -16,7 +16,9 @@ const AdminAuth = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = isSignup ? "/api/auth/signup" : "/api/auth/login";
+    const API = import.meta.env.VITE_API_URL;
+
+    const url = isSignup ? `${API}/auth/signup`: `${API}/auth/login`;
 
     const res = await fetch(url, {
       method: "POST",
