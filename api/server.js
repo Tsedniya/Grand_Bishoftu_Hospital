@@ -2,6 +2,7 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.route.js'
+import bookRoutes from './routes/book.route.js'
 import cookieParser from 'cookie-parser';
 dotenv.config()
 
@@ -19,6 +20,7 @@ app.use(cookieParser());
 
 
 app.use('/api/auth', authRoutes) 
+app.use('/api/book', bookRoutes) 
 
 
 app.use((err,req,res,next)=>{
