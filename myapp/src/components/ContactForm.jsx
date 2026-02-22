@@ -26,7 +26,7 @@ const ContactForm = () => {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:6001/api/appointments", {
+      const res = await fetch(`${process.env.REACT_APP_API_URL}/book/appointment`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -98,28 +98,28 @@ const ContactForm = () => {
           >
 
             <input
-              id="name"
+              id="patientName"
               type="text"
               placeholder="Full Name"
-              value={formData.name}
+              value={formData.patientName}
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
             />
 
             <input
-              id="email"
+              id="patientEmail"
               type="email"
               placeholder="Email Address"
-              value={formData.email}
+              value={formData.patientEmail}
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
             />
 
             <input
-              id="phone"
+              id="patientPhone"
               type="tel"
               placeholder="Phone Number"
-              value={formData.phone}
+              value={formData.patientPhone}
               onChange={handleChange}
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
             />
