@@ -2,9 +2,10 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import authRoutes from './routes/auth.route.js'
-import bookRoutes from './routes/book.route.js'
 import cookieParser from 'cookie-parser';
 import cors from "cors";
+import appointmentRoutes from './routes/appointment.route.js';
+
 dotenv.config()
 
 
@@ -16,18 +17,16 @@ mongoose.connect(process.env.MONGO).then(() =>{
 })
 const app = express()
 
-app.use(
-  cors({
-    origin: "http://localhost:5174", // your frontend
-    credentials: true
-  })
-);
+app.use(cors({
+  origin: ["http://localhost:5173", "http://localhost:5174","http://localhost:5175"],
+  credentials: true
+}));
 app.use(express.json())
 app.use(cookieParser());
 
 
 app.use('/api/auth', authRoutes) 
-app.use('/api/book', bookRoutes) 
+app.use('/api/appointments', appointmentRoutes);
 
 
 app.use((err,req,res,next)=>{

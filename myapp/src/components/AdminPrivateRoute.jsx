@@ -3,7 +3,7 @@ import { Navigate } from "react-router-dom";
 
 const AdminPrivateRoute = ({ children }) => {
   // check if the admin is logged in
-  const admin = localStorage.getItem("admin"); // or check from your global state
+  const admin = JSON.parse(localStorage.getItem("admin")); // or check from your global state
 
   // if no admin, redirect to login page
   if (!admin) {

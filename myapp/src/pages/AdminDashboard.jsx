@@ -1,4 +1,3 @@
-// AdminDashboard.jsx
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -7,58 +6,73 @@ const AdminDashboard = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // fetch appointments on page load
-  useEffect(() => {
-    const fetchAppointments = async () => {
-      try {
-        const res = await fetch("/api/appointments", {
-          credentials: "include", // include the cookie
-        });
-        if (!res.ok) throw new Error("Failed to fetch appointments");
-        const data = await res.json();
-        setAppointments(data);
-      } catch (err) {
-        console.log(err);
-        alert("Error fetching appointments. Please login again.");
-        navigate("/admin/auth");
-      } finally {
-        setLoading(false);
-      }
-    };
+  // Fetch appointments function
+  const fetchAppointments = async () => {
+    try {
+      const res = await fetch("http://localhost:3000/api/appointments", {
+        method: "GET",
+        credentials: "include", // sends cookies with request
+        headers: { "Content-Type": "application/json" },
+      });
 
+      if (!res.ok) {
+        if (res.status === 401) throw new Error("Not authenticated. Please login as admin.");
+        if (res.status === 403) throw new Error("Token invalid. Access denied.");
+        throw new Error(`Request failed with status ${res.status}`);
+      }
+
+      const data = await res.json();
+      setAppointments(data);
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+      navigate("/admin/auth"); // redirect if unauthorized
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Fetch on mount + poll every 5 seconds
+  useEffect(() => {
     fetchAppointments();
+    const interval = setInterval(fetchAppointments, 5000);
+    return () => clearInterval(interval);
   }, [navigate]);
 
-  // handle Accept / Decline
+  // Update appointment status
   const updateStatus = async (id, status) => {
     try {
-      const res = await fetch(`/api/appointments/${id}/status`, {
+      const res = await fetch(`http://localhost:3000/api/appointments/${id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
         body: JSON.stringify({ status }),
       });
+
       if (!res.ok) throw new Error("Failed to update status");
       const updated = await res.json();
 
-      // update the appointment in state
       setAppointments((prev) =>
         prev.map((appt) => (appt._id === id ? updated : appt))
       );
     } catch (err) {
-      console.log(err);
+      console.error(err);
       alert("Error updating appointment status");
     }
   };
 
-  // handle logout
+  // Logout handler
   const handleLogout = async () => {
-    await fetch("/api/auth/logout", {
-      method: "POST",
-      credentials: "include",
-    });
-    localStorage.removeItem("admin");
-    navigate("/admin/auth");
+    try {
+      await fetch("http://localhost:3000/api/auth/logout", {
+        method: "POST",
+        credentials: "include",
+      });
+      localStorage.removeItem("admin");
+      navigate("/admin/auth");
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
   };
 
   if (loading) return <div className="p-8 text-center">Loading...</div>;

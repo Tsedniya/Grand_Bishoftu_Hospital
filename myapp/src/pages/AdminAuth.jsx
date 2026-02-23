@@ -29,17 +29,18 @@ const AdminAuth = () => {
 
     const data = await res.json();
 
+    
     if (res.ok) {
-      if (isSignup) {
-        alert("Signup successful! Please login.");
-        setIsSignup(false);
-      } else {
-        // Login successful → redirect to dashboard
-        navigate("/admin/dashboard");
-      }
+    if (isSignup) {
+      alert("Signup successful! Please login.");
+      setIsSignup(false);
     } else {
-      alert(data.message || "Something went wrong");
+      // ✅ tell app admin is logged in
+      localStorage.setItem("admin", JSON.stringify(data));
+
+      navigate("/admin/dashboard");
     }
+  }
   };
 
   return (
