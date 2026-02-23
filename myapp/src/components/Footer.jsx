@@ -26,7 +26,7 @@ const Footer = () => {
                 Grand Bishoftu Hospital
               </span>
               <span className="text-base font-bold text-white">
-                <strong>Address:</strong> Bishoftu, Ethiopia
+                   Address: Bishoftu, Ethiopia
               </span>
               <span className="text-base font-bold text-white">
                  Inova-Behind Yaden Hotel
@@ -66,7 +66,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/")}
-                  className="text-white font-bold sm:text-base text-sm"
+                  className="text-white font-bold sm:text-base text-sm hover:opacity-80 transition"
                 >
                   Home
                 </button>
@@ -74,7 +74,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/about")}
-                  className="text-white font-bold sm:text-base text-sm"
+                  className="text-white font-bold sm:text-base text-sm hover:opacity-80 transition"
                 >
                   About Us
                 </button>
@@ -82,7 +82,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/services")}
-                  className="text-white font-bold sm:text-base text-sm"
+                  className="text-white font-bold sm:text-base text-sm hover:opacity-80 transition"
                 >
                   Services
                 </button>
@@ -90,7 +90,7 @@ const Footer = () => {
               <li>
                 <button
                   onClick={() => goTo("/contact")}
-                  className="text-white font-bold sm:text-base text-sm"
+                  className="text-white font-bold sm:text-base text-sm hover:opacity-80 transition"
                 >
                   Contact
                 </button>
