@@ -5,7 +5,7 @@ import notebook from "../assets/notebook.svg";
 import call from "../assets/call.svg";
 
 const ContactForm = () => {
-  // form state
+  
   const [formData, setFormData] = useState({
     patientName: "",
     patientEmail: "",
@@ -13,7 +13,7 @@ const ContactForm = () => {
     date: ""
   });
 
-  // toast state
+  
   const [showToast, setShowToast] = useState(false);
 
   const handleChange = (e) => {
@@ -38,7 +38,7 @@ const ContactForm = () => {
       const data = await res.json();
       console.log("Appointment sent:", data);
 
-      // reset form
+    
       setFormData({
         patientName: "",
         patientEmail: "",
@@ -46,9 +46,9 @@ const ContactForm = () => {
         date: ""
       });
 
-      // show toast
+      
       setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000); // hide after 3s
+      setTimeout(() => setShowToast(false), 3000); 
 
     } catch (error) {
       console.log("Error sending form:", error);

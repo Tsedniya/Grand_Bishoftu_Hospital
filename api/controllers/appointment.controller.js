@@ -50,3 +50,25 @@ export const updateAppointmentStatus = async (req, res) => {
     res.status(500).json("Server error");
   }
 };
+
+
+export const updateAppointment = async (req, res) =>{
+  const { id } = req.params;
+  const updateData = req.body; // can include patientName, status, etc.
+  try {
+    const updatedAppointment = await Appointment.findByIdAndUpdate(id, updateData, { new: true });
+    res.json(updatedAppointment);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
+export const deleteAppointment = async (req, res) => {
+  const { id } = req.params;
+  try {
+    await Appointment.findByIdAndDelete(id);
+    res.json({ message: "Appointment deleted successfully" });
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
