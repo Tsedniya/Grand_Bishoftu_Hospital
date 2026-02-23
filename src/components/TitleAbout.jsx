@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import CountUp from "../components/CountUp";
+import CountUp from "./CountUp";
 import photo5 from "../assets/new/photo5.jpg";
 import photo6 from "../assets/new/photo6.jpg";
 import photo13 from "../assets/new/photo13.jpg";
