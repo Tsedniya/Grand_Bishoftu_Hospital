@@ -73,18 +73,19 @@ const TitleAbout = () => {
             viewport={{ once: true }}
           >
             <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-              Exceptional Patient Care
+               Comprehensive Care for All
             </h3>
 
-            <p className="text-lg mt-4 md:mt-2 text-justify">
-              At Grand Bishoftu Hospital, we are committed to providing exceptional
-              healthcare with compassion and expertise. Our experienced medical
-              specialists work tirelessly to ensure every patient's well-being
-              through advanced treatments and personalized care. Providing trusted
-              healthcare services with compassion and excellence. Our experienced
-              medical specialists are committed to ensuring the well-being of every
-              patient through advanced treatment, personalized care, and a
-              patient-first approach.
+            <p className="text-lg mt-4 md:mt-2 md:text-justify max-w-prose mx-auto leading-relaxed">
+              At Grand Bishoftu Hospital, we deliver compassionate and trusted healthcare.
+              Our cardiology and neurology teams provide advanced heart and brain care.
+              Orthopedics specialists restore mobility with modern treatments and surgeries.
+              Pediatrics ensures comprehensive, child-friendly medical care for all ages.
+              Oncology offers cutting-edge cancer treatments with expert guidance.
+              Emergency care provides rapid, round-the-clock support for critical cases.
+              Pulmonology and infectious disease departments protect lung and infection health.
+              We offer minimally invasive laparoscopic surgery and expert ophthalmology services.
+             
             </p>
           </motion.div>
 
@@ -98,14 +99,14 @@ const TitleAbout = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center w-full">
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
-                  <CountUp end={25} suffix="+" />
+                  <CountUp end={20} suffix="+" />
                 </div>
                 <p className="mt-2 font-poppins text-base">Years of Experience</p>
               </div>
 
               <div>
                 <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
-                  <CountUp end={50000} suffix="+" />
+                  <CountUp end={17500} suffix="+" />
                 </div>
                 <p className="mt-2 font-poppins text-base">Patients Treated</p>
               </div>

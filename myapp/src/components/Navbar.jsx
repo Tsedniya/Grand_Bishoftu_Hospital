@@ -63,10 +63,10 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-6 text-gray-600 font-bold text-base items-center">
-          <NavLink to="/" className="hover:text-black hover:font-bold">Home</NavLink>
-          <NavLink to="/about" className="hover:text-black hover:font-bold">About</NavLink>
-          <NavLink to="/services" className="hover:text-black hover:font-bold">Services</NavLink>
-          <NavLink to="/contact" className="hover:text-black hover:font-bold">Contact</NavLink>
+          <NavLink to="/" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2  pb-1">Home</NavLink>
+          <NavLink to="/about" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2 pb-1">About</NavLink>
+          <NavLink to="/services" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2 pb-1">Services</NavLink>
+          <NavLink to="/contact" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2 pb-1">Contact</NavLink>
           <NavLink to="/contact" className="px-3 py-2 bg-sky-500 md:text-center text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300">
             Make Appointment
           </NavLink>
@@ -82,13 +82,13 @@ const Navbar = () => {
 
         {/* Slide-out Mobile Menu */}
         <div
-            className={`
-              fixed top-0 right-0 h-screen bg-white
-              transition-all duration-300 ease-in-out
-              z-[100]
-              ${visible ? 'w-full' : 'w-0'}
-            `}
-          >
+          className={`
+            fixed top-0 right-0 h-screen bg-white
+            transition-all duration-300 ease-in-out
+            z-[100]
+            ${visible ? 'w-full' : 'w-0'}
+          `}
+        >
           <div className="flex flex-col p-6">
             <img 
               src={x} 
@@ -96,11 +96,11 @@ const Navbar = () => {
               onClick={() => setVisible(false)} 
               className="w-8 h-8 self-end cursor-pointer transition-transform duration-200 hover:rotate-90"
             />
-            <ul className="flex flex-col items-center mt-8 space-y-4 text-lg font-medium text-black overflow-hidden">
-              <NavLink to="/" onClick={() => setVisible(false)}>Home</NavLink>
-              <NavLink to="/about" onClick={() => setVisible(false)}>About</NavLink>
-              <NavLink to="/services" onClick={() => setVisible(false)}>Services</NavLink>
-              <NavLink to="/contact" onClick={() => setVisible(false)}>Contact</NavLink>
+            <ul className="flex flex-col items-start pl-6 mt-8 space-y-4 text-lg font-medium text-black overflow-hidden">
+              <NavLink to="/" onClick={() => setVisible(false)} className="hover:border-b-2 ">Home</NavLink>
+              <NavLink to="/about" onClick={() => setVisible(false)} className="hover:border-b-2 ">About</NavLink>
+              <NavLink to="/services" onClick={() => setVisible(false)} className="hover:border-b-2 ">Services</NavLink>
+              <NavLink to="/contact" onClick={() => setVisible(false)} className="hover:border-b-2 ">Contact</NavLink>
 
               {/* Mobile Make Appointment Button */}
               <NavLink

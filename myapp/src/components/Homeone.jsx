@@ -1,32 +1,52 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import photo15 from "../assets/new/photo15.jpg";
 import star from "../assets/star.svg";
 import heart from "../assets/heart.svg";
 
 const Homeone = () => {
-  // slide-in from left for image
+  // detect desktop screen
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    const checkScreen = () => {
+      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
+    };
+
+    checkScreen();
+    window.addEventListener("resize", checkScreen);
+
+    return () => window.removeEventListener("resize", checkScreen);
+  }, []);
+
+  // animation configs
   const slideFromLeft = {
-    hidden: { x: -120 },  // start offscreen left
-    visible: { x: 0 },    // move to original position
+    hidden: { x: -120, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
   };
 
-  // slide-in from left for text + cards with slight delay
   const slideTextFromLeft = {
-    hidden: { x: -120 },
-    visible: { x: 0 },
+    hidden: { x: -120, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
   };
+
+  // if not desktop → disable animation
+  const motionProps = isDesktop
+    ? {
+        initial: "hidden",
+        whileInView: "visible",
+        viewport: { once: true, amount: 0.3 },
+        transition: { type: "tween", duration: 0.6 },
+      }
+    : {};
 
   return (
     <div className="mt-85 md:mt-83 lg:mt-63 flex flex-col lg:flex-row gap-4 lg:gap-8 bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
-      {/* Image Section — slides from left */}
+      {/* Image Section */}
       <motion.div
         variants={slideFromLeft}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ type: "tween", duration: 0.6 }}
+        {...motionProps}
         className="relative w-full lg:w-1/2 flex items-center justify-center py-6"
       >
         <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
@@ -51,16 +71,13 @@ const Homeone = () => {
         </div>
       </motion.div>
 
-      {/* Text + Cards Section — slides from left with slight delay */}
+      {/* Text + Cards */}
       <motion.div
         variants={slideTextFromLeft}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
+        {...motionProps}
         transition={{ type: "tween", duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"
       >
-        {/* Text */}
         <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
           Exceptional Patient Care
         </h3>
@@ -73,7 +90,7 @@ const Homeone = () => {
 
         <p className="mt-4 text-lg font-opensans text-justify">
           At Grand Bishoftu Hospital, we are dedicated to delivering world-class
-          healthcare with empathy and innovation, ensuring safety, comfort, and trust for every patient we serve.
+          healthcare with empathy and innovation.
         </p>
 
         {/* Cards */}
@@ -84,7 +101,7 @@ const Homeone = () => {
               <p className="font-semibold font-opensans">Compassionate Care</p>
             </div>
             <p className="text-base">
-              We provide personalized and compassionate care, ensuring every patient feels supported.
+              We provide personalized and compassionate care.
             </p>
           </div>
 
@@ -94,12 +111,11 @@ const Homeone = () => {
               <p className="font-semibold font-opensans">Patient Safety</p>
             </div>
             <p className="text-base">
-              We follow strict medical standards to deliver safe and reliable healthcare services.
+              We follow strict medical standards.
             </p>
           </div>
         </div>
       </motion.div>
-
     </div>
   );
 };

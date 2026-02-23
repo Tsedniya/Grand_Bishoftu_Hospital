@@ -6,12 +6,12 @@ const AdminDashboard = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Fetch appointments function
+  // Fetch appointments
   const fetchAppointments = async () => {
     try {
-      const res = await fetch("http://localhost:3000/api/appointments", {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments`, {
         method: "GET",
-        credentials: "include", // sends cookies with request
+        credentials: "include",
         headers: { "Content-Type": "application/json" },
       });
 
@@ -26,23 +26,22 @@ const AdminDashboard = () => {
     } catch (err) {
       console.error(err);
       alert(err.message);
-      navigate("/admin/auth"); // redirect if unauthorized
+      navigate("/admin/auth");
     } finally {
       setLoading(false);
     }
   };
 
-  // Fetch on mount + poll every 5 seconds
   useEffect(() => {
     fetchAppointments();
     const interval = setInterval(fetchAppointments, 5000);
     return () => clearInterval(interval);
   }, [navigate]);
 
-  // Update appointment status
+  // Update status
   const updateStatus = async (id, status) => {
     try {
-      const res = await fetch(`http://localhost:3000/api/appointments/${id}/status`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}/status`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         credentials: "include",
@@ -61,10 +60,30 @@ const AdminDashboard = () => {
     }
   };
 
-  // Logout handler
+  // Delete appointment
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this appointment?")) return;
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      setAppointments((prev) => prev.filter((appt) => appt._id !== id));
+    } catch (err) {
+      console.error(err);
+      alert("Failed to delete appointment");
+    }
+  };
+
+  // Edit appointment
+  const handleEdit = (appt) => {
+    navigate(`/admin/appointments/edit/${appt._id}`);
+  };
+
+  // Logout
   const handleLogout = async () => {
     try {
-      await fetch("http://localhost:3000/api/auth/logout", {
+      await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
         method: "POST",
         credentials: "include",
       });
@@ -109,6 +128,7 @@ const AdminDashboard = () => {
               <td className="p-3">{new Date(appt.date).toLocaleDateString()}</td>
               <td className="p-3 capitalize">{appt.status}</td>
               <td className="p-3 space-x-2">
+                {/* Show Accept/Decline only if pending */}
                 {appt.status === "pending" && (
                   <>
                     <button
@@ -125,6 +145,19 @@ const AdminDashboard = () => {
                     </button>
                   </>
                 )}
+                {/* Edit/Delete always visible */}
+                <button
+                  onClick={() => handleEdit(appt)}
+                  className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                >
+                  Edit
+                </button>
+                <button
+                  onClick={() => handleDelete(appt._id)}
+                  className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700"
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
