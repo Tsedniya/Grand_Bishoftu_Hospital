@@ -14,38 +14,39 @@ const AdminEditAppointment = () => {
     status: "pending",
   });
 
-  // Fetch the appointment details
-  useEffect(() => {
-    const fetchAppointment = async () => {
-      try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
-          method: "GET",
-          credentials: "include",
-          headers: { "Content-Type": "application/json" },
-        });
-        if (!res.ok) throw new Error("Failed to fetch appointment");
-        const data = await res.json();
-        setAppointment(data);
-        setFormData({
-          patientName: data.patientName,
-          patientEmail: data.patientEmail,
-          patientPhone: data.patientPhone,
-          date: new Date(data.date).toISOString().slice(0, 10),
-          status: data.status,
-        });
-      } catch (err) {
-        console.error(err);
-        alert(err.message);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchAppointment();
-  }, [id]);
+ useEffect(() => {
+  const fetchAppointment = async () => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
+        method: "GET",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+      });
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+      if (!res.ok) {
+        throw new Error(`Failed to fetch appointment (status: ${res.status})`);
+      }
+
+      const data = await res.json();
+      setAppointment(data);
+      setFormData({
+        patientName: data.patientName,
+        patientEmail: data.patientEmail,
+        patientPhone: data.patientPhone,
+        date: new Date(data.date).toISOString().slice(0, 10),
+        status: data.status,
+      });
+    } catch (err) {
+      console.error(err);
+      alert(err.message);
+      navigate("/admin/dashboard"); // <-- redirect immediately on fetch error
+    } finally {
+      setLoading(false);
+    }
   };
+
+  fetchAppointment();
+}, [id, navigate]); // <-- include navigate to avoid stale closure
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -64,11 +65,15 @@ const AdminEditAppointment = () => {
       alert(err.message);
     }
   };
+  
+    const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   if (loading) return <div className="p-8 text-center">Loading...</div>;
 
   return (
-    <div className="max-w-md mx-auto mt-8 p-6 bg-white rounded shadow">
+    <div className="max-w-md mx-auto mt-25 p-6 bg-white rounded shadow">
       <h2 className="text-2xl font-bold mb-4">Edit Appointment</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input

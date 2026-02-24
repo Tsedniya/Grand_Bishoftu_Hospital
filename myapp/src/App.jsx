@@ -28,7 +28,7 @@ const App = () => {
         <Route path='/services' element={<Services />} />
 
         {/* Admin authentication */}
-        <Route path='/admin/auth' element={<AdminAuth />} />
+        <Route path='/admin' element={<AdminAuth />} />
 
         {/* Admin dashboard protected */}
         <Route
@@ -51,7 +51,7 @@ const App = () => {
         />
       </Routes>
 
-      <Footer />
+      {!hideNavbar && <Footer />}
     </>
   );
 };

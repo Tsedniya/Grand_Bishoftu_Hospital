@@ -5,21 +5,16 @@ import star from "../assets/star.svg";
 import heart from "../assets/heart.svg";
 
 const Homeone = () => {
-  // detect desktop screen
-  const [isDesktop, setIsDesktop] = useState(false);
+  // Detect desktop screen (≥1024px)
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
 
   useEffect(() => {
-    const checkScreen = () => {
-      setIsDesktop(window.innerWidth >= 1024); // lg breakpoint
-    };
-
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-
-    return () => window.removeEventListener("resize", checkScreen);
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // animation configs
+  // Animation configs
   const slideFromLeft = {
     hidden: { x: -120, opacity: 0 },
     visible: { x: 0, opacity: 1 },
@@ -30,23 +25,16 @@ const Homeone = () => {
     visible: { x: 0, opacity: 1 },
   };
 
-  // if not desktop → disable animation
-  const motionProps = isDesktop
-    ? {
-        initial: "hidden",
-        whileInView: "visible",
-        viewport: { once: true, amount: 0.3 },
-        transition: { type: "tween", duration: 0.6 },
-      }
-    : {};
-
   return (
     <div className="mt-85 md:mt-83 lg:mt-63 flex flex-col lg:flex-row gap-4 lg:gap-8 bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Image Section */}
       <motion.div
-        variants={slideFromLeft}
-        {...motionProps}
+        variants={isDesktop ? slideFromLeft : {}}
+        initial={isDesktop ? "hidden" : false}
+        whileInView={isDesktop ? "visible" : false}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ type: "tween", duration: 0.6 }}
         className="relative w-full lg:w-1/2 flex items-center justify-center py-6"
       >
         <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
@@ -73,8 +61,10 @@ const Homeone = () => {
 
       {/* Text + Cards */}
       <motion.div
-        variants={slideTextFromLeft}
-        {...motionProps}
+        variants={isDesktop ? slideTextFromLeft : {}}
+        initial={isDesktop ? "hidden" : false}
+        whileInView={isDesktop ? "visible" : false}
+        viewport={{ once: true, amount: 0.3 }}
         transition={{ type: "tween", duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"
       >

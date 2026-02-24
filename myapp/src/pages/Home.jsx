@@ -3,7 +3,7 @@ import Hero from '../components/Hero'
 import Homeone from '../components/Homeone'
 import Hometwo from '../components/Hometwo'
 import Meet from '../components/Meet'
-import ContactUs from '../components/ContactUs'
+import ContactForm from '../components/ContactForm'
 import Frequently from  '../components/Frequently'
 
 
@@ -15,7 +15,7 @@ const Home = () => {
       <Homeone/>
       <Hometwo/>
       <Meet/>
-      <ContactUs/>
+      <ContactForm/>
       <Frequently/>
       
     </div>

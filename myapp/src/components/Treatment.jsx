@@ -3,24 +3,19 @@ import { motion } from "framer-motion";
 import photo11 from "../assets/new/photo11.jpg";
 
 const Treatment = () => {
-  // detect desktop screen
-  const [isDesktop, setIsDesktop] = useState(false);
+  // Detect desktop screen
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
 
   useEffect(() => {
-    const checkScreen = () => {
-      setIsDesktop(window.innerWidth >= 1024); // Tailwind lg breakpoint
-    };
-
-    checkScreen();
-    window.addEventListener("resize", checkScreen);
-
-    return () => window.removeEventListener("resize", checkScreen);
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   // slide-in from right animation
   const slideFromRight = {
-    hidden: { x: 120 },
-    visible: { x: 0 },
+    hidden: { x: 120, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
   };
 
   return (
@@ -35,16 +30,10 @@ const Treatment = () => {
         transition={{ type: "tween", duration: 0.6 }}
         className="relative w-full lg:w-1/2 flex items-center justify-center py-6"
       >
-        {/* background glow */}
         <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
 
-        {/* image container */}
         <div className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg aspect-[5/4] overflow-visible">
-
-          {/* small circle decoration */}
           <div className="absolute top-[10%] left-[10%] w-6 h-6 bg-[#023E8A] rounded-full z-20 -translate-x-1/2 -translate-y-1/2" />
-
-          {/* blob clip path */}
           <svg width="0" height="0" className="absolute inset-0">
             <defs>
               <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
@@ -52,16 +41,11 @@ const Treatment = () => {
               </clipPath>
             </defs>
           </svg>
-
-          {/* image */}
           <img
             src={photo11}
             alt="Operation"
             className="w-full h-full object-cover shadow-xl rounded-lg"
-            style={{
-              clipPath: "url(#blobClip)",
-              transform: "scale(1.08)",
-            }}
+            style={{ clipPath: "url(#blobClip)", transform: "scale(1.08)" }}
           />
         </div>
       </motion.div>
@@ -76,15 +60,15 @@ const Treatment = () => {
         className="w-full lg:w-1/2 flex flex-col"
       >
         <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-            Specialized Care Team
+          Specialized Care Team
         </h3>
 
         <p className="mt-2 font-opensans text-lg text-justify">
-          Established with over 30 experienced specialists and sub-specialists, Grand Bishoftu Hospital is committed to delivering exceptional healthcare across a wide range of medical fields. Our team combines expertise, advanced technology, and compassionate care to ensure every patient receives personalized treatment and guidance. 
+          Established with over 30 experienced specialists and sub-specialists, Grand Bishoftu Hospital is committed to delivering exceptional healthcare across a wide range of medical fields. Our team combines expertise, advanced technology, and compassionate care to ensure every patient receives personalized treatment and guidance.
         </p>
 
         <p className="mt-2 font-opensans text-lg text-justify">
-           From routine check-ups to complex procedures, we provide comprehensive services with a focus on safety, comfort, and outstanding outcomes.
+          From routine check-ups to complex procedures, we provide comprehensive services with a focus on safety, comfort, and outstanding outcomes.
         </p>
       </motion.div>
 

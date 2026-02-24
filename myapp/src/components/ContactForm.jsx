@@ -23,40 +23,57 @@ const ContactForm = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
+  // Build payload and log it
+  const payload = {
+    ...formData,
+    date: formData.date ? new Date(formData.date).toISOString() : null,
+  };
+  console.log("Sending payload:", payload);
+
+  try {
+    const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/book`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    // Log the raw response status
+    console.log("Response status:", res.status);
+
+    // Try parsing JSON
+    let data;
     try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/book`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      data = await res.json();
+      console.log("Response data:", data);
+    } catch (jsonError) {
+      console.error("Failed to parse JSON:", jsonError);
+    }
 
-      const data = await res.json();
-      console.log("Appointment sent:", data);
-
-    
+    if (res.ok) {
+      console.log("Appointment successfully created!");
       setFormData({
         patientName: "",
         patientEmail: "",
         patientPhone: "",
-        date: ""
+        date: "",
       });
-
-      
       setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000); 
-
-    } catch (error) {
-      console.log("Error sending form:", error);
+      setTimeout(() => setShowToast(false), 3000);
+    } else {
+      console.error("Backend returned an error:", data?.message || "Unknown error");
     }
-  };
+  } catch (error) {
+    console.error("Fetch error:", error);
+  }
+};
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center">
+    <div className="relative w-full min-h-screen flex items-center justify-center -mt-10 md:mt-2">
       <img
         src={patient}
         alt="Hero Background"
