@@ -63,10 +63,56 @@ const Navbar = () => {
 
         {/* Desktop Links */}
         <ul className="hidden md:flex gap-6 text-gray-600 font-bold text-base items-center">
-          <NavLink to="/" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2  pb-1">Home</NavLink>
-          <NavLink to="/about" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2 pb-1">About</NavLink>
-          <NavLink to="/services" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2 pb-1">Services</NavLink>
-          <NavLink to="/contact" className="hover:text-black hover:font-semibold hover:border-[#023E8A] hover:border-b-2 pb-1">Contact</NavLink>
+          <NavLink
+              to="/"
+              end
+              className={({ isActive }) =>
+                `pb-1 transition ${
+                  isActive
+                    ? "text-black font-semibold border-b-2 border-[#023E8A]"
+                    : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                }`
+              }
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/about"
+              className={({ isActive }) =>
+                `pb-1 transition ${
+                  isActive
+                    ? "text-black font-semibold border-b-2 border-[#023E8A]"
+                    : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                }`
+              }
+            >
+              About
+            </NavLink>
+            <NavLink
+                to="/services"
+                className={({ isActive }) =>
+                  `pb-1 transition ${
+                    isActive
+                      ? "text-black font-semibold border-b-2 border-[#023E8A]"
+                      : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  }`
+                }
+              >
+                Services
+              </NavLink>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  `pb-1 transition ${
+                    isActive
+                      ? "text-black font-semibold border-b-2 border-[#023E8A]"
+                      : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  }`
+                }
+              >
+                Contact
+              </NavLink>
+          
           <NavLink to="/contact" className="px-3 py-2 bg-sky-500 md:text-center text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300">
             Make Appointment
           </NavLink>
