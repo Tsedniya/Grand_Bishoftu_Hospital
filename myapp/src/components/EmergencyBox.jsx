@@ -51,7 +51,7 @@ const EmergencyBox = () => {
     <div className="w-full -mt-2 mb-25 px-4 sm:px-8 md:px-16">
 
       {/* Heading on top */}
-      <div className="flex flex-col items-center mt-2 md:mt-25 mb-6 md:mb-7">
+      <div className="flex flex-col items-center mt-2 md:mt-25 mb-6 md:mb-10 ">
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-12 md:mt-13">
           Contact
         </p>
