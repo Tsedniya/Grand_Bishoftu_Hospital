@@ -21,78 +21,79 @@ const AdminDashboard = () => {
         throw new Error(`Request failed with status ${res.status}`);
       }
 
-      const data = await res.json();
-      setAppointments(data);
-    } catch (err) {
-      console.error(err);
-      alert(err.message);
-      navigate("/admin/auth");
-    } finally {
-      setLoading(false);
-    }
-  };
+          const data = await res.json();
+          setAppointments(data);
+        } catch (err) {
+          console.error(err);
+          alert(err.message);
+          navigate("/admin/auth");
+        } finally {
+          setLoading(false);
+        }
+      };
 
-  useEffect(() => {
-    fetchAppointments();
-    const interval = setInterval(fetchAppointments, 5000);
-    return () => clearInterval(interval);
-  }, [navigate]);
+      useEffect(() => {
+        fetchAppointments();
+        const interval = setInterval(fetchAppointments, 5000);
+        return () => clearInterval(interval);
+      }, [navigate]);
 
-  // Update status
-  const updateStatus = async (id, status) => {
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}/status`, {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        credentials: "include",
-        body: JSON.stringify({ status }),
-      });
+      // Update status
+      const updateStatus = async (id, status) => {
+        try {
+          const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}/status`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            credentials: "include",
+            body: JSON.stringify({ status }),
+          });
 
-      if (!res.ok) throw new Error("Failed to update status");
-      const updated = await res.json();
+          if (!res.ok) throw new Error("Failed to update status");
+          const updated = await res.json();
 
-      setAppointments((prev) =>
-        prev.map((appt) => (appt._id === id ? updated : appt))
-      );
-    } catch (err) {
-      console.error(err);
-      alert("Error updating appointment status");
-    }
-  };
+          setAppointments((prev) =>
+            prev.map((appt) => (appt._id === id ? updated : appt))
+          );
+        } catch (err) {
+          console.error(err);
+          alert("Error updating appointment status");
+        }
+      };
 
-  // Delete appointment
-  const handleDelete = async (id) => {
-    if (!window.confirm("Are you sure you want to delete this appointment?")) return;
-    try {
-      await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
-        method: "DELETE",
-        credentials: "include",
-      });
-      setAppointments((prev) => prev.filter((appt) => appt._id !== id));
-    } catch (err) {
-      console.error(err);
-      alert("Failed to delete appointment");
-    }
-  };
+      // Delete appointment
+      const handleDelete = async (id) => {
+        if (!window.confirm("Are you sure you want to delete this appointment?")) return;
+        try {
+          await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
+            method: "DELETE",
+            credentials: "include",
+          });
+          setAppointments((prev) => prev.filter((appt) => appt._id !== id));
+        } catch (err) {
+          console.error(err);
+          alert("Failed to delete appointment");
+        }
+      };
 
-  // Edit appointment
-  const handleEdit = (appt) => {
-    navigate(`/admin/appointments/edit/${appt._id}`);
-  };
+      // Edit appointment
+      const handleEdit = (appt) => {
+        navigate(`/admin/appointments/edit/${appt._id}`);
+      };
 
-  // Logout
-  const handleLogout = async () => {
-    try {
-      await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
-        method: "POST",
-        credentials: "include",
-      });
-      localStorage.removeItem("admin");
-      navigate("/admin/auth");
-    } catch (err) {
-      console.error("Logout failed", err);
-    }
-  };
+      // Logout
+     
+      const handleLogout = async () => {
+        try {
+          await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
+            method: "POST",
+            credentials: "include",
+          });
+          localStorage.removeItem("admin");
+          navigate("/"); // <-- redirect to home page instead of /admin
+        } catch (err) {
+          console.error("Logout failed", err);
+        }
+      };
 
   if (loading) return <div className="p-8 text-center">Loading...</div>;
 
@@ -145,19 +146,24 @@ const AdminDashboard = () => {
                     </button>
                   </>
                 )}
-                {/* Edit/Delete always visible */}
-                <button
-                  onClick={() => handleEdit(appt)}
-                  className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={() => handleDelete(appt._id)}
-                  className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700"
-                >
-                  Delete
-                </button>
+
+                {/* Show Edit/Delete only if status is accepted or declined */}
+                {(appt.status === "accepted" || appt.status === "declined") && (
+                  <>
+                    <button
+                      onClick={() => handleEdit(appt)}
+                      className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(appt._id)}
+                      className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700"
+                    >
+                      Delete
+                    </button>
+                  </>
+                )}
               </td>
             </tr>
           ))}
