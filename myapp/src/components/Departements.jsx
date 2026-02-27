@@ -115,13 +115,13 @@ const Departements = () => {
               className="rounded-t-2xl w-full h-36 object-cover"
             />
 
-            <div className="absolute -top-7 left-4 sm:left-10 flex items-center justify-center rounded-full bg-[#023E8A] w-14 h-14 overflow-hidden">
-              <img
-                src={dept.icon}
-                alt={`${dept.title} icon`}
-                className="w-8 h-8 object-cover"
-              />
-            </div>
+            <div className="absolute -top-7 left-4 sm:left-10 rounded-full bg-[#023E8A] w-14 h-14 flex items-center justify-center overflow-hidden">
+  <img
+    src={dept.icon}
+    alt={`${dept.title} icon`}
+    className="w-8 h-8 object-contain"
+  />
+</div>
 
             <div className="px-4 sm:px-7 pb-6">
               <p className="mt-6 text-2xl font-bold text-[#023E8A]">{dept.title}</p>

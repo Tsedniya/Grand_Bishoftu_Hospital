@@ -61,15 +61,15 @@ const Hometwo = () => {
         transition={{ type: "tween", duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"
       >
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
+        <h3 className="text-2xl lg:text-5xl mb-3 m sm:text-3xl md:text-4xl text-[#023E8A] font-poppins leading-tight md:leading-snug">
           We Take Care of You
         </h3>
 
-        <p className="mt-4 font-opensans text-lg text-justify">
+        <p className="font-opensans mb-2 sm:text-base lg:text-lg  leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
           At Grand Bishoftu Hospital, we deliver compassionate and reliable healthcare for every patient. Our team of skilled medical professionals is dedicated to providing personalized treatment, advanced care, and unwavering support to ensure your health and well-being at every step.
         </p>
 
-        <p className="mt-4 font-opensans text-lg text-justify">
+        <p className="font-opensans sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
           We are committed to providing world-class healthcare with compassion and innovation. Our priority is the safety, comfort, and trust of every patient, ensuring exceptional care at every stage of treatment.
         </p>
       </motion.div>

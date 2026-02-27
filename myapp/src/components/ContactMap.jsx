@@ -23,9 +23,9 @@ const ContactMap = () => {
           <h2 className="text-3xl md:text-4xl font-semibold text-[#023E8A] mb-4">
             Visit Our Hospital
           </h2>
-          <p className="text-lg mb-4">
-            Find us at our main location or reach out for directions. We are here to provide
-            exceptional healthcare with compassion and expertise.
+          <p className= "font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
+            Find us at our main location or reach out for directions. 
+            We are here to provide exceptional healthcare with compassion and expertise.
           </p>
           <div className="text-lg">
             <p className="mb-2">
