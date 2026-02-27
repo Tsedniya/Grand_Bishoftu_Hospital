@@ -72,17 +72,16 @@ const TitleAbout = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
+            <h3 className= "text-2xl lg:text-5xl mb-3 m sm:text-3xl md:text-4xl text-[#023E8A] font-poppins leading-tight md:leading-snug">
                Comprehensive Care for All
             </h3>
 
-            <p className="text-lg mt-4 md:mt-2 md:text-justify max-w-prose mx-auto leading-relaxed">
-              At Grand Bishoftu Hospital, we deliver compassionate and trusted healthcare.
+            <p className= "font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
+              We deliver compassionate and trusted healthcare.
               Our cardiology and neurology teams provide advanced heart and brain care.
               Orthopedics specialists restore mobility with modern treatments and surgeries.
               Pediatrics ensures comprehensive, child-friendly medical care for all ages.
               Oncology offers cutting-edge cancer treatments with expert guidance.
-              Emergency care provides rapid, round-the-clock support for critical cases.
               Pulmonology and infectious disease departments protect lung and infection health.
               We offer minimally invasive laparoscopic surgery and expert ophthalmology services.
              

@@ -59,15 +59,15 @@ const Treatment = () => {
         transition={{ type: "tween", duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"
       >
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
+        <h3 className= "text-2xl lg:text-5xl mb-3 m sm:text-3xl md:text-4xl text-[#023E8A] font-poppins leading-tight md:leading-snug">
           Specialized Care Team
         </h3>
 
-        <p className="mt-2 font-opensans text-lg text-justify">
+        <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
           Established with over 30 experienced specialists and sub-specialists, Grand Bishoftu Hospital is committed to delivering exceptional healthcare across a wide range of medical fields. Our team combines expertise, advanced technology, and compassionate care to ensure every patient receives personalized treatment and guidance.
         </p>
 
-        <p className="mt-2 font-opensans text-lg text-justify">
+        <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
           From routine check-ups to complex procedures, we provide comprehensive services with a focus on safety, comfort, and outstanding outcomes.
         </p>
       </motion.div>

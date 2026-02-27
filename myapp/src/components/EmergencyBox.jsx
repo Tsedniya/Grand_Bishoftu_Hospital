@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import men from "../assets/men.jpg";
 import cancer from "../assets/cancer.jpg";
 import photo_1 from "../assets/photo_1.jpg";
-import photo_2 from "../assets/photo_2.jpg";
-import machine from "../assets/machine.jpg";
 import home from "../assets/home.jpg";
 import map from "../assets/map.svg";
 import heartpulse from "../assets/heartpulse.svg";
@@ -29,13 +26,29 @@ const EmergencyBox = () => {
 
   const cardVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
   };
 
   const cards = [
-    { title: "Emergency Services", icon: heartpulse, bgImages: [cancer, photo_1, photo14,photo16] },
-    { title: "Get Directions", icon: map, bgImages: [photo15, photo13, home,photo23] },
-    { title: "Book Appointment", icon: notebook, bgImages: [photo10, photo8, photo22,photo19,] },
+    {
+      title: "Emergency Services",
+      icon: heartpulse,
+      bgImages: [cancer, photo_1, photo14, photo16],
+    },
+    {
+      title: "Get Directions",
+      icon: map,
+      bgImages: [photo15, photo13, home, photo23],
+    },
+    {
+      title: "Book Appointment",
+      icon: notebook,
+      bgImages: [photo10, photo8, photo22, photo19],
+    },
   ];
 
   useEffect(() => {
@@ -44,14 +57,14 @@ const EmergencyBox = () => {
         prev.map((index, i) => (index + 1) % cards[i].bgImages.length)
       );
     }, 3000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
     <div className="w-full -mt-2 mb-25 px-4 sm:px-8 md:px-16">
-
-      {/* Heading on top */}
-      <div className="flex flex-col items-center mt-2 md:mt-25 mb-6 md:mb-10 ">
+      {/* Heading */}
+      <div className="flex flex-col items-center mt-2 md:mt-25 mb-6 md:mb-10">
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-12 md:mt-13">
           Contact
         </p>
@@ -74,11 +87,19 @@ const EmergencyBox = () => {
               backgroundImage: `linear-gradient(rgba(2,62,138,0.75), rgba(2,62,138,0.75)), url(${card.bgImages[currentImages[index]]})`,
               backgroundSize: "cover",
               backgroundPosition: "center",
+              backgroundRepeat: "no-repeat",
             }}
           >
-            <div className="flex items-center gap-4">
-              <img src={card.icon} alt={card.title} className="w-12 h-12 text-center" />
-              <h3 className="text-2xl md:text-3xl text-center font-semibold">{card.title}</h3>
+            {/* Icon on top + text below */}
+            <div className="flex flex-col items-center justify-center gap-4 text-center w-full">
+              <img
+                src={card.icon}
+                alt={card.title}
+                className="w-12 h-12 object-contain"
+              />
+              <h3 className="text-2xl md:text-3xl font-semibold">
+                {card.title}
+              </h3>
             </div>
           </motion.div>
         ))}

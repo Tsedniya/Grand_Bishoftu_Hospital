@@ -68,17 +68,17 @@ const Homeone = () => {
         transition={{ type: "tween", duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"
       >
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
+        <h3 className="text-2xl lg:text-5xl mb-3 m sm:text-3xl md:text-4xl text-[#023E8A] font-poppins leading-tight md:leading-snug">
           Exceptional Patient Care
         </h3>
 
-        <p className="mt-4 text-lg font-opensans text-justify">
+        <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
           Providing trusted healthcare services with compassion and excellence.
           Our experienced medical specialists are committed to ensuring the
           well-being of every patient through advanced treatment and personalized care.
         </p>
 
-        <p className="mt-4 text-lg font-opensans text-justify">
+        <p className="font-opensans sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
           At Grand Bishoftu Hospital, we are dedicated to delivering world-class
           healthcare with empathy and innovation.
         </p>
