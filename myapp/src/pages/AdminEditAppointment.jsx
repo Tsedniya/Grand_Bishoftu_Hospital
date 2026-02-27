@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast"; // <-- import toast
 
 const AdminEditAppointment = () => {
   const { id } = useParams();
@@ -14,39 +15,39 @@ const AdminEditAppointment = () => {
     status: "pending",
   });
 
- useEffect(() => {
-  const fetchAppointment = async () => {
-    try {
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
-        method: "GET",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-      });
+  useEffect(() => {
+    const fetchAppointment = async () => {
+      try {
+        const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
+          method: "GET",
+          credentials: "include",
+          headers: { "Content-Type": "application/json" },
+        });
 
-      if (!res.ok) {
-        throw new Error(`Failed to fetch appointment (status: ${res.status})`);
+        if (!res.ok) {
+          throw new Error(`Failed to fetch appointment (status: ${res.status})`);
+        }
+
+        const data = await res.json();
+        setAppointment(data);
+        setFormData({
+          patientName: data.patientName,
+          patientEmail: data.patientEmail,
+          patientPhone: data.patientPhone,
+          date: new Date(data.date).toISOString().slice(0, 10),
+          status: data.status,
+        });
+      } catch (err) {
+        console.error(err);
+        toast.error(err.message); // <-- toast error
+        navigate("/admin/dashboard"); 
+      } finally {
+        setLoading(false);
       }
+    };
 
-      const data = await res.json();
-      setAppointment(data);
-      setFormData({
-        patientName: data.patientName,
-        patientEmail: data.patientEmail,
-        patientPhone: data.patientPhone,
-        date: new Date(data.date).toISOString().slice(0, 10),
-        status: data.status,
-      });
-    } catch (err) {
-      console.error(err);
-      alert(err.message);
-      navigate("/admin/dashboard"); // <-- redirect immediately on fetch error
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  fetchAppointment();
-}, [id, navigate]); // <-- include navigate to avoid stale closure
+    fetchAppointment();
+  }, [id, navigate]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -57,16 +58,19 @@ const AdminEditAppointment = () => {
         credentials: "include",
         body: JSON.stringify(formData),
       });
-      if (!res.ok) throw new Error("Failed to update appointment");
-      alert("Appointment updated successfully");
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Failed to update appointment");
+
+      toast.success("Appointment updated successfully"); // <-- toast success
       navigate("/admin/dashboard");
     } catch (err) {
       console.error(err);
-      alert(err.message);
+      toast.error(err.message || "Failed to update appointment"); // <-- toast error
     }
   };
   
-    const handleChange = (e) => {
+  const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -74,6 +78,7 @@ const AdminEditAppointment = () => {
 
   return (
     <div className="max-w-md mx-auto mt-25 p-6 bg-white rounded shadow">
+      <Toaster position="top-right" /> {/* <-- add Toaster container */}
       <h2 className="text-2xl font-bold mb-4">Edit Appointment</h2>
       <form onSubmit={handleSubmit} className="space-y-4">
         <input

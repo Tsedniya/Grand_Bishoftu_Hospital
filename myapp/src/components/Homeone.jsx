@@ -90,18 +90,18 @@ const Homeone = () => {
               <img src={star} alt="Star" className="w-10" />
               <p className="font-semibold font-opensans">Compassionate Care</p>
             </div>
-            <p className="text-base">
+            <p className="text-base text-center">
               We provide personalized and compassionate care.
             </p>
           </div>
 
           <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
-            <div className="flex items-center gap-3 mb-2">
+            <div className="flex items-center gap-1 mb-2">
               <img src={heart} alt="Heart" className="w-10" />
-              <p className="font-semibold font-opensans">Patient Safety</p>
+              <p className="font-semibold font-opensans">Patient-Centered Care</p>
             </div>
-            <p className="text-base">
-              We follow strict medical standards.
+            <p className="text-base text-center">
+               We follow strict medical standards to ensure patient safety.
             </p>
           </div>
         </div>
