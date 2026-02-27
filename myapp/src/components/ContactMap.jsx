@@ -2,7 +2,7 @@ import React from "react";
 
 const ContactMap = () => {
   return (
-    <div className="w-full  px-4 sm:px-8 md:px-16 md:mt-5 -mt-5 mb-10 md:mb-20">
+    <div className="w-full  px-4 sm:px-8 md:px-16 md:mt-5 -mt-5 mb-10 md:mb-20 lg:ml-15">
       <div className="flex flex-col md:flex-row gap-12 items-start">
         {/* Left: Map */}
         <div className="w-full md:w-1/2 h-[400px] rounded-xl overflow-hidden shadow-lg">
@@ -23,9 +23,8 @@ const ContactMap = () => {
           <h2 className="text-3xl md:text-4xl font-semibold text-[#023E8A] mb-4">
             Visit Our Hospital
           </h2>
-          <p className= "font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
+          <p className= "text-justify text-lg mb-1">
             Find us at our main location or reach out for directions. 
-            We are here to provide exceptional healthcare with compassion and expertise.
           </p>
           <div className="text-lg">
             <p className="mb-2">
