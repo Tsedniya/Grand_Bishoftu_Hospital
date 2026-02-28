@@ -73,7 +73,7 @@ const TitleAbout = () => {
             viewport={{ once: true }}
           >
 
-            <p className= "font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
+            <p className= "font-opensans mb-6 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
               We deliver compassionate and trusted healthcare.
               Our cardiology and neurology teams provide advanced heart and brain care.
               Orthopedics specialists restore mobility with modern treatments and surgeries.
@@ -84,9 +84,9 @@ const TitleAbout = () => {
             </p>
 
             <p className= "font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
-              Oncology offers cutting-edge cancer treatments with expert guidance.
-              Pulmonology and infectious disease departments protect lung and infection health.
-              We offer minimally invasive laparoscopic surgery and expert ophthalmology services.
+              We offer minimally invasive laparoscopic surgery for faster recovery and less pain.  
+              Our urology services treat urinary and male reproductive conditions.  
+              We also provide expert ophthalmology care for eye health.
             </p>
           </motion.div>
 
