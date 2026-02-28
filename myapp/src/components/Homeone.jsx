@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import photo15 from "../assets/new/photo15.jpg";
-import star from "../assets/star.svg";
-import heart from "../assets/heart.svg";
+import handheart from "../assets/handheart.svg";
+import heartpulse from "../assets/heartpulse.svg";
 
 const Homeone = () => {
   // Detect desktop screen (≥1024px)
@@ -73,34 +73,31 @@ const Homeone = () => {
         </h3>
 
         <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
-          Providing trusted healthcare services with compassion and excellence.
-          Our experienced medical specialists are committed to ensuring the
-          well-being of every patient through advanced treatment and personalized care.
+             Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care. 
+             We deliver comprehensive services across cardiology, neurology, orthopedics, pediatrics, oncology, pulmonology, and infectious disease care. 
+ 
         </p>
 
-        <p className="font-opensans sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
-          At Grand Bishoftu Hospital, we are dedicated to delivering world-class
-          healthcare with empathy and innovation.
-        </p>
+        
 
         {/* Cards */}
         <div className="flex flex-col md:flex-row gap-6 my-8 justify-center md:justify-start">
-          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
+          <div className="bg-sky-500 w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
             <div className="flex items-center gap-3 mb-2">
-              <img src={star} alt="Star" className="w-10" />
-              <p className="font-semibold font-opensans">Compassionate Care</p>
+              <img src={handheart} alt="handheart" className="w-10" />
+              <p className="font-semibold font-opensans text-white">Compassionate Care</p>
             </div>
-            <p className="text-base text-center">
+            <p className="text-base text-center text-white ">
               We provide personalized and compassionate care.
             </p>
           </div>
 
-          <div className="bg-white w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
-            <div className="flex items-center gap-1 mb-2">
-              <img src={heart} alt="Heart" className="w-10" />
-              <p className="font-semibold font-opensans">Patient-Centered Care</p>
+          <div className="bg-sky-500 w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
+            <div className="flex items-center gap-3 mb-2">
+              <img src={heartpulse} alt="Heart" className="w-10" />
+              <p className="font-semibold font-opensans text-white"> Medical Excellence</p>
             </div>
-            <p className="text-base text-center">
+            <p className="text-base text-center text-white">
                We follow strict medical standards to ensure patient safety.
             </p>
           </div>
