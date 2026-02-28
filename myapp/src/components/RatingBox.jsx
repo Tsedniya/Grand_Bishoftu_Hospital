@@ -60,7 +60,7 @@ const TestimonialCard = ({ rating, title, review, name }) => (
     <p className=" text-xs sm:text-base font-bold mb-2">{name}</p>
 
     {/* Review */}
-    <p className="text-center text-xs sm:text-base mb-3 break-words whitespace-normal">
+    <p className="items-center">
       {review}
     </p>
   </div>

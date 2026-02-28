@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
@@ -21,84 +22,89 @@ const AdminDashboard = () => {
         throw new Error(`Request failed with status ${res.status}`);
       }
 
-          const data = await res.json();
-          setAppointments(data);
-        } catch (err) {
-          console.error(err);
-          alert(err.message);
-          navigate("/admin/auth");
-        } finally {
-          setLoading(false);
-        }
-      };
+      const data = await res.json();
+      setAppointments(data);
+    } catch (err) {
+      console.error(err);
+      toast.error(err.message);
+      navigate("/admin/auth");
+    } finally {
+      setLoading(false);
+    }
+  };
 
-      useEffect(() => {
-        fetchAppointments();
-        const interval = setInterval(fetchAppointments, 5000);
-        return () => clearInterval(interval);
-      }, [navigate]);
+  useEffect(() => {
+    fetchAppointments();
+    const interval = setInterval(fetchAppointments, 5000);
+    return () => clearInterval(interval);
+  }, [navigate]);
 
-      // Update status
-      const updateStatus = async (id, status) => {
-        try {
-          const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}/status`, {
-            method: "PUT",
-            headers: { "Content-Type": "application/json" },
-            credentials: "include",
-            body: JSON.stringify({ status }),
-          });
+  // Update status
+  const updateStatus = async (id, status) => {
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}/status`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        credentials: "include",
+        body: JSON.stringify({ status }),
+      });
 
-          if (!res.ok) throw new Error("Failed to update status");
-          const updated = await res.json();
+      const updated = await res.json();
+      if (!res.ok) throw new Error(updated.message || "Failed to update status");
 
-          setAppointments((prev) =>
-            prev.map((appt) => (appt._id === id ? updated : appt))
-          );
-        } catch (err) {
-          console.error(err);
-          alert("Error updating appointment status");
-        }
-      };
+      setAppointments((prev) => prev.map((appt) => (appt._id === id ? updated : appt)));
+      toast.success("Appointment updated successfully");
+    } catch (err) {
+      console.error(err);
+      toast.error(err.message || "Error updating appointment status");
+    }
+  };
 
-      // Delete appointment
-      const handleDelete = async (id) => {
-        if (!window.confirm("Are you sure you want to delete this appointment?")) return;
-        try {
-          await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
-            method: "DELETE",
-            credentials: "include",
-          });
-          setAppointments((prev) => prev.filter((appt) => appt._id !== id));
-        } catch (err) {
-          console.error(err);
-          alert("Failed to delete appointment");
-        }
-      };
+  // Delete appointment
+  const handleDelete = async (id) => {
+    if (!window.confirm("Are you sure you want to delete this appointment?")) return;
+    try {
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
 
-      // Edit appointment
-      const handleEdit = (appt) => {
-        navigate(`/admin/appointments/edit/${appt._id}`);
-      };
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Failed to delete appointment");
 
-      // Logout
-     
-      const handleLogout = async () => {
-        try {
-          await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
-            method: "POST",
-            credentials: "include",
-          });
-          localStorage.removeItem("admin");
-          navigate("/"); // <-- redirect to home page instead of /admin
-        } catch (err) {
-          console.error("Logout failed", err);
-        }
-      };
+      setAppointments((prev) => prev.filter((appt) => appt._id !== id));
+      toast.success("Appointment deleted successfully");
+    } catch (err) {
+      console.error(err);
+      toast.error(err.message || "Failed to delete appointment");
+    }
+  };
+
+  // Edit appointment
+  const handleEdit = (appt) => {
+    navigate(`/admin/appointments/edit/${appt._id}`);
+  };
+
+  // Logout
+  const handleLogout = async () => {
+    try {
+      await fetch(`${import.meta.env.VITE_API_URL}/auth/logout`, {
+        method: "POST",
+        credentials: "include",
+      });
+      localStorage.removeItem("admin");
+      navigate("/"); // redirect to home
+    } catch (err) {
+      console.error("Logout failed", err);
+      toast.error("Logout failed");
+    }
+  };
 
   if (loading) return <div className="p-8 text-center">Loading...</div>;
 
   return (
     <div className="min-h-screen p-8 bg-gray-100">
+      <Toaster position="top-right" /> {/* <-- Toast container */}
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Receptionist Dashboard</h1>
         <button
@@ -129,7 +135,6 @@ const AdminDashboard = () => {
               <td className="p-3">{new Date(appt.date).toLocaleDateString()}</td>
               <td className="p-3 capitalize">{appt.status}</td>
               <td className="p-3 space-x-2">
-                {/* Show Accept/Decline only if pending */}
                 {appt.status === "pending" && (
                   <>
                     <button
@@ -147,7 +152,6 @@ const AdminDashboard = () => {
                   </>
                 )}
 
-                {/* Show Edit/Delete only if status is accepted or declined */}
                 {(appt.status === "accepted" || appt.status === "declined") && (
                   <>
                     <button

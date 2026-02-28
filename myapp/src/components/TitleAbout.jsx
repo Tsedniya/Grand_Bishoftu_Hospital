@@ -72,43 +72,44 @@ const TitleAbout = () => {
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-               Comprehensive Care for All
-            </h3>
 
-            <p className="text-lg mt-4 md:mt-2 md:text-justify max-w-prose mx-auto leading-relaxed">
-              At Grand Bishoftu Hospital, we deliver compassionate and trusted healthcare.
+            <p className= "font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
+              We deliver compassionate and trusted healthcare.
               Our cardiology and neurology teams provide advanced heart and brain care.
               Orthopedics specialists restore mobility with modern treatments and surgeries.
               Pediatrics ensures comprehensive, child-friendly medical care for all ages.
               Oncology offers cutting-edge cancer treatments with expert guidance.
-              Emergency care provides rapid, round-the-clock support for critical cases.
+              Pulmonology and infectious disease departments protect lung and infection health.
+            
+            </p>
+
+            <p className= "font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
+              Oncology offers cutting-edge cancer treatments with expert guidance.
               Pulmonology and infectious disease departments protect lung and infection health.
               We offer minimally invasive laparoscopic surgery and expert ophthalmology services.
-             
             </p>
           </motion.div>
 
           {/* Stats card (row 2) */}
           <motion.div
-            className="bg-white rounded-2xl shadow-2xl p-6 flex items-center justify-center h-[180px] sm:h-[200px] md:h-[220px] hover:shadow-xl transition"
+            className="bg-sky-500 rounded-2xl shadow-2xl p-6 flex items-center justify-center h-[180px] sm:h-[200px] md:h-[220px] hover:shadow-xl transition"
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center w-full">
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
+                <div className="text-3xl md:text-4xl font-bold text-white">
                   <CountUp end={20} suffix="+" />
                 </div>
-                <p className="mt-2 font-poppins text-base">Years of Experience</p>
+                <p className="mt-2 font-poppins text-base text-white">Years of Experience</p>
               </div>
 
               <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
+                <div className="text-3xl md:text-4xl font-bold text-white">
                   <CountUp end={17500} suffix="+" />
                 </div>
-                <p className="mt-2 font-poppins text-base">Patients Treated</p>
+                <p className="mt-2 font-poppins text-base text-white">Patients Treated</p>
               </div>
             </div>
           </motion.div>
