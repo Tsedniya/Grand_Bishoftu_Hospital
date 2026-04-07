@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
-import photo24 from "../assets/new/photo24.jpg";
+
 import photo30 from "../assets/new/photo30.jpg";
 import photo31 from "../assets/new/photo31.jpg";
-import photo26 from "../assets/new/photo26.jpg";
+import photo25 from "../assets/new/photo25.jpg";
 import photo27 from "../assets/new/photo27.jpg";
 import photo28 from "../assets/new/photo28.jpg";
 import photo29 from "../assets/new/photo29.jpg";
@@ -10,8 +10,8 @@ import { Link } from 'react-router-dom';
 
 const Meet = () => {
   const doctors = [
-    { img: photo24, name: "Dr. Tatek Belay", role: "Medical Director & General Surgeon" },
-    { img: photo26, name: "Dr. Shibiru Dula", role: "Senior Obstetrician & Gynecologist" },
+    { img: photo25, name: "Dr. Tatek Belay", role: "Medical Director & General Surgeon" },
+    { img: photo25, name: "Dr. Shibiru Dula", role: "Senior Obstetrician & Gynecologist" },
     { img: photo27, name: "Dr. Segni Bekele", role: " CEO, General & Laparascopic Surgeon" },
     { img: photo28, name: "Dr. Dejene Degu", role: "Senior Pediatrician" },
     { img: photo29, name: "Dr. Yeshi Teshome", role: "Senior Ophthalmologist" },
