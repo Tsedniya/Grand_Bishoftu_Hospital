@@ -88,6 +88,18 @@ const Navbar = () => {
             >
               About
             </NavLink>
+             <NavLink
+                to="/doctors"
+                className={({ isActive }) =>
+                  `pb-1 transition ${
+                    isActive
+                      ? "text-black font-semibold border-b-2 border-[#023E8A]"
+                      : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  }`
+                }
+              >
+                Doctors
+              </NavLink>
             <NavLink
                 to="/services"
                 className={({ isActive }) =>

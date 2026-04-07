@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Doctors from './pages/Doctors';
 import Footer from './components/Footer';
 import Services from './pages/Services';
 import ScrollToTop from "./components/ScrollToTop";
@@ -10,6 +11,7 @@ import AdminAuth from './pages/AdminAuth';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminEditAppointment from './pages/AdminEditAppointment'; 
 import AdminPrivateRoute from './components/AdminPrivateRoute';
+import Awards from './pages/Awards';
 
 const App = () => {
   const location = useLocation();
@@ -26,6 +28,8 @@ const App = () => {
         <Route path='/about' element={<About />} />
         <Route path='/contact' element={<Contact />} />
         <Route path='/services' element={<Services />} />
+        <Route path='/awards' element={<Awards />} />
+        <Route path='/doctors' element={<Doctors />} />
 
         {/* Admin authentication */}
         <Route path='/admin' element={<AdminAuth />} />
