@@ -20,7 +20,7 @@ const TitleAbout = () => {
         transition={{ duration: 0.6 }}
       >
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-10 ">
-            About
+            About Us
         </p>
       </motion.div>
 
@@ -91,28 +91,39 @@ const TitleAbout = () => {
           </motion.div>
 
           {/* Stats card (row 2) */}
+           <div className="grid grid-cols-2 gap-4 h-[180px] sm:h-[200px] md:h-[220px]">
+
+          {/* Card 1 */}
           <motion.div
-            className="bg-sky-500 rounded-2xl shadow-2xl p-6 flex items-center justify-center h-[180px] sm:h-[200px] md:h-[220px] hover:shadow-xl transition"
+            className="bg-sky-500 rounded-4xl shadow-2xl flex flex-col items-center justify-center text-center hover:shadow-xl transition"
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
           >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center w-full">
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-white">
-                  <CountUp end={20} suffix="+" />
-                </div>
-                <p className="mt-2 font-poppins text-base text-white">Years of Experience</p>
-              </div>
-
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-white">
-                  <CountUp end={17500} suffix="+" />
-                </div>
-                <p className="mt-2 font-poppins text-base text-white">Patients Treated</p>
-              </div>
+            <div className="text-3xl md:text-4xl font-bold text-white">
+              <CountUp end={20} suffix="+" />
             </div>
+            <p className="mt-2 font-poppins text-base text-white">
+              Years of Experience
+            </p>
           </motion.div>
+
+          {/* Card 2 */}
+          <motion.div
+            className="bg-sky-500 rounded-4xl shadow-2xl flex flex-col items-center justify-center text-center hover:shadow-xl transition"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <div className="text-3xl md:text-4xl font-bold text-white">
+              <CountUp end={17500} suffix="+" />
+            </div>
+            <p className="mt-2 font-poppins text-base text-white">
+              Patients Treated
+            </p>
+          </motion.div>
+
+        </div>
         </div>
 
       </div>

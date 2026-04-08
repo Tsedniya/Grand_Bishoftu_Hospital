@@ -1,122 +1,101 @@
-import React, { useState } from "react";
-import { motion } from "framer-motion";
+import React from "react";
+import { Star } from "lucide-react";
 
 const testimonials = [
   {
     rating: 5,
     title: "Excellent Specialists",
     review:
-      "I suffered from heat and exercise-induced hives for six months in America without relief. At this hospital, Dr. Endalkachew quickly diagnosed the issue and prescribed Montelukast for 10 days. The results were amazing",
+      "I suffered from heat and exercise-induced hives for six months without relief. At this hospital, the condition was quickly diagnosed and treated effectively. The improvement was remarkable.",
     name: "Ararsa Tesema",
   },
   {
     rating: 5,
     title: "Highly Recommend",
     review:
-      "Very good service and care! I received good care and service throughout my visit.",
+      "Very good service and care. The staff were attentive, and I received consistent support throughout my visit.",
     name: "Dawo Bito",
   },
   {
     rating: 4,
     title: "Great Experience",
     review:
-      "A well equipped hospital, with quality and compassionate service",
+      "A well-equipped hospital with professional staff and compassionate service.",
     name: "Abiy Tadele",
   },
   {
     rating: 5,
     title: "Professional Staff",
-    review: "Marvellous hospital with intelligent specialists",
+    review:
+      "An excellent hospital with knowledgeable specialists and a strong commitment to patient care.",
     name: "Bethelhem Tassew",
   },
 ];
 
 /* ---------- CARD ---------- */
 const TestimonialCard = ({ rating, title, review, name }) => (
-  <div
-    className="
-      bg-white rounded-xl shadow-lg p-4 text-center flex-shrink-0 mx-2
-      w-[260px] flex flex-col 
-    "
-  >
-    {/* Avatar as initial */}
-    <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-[#023E8A] text-white flex items-center justify-center mx-auto mb-3 text-lg sm:text-xl font-semibold">
-      {name.charAt(0)}
-    </div>
+  <div className="bg-white rounded-2xl shadow-md p-6 text-left hover:shadow-lg transition">
+    
+    {/* Top section */}
+    <div className="flex items-center gap-4 mb-4">
+      {/* Avatar */}
+      <div className="w-12 h-12 rounded-full bg-[#023E8A] text-white flex items-center justify-center font-semibold">
+        {name.charAt(0)}
+      </div>
 
-    {/* Rating */}
-    <div className="flex justify-center text-yellow-400 text-lg sm:text-xl mb-2">
-      {[...Array(rating)].map((_, i) => (
-        <span key={i}>★</span>
-      ))}
+      <div>
+        <p className="font-semibold text-gray-800">{name}</p>
+
+        {/* Rating */}
+        <div className="flex items-center gap-1 mt-1">
+          {[...Array(5)].map((_, i) => (
+            <Star
+              key={i}
+              size={16}
+              className={
+                i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+              }
+            />
+          ))}
+        </div>
+      </div>
     </div>
 
     {/* Title */}
-    <h3 className="text-sm sm:text-lg font-semibold text-gray-800 mb-1">
+    <h3 className="text-base font-semibold text-gray-800 mb-2">
       {title}
     </h3>
 
-    {/* Name */}
-    <p className=" text-xs sm:text-base font-bold mb-2">{name}</p>
-
     {/* Review */}
-    <p className="items-center">
+    <p className="text-sm text-gray-600 leading-relaxed">
       {review}
     </p>
   </div>
 );
 
-/* ---------- SLIDER ---------- */
-const TestimonialSlider = () => {
-  const [index, setIndex] = useState(0);
-
-  const next = () =>
-    setIndex((prev) => (prev + 1) % testimonials.length);
-
-  const prev = () =>
-    setIndex((prev) =>
-      prev === 0 ? testimonials.length - 1 : prev - 1
-    );
-
+/* ---------- MAIN ---------- */
+const TestimonialSection = () => {
   return (
-    <div className="py-10 bg-gray-100 mb-8 md:mb-12 md:-mt-6 -mt-10">
-      {/* MOBILE — ONE CARD */}
-      <div className="relative md:hidden px-6 flex justify-center items-center">
-        <button
-          onClick={prev}
-          className="absolute left-0 bg-white shadow rounded-full w-10 h-10 flex items-center justify-center"
-        >
-          ←
-        </button>
-
-        <TestimonialCard {...testimonials[index]} />
-
-        <button
-          onClick={next}
-          className="absolute right-0 bg-white shadow rounded-full w-10 h-10 flex items-center justify-center"
-        >
-          →
-        </button>
+    <div className="bg-gray-50 py-14 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+      
+      {/* Header */}
+      <div className="text-center max-w-2xl mx-auto mb-10">
+        <h2 className="text-3xl sm:text-4xl font-poppins text-[#023E8A]">
+          Patient Feedback
+        </h2>
+        <p className="mt-3 text-gray-600 font-opensans">
+          What our patients say about their experience and care.
+        </p>
       </div>
 
-      {/* DESKTOP — AUTO SLIDER */}
-      <div className="hidden md:block overflow-hidden">
-        <motion.div
-          className="flex"
-          animate={{ x: ["0%", "-25%", "-50%", "-75%", "0%"] }}
-          transition={{
-            repeat: Infinity,
-            duration: 25,
-            ease: "linear",
-          }}
-        >
-          {testimonials.concat(testimonials).map((t, idx) => (
-            <TestimonialCard key={idx} {...t} />
-          ))}
-        </motion.div>
+      {/* Grid */}
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+        {testimonials.map((t, idx) => (
+          <TestimonialCard key={idx} {...t} />
+        ))}
       </div>
     </div>
   );
 };
 
-export default TestimonialSlider;
+export default TestimonialSection;

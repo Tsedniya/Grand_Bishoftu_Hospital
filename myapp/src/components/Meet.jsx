@@ -6,17 +6,16 @@ import photo25 from "../assets/new/photo25.jpg";
 import photo27 from "../assets/new/photo27.jpg";
 import photo28 from "../assets/new/photo28.jpg";
 import photo29 from "../assets/new/photo29.jpg";
+import photo44 from "../assets/new/photo44.jpg"
 import { Link } from 'react-router-dom';
 
 const Meet = () => {
   const doctors = [
-    { img: photo25, name: "Dr. Tatek Belay", role: "Medical Director & General Surgeon" },
-    { img: photo25, name: "Dr. Shibiru Dula", role: "Senior Obstetrician & Gynecologist" },
-    { img: photo27, name: "Dr. Segni Bekele", role: " CEO, General & Laparascopic Surgeon" },
-    { img: photo28, name: "Dr. Dejene Degu", role: "Senior Pediatrician" },
-    { img: photo29, name: "Dr. Yeshi Teshome", role: "Senior Ophthalmologist" },
-    { img: photo30, name: "Dr. Tsion Mekasha", role: "V.Medical Director & General Practitioner" },
-    { img: photo31, name: "Dr. Habib Ebrahim", role: "Pathologist" },
+  
+    { img: photo27, name: "Dr. Segni Bekele", role: " CEO" },
+    { img: photo44, name: "Dr. Tatek Belay", role: "Founding Member & Medical Director" },
+    { img: photo29, name: "Dr. Tadesse Gonfa", role: "Founding Member & Medical Director" },
+    { img: photo30, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
   ];
 
   // duplicate for infinite loop
@@ -69,12 +68,10 @@ const Meet = () => {
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-          Meet Our Doctors
+             Our Founders & Leadership
         </h3>
 
-        <p className="mt-3 sm:mt-4 text-base sm:text-xl font-opensans">
-          Our experienced medical professionals provide compassionate care.
-        </p>
+        
       </div>
 
       {/* Slider */}
@@ -104,7 +101,7 @@ const Meet = () => {
                   </h3>
 
                   <p className="text-base">{doctor.role}</p>
-                  <Link to='/services'>
+                  <Link to='/doctors'>
                     <button className="mt-3 sm:mt-4 px-5 py-2 bg-[#023E8A] font-opensans text-white rounded-3xl text-sm sm:text-base hover:opacity-90">
                       Learn more
                     </button>

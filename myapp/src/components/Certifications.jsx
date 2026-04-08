@@ -20,8 +20,8 @@ const awards = [
 
 const AwardsSection = () => {
   return (
-    <div className="bg-gray-100 py-12">
-      <h2 className="text-center text-xl md:text-2xl font-bold mb-8">
+    <div className="bg-gray-100 py-12 mt-10 pt-28">
+      <h2 className="text-center text-xl md:text-3xl font-bold mb-8 text-[#023E8A] ">
         Awards & Certifications
       </h2>
 
