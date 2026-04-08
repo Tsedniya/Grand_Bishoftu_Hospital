@@ -5,9 +5,11 @@ import AwardsSection from "../components/Certifications";
 export default function Awards() {
   return (
     <>
-      <TestimonialSlider />
-      <Partners />
-      <AwardsSection />
+       <AwardsSection />
+        <Partners />
+       <TestimonialSlider />
+     
+     
     </>
   );
 }

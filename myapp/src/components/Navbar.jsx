@@ -112,21 +112,9 @@ const Navbar = () => {
               >
                 Services
               </NavLink>
-              <NavLink
-                to="/contact"
-                className={({ isActive }) =>
-                  `pb-1 transition ${
-                    isActive
-                      ? "text-black font-semibold border-b-2 border-[#023E8A]"
-                      : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
-                  }`
-                }
-              >
-                Contact
-              </NavLink>
           
-          <NavLink to="/contact" className="px-3 py-2 bg-sky-500 md:text-center text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300">
-            Make Appointment
+          <NavLink to="/contact" className="px-6 py-2 bg-sky-500 md:text-center text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300">
+                  Contact
           </NavLink>
         </ul>
 
@@ -157,16 +145,17 @@ const Navbar = () => {
             <ul className="flex flex-col items-start pl-6 mt-8 space-y-4 text-lg font-medium text-black overflow-hidden">
               <NavLink to="/" onClick={() => setVisible(false)} className="hover:border-b-2 ">Home</NavLink>
               <NavLink to="/about" onClick={() => setVisible(false)} className="hover:border-b-2 ">About</NavLink>
+              <NavLink to="/doctors" onClick={() => setVisible(false)} className="hover:border-b-2 ">Doctors</NavLink>
               <NavLink to="/services" onClick={() => setVisible(false)} className="hover:border-b-2 ">Services</NavLink>
-              <NavLink to="/contact" onClick={() => setVisible(false)} className="hover:border-b-2 ">Contact</NavLink>
+              
 
               {/* Mobile Make Appointment Button */}
               <NavLink
                 to="/contact"
                 onClick={() => setVisible(false)}
-                className="px-3 py-2 bg-sky-500 text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300"
+                className="px-6 py-2 bg-sky-500 text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300"
               >
-                Make Appointment
+                  Contact
               </NavLink>
             </ul>
           </div>
