@@ -13,6 +13,7 @@ import photo_2 from "../assets/photo_2.jpg";
 import photo from "../assets/photo.jpg";
 import men from "../assets/men.jpg";
 import cancer from "../assets/cancer.jpg";
+import users from "../assets/users.svg";
 import stethoscope from "../assets/stethoscope.svg";
 import bubbles from "../assets/bubbles.svg";
 import syringe from "../assets/syringe.svg";
@@ -21,6 +22,7 @@ import testtube from "../assets/testtube.svg";
 import camera from "../assets/camera.svg";
 import eye from "../assets/eye.svg";
 import pill from "../assets/pill.svg";
+import x from "../assets/x.svg"
 import photo20 from "../assets/new/photo20.jpg";
 import photo8 from "../assets/new/photo8.jpg";
 import photo21 from "../assets/new/photo21.jpg";
@@ -42,7 +44,10 @@ import photo70 from "../assets/new/photo70.jpg";
 import photo69 from "../assets/new/photo69.jpg";
 import photo71 from "../assets/new/photo71.jpg";
 import photo68 from "../assets/new/photo68.jpg";
+import briefcasemedical from "../assets/briefcasemedical.svg";
+import searchcheck from "../assets/searchcheck.svg";
 import venus from "../assets/venus.svg";
+import shieldcheck from "../assets/shieldcheck.svg";
 
 const Departements = () => {
 
@@ -55,7 +60,7 @@ const Departements = () => {
   },
   {
     title: "Internal Medicine",
-    desc: "Comprehensive adult healthcare focusing on prevention, diagnosis, and treatment of a wide range of diseases, with personalized care plans for long-term health management.",
+    desc: "Comprehensive adult healthcare focusing on prevention, diagnosis, and treatment of a wide range of diseases, with personalized care plans for a very long-term health management.",
     img: photo67,
     icon: stethoscope,
   },
@@ -63,7 +68,7 @@ const Departements = () => {
     title: "Surgery",
     desc: "Advanced surgical services covering a wide range of procedures, performed by skilled surgeons using modern techniques to ensure safe operations and optimal recovery.",
     img: photo13,
-    icon:  baby,
+    icon:  shieldcheck,
   },
   {
     title: "Gynecology",
@@ -99,7 +104,7 @@ const Departements = () => {
     title: "Urology",
     desc: "Diagnosis and treatment of urinary tract and male reproductive system conditions, including kidney stones, infections, and prostate disorders.",
     img: photo9,
-    icon:  baby,
+    icon: briefcasemedical,
   },
   {
     title: "Neurology",
@@ -110,7 +115,7 @@ const Departements = () => {
   {
     title: "Pathology",
     desc: "Advanced diagnostic services analyzing tissues and body fluids to accurately detect diseases and guide effective treatment decisions.",
-    img: men,
+    img: photo32,
     icon: microscope,
   },
   {
@@ -129,19 +134,19 @@ const Departements = () => {
     title: "Neurosurgery",
     desc: "Specialized surgical care for conditions affecting the brain, spine, and nervous system, using advanced techniques for precise and safe procedures.",
     img: photo70,
-    icon:  baby,
+    icon: shield,
   },
   {
     title: "Physiotherapy",
     desc: "Rehabilitation services designed to restore movement, reduce pain, and improve physical function through personalized therapy programs.",
     img: photo68,
-    icon:  baby,
+    icon: users,
   },
   {
     title: "CT Scan",
     desc: "Advanced imaging services providing detailed cross-sectional images to support accurate diagnosis and treatment planning.",
     img: photo71,
-    icon:  baby,
+    icon:  searchcheck,
   },
   {
     title: "Laboratory",
@@ -152,20 +157,26 @@ const Departements = () => {
   {
     title: "Pharmacy",
     desc: "Reliable medication services including prescription dispensing, patient counseling, and safe medication management.",
-    img: men,
+    img: photo33,
     icon: pill,
   },
   {
     title: "X-Ray",
     desc: "Fast and reliable imaging services for diagnosing fractures, infections, and other internal conditions using modern radiology equipment.",
     img: photo66,
-    icon:  baby,
+    icon: x,
   },
   {
     title: "Ultrasound",
     desc: "Safe and non-invasive imaging used to examine internal organs, monitor pregnancies, and assist in accurate diagnosis.",
     img: photo65,
     icon:  baby,
+  },
+  {
+    title: "Cardiology",
+    desc: "Advanced heart care including diagnosis, treatment, and prevention of cardiovascular diseases using modern technology.",
+    img: photo34,
+    icon: pulse,
   },
 ];
 

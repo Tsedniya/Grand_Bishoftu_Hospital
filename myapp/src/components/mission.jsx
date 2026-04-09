@@ -19,7 +19,7 @@ const Mission = () => {
   ];
 
   return (
-    <div className="bg-white min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] py-16 mt-24">
+    <div className="bg-white min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] pt-32 mt-10">
 
       {/* Hero Section */}
       <motion.div
@@ -55,31 +55,38 @@ const Mission = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+            {/* Stats Section */}
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
+
         <motion.div
-          className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
+            className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
         >
-          <div className="text-3xl md:text-4xl font-bold text-white">
+            <div className="text-3xl md:text-4xl font-bold text-white">
             <CountUp end={20} suffix="+" />
-          </div>
-          <p className="mt-2 font-poppins text-base text-white">Years of Experience</p>
+            </div>
+            <p className="mt-2 font-poppins text-base text-white">
+            Years of Experience
+            </p>
         </motion.div>
 
         <motion.div
-          className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center"
-          initial={{ y: 50, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
+            className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
+            initial={{ y: 50, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ once: true }}
         >
-          <div className="text-3xl md:text-4xl font-bold text-white">
+            <div className="text-3xl md:text-4xl font-bold text-white">
             <CountUp end={17500} suffix="+" />
-          </div>
-          <p className="mt-2 font-poppins text-base text-white">Patients Treated</p>
+            </div>
+            <p className="mt-2 font-poppins text-base text-white">
+            Patients Treated
+            </p>
         </motion.div>
-      </div>
+
+        </div>
 
     </div>
   );

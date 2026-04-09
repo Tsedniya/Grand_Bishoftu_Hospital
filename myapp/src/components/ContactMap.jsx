@@ -20,7 +20,7 @@ const ContactMap = () => {
 
         {/* Right: Text / Info */}
         <div className="w-full md:w-1/2 flex flex-col justify-center">
-          <h2 className="text-3xl md:text-4xl font-semibold text-[#023E8A] mb-4">
+          <h2 className="text-2xl md:text-5xl md:mb-5 text-[#023E8A] font-poppins leading-tight">
             Visit Our Hospital
           </h2>
           <p className= "text-justify text-lg mb-1">

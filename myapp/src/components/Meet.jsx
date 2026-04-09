@@ -68,7 +68,7 @@ const Meet = () => {
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-             Our Founders & Leadership
+             Our Founders & Leadership Team
         </h3>
 
         

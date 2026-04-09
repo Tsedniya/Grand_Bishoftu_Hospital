@@ -82,7 +82,7 @@ const Homeone = () => {
 
         {/* Cards */}
         <div className="flex flex-col md:flex-row gap-6 my-8 justify-center md:justify-start">
-          <div className="bg-sky-500 w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
+          <div className="bg-[#023E8A] w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
             <div className="flex items-center gap-3 mb-2">
               <img src={handheart} alt="handheart" className="w-10" />
               <p className="font-semibold font-opensans text-white">Compassionate Care</p>
@@ -92,7 +92,7 @@ const Homeone = () => {
             </p>
           </div>
 
-          <div className="bg-sky-500 w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
+          <div className="bg-[#023E8A] w-full md:w-80 h-40 rounded-2xl shadow-2xl p-5 hover:scale-110 transition duration-300">
             <div className="flex items-center gap-3 mb-2">
               <img src={heartpulse} alt="Heart" className="w-10" />
               <p className="font-semibold font-opensans text-white"> Medical Excellence</p>
