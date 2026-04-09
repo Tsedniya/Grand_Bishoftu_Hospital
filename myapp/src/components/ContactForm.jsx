@@ -4,16 +4,34 @@ import { motion } from "framer-motion";
 import notebook from "../assets/notebook.svg";
 import call from "../assets/call.svg";
 
+const departments = [
+  { title: "Surgery" },
+  { title: "Gynecology" },
+  { title: "Pediatrics" },
+  { title: "Laparoscopic Surgery" },
+  { title: "Ophthalmology" },
+  { title: "Orthopedic Surgery" },
+  { title: "Urology" },
+  { title: "Neurology" },
+  { title: "Pathology" },
+  { title: "Plastic Surgery" },
+  { title: "Psychiatry" },
+  { title: "Neurosurgery" },
+  { title: "Physiotherapy" },
+  { title: "Laboratory" },
+];
+
+const today = new Date().toISOString().split("T")[0];
+
 const ContactForm = () => {
-  
   const [formData, setFormData] = useState({
     patientName: "",
     patientEmail: "",
     patientPhone: "",
-    date: ""
+    date: "",
+    department: "",
   });
 
-  
   const [showToast, setShowToast] = useState(false);
 
   const handleChange = (e) => {
@@ -23,54 +41,54 @@ const ContactForm = () => {
     });
   };
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  // Build payload and log it
-  const payload = {
-    ...formData,
-    date: formData.date ? new Date(formData.date).toISOString() : null,
-  };
-  console.log("Sending payload:", payload);
+    const payload = {
+      ...formData,
+      date: formData.date ? new Date(formData.date).toISOString() : null,
+    };
 
-  try {
-    const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/book`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
-    });
+    console.log("Sending payload:", payload);
 
-    // Log the raw response status
-    console.log("Response status:", res.status);
-
-    // Try parsing JSON
-    let data;
     try {
-      data = await res.json();
-      console.log("Response data:", data);
-    } catch (jsonError) {
-      console.error("Failed to parse JSON:", jsonError);
-    }
+      const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/appointments/book`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        }
+      );
 
-    if (res.ok) {
-      console.log("Appointment successfully created!");
-      setFormData({
-        patientName: "",
-        patientEmail: "",
-        patientPhone: "",
-        date: "",
-      });
-      setShowToast(true);
-      setTimeout(() => setShowToast(false), 3000);
-    } else {
-      console.error("Backend returned an error:", data?.message || "Unknown error");
+      let data;
+      try {
+        data = await res.json();
+      } catch {
+        console.error("Failed to parse JSON");
+      }
+
+      if (res.ok) {
+        setFormData({
+          patientName: "",
+          patientEmail: "",
+          patientPhone: "",
+          date: "",
+          department: "",
+        });
+
+        setShowToast(true);
+        setTimeout(() => setShowToast(false), 3000);
+      } else {
+        console.error(
+          "Backend error:",
+          data?.message || "Unknown error"
+        );
+      }
+    } catch (error) {
+      console.error("Fetch error:", error);
     }
-  } catch (error) {
-    console.error("Fetch error:", error);
-  }
-};
+  };
 
   return (
     <div className="relative w-full min-h-screen flex items-center justify-center -mt-10 md:mt-2">
@@ -120,6 +138,7 @@ const handleSubmit = async (e) => {
               placeholder="Full Name"
               value={formData.patientName}
               onChange={handleChange}
+              required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
             />
 
@@ -129,6 +148,7 @@ const handleSubmit = async (e) => {
               placeholder="Email Address"
               value={formData.patientEmail}
               onChange={handleChange}
+              required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
             />
 
@@ -138,15 +158,34 @@ const handleSubmit = async (e) => {
               placeholder="Phone Number"
               value={formData.patientPhone}
               onChange={handleChange}
+              required
               className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
             />
+
+            {/* Department (now fully integrated) */}
+            <select
+              id="department"
+              value={formData.department}
+              onChange={handleChange}
+              required
+              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
+            >
+              <option value="">Select Department</option>
+              {departments.map((dept, index) => (
+                <option key={index} value={dept.title}>
+                  {dept.title}
+                </option>
+              ))}
+            </select>
 
             <input
               id="date"
               type="date"
               value={formData.date}
               onChange={handleChange}
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
+              min={today}
+              required
+              className="w-full md:col-span-2 md:w-1/2 md:mx-auto border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
             />
 
             <button
@@ -159,15 +198,13 @@ const handleSubmit = async (e) => {
         </div>
       </div>
 
-      {/* Toast Notification */}
-     
+      {/* Toast */}
       {showToast && (
-        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-75 animate-fadeIn">
+        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-70 animate-fadeIn">
           Appointment sent successfully!
         </div>
       )}
 
-      {/* Tailwind fade-in animation */}
       <style>
         {`
           @keyframes fadeIn {

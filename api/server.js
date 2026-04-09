@@ -6,6 +6,7 @@ import cookieParser from 'cookie-parser';
 import cors from "cors";
 import appointmentRoutes from './routes/appointment.route.js';
 
+
 dotenv.config()
 
 
@@ -27,6 +28,7 @@ app.use(cookieParser());
 
 app.use('/api/auth', authRoutes) 
 app.use('/api/appointments', appointmentRoutes);
+
 
 
 app.use((err,req,res,next)=>{

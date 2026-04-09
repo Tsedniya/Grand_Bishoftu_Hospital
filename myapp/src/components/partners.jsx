@@ -41,8 +41,8 @@ const partners = [
 const Partners = () => {
   return (
     <div className="bg-white py-15">
-      <h2 className="text-center text-xl md:text-3xl font-bold mb-6 text-[#023E8A] ">
-        Our Partners
+      <h2 className="text-3xl sm:text-4xl font-poppins text-[#023E8A] text-center ">
+           Our Partners
       </h2>
 
       <div className="relative w-full overflow-hidden h-28 flex items-center">

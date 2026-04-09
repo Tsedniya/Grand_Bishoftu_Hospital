@@ -3,9 +3,43 @@ import Appointment from '../models/appointment.model.js';
 // For users to create a booking
 export const createAppointment = async (req, res, next) => {
   try {
-    const { patientName, patientEmail, patientPhone, date } = req.body;
-    const appointment = new Appointment({ patientName, patientEmail, patientPhone, date });
+    const { patientName, patientEmail, patientPhone, date, department } = req.body;
+
+    // Basic validation
+    if (!patientName || !patientEmail || !patientPhone || !date || !department) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    const validDepartments = [
+      "Emergency Services",
+      "Internal Medicine",
+      "Surgery",
+      "Gynecology",
+      "Pediatrics",
+      "Laparoscopic Surgery",
+      "Ophthalmology",
+      "Orthopedic Surgery",
+      "Urology",
+      "Neurology",
+      "Pathology",
+      "Plastic Surgery",
+      "Psychiatry",
+      "Neurosurgery",
+      "Physiotherapy",
+      "CT Scan",
+      "Laboratory",
+      "Pharmacy",
+      "X-Ray",
+      "Ultrasound"
+    ];
+
+    if (!validDepartments.includes(department)) {
+      return res.status(400).json({ message: "Invalid department selected" });
+    }
+
+    const appointment = new Appointment({ patientName, patientEmail, patientPhone, date, department });
     await appointment.save();
+
     res.status(201).json(appointment);
   } catch (err) {
     next(err);
@@ -52,9 +86,38 @@ export const updateAppointmentStatus = async (req, res) => {
 };
 
 
-export const updateAppointment = async (req, res) =>{
+export const updateAppointment = async (req, res) => {
   const { id } = req.params;
-  const updateData = req.body; // can include patientName, status, etc.
+  const updateData = req.body;
+
+  // Validate department if provided
+  const validDepartments = [
+    "Emergency Services",
+    "Internal Medicine",
+    "Surgery",
+    "Gynecology",
+    "Pediatrics",
+    "Laparoscopic Surgery",
+    "Ophthalmology",
+    "Orthopedic Surgery",
+    "Urology",
+    "Neurology",
+    "Pathology",
+    "Plastic Surgery",
+    "Psychiatry",
+    "Neurosurgery",
+    "Physiotherapy",
+    "CT Scan",
+    "Laboratory",
+    "Pharmacy",
+    "X-Ray",
+    "Ultrasound"
+  ];
+
+  if (updateData.department && !validDepartments.includes(updateData.department)) {
+    return res.status(400).json({ message: "Invalid department selected" });
+  }
+
   try {
     const updatedAppointment = await Appointment.findByIdAndUpdate(id, updateData, { new: true });
     res.json(updatedAppointment);

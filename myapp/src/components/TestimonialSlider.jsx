@@ -62,12 +62,12 @@ const TestimonialCard = ({ rating, title, review, name }) => (
     </div>
 
     {/* Title */}
-    <h3 className="text-base font-semibold text-gray-800 mb-2">
+    <h3 className="text-base font-semibold mb-2">
       {title}
     </h3>
 
     {/* Review */}
-    <p className="text-sm text-gray-600 leading-relaxed">
+    <p className="text-sm leading-relaxed">
       {review}
     </p>
   </div>

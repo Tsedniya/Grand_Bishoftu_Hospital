@@ -15,6 +15,11 @@ import photo19 from "../assets/new/photo19.jpg";
 import photo8 from "../assets/new/photo8.jpg";
 import photo10 from "../assets/new/photo10.jpg";
 import photo13 from "../assets/new/photo13.jpg";
+import photo5 from "../assets/new/photo5.jpg";
+import photo6 from "../assets/new/photo6.jpg";
+import photo12 from "../assets/new/photo12.jpg";
+import photo38 from "../assets/new/photo38.jpg";
+import photo41 from "../assets/new/photo41.jpg";
 
 const EmergencyBox = () => {
   const [currentImages, setCurrentImages] = useState([0, 0, 0]);
@@ -37,17 +42,17 @@ const EmergencyBox = () => {
     {
       title: "Emergency Services",
       icon: heartpulse,
-      bgImages: [cancer, photo_1, photo14, photo16],
+      bgImages: [cancer, photo6 , photo14, photo38],
     },
     {
       title: "Get Directions",
       icon: map,
-      bgImages: [photo15, photo13, home, photo23],
+      bgImages: [photo15, photo13, home, photo12],
     },
     {
       title: "Book Appointment",
       icon: notebook,
-      bgImages: [photo10, photo8, photo22, photo19],
+      bgImages: [photo5, photo12, photo22, photo41],
     },
   ];
 

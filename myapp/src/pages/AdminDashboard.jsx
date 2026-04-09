@@ -7,6 +7,23 @@ const AdminDashboard = () => {
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
 
+  // Hardcoded department list (no separate fetch)
+  const departments = [
+    "Surgery",
+    "Gynecology",
+    "Pediatrics",
+    "Laparoscopic Surgery",
+    "Ophthalmology",
+    "Orthopedic Surgery",
+    "Urology",
+    "Neurology",
+    "Pathology",
+    "Plastic Surgery",
+    "Psychiatry",
+    "Neurosurgery",
+    "Physiotherapy",
+  ];
+
   // Fetch appointments
   const fetchAppointments = async () => {
     try {
@@ -39,7 +56,7 @@ const AdminDashboard = () => {
     return () => clearInterval(interval);
   }, [navigate]);
 
-  // Update status
+  // Update appointment status
   const updateStatus = async (id, status) => {
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}/status`, {
@@ -48,7 +65,6 @@ const AdminDashboard = () => {
         credentials: "include",
         body: JSON.stringify({ status }),
       });
-
       const updated = await res.json();
       if (!res.ok) throw new Error(updated.message || "Failed to update status");
 
@@ -61,17 +77,15 @@ const AdminDashboard = () => {
   };
 
   // Delete appointment
-  const handleDelete = async (id) => {
+  const handleDeleteAppointment = async (id) => {
     if (!window.confirm("Are you sure you want to delete this appointment?")) return;
     try {
       const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/${id}`, {
         method: "DELETE",
         credentials: "include",
       });
-
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || "Failed to delete appointment");
-
       setAppointments((prev) => prev.filter((appt) => appt._id !== id));
       toast.success("Appointment deleted successfully");
     } catch (err) {
@@ -81,7 +95,7 @@ const AdminDashboard = () => {
   };
 
   // Edit appointment
-  const handleEdit = (appt) => {
+  const handleEditAppointment = (appt) => {
     navigate(`/admin/appointments/edit/${appt._id}`);
   };
 
@@ -93,7 +107,7 @@ const AdminDashboard = () => {
         credentials: "include",
       });
       localStorage.removeItem("admin");
-      navigate("/"); // redirect to home
+      navigate("/");
     } catch (err) {
       console.error("Logout failed", err);
       toast.error("Logout failed");
@@ -104,7 +118,7 @@ const AdminDashboard = () => {
 
   return (
     <div className="min-h-screen p-8 bg-gray-100">
-      <Toaster position="top-right" /> {/* <-- Toast container */}
+      <Toaster position="top-right" />
       <div className="flex justify-between items-center mb-6">
         <h1 className="text-3xl font-bold">Receptionist Dashboard</h1>
         <button
@@ -115,6 +129,8 @@ const AdminDashboard = () => {
         </button>
       </div>
 
+      {/* Appointments Table */}
+      <h2 className="text-2xl font-bold mb-4">Appointments</h2>
       <table className="w-full border-collapse bg-white shadow rounded-lg overflow-hidden">
         <thead className="bg-blue-600 text-white">
           <tr>
@@ -122,6 +138,7 @@ const AdminDashboard = () => {
             <th className="p-3 text-left">Email</th>
             <th className="p-3 text-left">Phone</th>
             <th className="p-3 text-left">Date</th>
+            <th className="p-3 text-left">Department</th>
             <th className="p-3 text-left">Status</th>
             <th className="p-3 text-left">Actions</th>
           </tr>
@@ -133,6 +150,7 @@ const AdminDashboard = () => {
               <td className="p-3">{appt.patientEmail}</td>
               <td className="p-3">{appt.patientPhone}</td>
               <td className="p-3">{new Date(appt.date).toLocaleDateString()}</td>
+              <td className="p-3">{appt.department || "N/A"}</td>
               <td className="p-3 capitalize">{appt.status}</td>
               <td className="p-3 space-x-2">
                 {appt.status === "pending" && (
@@ -151,17 +169,16 @@ const AdminDashboard = () => {
                     </button>
                   </>
                 )}
-
                 {(appt.status === "accepted" || appt.status === "declined") && (
                   <>
                     <button
-                      onClick={() => handleEdit(appt)}
+                      onClick={() => handleEditAppointment(appt)}
                       className="bg-yellow-500 text-white px-3 py-1 rounded hover:bg-yellow-600"
                     >
                       Edit
                     </button>
                     <button
-                      onClick={() => handleDelete(appt._id)}
+                      onClick={() => handleDeleteAppointment(appt._id)}
                       className="bg-gray-600 text-white px-3 py-1 rounded hover:bg-gray-700"
                     >
                       Delete

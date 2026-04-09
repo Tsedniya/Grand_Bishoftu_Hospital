@@ -19,7 +19,7 @@ const Treatment = () => {
   };
 
   return (
-    <div className="-mt-20 flex flex-col lg:flex-row-reverse bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
+    <div className="-mt-10 flex flex-col lg:flex-row-reverse bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
 
       {/* Image Section */}
       <motion.div
@@ -60,7 +60,7 @@ const Treatment = () => {
         className="w-full lg:w-1/2 flex flex-col"
       >
         <h3 className= "text-2xl lg:text-5xl mb-3 m sm:text-3xl md:text-4xl text-[#023E8A] font-poppins leading-tight md:leading-snug">
-          Specialized Care Team
+           Our Story
         </h3>
 
         <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
