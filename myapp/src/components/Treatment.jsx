@@ -19,7 +19,7 @@ const Treatment = () => {
   };
 
   return (
-    <div className="-mt-10 flex flex-col lg:flex-row-reverse bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
+    <div className=" flex flex-col lg:flex-row bg-white items-center justify-between pt-10 pb-10 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
 
       {/* Image Section */}
       <motion.div

@@ -39,7 +39,7 @@ const AwardsSection = () => {
               {item.title}
             </h3>
 
-            <p className="text-sm">
+            <p className="text-sm text-gray-700">
               {item.desc}
             </p>
           </div>
