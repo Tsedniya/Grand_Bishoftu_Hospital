@@ -114,7 +114,7 @@ const Navbar = () => {
                   onClick={() => setServiceDropdown(false)}
                   className="px-4 py-2 hover:bg-gray-100 hover:text-[#023E8A]"
                 >
-                  Departements
+                  Departments
                 </NavLink>
                 <NavLink
                   to="/awards"
@@ -179,7 +179,7 @@ const Navbar = () => {
                       }}
                       className="px-2 py-1 hover:bg-gray-100 hover:text-[#023E8A] rounded-md"
                     >
-                      Departements
+                      Departments
                     </NavLink>
                     <NavLink
                       to="/awards"

@@ -44,6 +44,7 @@ import photo70 from "../assets/new/photo70.jpg";
 import photo69 from "../assets/new/photo69.jpg";
 import photo71 from "../assets/new/photo71.jpg";
 import photo68 from "../assets/new/photo68.jpg";
+import photo02 from "../assets/new/photo02.jpg";
 import briefcasemedical from "../assets/briefcasemedical.svg";
 import searchcheck from "../assets/searchcheck.svg";
 import venus from "../assets/venus.svg";
@@ -67,7 +68,7 @@ const Departements = () => {
   {
     title: "Surgery",
     desc: "Advanced surgical services covering a wide range of procedures, performed by skilled surgeons using modern techniques to ensure safe operations and optimal recovery.",
-    img: photo13,
+    img: photo02,
     icon:  shieldcheck,
   },
   {
