@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import photo41 from "../assets/new/photo41.jpg";
+import React, { useEffect, useState, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import photo06 from "../assets/new/photo06.JPG";
+import photo41 from "../assets/new/photo41.jpg"
 
 const TitleAbout = () => {
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
@@ -16,14 +17,23 @@ const TitleAbout = () => {
     visible: { x: 0, opacity: 1 },
   };
 
+  // 🔥 scroll zoom image logic (BOTTOM IMAGE)
+  const imageRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start end", "center center"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.85, 1.15]);
+
   return (
     <div className="bg-white mt-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
-      
 
       {/* ✅ CONTENT SECTION */}
       <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-4 md:gap-6 lg:gap-8">
-        
-        {/* Image Section */}
+
+        {/* Image Section (BLOB IMAGE - unchanged) */}
         <motion.div
           variants={isDesktop ? slideFromRight : {}}
           initial={isDesktop ? "hidden" : false}
@@ -77,6 +87,19 @@ const TitleAbout = () => {
         </motion.div>
 
       </div>
+
+      {/* 🔥 FINAL ZOOM IMAGE (NEW) */}
+      <div
+        ref={imageRef}
+        className="mt-20 h-[80vh] flex items-center justify-center overflow-hidden"
+      >
+        <motion.img
+          src={photo06}
+          style={{ scale }}
+          className="w-full max-w-5xl rounded-2xl shadow-2xl object-cover"
+        />
+      </div>
+
     </div>
   );
 };

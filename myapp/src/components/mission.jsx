@@ -1,8 +1,20 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import CountUp from "./CountUp";
 
+import photo08 from "../assets/new/photo08.JPG"; // 👈 add your image
+
 const Mission = () => {
+  const imageRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start end", "center center"],
+  });
+
+  // 🔥 Zoom effect on scroll
+  const scale = useTransform(scrollYProgress, [0, 1], [0.8, 1.15]);
+
   const missionValues = [
     {
       title: "Our Mission",
@@ -32,7 +44,7 @@ const Mission = () => {
         <h1 className="text-4xl md:text-6xl font-poppins text-[#023E8A]">
           About Grand Bishoftu Hospital
         </h1>
-        <p className="mt-4 text-base sm:text-xl font-opensans text-gray-700">
+        <p className="mt-4 text-base sm:text-xl text-gray-700">
           Providing compassionate care with advanced medical expertise.
         </p>
       </motion.div>
@@ -42,7 +54,7 @@ const Mission = () => {
         {missionValues.map((item, idx) => (
           <motion.div
             key={idx}
-            className="bg-[#023E8A] text-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="bg-[#023E8A] text-white rounded-2xl p-6 shadow-lg"
             initial={{ y: 50, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
@@ -54,39 +66,43 @@ const Mission = () => {
         ))}
       </div>
 
+      {/* 🔥 SCROLL ZOOM IMAGE SECTION */}
+      <div ref={imageRef} className="my-20 h-[80vh] flex items-center justify-center overflow-hidden">
+        <motion.img
+          src={photo08}
+          style={{ scale }}
+          className="w-full max-w-5xl rounded-2xl shadow-2xl object-cover"
+        />
+      </div>
+
       {/* Stats Section */}
-            {/* Stats Section */}
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
 
         <motion.div
-            className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
+          className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
         >
-            <div className="text-3xl md:text-4xl font-bold text-white">
+          <div className="text-3xl md:text-4xl font-bold text-white">
             <CountUp end={20} suffix="+" />
-            </div>
-            <p className="mt-2 font-poppins text-base text-white">
-            Years of Experience
-            </p>
+          </div>
+          <p className="mt-2 text-white">Years of Experience</p>
         </motion.div>
 
         <motion.div
-            className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
+          className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
+          initial={{ y: 50, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          viewport={{ once: true }}
         >
-            <div className="text-3xl md:text-4xl font-bold text-white">
+          <div className="text-3xl md:text-4xl font-bold text-white">
             <CountUp end={17500} suffix="+" />
-            </div>
-            <p className="mt-2 font-poppins text-base text-white">
-            Patients Treated
-            </p>
+          </div>
+          <p className="mt-2 text-white">Patients Treated</p>
         </motion.div>
 
-        </div>
+      </div>
 
     </div>
   );
