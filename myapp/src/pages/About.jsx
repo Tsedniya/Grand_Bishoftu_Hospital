@@ -2,7 +2,8 @@ import React from 'react';
 import TitleAbout from '../components/TitleAbout';
 import RatingBox from '../components/RatingBox';
 import Treatment from '../components/Treatment';
-import Mission from '../components/mission'
+import Mission from '../components/mission';
+import TestimonialSlider from "../components/TestimonialSlider";
 
 
 const About = () => {
@@ -12,6 +13,7 @@ const About = () => {
       <Mission/>
       <TitleAbout/>
       <Treatment/>
+       <TestimonialSlider />
        
 
     </div>

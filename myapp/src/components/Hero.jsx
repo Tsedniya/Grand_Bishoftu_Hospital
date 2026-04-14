@@ -1,37 +1,19 @@
-import React, { useEffect, useState } from "react";
-import photo05 from "../assets/new/photo05.JPG";
-import photo08 from "../assets/new/photo08.JPG";
-import photo06 from "../assets/new/photo06.JPG";
+import React from "react";
+import now from "../assets/new/now.png";
 import { motion } from "framer-motion";
-
-const images = [photo05, photo08, photo06];
+import { Link } from "react-router-dom";
 
 const HeroSecond = () => {
-  const [currentImage, setCurrentImage] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <section className="w-full">
       <div className="relative w-full h-[115vh] overflow-hidden">
 
-        {/* Background images */}
-        {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt="hero"
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${
-              index === currentImage ? "opacity-100" : "opacity-0"
-            }`}
-          />
-        ))}
+        {/* Single background image */}
+        <img
+          src={now}
+          alt="hero"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
 
         {/* Gradient */}
         <div
@@ -58,7 +40,7 @@ const HeroSecond = () => {
             initial={{ x: 120, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.9, ease: "easeOut" }}
-            className="text-2xl md:text-7xl font-bold leading-tight bg-gradient-to-r from-white via-blue-200 to-blue-400 text-transparent bg-clip-text"
+            className="text-2xl md:text-7xl font-extrabold leading-tight text-white"
           >
             Grand Bishoftu
           </motion.h2>
@@ -77,7 +59,7 @@ const HeroSecond = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-4 text-lg md:text-xl text-white/90 leading-relaxed"
+            className="mt-4 text-lg md:text-xl text-white/90 leading-relaxed font-bold"
           >
             We provide high-quality, patient-centered healthcare services with
             modern facilities and experienced medical professionals dedicated
@@ -90,14 +72,18 @@ const HeroSecond = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex gap-4 mt-6"
-          >
+          > 
+          <Link to="/contact">
             <button className="bg-white text-sky-500 hover:bg-blue-900 px-6 py-3 rounded-3xl font-semibold transition">
               Emergency
             </button>
-
+          </Link>
+           
+          <Link to="/services">
             <button className="bg-white text-blue-900 hover:bg-sky-500 px-6 py-3 rounded-3xl font-semibold transition">
               Our Services
             </button>
+          </Link>
           </motion.div>
 
         </div>

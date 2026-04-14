@@ -26,7 +26,7 @@ const Homeone = () => {
   };
 
   return (
-    <div className="mt-7 md:mt-7 lg:mt-7 flex flex-col lg:flex-row gap-4 lg:gap-8 bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="lg:mt-16 flex flex-col lg:flex-row gap-4 lg:gap-8 bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Image Section */}
       <motion.div

@@ -6,16 +6,18 @@ import photo25 from "../assets/new/photo25.jpg";
 import photo27 from "../assets/new/photo27.jpg";
 import photo28 from "../assets/new/photo28.jpg";
 import photo29 from "../assets/new/photo29.jpg";
-import photo44 from "../assets/new/photo44.jpg"
+import photo90 from "../assets/new/photo90.jpg";
+import photo71 from "../assets/new/photo71.JPG";
+import photo70 from "../assets/new/photo70.JPG";
 import { Link } from 'react-router-dom';
 
 const Meet = () => {
   const doctors = [
   
-    { img: photo27, name: "Dr. Segni Bekele", role: " CEO" },
-    { img: photo44, name: "Dr. Tatek Belay", role: "Founding Member & Medical Director" },
+    { img: photo70, name: "Dr. Segni Bekele", role: " CEO" },
+    { img: photo90, name: "Dr. Tatek Belay", role: "Founding Member & Medical Director" },
     { img: photo29, name: "Dr. Tadesse Gonfa", role: "Founding Member & Medical Director" },
-    { img: photo30, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
+    { img: photo71, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
   ];
 
   // duplicate for infinite loop
@@ -63,7 +65,7 @@ const Meet = () => {
   const movePercent = 100 / visibleCards;
 
   return (
-    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] -mt-18 sm:-mt-25 mb-3 ">
+    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] sm:-mt-15 mb-3 ">
 
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
@@ -101,11 +103,7 @@ const Meet = () => {
                   </h3>
 
                   <p className="text-base">{doctor.role}</p>
-                  <Link to='/doctors'>
-                    <button className="mt-3 sm:mt-4 px-5 py-2 bg-[#023E8A] font-opensans text-white rounded-3xl text-sm sm:text-base hover:opacity-90">
-                      Learn more
-                    </button>
-                  </Link>
+                 
                 </div>
 
               </div>
