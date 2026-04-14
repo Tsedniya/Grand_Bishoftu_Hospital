@@ -5,7 +5,7 @@ import Hometwo from '../components/Hometwo'
 import Meet from '../components/Meet'
 import ContactForm from '../components/ContactForm'
 import Frequently from  '../components/Frequently'
-
+import Partners from "../components/partners";
 
 
 const Home = () => {
@@ -16,6 +16,7 @@ const Home = () => {
       <Hometwo/>
       <Meet/>
       <ContactForm/>
+      <Partners />
       <Frequently/>
       
     </div>

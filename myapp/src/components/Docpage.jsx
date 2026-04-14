@@ -13,6 +13,9 @@ import photo46 from "../assets/new/photo46.jpg";
 import photo47 from "../assets/new/photo47.jpg";
 import photo40 from "../assets/new/photo40.jpg";
 import photo27 from "../assets/new/photo27.jpg";
+import photo71 from "../assets/new/photo71.JPG"; 
+import photo70 from "../assets/new/photo70.JPG";
+import photo72 from "../assets/new/photo72.JPG"; 
 
 const DocPage = () => {
   const doctors = [
@@ -106,7 +109,7 @@ const DocPage = () => {
     },
     {
       id: "dr-segni",
-      img: photo27,
+      img: photo70,
       name: "Dr. Segni Bekele",
       specialty: "Laparoscopic Surgeon",
       description:
@@ -117,7 +120,7 @@ const DocPage = () => {
     },
     {
       id: "dr-dejene",
-      img: photo40,
+      img: photo72,
       name: "Dr. Dejene Degu",
       specialty: "Senior Pediatrician",
       description:
@@ -128,7 +131,7 @@ const DocPage = () => {
     },
     {
       id: "dr-tsion",
-      img: photo40,
+      img: photo71,
       name: "Dr. Tsion Mekasha",
       specialty: "General Practitioner",
       description:
