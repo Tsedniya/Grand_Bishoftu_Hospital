@@ -173,12 +173,12 @@ const Departements = () => {
     img: photo65,
     icon:  baby,
   },
-  {
-    title: "Cardiology",
-    desc: "Advanced heart care including diagnosis, treatment, and prevention of cardiovascular diseases using modern technology.",
+    {
+    title: "Anesthesiology",
+    desc: "Specialized in providing safe anesthesia care before, during, and after surgery, ensuring patient comfort and pain management.",
     img: photo34,
     icon: pulse,
-  },
+  }
 ];
 
   const [visibleCount, setVisibleCount] = useState(6);

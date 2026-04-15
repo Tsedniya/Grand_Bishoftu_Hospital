@@ -18,7 +18,51 @@ import photo70 from "../assets/new/photo70.JPG";
 import photo72 from "../assets/new/photo72.JPG"; 
 
 const DocPage = () => {
-  const doctors = [
+   const doctors = [
+    {
+      id: "dr-segni",
+      img: photo70,
+      name: "Dr. Segni Bekele",
+      specialty: "Laparoscopic Surgeon",
+      description:
+        "Performs minimally invasive surgeries that allow faster recovery and reduced post-operative pain.",
+      available: "Monday-Saturday 3:00-11:00 LT",
+      experience: "5+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-shibiru",
+      img: photo40,
+      name: "Dr. Shibiru Dula",
+      specialty: "Senior Obstetrician & Gynecologist",
+      description:
+        "Experienced in pregnancy care, childbirth, and treatment of women's reproductive health conditions.",
+      available: "Monday-Saturday 8:00–11:00 LT",
+      experience: "5+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-dejene",
+      img: photo72,
+      name: "Dr. Dejene Degu",
+      specialty: "Senior Pediatrician",
+      description:
+        "Provides advanced pediatric care including growth monitoring and disease prevention.",
+      available: "Monday-Saturday 4:00-11:00 LT",
+      experience: "4+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-yeshi",
+      img: photo42,
+      name: "Dr. Yeshi Teshome",
+      specialty: "Senior Ophthalmologist",
+      description:
+        "Specialist in eye diseases, vision correction, and advanced ophthalmic procedures.",
+      available: "Monday-Friday 8:00-11:00 LT",
+      experience: "3+ years",
+      emergency: "Emergency available",
+    },
     {
       id: "dr-dereje",
       img: photo49,
@@ -26,7 +70,7 @@ const DocPage = () => {
       specialty: "Neurology",
       description:
         "Experienced in diagnosing and managing neurological disorders including stroke and rehabilitation care.",
-      available: "Tuesday 8:00–11:00 LT",
+      available: "Saturday 8:00-11:00 LT",
       experience: "9 years",
       emergency: "Emergency available",
     },
@@ -37,30 +81,8 @@ const DocPage = () => {
       specialty: "Urologist",
       description:
         "Specializes in urinary tract and male reproductive system conditions, including kidney stones and prostate care.",
-      available: "Tuesday 8:00–11:00 LT",
+      available: "Tuesday 8:00-11:00 LT",
       experience: "5+ years",
-      emergency: "Emergency available",
-    },
-    {
-      id: "dr-addis",
-      img: photo45,
-      name: "Dr. Addis Gezahegn",
-      specialty: "Dermatology",
-      description:
-        "Expert in diagnosing and treating skin conditions, with a focus on both medical and cosmetic dermatology.",
-      available: "Saturday 2:30–6:30 LT",
-      experience: "5 years",
-      emergency: "Emergency available",
-    },
-    {
-      id: "dr-yeshi",
-      img: photo42,
-      name: "Dr. Yeshi Teshome",
-      specialty: "Senior Ophthalmologist",
-      description:
-        "Specialist in eye diseases, vision correction, and advanced ophthalmic procedures.",
-      available: "Monday–Friday 8:00–11:00 LT",
-      experience: "10+ years",
       emergency: "Emergency available",
     },
     {
@@ -70,8 +92,8 @@ const DocPage = () => {
       specialty: "Plastic and Reconstructive Surgeon",
       description:
         "Performs reconstructive and cosmetic procedures aimed at restoring function and enhancing appearance.",
-      available: "Tuesday 3:00–11:00 LT",
-      experience: "9 years",
+      available: "Tuesday 3:00-11:00 LT",
+      experience: "5+ years",
       emergency: "Emergency available",
     },
     {
@@ -81,52 +103,8 @@ const DocPage = () => {
       specialty: "General Surgeon",
       description:
         "Performs a wide range of surgical procedures with emphasis on safe and effective patient care.",
-      available: "Tuesday–Friday 8:00–11:00 LT",
+      available: "Monday-Saturday 3:00-11:00 LT",
       experience: "4 years",
-      emergency: "Emergency available",
-    },
-    {
-      id: "dr-bekan",
-      img: photo46,
-      name: "Dr. Bekan Eshetu",
-      specialty: "Pediatrics",
-      description:
-        "Focused on child health, development, and preventive care from infancy through adolescence.",
-      available: "Monday–Friday 9:00–11:00 LT",
-      experience: "9 years",
-      emergency: "Emergency available",
-    },
-    {
-      id: "dr-shibiru",
-      img: photo40,
-      name: "Dr. Shibiru Dula",
-      specialty: "Senior Obstetrician & Gynecologist",
-      description:
-        "Experienced in pregnancy care, childbirth, and treatment of women's reproductive health conditions.",
-      available: "Tuesday 8:00–11:00 LT",
-      experience: "9 years",
-      emergency: "Emergency available",
-    },
-    {
-      id: "dr-segni",
-      img: photo70,
-      name: "Dr. Segni Bekele",
-      specialty: "Laparoscopic Surgeon",
-      description:
-        "Performs minimally invasive surgeries that allow faster recovery and reduced post-operative pain.",
-      available: "Tuesday 8:00–11:00 LT",
-      experience: "9 years",
-      emergency: "Emergency available",
-    },
-    {
-      id: "dr-dejene",
-      img: photo72,
-      name: "Dr. Dejene Degu",
-      specialty: "Senior Pediatrician",
-      description:
-        "Provides advanced pediatric care including growth monitoring and disease prevention.",
-      available: "Tuesday 8:00–11:00 LT",
-      experience: "9 years",
       emergency: "Emergency available",
     },
     {
@@ -136,8 +114,8 @@ const DocPage = () => {
       specialty: "General Practitioner",
       description:
         "Offers comprehensive primary care including diagnosis, treatment, and long-term health management.",
-      available: "Tuesday 8:00–11:00 LT",
-      experience: "9 years",
+      available: "Monday-Friday 3:00-11:00 LT",
+      experience: "4+ years",
       emergency: "Emergency available",
     },
     {
@@ -147,10 +125,29 @@ const DocPage = () => {
       specialty: "Pathologist",
       description:
         "Specializes in diagnosing diseases through laboratory testing and tissue analysis.",
-      available: "Tuesday 8:00–11:00 LT",
-      experience: "9 years",
+      available: "Tuesday 8:00-11:00 LT",
+      experience: "4+ years",
       emergency: "Emergency available",
     },
+    {
+      id: "dr-bekan",
+      img: photo46,
+      name: "Dr. Bekan Eshetu",
+      specialty: "Pediatrics",
+      description:
+        "Focused on child health, development, and preventive care from infancy through adolescence.",
+      available: "Monday-Friday 9:00-11:00 LT",
+      experience: "4+ years",
+      emergency: "Emergency available",
+    },
+    { 
+      id: "dr-addis", 
+      img: photo45, name: "Dr. Addis Gezahegn", 
+      specialty: "Dermatology", 
+      description: "Expert in diagnosing and treating skin conditions, with a focus on both medical and cosmetic dermatology.", 
+      available: "Saturday 2:30-6:30 LT", 
+      experience: "4 years", 
+      emergency: "Emergency available", },
   ];
 
   // Animation variants
@@ -164,7 +161,7 @@ const DocPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white mb-12 mt-28">
+    <div className="min-h-screen bg-white lg:mb-12 mt-28">
       {/* Hero */}
       <section className="relative bg-white py-10 px-4 text-center">
         <div className="max-w-3xl mx-auto">
