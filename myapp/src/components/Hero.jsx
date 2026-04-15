@@ -1,5 +1,6 @@
 import React from "react";
 import now from "../assets/new/now.png";
+import photo11 from "../assets/new/photo11.jpg";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
@@ -8,12 +9,18 @@ const HeroSecond = () => {
     <section className="w-full">
       <div className="relative w-full h-[115vh] overflow-hidden">
 
-        {/* Single background image */}
-        <img
-          src={now}
-          alt="hero"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
+        {/* Background image */}
+        <picture>
+          {/* lg and above */}
+          <source srcSet={now} media="(min-width: 1024px)" />
+
+          {/* below lg (default) */}
+          <img
+            src={photo11}
+            alt="hero"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </picture>
 
         {/* Gradient */}
         <div
@@ -32,10 +39,9 @@ const HeroSecond = () => {
           }}
         />
 
-        {/* HERO CONTENT */}
-        <div className="absolute top-[35%] left-6 z-50 translate-x-10 max-w-xl text-white">
+        {/* HERO CONTENT - visible only on lg+ */}
+        <div className="hidden lg:block absolute top-[35%] left-6 z-50 translate-x-10 max-w-xl text-white">
 
-          {/* Title */}
           <motion.h2
             initial={{ x: 120, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -54,7 +60,6 @@ const HeroSecond = () => {
             Hospital
           </motion.h2>
 
-          {/* Paragraph */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,24 +71,23 @@ const HeroSecond = () => {
             to your well-being.
           </motion.p>
 
-          {/* Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6, duration: 0.8 }}
             className="flex gap-4 mt-6"
-          > 
-          <Link to="/contact">
-            <button className="bg-white text-sky-500 hover:bg-blue-900 px-6 py-3 rounded-3xl font-semibold transition">
-              Emergency
-            </button>
-          </Link>
-           
-          <Link to="/services">
-            <button className="bg-white text-blue-900 hover:bg-sky-500 px-6 py-3 rounded-3xl font-semibold transition">
-              Our Services
-            </button>
-          </Link>
+          >
+            <Link to="/contact">
+              <button className="bg-white text-sky-500 hover:bg-blue-900 px-6 py-3 rounded-3xl font-semibold transition">
+                Emergency
+              </button>
+            </Link>
+
+            <Link to="/services">
+              <button className="bg-white text-blue-900 hover:bg-sky-500 px-6 py-3 rounded-3xl font-semibold transition">
+                Our Services
+              </button>
+            </Link>
           </motion.div>
 
         </div>

@@ -13,7 +13,7 @@ const About = () => {
       <Mission/>
       <TitleAbout/>
       <Treatment/>
-       <TestimonialSlider />
+      <TestimonialSlider />
        
 
     </div>
