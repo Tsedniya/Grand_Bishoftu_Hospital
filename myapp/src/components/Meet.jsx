@@ -14,9 +14,9 @@ import { Link } from 'react-router-dom';
 const Meet = () => {
   const doctors = [
   
-    { img: photo70, name: "Dr. Segni Bekele", role: " CEO" },
+    { img: photo70, name: "Dr. Segni Bekele", role: " Founding Member & CEO" },
     { img: photo90, name: "Dr. Tatek Belay", role: "Founding Member & Medical Director" },
-    { img: photo29, name: "Dr. Tadesse Gonfa", role: "Founding Member & Medical Director" },
+    { img: photo29, name: "Dr. Yeshi Tshome", role: "Founding Member" },
     { img: photo71, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
   ];
 
