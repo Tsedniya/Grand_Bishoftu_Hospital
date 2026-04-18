@@ -86,10 +86,10 @@ const TestimonialSection = () => {
         transition={{ duration: 0.6 }}
         className="text-center max-w-2xl mx-auto mb-10"
       >
-        <h2 className="text-3xl sm:text-4xl font-poppins text-[#023E8A]">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-poppins text-[#023E8A]">
           Patient Feedback
         </h2>
-        <p className="mt-3 text-gray-600 font-opensans">
+        <p className="mt-3 sm:text-sm md:text-lg  text-gray-600 font-opensans">
           What our patients say about their experience and care.
         </p>
       </motion.div>

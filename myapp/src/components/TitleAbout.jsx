@@ -65,7 +65,7 @@ const TitleAbout = () => {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="w-full lg:w-1/2 flex flex-col justify-center"
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight md:leading-snug">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight md:leading-snug ">
             Committed to Care
           </h3>
 

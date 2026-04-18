@@ -65,15 +65,14 @@ const Meet = () => {
   const movePercent = 100 / visibleCards;
 
   return (
-    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-3  ">
-
+   <div className="bg-white pt-10 pb-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-10 -mt-10 md:-mt-20 lg:mt-10">
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
              Our Founders & Leadership Team
         </h3>
 
-        
+         
       </div>
 
       {/* Slider */}

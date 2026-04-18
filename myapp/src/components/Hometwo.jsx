@@ -9,7 +9,11 @@ const Hometwo = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row-reverse bg-white items-center justify-between py-12 md:py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-6 lg:gap-10">
+     <div className="flex flex-col lg:flex-row-reverse bg-white items-center justify-between
+                py-12 md:py-16
+                px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]
+                gap-6 lg:gap-10
+                -mt-20 sm:-mt-24 lg:-mt-0">
 
       {/* Image Section */}
       <motion.div
