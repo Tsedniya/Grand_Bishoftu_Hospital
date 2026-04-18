@@ -17,37 +17,36 @@ import photo62 from "../assets/new/photo62.jpg";
 import photo63 from "../assets/new/photo63.jpg";
 import photo64 from "../assets/new/photo64.jpg";
 
-
 const partners = [
+  { name: "Ethio Telecom", logo: photo54 },
+  { name: "Commercial Bank of Ethiopia", logo: photo61 },
+  { name: "Unilever", logo: photo52 },
   { name: "Abyssinia Bank", logo: photo50 },
   { name: "Abyssinia Group of Industries", logo: photo59 },
-  { name: "Commercial Bank of Ethiopia", logo: photo61 },
   { name: "East Africa Industrial Park", logo: photo58 },
   { name: "East Africa Agribusiness", logo: photo63 },
+  { name: "TK Hotel", logo: photo51 },
+  { name: "Unlimited Packaging", logo: null },
+  { name: "Oromia Bank", logo: photo62 },
   { name: "Elsewedy Cables", logo: photo53 },
   { name: "Ethio Life & General Insurance", logo: photo57 },
   { name: "Ethiopian Steel Profiling", logo: photo56 },
   { name: "G-Global Gas", logo: photo64 },
   { name: "Humedica", logo: photo60 },
-  { name: "Oromia Bank", logo: photo62 },
   { name: "Sentinel Steel", logo: photo55 },
-  { name: "Tadash Steel", logo: null }, 
-  { name: "Ethio Telecom", logo: photo54 },
-  { name: "TK Hotel", logo: photo51 },
-  { name: "Unilever", logo: photo52 },
-  { name: "Unlimited Packaging", logo: null }, 
+  { name: "Tadash Steel", logo: null },
 ];
 
 const Partners = () => {
   return (
-    <div className="bg-white py-15">
-      <h2 className="text-3xl sm:text-4xl font-poppins text-[#023E8A] text-center ">
-           Our Partners
+    <div className="bg-white py-10 mt-7 md:mt-14">
+      <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight text-center mb-8">
+        Our Partners
       </h2>
 
-      <div className="relative w-full overflow-hidden h-28 flex items-center">
+      <div className="relative w-full overflow-hidden h-32 flex items-center py-6">
         <motion.div
-          className="flex gap-10 items-center"
+          className="flex gap-12 items-center"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
             repeat: Infinity,
@@ -58,7 +57,7 @@ const Partners = () => {
           {partners.concat(partners).map((partner, index) => (
             <div
               key={index}
-              className="min-w-[140px] h-20 flex items-center justify-center bg-gray-100 rounded-lg shadow p-3"
+              className="min-w-[170px] h-24 flex items-center justify-center bg-gray-100 rounded-xl shadow-md p-4"
             >
               {partner.logo ? (
                 <img

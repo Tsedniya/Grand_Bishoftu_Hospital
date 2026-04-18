@@ -44,6 +44,7 @@ import photo70 from "../assets/new/photo70.jpg";
 import photo69 from "../assets/new/photo69.jpg";
 import photo71 from "../assets/new/photo71.jpg";
 import photo68 from "../assets/new/photo68.jpg";
+import photo02 from "../assets/new/photo02.jpg";
 import briefcasemedical from "../assets/briefcasemedical.svg";
 import searchcheck from "../assets/searchcheck.svg";
 import venus from "../assets/venus.svg";
@@ -67,7 +68,7 @@ const Departements = () => {
   {
     title: "Surgery",
     desc: "Advanced surgical services covering a wide range of procedures, performed by skilled surgeons using modern techniques to ensure safe operations and optimal recovery.",
-    img: photo13,
+    img: photo02,
     icon:  shieldcheck,
   },
   {
@@ -172,12 +173,12 @@ const Departements = () => {
     img: photo65,
     icon:  baby,
   },
-  {
-    title: "Cardiology",
-    desc: "Advanced heart care including diagnosis, treatment, and prevention of cardiovascular diseases using modern technology.",
+    {
+    title: "Anesthesiology",
+    desc: "Specialized in providing safe anesthesia care before, during, and after surgery, ensuring patient comfort and pain management.",
     img: photo34,
     icon: pulse,
-  },
+  }
 ];
 
   const [visibleCount, setVisibleCount] = useState(6);
@@ -251,7 +252,7 @@ const Departements = () => {
 
             <div className="px-4 sm:px-7 pb-6">
               <p className="mt-6 text-2xl font-bold text-[#023E8A]">{dept.title}</p>
-              <p className="mt-2 text-justify">{dept.desc}</p>
+              <p className="mt-2 text-gray-700 text-justify">{dept.desc}</p>
             </div>
           </motion.div>
         ))}

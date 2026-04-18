@@ -103,28 +103,18 @@ const Navbar = () => {
             onMouseEnter={() => setServiceDropdown(true)}
             onMouseLeave={() => setServiceDropdown(false)}
           >
-            <button className="flex items-center gap-1 pb-1 transition text-gray-600 font-bold hover:text-black hover:font-semibold">
-              Services {serviceDropdown ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-            </button>
-
-            {serviceDropdown && (
-              <ul className="absolute top-full left-0 w-40 z-50 bg-white shadow-lg rounded-md py-2 flex flex-col">
-                <NavLink
-                  to="/services"
-                  onClick={() => setServiceDropdown(false)}
-                  className="px-4 py-2 hover:bg-gray-100 hover:text-[#023E8A]"
-                >
-                  Departements
-                </NavLink>
-                <NavLink
-                  to="/awards"
-                  onClick={() => setServiceDropdown(false)}
-                  className="px-4 py-2 hover:bg-gray-100 hover:text-[#023E8A]"
-                >
-                  Awards
-                </NavLink>
-              </ul>
-            )}
+            <NavLink
+            to="/services"
+            className={({ isActive }) =>
+              `pb-1 transition ${
+                isActive
+                  ? "text-black font-semibold border-b-2 border-[#023E8A]"
+                  : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+              }`
+            }
+          >
+            Services
+          </NavLink>
           </li>
 
           <NavLink
@@ -159,42 +149,8 @@ const Navbar = () => {
               <NavLink to="/" onClick={() => setVisible(false)} className="hover:border-b-2">Home</NavLink>
               <NavLink to="/about" onClick={() => setVisible(false)} className="hover:border-b-2">About</NavLink>
               <NavLink to="/doctors" onClick={() => setVisible(false)} className="hover:border-b-2">Doctors</NavLink>
-
-              {/* Mobile Services Dropdown */}
-              <div className="flex flex-col items-start">
-                <button
-                  onClick={() => setServiceDropdown(!serviceDropdown)}
-                  className="flex items-center gap-1 text-black font-medium text-lg"
-                >
-                  Services {serviceDropdown ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                </button>
-
-                {serviceDropdown && (
-                  <ul className="flex flex-col pl-4 mt-2 space-y-2">
-                    <NavLink
-                      to="/services"
-                      onClick={() => {
-                        setVisible(false);
-                        setServiceDropdown(false);
-                      }}
-                      className="px-2 py-1 hover:bg-gray-100 hover:text-[#023E8A] rounded-md"
-                    >
-                      Departements
-                    </NavLink>
-                    <NavLink
-                      to="/awards"
-                      onClick={() => {
-                        setVisible(false);
-                        setServiceDropdown(false);
-                      }}
-                      className="px-2 py-1 hover:bg-gray-100 hover:text-[#023E8A] rounded-md"
-                    >
-                      Awards
-                    </NavLink>
-                  </ul>
-                )}
-              </div>
-
+              <NavLink to="/services" onClick={() => setVisible(false)} className="hover:border-b-2">Services</NavLink>
+           
               <NavLink
                 to="/contact"
                 onClick={() => setVisible(false)}

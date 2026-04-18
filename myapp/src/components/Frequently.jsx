@@ -36,7 +36,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full bg-white py-20 px-6 -mt-10 md:mt-1">
+    <section className="w-full bg-white py-20 px-6  -mt-16 md:-mt-10">
       <div className="max-w-4xl mx-auto ">
 
         {/* Title */}

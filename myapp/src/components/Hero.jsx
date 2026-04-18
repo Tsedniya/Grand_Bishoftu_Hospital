@@ -1,148 +1,97 @@
-import React, { useEffect, useState } from "react";
-import home from "../assets/home.jpg";
-import calendar from "../assets/calendar.svg";
-import users from "../assets/users.svg";
-import activity from "../assets/activity.svg";
-import hearthandshake from "../assets/hearthandshake.svg";
-import userstar from "../assets/userstar.svg";
-import infinity from "../assets/infinity.svg";
-import FlipCard from "./FlipCard";
+import React from "react";
+import now from "../assets/new/now.png";
+import photo11 from "../assets/new/photo11.jpg";
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const HeroSecond = () => {
-  const lines = ["Health is a treasure", "We care together"];
-  const [lineIndex, setLineIndex] = useState(0);
-  const [charIndex, setCharIndex] = useState(0);
-  const [typedLines, setTypedLines] = useState(["", ""]);
-
-  useEffect(() => {
-    let timeout;
-
-    if (lineIndex < lines.length) {
-      if (charIndex < lines[lineIndex].length) {
-        timeout = setTimeout(() => {
-          setTypedLines((prev) => {
-            const updated = [...prev];
-            updated[lineIndex] += lines[lineIndex][charIndex];
-            return updated;
-          });
-          setCharIndex(charIndex + 1);
-        }, 80);
-      } else {
-        timeout = setTimeout(() => {
-          setLineIndex(lineIndex + 1);
-          setCharIndex(0);
-        }, 400);
-      }
-    } else {
-      timeout = setTimeout(() => {
-        setTypedLines(["", ""]);
-        setLineIndex(0);
-        setCharIndex(0);
-      }, 1500);
-    }
-
-    return () => clearTimeout(timeout);
-  }, [charIndex, lineIndex]);
-
   return (
-    <section className="relative w-full overflow-visible">
-      <div className="relative w-full h-[60vh] md:h-[70vh] lg:h-[100vh] min-h-[420px] pb-[220px]">
+    <section className="w-full">
+      <div className="relative w-full h-[115vh] overflow-hidden">
 
         {/* Background image */}
-        <img
-          src={home}
-          alt="Hero"
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ objectPosition: "center 75%" }}
-        />
+        <picture>
+          {/* lg and above */}
+          <source srcSet={now} media="(min-width: 1024px)" />
 
-        {/* Gradient overlay */}
+          {/* below lg (default) */}
+          <img
+            src={photo11}
+            alt="hero"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        </picture>
+
+        {/* Gradient */}
         <div
           className="absolute inset-0 z-10"
           style={{
             background: `
               linear-gradient(
                 to right,
-                rgba(2,62,138,0.95) 0%,
-                rgba(2,62,138,0.85) 25%,
-                rgba(2,62,138,0.55) 45%,
-                rgba(2,62,138,0.25) 65%,
-                rgba(255,255,255,0.25) 85%,
-                rgba(255,255,255,0.35) 100%
+                rgba(2,62,138,0.75) 0%,
+                rgba(2,62,138,0.55) 25%,
+                rgba(2,62,138,0.30) 50%,
+                rgba(255,255,255,0.10) 75%,
+                rgba(255,255,255,0.20) 100%
               )
             `,
           }}
         />
 
-        {/* Hero text */}
-        <div className="absolute inset-0 z-40 flex items-center justify-center px-6 md:px-16 lg:px-24 text-center">
-          <h1 className="font-bold text-white leading-tight drop-shadow-xl">
-            <span className="block text-3xl sm:text-4xl md:text-5xl lg:text-7xl min-h-[1.2em]">
-              {typedLines[0]}
-            </span>
-            <span className="block mt-4 text-3xl sm:text-4xl md:text-5xl lg:text-7xl min-h-[1.2em]">
-              {typedLines[1]}
-            </span>
-          </h1>
-        </div>
+        {/* HERO CONTENT - visible only on lg+ */}
+        <div className="hidden lg:block absolute top-[35%] left-6 z-50 translate-x-10 max-w-xl text-white">
 
-        {/* Flip cards */}
-         <div
-              className="
-              absolute left-1/2 -translate-x-1/2 z-50
-              flex flex-col lg:flex-row
-              justify-center items-center
-              w-full max-w-4xl
-              gap-0
-              top-full
-              -translate-y-[150px] lg:-translate-y-[100px]
-            ">
+          <motion.h2
+            initial={{ x: 120, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
+            className="text-2xl md:text-7xl font-extrabold leading-tight text-white"
+          >
+            Grand Bishoftu
+          </motion.h2>
 
-            <FlipCard
-              frontTitle="Our Care"
-              frontText="We put patients first"
-              backTitle="Our Promise"
-              backText="Quality healthcare with compassion"
-              frontImage={calendar}
-              backImage={hearthandshake}   // 👈 add this
-              bg="bg-[#023E8A]"
-            />
+          <motion.h2
+            initial={{ y: 80, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
+            className="text-2xl md:text-7xl font-bold leading-tight text-sky-500"
+          >
+            Hospital
+          </motion.h2>
 
-            <FlipCard
-              frontTitle="Our Doctors"
-              frontText="Trusted professionals"
-              backTitle="Expertise"
-              backText="Years of medical experience"
-              frontImage={users}
-              backImage={userstar}   // 👈 add this
-              bg="bg-sky-400"
-             />
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4, duration: 0.8 }}
+            className="mt-4 text-lg md:text-xl text-white/90 leading-relaxed font-bold"
+          >
+            We provide high-quality, patient-centered healthcare services with
+            modern facilities and experienced medical professionals dedicated
+            to your well-being.
+          </motion.p>
 
-            <FlipCard
-              frontTitle="Our Mission"
-              frontText="Health for everyone"
-              backTitle="Commitment"
-              backText="Accessible and affordable care"
-              frontImage={activity}
-              backImage={infinity}  // 👈 add this
-              bg="bg-[#023E8A]"
-            />
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6, duration: 0.8 }}
+            className="flex gap-4 mt-6"
+          >
+            <Link to="/contact">
+              <button className="bg-white text-sky-500 hover:bg-blue-900 px-6 py-3 rounded-3xl font-semibold transition">
+                Emergency
+              </button>
+            </Link>
+
+            <Link to="/services">
+              <button className="bg-white text-blue-900 hover:bg-sky-500 px-6 py-3 rounded-3xl font-semibold transition">
+                Our Services
+              </button>
+            </Link>
+          </motion.div>
 
         </div>
-      </div>
 
-      {/* White curved divider */}
-      <div className="absolute bottom-0 left-0 w-full h-[140px] z-40 pointer-events-none">
-        <svg
-          viewBox="0 0 1440 200"
-          preserveAspectRatio="none"
-          className="w-full h-full"
-        >
-          <path
-            d="M0,0 C480,180 960,180 1440,0 L1440,200 L0,200 Z"
-            fill="#ffffff"
-          />
-        </svg>
       </div>
     </section>
   );
