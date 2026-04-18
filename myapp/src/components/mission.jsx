@@ -30,7 +30,7 @@ const Mission = () => {
   ];
 
   return (
-    <div className="bg-white mt-10 md:mt-16 lg:mt-20 pt-12 md:pt-16 lg:min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="bg-white mt-20 md:mt-24 lg:mt-20 pt-12 md:pt-16 lg:min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Hero Section */}
       <motion.div
@@ -80,7 +80,7 @@ const Mission = () => {
       </div>
 
       {/* Stats Section */}
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-12">
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-7 pb-20">
 
         <motion.div
           className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"

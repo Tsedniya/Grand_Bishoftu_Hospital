@@ -177,46 +177,65 @@ const DocPage = () => {
       {/* Grid */}
       <section className="max-w-6xl mx-auto px-4 py-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {doctors.map((doc, idx) => (
-          <motion.div
-            key={doc.id}
-            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 flex flex-col"
-            variants={cardVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            custom={idx} // Stagger effect
-          >
-            {/* Image */}
-            <div className="h-56 w-full overflow-hidden rounded-xl bg-gray-100">
-              <img
-                src={doc.img}
-                alt={doc.name}
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-              />
+                <motion.div
+        key={doc.id}
+        className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+        variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        custom={idx}
+      >
+        {/* Image (taller now) */}
+        <div className="w-full h-52 sm:h-56 md:h-60 overflow-hidden">
+          <img
+            src={doc.img}
+            alt={doc.name}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-5 py-5">
+          <h2 className="text-xl font-semibold text-gray-800">
+            {doc.name}
+          </h2>
+
+          <p className="mt-1 text-[#023E8A] font-medium">
+            {doc.specialty}
+          </p>
+
+          <p className="mt-3 sm:text-sm text-gray-600 leading-relaxed">
+            {doc.description}
+          </p>
+
+          {/* Info Section */}
+          <div className="mt-4 space-y-2 text-sm">
+            <div className="flex items-center gap-2 text-gray-700">
+              <div className="bg-blue-100 p-1.5 rounded-md">
+                <Clock size={14} className="text-[#023E8A]" />
+              </div>
+              <span>{doc.available}</span>
             </div>
 
-            {/* Info */}
-            <div className="mt-5 flex-1">
-              <h2 className="text-xl font-semibold text-gray-800">{doc.name}</h2>
-              <p className="mt-1 text-[#023E8A] font-medium">{doc.specialty}</p>
-              <p className="mt-3 text-sm sm:text-base leading-relaxed font-opensans">
-                {doc.description}
-              </p>
+            <div className="flex items-center gap-2 text-gray-700">
+              <div className="bg-green-100 p-1.5 rounded-md">
+                <Stethoscope size={14} className="text-green-700" />
+              </div>
+              <span>{doc.experience} of experience</span>
             </div>
 
-            {/* Footer */}
-            <div className="mt-6 pt-4 border-t border-gray-100 text-sm">
-              <p className="flex items-center gap-2 font-opensans sm:text-base">
-                <Clock size={16} color="#023E8A" /> {doc.available}
-              </p>
-              <p className="flex items-center gap-2 mt-1 font-opensans sm:text-base">
-                <Stethoscope size={16} color="#023E8A" /> {doc.experience} of experience
-              </p>
-              <p className="flex items-center gap-2 mt-1 font-opensans sm:text-base">
-                <Ambulance size={16} color="#023E8A" /> {doc.emergency}
-              </p>
+            <div className="flex items-center gap-2 text-gray-700">
+              <div className="bg-red-100 p-1.5 rounded-md">
+                <Ambulance size={14} className="text-red-600" />
+              </div>
+              <span className="text-red-600 font-medium">
+                {doc.emergency}
+              </span>
             </div>
-          </motion.div>
+          </div>
+        </div>
+      </motion.div>
         ))}
       </section>
     </div>

@@ -252,7 +252,7 @@ const Departements = () => {
 
             <div className="px-4 sm:px-7 pb-6">
               <p className="mt-6 text-2xl font-bold text-[#023E8A]">{dept.title}</p>
-              <p className="mt-2 text-justify">{dept.desc}</p>
+              <p className="mt-2 text-gray-700 text-justify">{dept.desc}</p>
             </div>
           </motion.div>
         ))}
