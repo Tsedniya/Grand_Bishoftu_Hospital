@@ -5,7 +5,7 @@ import handheart from "../assets/handheart.svg";
 import heartpulse from "../assets/heartpulse.svg";
 
 const Homeone = () => {
-  // Detect desktop screen (≥1024px)
+  // ✅ Same as TitleAbout
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
 
   useEffect(() => {
@@ -14,14 +14,8 @@ const Homeone = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Animation configs
-  const slideFromLeft = {
-    hidden: { x: -120, opacity: 0 },
-    visible: { x: 0, opacity: 1 },
-  };
-
-  const slideTextFromLeft = {
-    hidden: { x: -120, opacity: 0 },
+  const slideFromRight = {
+    hidden: { x: 120, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
@@ -30,11 +24,11 @@ const Homeone = () => {
 
       {/* Image Section */}
       <motion.div
-        variants={isDesktop ? slideFromLeft : {}}
+        variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ type: "tween", duration: 0.6 }}
+        transition={{ duration: 0.6 }}
         className="relative w-full lg:w-1/2 flex items-center justify-center py-6"
       >
         <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
@@ -61,11 +55,11 @@ const Homeone = () => {
 
       {/* Text + Cards */}
       <motion.div
-        variants={isDesktop ? slideTextFromLeft : {}}
+        variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ type: "tween", duration: 0.6, delay: 0.2 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"
       >
         <h3 className="text-2xl lg:text-5xl mb-3 m sm:text-3xl md:text-4xl text-[#023E8A] font-poppins leading-tight md:leading-snug">
@@ -73,12 +67,9 @@ const Homeone = () => {
         </h3>
 
         <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify break-words hyphens-auto tracking-normal lg:tracking-wide">
-             Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care. 
-             We deliver comprehensive services across cardiology, neurology, orthopedics, pediatrics, oncology, pulmonology, and infectious disease care. 
- 
+          Providing trusted healthcare services with compassion and excellence. Our experienced medical specialists are committed to ensuring the well-being of every patient through advanced treatment and personalized care. 
+          We deliver comprehensive services across cardiology, neurology, orthopedics, pediatrics, oncology, pulmonology, and infectious disease care. 
         </p>
-
-        
 
         {/* Cards */}
         <div className="flex flex-col md:flex-row gap-6 my-8 justify-center md:justify-start">
@@ -98,7 +89,7 @@ const Homeone = () => {
               <p className="font-semibold font-opensans text-white"> Medical Excellence</p>
             </div>
             <p className="text-base text-center text-white">
-               We follow strict medical standards to ensure patient safety.
+              We follow strict medical standards to ensure patient safety.
             </p>
           </div>
         </div>

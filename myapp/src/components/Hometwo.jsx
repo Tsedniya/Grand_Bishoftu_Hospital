@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import photo12 from "../assets/new/photo12.jpg";
 
@@ -7,6 +7,15 @@ const Hometwo = () => {
     hidden: { x: 120, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
+
+  // ✅ Same logic as your other sections
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
      <div className="flex flex-col lg:flex-row-reverse bg-white items-center justify-between
@@ -17,9 +26,9 @@ const Hometwo = () => {
 
       {/* Image Section */}
       <motion.div
-        variants={slideFromRight}
-        initial="hidden"
-        whileInView="visible"
+        variants={isDesktop ? slideFromRight : {}}
+        initial={isDesktop ? "hidden" : false}
+        whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6 }}
         className="relative w-full lg:w-1/2 flex items-center justify-center"
@@ -27,10 +36,8 @@ const Hometwo = () => {
         <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
 
         <div className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg aspect-[5/4]">
-          {/* Decorative dot */}
           <div className="absolute top-[10%] left-[10%] w-5 h-5 bg-[#023E8A] rounded-full z-20 -translate-x-1/2 -translate-y-1/2" />
 
-          {/* Blob clip */}
           <svg width="0" height="0" className="absolute">
             <defs>
               <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
@@ -50,9 +57,9 @@ const Hometwo = () => {
 
       {/* Text Section */}
       <motion.div
-        variants={slideFromRight}
-        initial="hidden"
-        whileInView="visible"
+        variants={isDesktop ? slideFromRight : {}}
+        initial={isDesktop ? "hidden" : false}
+        whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"

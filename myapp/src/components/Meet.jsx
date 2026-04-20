@@ -16,7 +16,7 @@ const Meet = () => {
   
     { img: photo70, name: "Dr. Segni Bekele", role: " Founding Member & CEO" },
     { img: photo90, name: "Dr. Tatek Belay", role: "Founding Member & Medical Director" },
-    { img: photo29, name: "Dr. Yeshi Tshome", role: "Founding Member" },
+    { img: photo29, name: "Dr. Yeshi Teshome", role: "Founding Member" },
     { img: photo71, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
   ];
 
