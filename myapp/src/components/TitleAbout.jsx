@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import photo06 from "../assets/new/photo06.JPG";
 import photo41 from "../assets/new/photo41.jpg";
@@ -8,6 +8,15 @@ const TitleAbout = () => {
     hidden: { x: 120, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
+
+  // ✅ Detect desktop (same as your other component)
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   // Scroll zoom (bottom image)
   const imageRef = useRef(null);
@@ -27,9 +36,9 @@ const TitleAbout = () => {
 
         {/* Image Section (Blob) */}
         <motion.div
-          variants={slideFromRight}
-          initial="hidden"
-          whileInView="visible"
+          variants={isDesktop ? slideFromRight : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
           className="relative w-full lg:w-1/2 flex items-center justify-center"
@@ -58,9 +67,9 @@ const TitleAbout = () => {
 
         {/* Text Section */}
         <motion.div
-          variants={slideFromRight}
-          initial="hidden"
-          whileInView="visible"
+          variants={isDesktop ? slideFromRight : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.2 }}
           className="w-full lg:w-1/2 flex flex-col justify-center"
