@@ -27,7 +27,7 @@ const TitleAbout = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
 
   return (
-    <div className="bg-white mt-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
+    <div className="bg-white mt-3 py-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
 
       {/* ROW */}
       <div className="flex flex-col lg:flex-row-reverse lg:h-[420px] items-stretch gap-6 lg:gap-10">
@@ -100,7 +100,7 @@ const TitleAbout = () => {
       {/* FINAL ZOOM IMAGE */}
       <div
         ref={imageRef}
-        className="my-12 md:my-20 h-auto lg:h-[80vh] overflow-hidden relative"
+        className="my-12 pt-10 md:my-20 h-auto lg:h-[80vh] overflow-hidden relative"
       >
         <motion.img
           src={photo06}

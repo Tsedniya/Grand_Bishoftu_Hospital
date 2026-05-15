@@ -165,10 +165,10 @@ const DocPage = () => {
       {/* Hero */}
       <section className="relative bg-white py-10 px-4 text-center">
         <div className="max-w-3xl mx-auto">
-          <h1 className="text-lg sm:text-3xl md:text-5xl  text-[#023E8A] font-poppins">
+          <h1 className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] tracking-tighter">
             Meet Our Doctors
           </h1>
-          <p className="mt-3 text-sm sm:text-base md:text-lg font-opensans text-gray-700">
+          <p className="mt-3 text-[#023E8A]/70 text-sm md:text-base tracking-[2px] font-medium">
             Our experienced medical professionals provide compassionate care.
           </p>
         </div>

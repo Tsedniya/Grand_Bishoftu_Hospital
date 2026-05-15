@@ -74,8 +74,8 @@ const Homeone = () => {
         </p>
 
         <p className="mt-5 text-base text-gray-600">
-          Cardiology • Neurology • Orthopedics • Pediatrics • Oncology • 
-          Pulmonology • Infectious Disease Care
+          • Neurology • Orthopedics • Pediatrics • Oncology • 
+          Pulmonology 
         </p>
       </motion.div>
     </div>
