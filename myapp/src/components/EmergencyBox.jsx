@@ -70,13 +70,13 @@ const EmergencyBox = () => {
   }, []);
 
   return (
-    <div className="w-full -mt-2 mb-20 px-4 sm:px-8 md:px-16">
+    <div className="w-full mt-5 mb-20 px-4 sm:px-8 md:px-16">
       {/* Heading */}
-      <div className="flex flex-col items-center mt-14 md:mt-20 mb-10">
+      <div className="flex flex-col items-center mt-28 md:mt-32 mb-10">
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] tracking-tighter">
-          Contacts
+          Contact Us
         </p>
-        <p className="text-[#023E8A]/70 text-sm md:text-base mt-2 tracking-[2px] uppercase font-medium">
+        <p className="text-[#023E8A]/70 text-sm md:text-base mt-2 tracking-[2px] font-medium">
            Reach our medical team anytime
         </p>
       </div>

@@ -67,8 +67,7 @@ const Hometwo = () => {
         </p>
 
         <p className="text-base text-gray-600 leading-relaxed">
-          We are committed to providing world-class healthcare with compassion and innovation. 
-          Your safety, comfort, and trust are our top priority.
+          • Your safety, comfort, and trust are our top priority.
         </p>
       </motion.div>
     </div>

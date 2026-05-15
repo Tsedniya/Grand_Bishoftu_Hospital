@@ -6,6 +6,7 @@ import Meet from '../components/Meet'
 import ContactForm from '../components/ContactForm'
 import Frequently from  '../components/Frequently'
 import Partners from "../components/partners";
+import LatestNewsEvents from '../components/LatestNewsEvents';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Hometwo/>
       <Meet/>
       <ContactForm/>
+      <LatestNewsEvents />
       <Partners />
       <Frequently/>
       

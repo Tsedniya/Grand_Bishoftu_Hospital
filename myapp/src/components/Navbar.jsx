@@ -4,7 +4,7 @@ import menu from '../assets/menu.svg';
 import x from '../assets/x.svg';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
-
+import { Phone, Mail } from "lucide-react";
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
@@ -16,8 +16,9 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto h-full flex items-center justify-center lg:justify-between px-4 sm:px-6 lg:px-8">
           {/* Phone + Socials */}
           <div className="flex items-center gap-6 text-white text-sm font-semibold">
-            <div className="flex items-center gap-1">
-              <h3 className="text-base">+251-977434445</h3>
+              <div className="flex items-center gap-2">
+              <Phone className="w-4 h-4 text-white" />
+              <h3 className="text-sm">+251-977434445</h3>
             </div>
            <Link
               to="https://web.facebook.com/p/Grand-Bishoftu-Hospital-100064801448190/"
@@ -25,7 +26,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1 hover:opacity-80 transition"
             >
-              <h3 className="text-base">Facebook</h3>
+              <h3 className="text-sm">Facebook</h3>
             </Link>
             <Link
               to="https://www.tiktok.com/@grand_bishoftu_hospital?lang=en"
@@ -33,12 +34,13 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1 hover:opacity-80 transition"
             >
-              <h3 className="text-base">Tiktok</h3>
+              <h3 className="text-sm">Tiktok</h3>
             </Link>
           </div>
 
           {/* Email desktop */}
-          <div className="hidden lg:flex items-center gap-2 text-white text-base font-semibold">
+          <div className="hidden lg:flex items-center gap-2 text-white text-sm font-semibold">
+            <Mail className="w-4 h-4 text-white" />
             <span>grandbishoftuhospital@gmail.com</span>
           </div>
         </div>
@@ -146,15 +148,15 @@ const Navbar = () => {
             />
 
             <ul className="flex flex-col items-start pl-6 mt-8 space-y-4 text-lg font-medium text-black overflow-hidden">
-              <NavLink to="/" onClick={() => setVisible(false)} className="hover:border-b-2">Home</NavLink>
-              <NavLink to="/about" onClick={() => setVisible(false)} className="hover:border-b-2">About</NavLink>
-              <NavLink to="/doctors" onClick={() => setVisible(false)} className="hover:border-b-2">Doctors</NavLink>
-              <NavLink to="/services" onClick={() => setVisible(false)} className="hover:border-b-2">Services</NavLink>
+              <NavLink to="/" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">Home</NavLink>
+              <NavLink to="/about" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">About</NavLink>
+              <NavLink to="/doctors" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">Doctors</NavLink>
+              <NavLink to="/services" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">Services</NavLink>
            
               <NavLink
                 to="/contact"
                 onClick={() => setVisible(false)}
-                className="px-6 py-2 bg-sky-500 text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300"
+                className="px-2 py-2 bg-sky-500 text-sm text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300"
               >
                 Contact Us
               </NavLink>

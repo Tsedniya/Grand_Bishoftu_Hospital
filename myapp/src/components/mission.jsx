@@ -25,12 +25,12 @@ const Mission = () => {
     },
     {
       title: "Our Values",
-      desc: "Integrity, Compassion, Professionalism, and Patient-Centered Care guide everything we do.",
+      desc: "Integrity, Compassion, and Patient-Centered Care guide everything we do.",
     },
   ];
 
   return (
-    <div className="bg-white mt-20 md:mt-24 lg:mt-20 pt-12 md:pt-16 lg:min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="bg-white mt-20 md:mt-24 lg:mt-20 py-5 md:pt-16 lg:min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Hero Section - Unchanged */}
       <motion.div
@@ -40,10 +40,10 @@ const Mission = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="text-lg sm:text-3xl md:text-5xl font-poppins text-[#023E8A]">
+        <h1 className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] tracking-tighter">
           About Grand Bishoftu Hospital
         </h1>
-        <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-700">
+        <p className="mt-3 text-[#023E8A]/70 text-sm md:text-base tracking-[2px] font-medium">
           Providing compassionate care with advanced medical expertise.
         </p>
       </motion.div>

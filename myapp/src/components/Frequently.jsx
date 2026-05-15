@@ -41,10 +41,10 @@ const FAQ = () => {
 
         {/* Title */}
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 sm:mt-4 text-base sm:text-xl font-opensans">
+          <p className="mt-3 sm:mt-4 text-[#023E8A]/70 text-sm md:text-base tracking-[2px] font-medium">
             Find answers to common questions about our services and appointments.
           </p>
         </div>
