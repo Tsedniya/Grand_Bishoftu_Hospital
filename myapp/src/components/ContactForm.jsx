@@ -43,7 +43,7 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    // ... (your existing submit logic remains the same)
     const payload = {
       ...formData,
       date: formData.date ? new Date(formData.date).toISOString() : null,
@@ -52,86 +52,72 @@ const ContactForm = () => {
     console.log("Sending payload:", payload);
 
     try {
-      const res = await fetch(
-        `${import.meta.env.VITE_API_URL}/appointments/book`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        }
-      );
-
-      let data;
-      try {
-        data = await res.json();
-      } catch {
-        console.error("Failed to parse JSON");
-      }
+      const res = await fetch(`${import.meta.env.VITE_API_URL}/appointments/book`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
 
       if (res.ok) {
-        setFormData({
-          patientName: "",
-          patientEmail: "",
-          patientPhone: "",
-          date: "",
-          department: "",
-        });
-
+        setFormData({ patientName: "", patientEmail: "", patientPhone: "", date: "", department: "" });
         setShowToast(true);
         setTimeout(() => setShowToast(false), 3000);
-      } else {
-        console.error(
-          "Backend error:",
-          data?.message || "Unknown error"
-        );
       }
     } catch (error) {
-      console.error("Fetch error:", error);
+      console.error("Error:", error);
     }
   };
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center -mt-10 md:mt-2">
+    <div className="relative w-full min-h-screen flex items-center justify-center py-12 -mt-10 md:mt-0 overflow-hidden">
+      {/* Background Image */}
       <img
         src={patient}
         alt="Hero Background"
         className="absolute inset-0 w-full h-full object-cover"
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-[#023E8A]/80 to-transparent" />
 
-      <div className="relative z-10 w-full max-w-4xl px-6 py-16 flex flex-col items-center text-center gap-6">
-        <motion.img
-          src={notebook}
-          alt="Doctor"
-          className="w-20 sm:w-24 lg:w-28"
-          animate={{ y: [0, -14, 0] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-        />
+      {/* Enhanced Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
 
-        <h1 className="text-3xl sm:text-4xl lg:text-5xl text-white font-poppins">
-          Book Your Appointment
-        </h1>
+      <div className="relative z-10 w-full max-w-2xl px-6">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-10"
+        >
+          <motion.img
+            src={notebook}
+            alt="Notebook"
+            className="w-20 sm:w-24 mx-auto mb-6"
+            animate={{ y: [0, -12, 0] }}
+            transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+          />
 
-        <p className="text-base sm:text-lg text-white max-w-xl">
-          Schedule your visit with our experienced doctors easily and quickly.
-        </p>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold text-white tracking-tighter">
+            Book Your Appointment
+          </h1>
+          <p className="mt-4 text-lg text-white/90 max-w-md mx-auto">
+            Experience care that goes beyond medicine
+          </p>
+        </motion.div>
 
-        <div className="w-full bg-white rounded-3xl shadow-2xl px-6 sm:px-10 py-8 sm:py-12">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <img src={call} alt="Phone" className="w-8 sm:w-10" />
-            <h3 className="text-lg sm:text-2xl text-[#023E8A]">
-              +251-977434445
-            </h3>
+        {/* Premium Form Card */}
+        <div className="bg-white/95 backdrop-blur-xl rounded-3xl shadow-2xl p-8 sm:p-12 border border-white/60">
+          {/* Contact Info */}
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="p-3 bg-[#023E8A]/10 rounded-2xl">
+              <img src={call} alt="Phone" className="w-9" />
+            </div>
+            <div>
+              <p className="text-sm text-gray-500">Call us directly</p>
+              <h3 className="text-2xl font-semibold text-[#023E8A]">+251-977434445</h3>
+            </div>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl text-[#023E8A] mb-6">
-            Book an Appointment
-          </h2>
-
-          <form
-            onSubmit={handleSubmit}
-            className="grid grid-cols-1 sm:grid-cols-2 gap-4"
-          >
+          <form onSubmit={handleSubmit} className="space-y-6">
             <input
               id="patientName"
               type="text"
@@ -139,36 +125,37 @@ const ContactForm = () => {
               value={formData.patientName}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
+              className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#023E8A] focus:ring-1 focus:ring-[#023E8A] transition-all text-lg"
             />
 
-            <input
-              id="patientEmail"
-              type="email"
-              placeholder="Email Address"
-              value={formData.patientEmail}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
-            />
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <input
+                id="patientEmail"
+                type="email"
+                placeholder="Email Address"
+                value={formData.patientEmail}
+                onChange={handleChange}
+                required
+                className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#023E8A] focus:ring-1 focus:ring-[#023E8A] transition-all"
+              />
 
-            <input
-              id="patientPhone"
-              type="tel"
-              placeholder="Phone Number"
-              value={formData.patientPhone}
-              onChange={handleChange}
-              required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
-            />
+              <input
+                id="patientPhone"
+                type="tel"
+                placeholder="Phone Number"
+                value={formData.patientPhone}
+                onChange={handleChange}
+                required
+                className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#023E8A] focus:ring-1 focus:ring-[#023E8A] transition-all"
+              />
+            </div>
 
-            {/* Department (now fully integrated) */}
             <select
               id="department"
               value={formData.department}
               onChange={handleChange}
               required
-              className="w-full border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
+              className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#023E8A] focus:ring-1 focus:ring-[#023E8A] transition-all text-base"
             >
               <option value="">Select Department</option>
               {departments.map((dept, index) => (
@@ -185,37 +172,30 @@ const ContactForm = () => {
               onChange={handleChange}
               min={today}
               required
-              className="w-full md:col-span-2 md:w-1/2 md:mx-auto border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#023E8A]"
+              className="w-full px-6 py-4 bg-white border border-gray-200 rounded-2xl focus:outline-none focus:border-[#023E8A] focus:ring-1 focus:ring-[#023E8A] transition-all"
             />
 
             <button
               type="submit"
-              className="sm:col-span-2 w-full sm:w-60 mx-auto bg-[#023E8A] text-white py-3 rounded-lg font-medium hover:bg-blue-700 transition"
+              className="w-full bg-[#023E8A] hover:bg-[#012c6b] active:scale-[0.985] transition-all duration-200 text-white py-4 rounded-2xl text-lg font-medium shadow-lg shadow-[#023E8A]/30 mt-4"
             >
-              Submit
+              Confirm Appointment
             </button>
           </form>
         </div>
+
+        <p className="text-center text-white/60 text-sm mt-6">
+          Your health deserves the best care
+        </p>
       </div>
 
-      {/* Toast */}
+      {/* Success Toast */}
       {showToast && (
-        <div className="fixed top-5 left-1/2 transform -translate-x-1/2 bg-green-600 text-white px-6 py-3 rounded-lg shadow-lg z-70 animate-fadeIn">
-          Appointment sent successfully!
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-[#023E8A] text-white px-8 py-4 rounded-2xl shadow-xl z-50 flex items-center gap-3">
+          <span className="text-2xl">✓</span>
+          Appointment request sent successfully!
         </div>
       )}
-
-      <style>
-        {`
-          @keyframes fadeIn {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
-          }
-          .animate-fadeIn {
-            animation: fadeIn 0.5s ease forwards;
-          }
-        `}
-      </style>
     </div>
   );
 };

@@ -17,7 +17,7 @@ const Navbar = () => {
           {/* Phone + Socials */}
           <div className="flex items-center gap-6 text-white text-sm font-semibold">
             <div className="flex items-center gap-1">
-              <h3 className="text-base sm:text-lg">+251-977434445</h3>
+              <h3 className="text-base">+251-977434445</h3>
             </div>
            <Link
               to="https://web.facebook.com/p/Grand-Bishoftu-Hospital-100064801448190/"
@@ -25,7 +25,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1 hover:opacity-80 transition"
             >
-              <h3 className="text-base sm:text-lg">Facebook</h3>
+              <h3 className="text-base">Facebook</h3>
             </Link>
             <Link
               to="https://www.tiktok.com/@grand_bishoftu_hospital?lang=en"
@@ -33,7 +33,7 @@ const Navbar = () => {
               rel="noopener noreferrer"
               className="flex items-center gap-1 hover:opacity-80 transition"
             >
-              <h3 className="text-base sm:text-lg">Tiktok</h3>
+              <h3 className="text-base">Tiktok</h3>
             </Link>
           </div>
 
@@ -48,8 +48,8 @@ const Navbar = () => {
       <nav className="fixed top-10 left-0 w-full flex items-center justify-between px-6 sm:px-8 py-2 bg-white z-70 mt-2 shadow-md">
         {/* Logo */}
         <div className="flex items-center space-x-2">
-          <img className="w-12 rounded-full border border-black" src={logo} alt="logo" />
-          <span className="text-2xl font-opensans font-bold text-gray-600">
+          <img className="w-10 rounded-full border border-black" src={logo} alt="logo" />
+          <span className="text-xl font-opensans font-bold text-gray-600">
             <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
             <span className="inline sm:hidden">GBH</span>
           </span>
@@ -63,8 +63,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `pb-1 transition ${
                 isActive
-                  ? "text-black font-semibold border-b-2 border-[#023E8A]"
-                  : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
+                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
               }`
             }
           >
@@ -76,8 +76,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `pb-1 transition ${
                 isActive
-                  ? "text-black font-semibold border-b-2 border-[#023E8A]"
-                  : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
+                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
               }`
             }
           >
@@ -89,8 +89,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `pb-1 transition ${
                 isActive
-                  ? "text-black font-semibold border-b-2 border-[#023E8A]"
-                  : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
+                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
               }`
             }
           >
@@ -108,8 +108,8 @@ const Navbar = () => {
             className={({ isActive }) =>
               `pb-1 transition ${
                 isActive
-                  ? "text-black font-semibold border-b-2 border-[#023E8A]"
-                  : "text-gray-600 hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
+                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
               }`
             }
           >
@@ -119,7 +119,7 @@ const Navbar = () => {
 
           <NavLink
             to="/contact"
-            className="px-6 py-2 bg-sky-500 md:text-center text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300"
+            className="px-2 py-2 bg-sky-500 text-sm md:text-center text-white rounded-xl hover:opacity-85 hover:rounded-none transition-all duration-300"
           >
             Contact Us
           </NavLink>

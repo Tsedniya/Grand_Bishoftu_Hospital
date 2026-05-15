@@ -6,92 +6,85 @@ import { Link } from "react-router-dom";
 
 const HeroSecond = () => {
   return (
-    <section className="w-full">
-      <div className="relative w-full h-[115vh] overflow-hidden">
+    <section className="w-full relative">
+      <div className="relative w-full h-screen lg:h-[100vh] overflow-hidden">
 
-        {/* Background image */}
+        {/* Background Image */}
         <picture>
-          {/* lg and above */}
           <source srcSet={now} media="(min-width: 1024px)" />
-
-          {/* below lg (default) */}
           <img
             src={photo11}
-            alt="hero"
+            alt="Grand Bishoftu Hospital"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </picture>
 
-        {/* Gradient */}
-        <div
-          className="absolute inset-0 z-10"
-          style={{
-            background: `
-              linear-gradient(
-                to right,
-                rgba(2,62,138,0.75) 0%,
-                rgba(2,62,138,0.55) 25%,
-                rgba(2,62,138,0.30) 50%,
-                rgba(255,255,255,0.10) 75%,
-                rgba(255,255,255,0.20) 100%
-              )
-            `,
-          }}
-        />
+        {/* Sophisticated Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent z-10" />
 
-        {/* HERO CONTENT - visible only on lg+ */}
-        <div className="hidden lg:block absolute top-[35%] left-6 z-50 translate-x-10 max-w-xl text-white">
+        {/* Main Content */}
+        <div className="relative z-20 h-full flex items-center px-6 sm:px-10 lg:px-20 max-w-4xl">
+          <div className="max-w-2xl">
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+            >
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white tracking-tighter leading-none">
+                Grand Bishoftu<br />
+                <span className="text-sky-400">Hospital</span>
+              </h1>
+            </motion.div>
 
-          <motion.h2
-            initial={{ x: 120, opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.9, ease: "easeOut" }}
-            className="text-2xl md:text-7xl font-extrabold leading-tight text-white"
-          >
-            Grand Bishoftu
-          </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 1 }}
+              className="mt-6 text-lg sm:text-xl text-white/90 leading-relaxed max-w-lg"
+            >
+              Exceptional healthcare delivered with compassion, innovation, 
+              and unwavering commitment to your well-being.
+            </motion.p>
 
-          <motion.h2
-            initial={{ y: 80, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.9, delay: 0.2, ease: "easeOut" }}
-            className="text-2xl md:text-7xl font-bold leading-tight text-sky-500"
-          >
-            Hospital
-          </motion.h2>
+            {/* Premium Buttons */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6, duration: 0.9 }}
+              className="flex flex-wrap gap-4 mt-10"
+            >
+              <Link to="/contact">
+                <button className="group px-8 py-4 bg-white text-[#023E8A] font-medium rounded-2xl 
+                                 hover:bg-[#023E8A] hover:text-white transition-all duration-300 
+                                 flex items-center gap-3 shadow-lg shadow-black/20 hover:shadow-xl">
+                  <span>Emergency Care</span>
+                  <span className="text-xl group-hover:rotate-12 transition">→</span>
+                </button>
+              </Link>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4, duration: 0.8 }}
-            className="mt-4 text-lg md:text-xl text-white/90 leading-relaxed font-bold"
-          >
-            We provide high-quality, patient-centered healthcare services with
-            modern facilities and experienced medical professionals dedicated
-            to your well-being.
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-            className="flex gap-4 mt-6"
-          >
-            <Link to="/contact">
-              <button className="bg-white text-sky-500 hover:bg-blue-900 px-6 py-3 rounded-3xl font-semibold transition">
-                Emergency
-              </button>
-            </Link>
-
-            <Link to="/services">
-              <button className="bg-white text-blue-900 hover:bg-sky-500 px-6 py-3 rounded-3xl font-semibold transition">
-                Our Services
-              </button>
-            </Link>
-          </motion.div>
-
+              <Link to="/services">
+                <button className="group px-8 py-4 border border-white/70 text-white font-medium 
+                                 rounded-2xl hover:bg-white/10 backdrop-blur-md transition-all duration-300">
+                  Explore Our Services
+                </button>
+              </Link>
+            </motion.div>
+          </div>
         </div>
 
+        {/* Subtle Bottom Fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white to-transparent z-20" />
+        
+        {/* Scroll Indicator */}
+        <motion.div 
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.2 }}
+          className="hidden lg:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center text-white/70 text-sm tracking-widest"
+        >
+          <span>SCROLL TO EXPLORE</span>
+          <div className="w-px h-8 bg-white/40 mt-2" />
+        </motion.div>
       </div>
     </section>
   );

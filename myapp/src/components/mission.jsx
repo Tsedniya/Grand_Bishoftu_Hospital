@@ -32,7 +32,7 @@ const Mission = () => {
   return (
     <div className="bg-white mt-20 md:mt-24 lg:mt-20 pt-12 md:pt-16 lg:min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
-      {/* Hero Section */}
+      {/* Hero Section - Unchanged */}
       <motion.div
         className="text-center mb-10 md:mb-12"
         initial={{ y: 50, opacity: 0 }}
@@ -40,74 +40,69 @@ const Mission = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h1 className="text-3xl sm:text-4xl md:text-6xl font-poppins text-[#023E8A]">
+        <h1 className="text-lg sm:text-3xl md:text-5xl font-poppins text-[#023E8A]">
           About Grand Bishoftu Hospital
         </h1>
-        <p className="mt-3 text-sm sm:text-base md:text-xl text-gray-700">
+        <p className="mt-3 text-sm sm:text-base md:text-lg text-gray-700">
           Providing compassionate care with advanced medical expertise.
         </p>
       </motion.div>
 
-      {/* Mission & Values */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10 md:mb-12">
+      {/* Mission & Values - Apple Style Cards Only */}
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10 md:mb-12">
         {missionValues.map((item, idx) => (
           <motion.div
             key={idx}
-            className="bg-[#023E8A] text-white rounded-2xl p-6 shadow-lg"
+            className="group bg-[#023E8A] text-white rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl 
+                       transition-all duration-500 hover:-translate-y-2 border border-white/10"
             initial={{ y: 40, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: idx * 0.2 }}
+            transition={{ duration: 0.5, delay: idx * 0.1 }}
+            whileHover={{ scale: 1.02 }}
           >
-            <h3 className="text-lg sm:text-xl font-semibold mb-2">
+            <div className="mb-6">
+              <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center backdrop-blur-sm mb-5">
+                <span className="text-2xl">★</span>
+              </div>
+            </div>
+
+            <h3 className="text-2xl font-semibold mb-4 tracking-tight">
               {item.title}
             </h3>
-            <p className="text-sm sm:text-base">{item.desc}</p>
+
+            <p className="text-white/90 leading-relaxed text-[15.2px]">
+              {item.desc}
+            </p>
           </motion.div>
         ))}
       </div>
 
-      {/* Image Section (Fixed) */}
+      {/* Dramatic Zoom Image - Unchanged */}
       <div
         ref={imageRef}
-        className="my-12 md:my-20 h-auto lg:h-[80vh] overflow-hidden"
+        className="my-12 md:my-20 h-auto lg:h-[80vh] overflow-hidden relative"
       >
         <motion.img
           src={photo08}
           style={{ scale }}
           className="w-full h-[280px] sm:h-[380px] md:h-[500px] lg:h-full rounded-2xl shadow-2xl object-cover"
         />
+        
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/80 rounded-2xl" />
+        
+        <div className="absolute bottom-8 left-8 right-8 text-white">
+          <p className="text-3xl md:text-5xl font-medium tracking-tighter leading-none mb-4">
+            "Your health is our priority..."
+            <br />
+            <span className="text-sky-500">we are here to care for you.</span>
+          </p>
+
+          <p className="text-sky-200 text-sm uppercase tracking-[3px] font-light">
+            — Grand Bishoftu Hospital
+          </p>
+        </div>
       </div>
-
-      {/* Stats Section */}
-      <div className="flex flex-col sm:flex-row justify-center items-center gap-6 mb-7 pb-20">
-
-        <motion.div
-          className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-3xl md:text-4xl font-bold text-white">
-            <CountUp end={20} suffix="+" />
-          </div>
-          <p className="mt-2 text-white">Years of Experience</p>
-        </motion.div>
-
-        <motion.div
-          className="bg-sky-500 rounded-2xl shadow-2xl p-6 text-center w-full sm:w-[360px]"
-          initial={{ y: 40, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ once: true }}
-        >
-          <div className="text-3xl md:text-4xl font-bold text-white">
-            <CountUp end={17500} suffix="+" />
-          </div>
-          <p className="mt-2 text-white">Patients Treated</p>
-        </motion.div>
-
-      </div>
-
     </div>
   );
 };

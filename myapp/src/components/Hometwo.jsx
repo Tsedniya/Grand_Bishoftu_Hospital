@@ -3,12 +3,6 @@ import { motion } from "framer-motion";
 import photo12 from "../assets/new/photo12.jpg";
 
 const Hometwo = () => {
-  const slideFromRight = {
-    hidden: { x: 120, opacity: 0 },
-    visible: { x: 0, opacity: 1 },
-  };
-
-  // ✅ Same logic as your other sections
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
 
   useEffect(() => {
@@ -17,66 +11,66 @@ const Hometwo = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  return (
-     <div className="flex flex-col lg:flex-row-reverse bg-white items-center justify-between
-                py-12 md:py-16
-                px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]
-                gap-6 lg:gap-10
-                -mt-20 sm:-mt-24 lg:-mt-0">
+  const slideFromLeft = {
+    hidden: { x: -120, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
 
-      {/* Image Section */}
+  const slideFromRight = {
+    hidden: { x: 120, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
+
+  return (
+    <div className="flex flex-col lg:flex-row-reverse bg-white items-center justify-between py-16 md:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-10 lg:gap-16">
+
+      {/* IMAGE SIDE - Apple Style */}
       <motion.div
         variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="relative w-full lg:w-1/2 flex items-center justify-center"
       >
-        <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
+        <div className="absolute w-[68%] h-[68%] bg-sky-200/30 rounded-full blur-3xl" />
 
-        <div className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg aspect-[5/4]">
-          <div className="absolute top-[10%] left-[10%] w-5 h-5 bg-[#023E8A] rounded-full z-20 -translate-x-1/2 -translate-y-1/2" />
-
-          <svg width="0" height="0" className="absolute">
-            <defs>
-              <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
-                <path d="M0.83,0.14 C0.92,0.28 0.98,0.45 0.96,0.6 C0.94,0.75 0.84,0.88 0.7,0.94 C0.56,1 0.38,0.98 0.23,0.9 C0.08,0.82 -0.02,0.68 0.01,0.52 C0.04,0.36 0.2,0.18 0.38,0.1 C0.56,0.02 0.74,0.01 0.83,0.14 Z" />
-              </clipPath>
-            </defs>
-          </svg>
-
+        <div className="relative z-10 w-full max-w-md lg:max-w-lg overflow-hidden rounded-3xl shadow-2xl">
           <img
             src={photo12}
-            alt="Operation"
-            className="w-full h-full object-cover shadow-xl rounded-lg"
-            style={{ clipPath: "url(#blobClip)" }}
+            alt="Patient Care"
+            className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-700 hover:scale-105"
           />
+          
+          {/* Subtle shine overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-700" />
         </div>
       </motion.div>
 
-      {/* Text Section */}
+      {/* TEXT SIDE - Apple Style */}
       <motion.div
-        variants={isDesktop ? slideFromRight : {}}
+        variants={isDesktop ? slideFromLeft : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
-        className="w-full lg:w-1/2 flex flex-col"
+        transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+        className="w-full lg:w-1/2 flex flex-col justify-center"
       >
-        <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight md:leading-snug">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-6">
           We Take Care of You
         </h3>
 
-        <p className="font-opensans mb-3 text-base lg:text-lg leading-relaxed text-left lg:text-justify">
-          At Grand Bishoftu Hospital, we deliver compassionate and reliable healthcare for every patient. Our team of skilled medical professionals is dedicated to providing personalized treatment, advanced care, and unwavering support to ensure your health and well-being at every step.
+        <p className="text-lg text-gray-700 leading-relaxed mb-6">
+          At Grand Bishoftu Hospital, we deliver compassionate and reliable healthcare 
+          for every patient. Our team of skilled medical professionals is dedicated to 
+          providing personalized treatment, advanced care, and unwavering support.
         </p>
 
-        <p className="font-opensans text-base lg:text-lg leading-relaxed text-left lg:text-justify">
-          We are committed to providing world-class healthcare with compassion and innovation. Our priority is the safety, comfort, and trust of every patient, ensuring exceptional care at every stage of treatment.
+        <p className="text-base text-gray-600 leading-relaxed">
+          We are committed to providing world-class healthcare with compassion and innovation. 
+          Your safety, comfort, and trust are our top priority.
         </p>
       </motion.div>
-
     </div>
   );
 };
