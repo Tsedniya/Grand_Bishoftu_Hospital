@@ -36,8 +36,8 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full bg-white py-20 px-6 ">
-      <div className="max-w-4xl mx-auto">
+    <section className="w-full bg-white py-20 px-6  -mt-16 md:-mt-10">
+      <div className="max-w-4xl mx-auto ">
 
         {/* Title */}
         <div className="text-center mb-12">

@@ -1,0 +1,245 @@
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import { Clock, Stethoscope } from "lucide-react";
+import { Ambulance } from "lucide-react";
+
+import photo49 from "../assets/new/photo49.jpg";
+import photo48 from "../assets/new/photo48.jpg";
+import photo45 from "../assets/new/photo45.jpg";
+import photo44 from "../assets/new/photo44.jpg";
+import photo37 from "../assets/new/photo37.jpg";
+import photo42 from "../assets/new/photo42.jpg";
+import photo46 from "../assets/new/photo46.jpg";
+import photo47 from "../assets/new/photo47.jpg";
+import photo40 from "../assets/new/photo40.jpg";
+import photo27 from "../assets/new/photo27.jpg";
+import photo71 from "../assets/new/photo71.JPG"; 
+import photo70 from "../assets/new/photo70.JPG";
+import photo72 from "../assets/new/photo72.JPG"; 
+
+const DocPage = () => {
+   const doctors = [
+    {
+      id: "dr-segni",
+      img: photo70,
+      name: "Dr. Segni Bekele",
+      specialty: "Laparoscopic Surgeon",
+      description:
+        "Performs minimally invasive surgeries that allow faster recovery and reduced post-operative pain.",
+      available: "Monday-Saturday 3:00-11:00 LT",
+      experience: "5+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-shibiru",
+      img: photo40,
+      name: "Dr. Shibiru Dula",
+      specialty: "Senior Obstetrician & Gynecologist",
+      description:
+        "Experienced in pregnancy care, childbirth, and treatment of women's reproductive health conditions.",
+      available: "Monday-Saturday 8:00–11:00 LT",
+      experience: "5+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-dejene",
+      img: photo72,
+      name: "Dr. Dejene Degu",
+      specialty: "Senior Pediatrician",
+      description:
+        "Provides advanced pediatric care including growth monitoring and disease prevention.",
+      available: "Monday-Saturday 4:00-11:00 LT",
+      experience: "4+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-yeshi",
+      img: photo42,
+      name: "Dr. Yeshi Teshome",
+      specialty: "Senior Ophthalmologist",
+      description:
+        "Specialist in eye diseases, vision correction, and advanced ophthalmic procedures.",
+      available: "Monday-Friday 8:00-11:00 LT",
+      experience: "3+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-dereje",
+      img: photo49,
+      name: "Dr. Dereje Melka",
+      specialty: "Neurology",
+      description:
+        "Experienced in diagnosing and managing neurological disorders including stroke and rehabilitation care.",
+      available: "Saturday 8:00-11:00 LT",
+      experience: "9 years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-michael",
+      img: photo48,
+      name: "Dr. Michael Abdisa",
+      specialty: "Urologist",
+      description:
+        "Specializes in urinary tract and male reproductive system conditions, including kidney stones and prostate care.",
+      available: "Tuesday 8:00-11:00 LT",
+      experience: "5+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-amanuel",
+      img: photo47,
+      name: "Dr. Amanuel Tebikew",
+      specialty: "Plastic and Reconstructive Surgeon",
+      description:
+        "Performs reconstructive and cosmetic procedures aimed at restoring function and enhancing appearance.",
+      available: "Tuesday 3:00-11:00 LT",
+      experience: "5+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-tatek",
+      img: photo44,
+      name: "Dr. Tatek Belay",
+      specialty: "General Surgeon",
+      description:
+        "Performs a wide range of surgical procedures with emphasis on safe and effective patient care.",
+      available: "Monday-Saturday 3:00-11:00 LT",
+      experience: "4 years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-tsion",
+      img: photo71,
+      name: "Dr. Tsion Mekasha",
+      specialty: "General Practitioner",
+      description:
+        "Offers comprehensive primary care including diagnosis, treatment, and long-term health management.",
+      available: "Monday-Friday 3:00-11:00 LT",
+      experience: "4+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-habib",
+      img: photo37,
+      name: "Dr. Habib Ebrahim",
+      specialty: "Pathologist",
+      description:
+        "Specializes in diagnosing diseases through laboratory testing and tissue analysis.",
+      available: "Tuesday 8:00-11:00 LT",
+      experience: "4+ years",
+      emergency: "Emergency available",
+    },
+    {
+      id: "dr-bekan",
+      img: photo46,
+      name: "Dr. Bekan Eshetu",
+      specialty: "Pediatrics",
+      description:
+        "Focused on child health, development, and preventive care from infancy through adolescence.",
+      available: "Monday-Friday 9:00-11:00 LT",
+      experience: "4+ years",
+      emergency: "Emergency available",
+    },
+    { 
+      id: "dr-addis", 
+      img: photo45, name: "Dr. Addis Gezahegn", 
+      specialty: "Dermatology", 
+      description: "Expert in diagnosing and treating skin conditions, with a focus on both medical and cosmetic dermatology.", 
+      available: "Saturday 2:30-6:30 LT", 
+      experience: "4 years", 
+      emergency: "Emergency available", },
+  ];
+
+  // Animation variants
+  const cardVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" },
+    }),
+  };
+
+  return (
+    <div className="min-h-screen bg-white lg:mb-12 mt-28">
+      {/* Hero */}
+      <section className="relative bg-white py-10 px-4 text-center">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="text-lg sm:text-3xl md:text-5xl  text-[#023E8A] font-poppins">
+            Meet Our Doctors
+          </h1>
+          <p className="mt-3 text-sm sm:text-base md:text-lg font-opensans text-gray-700">
+            Our experienced medical professionals provide compassionate care.
+          </p>
+        </div>
+      </section>
+
+      {/* Grid */}
+      <section className="max-w-6xl mx-auto px-4 py-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {doctors.map((doc, idx) => (
+                <motion.div
+        key={doc.id}
+        className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+        variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        custom={idx}
+      >
+        {/* Image (taller now) */}
+        <div className="w-full h-52 sm:h-56 md:h-60 overflow-hidden">
+          <img
+            src={doc.img}
+            alt={doc.name}
+            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+
+        {/* Content */}
+        <div className="px-5 py-5">
+          <h2 className="text-xl font-semibold text-gray-800">
+            {doc.name}
+          </h2>
+
+          <p className="mt-1 text-[#023E8A] font-medium">
+            {doc.specialty}
+          </p>
+
+          <p className="mt-3 sm:text-sm text-gray-600 leading-relaxed">
+            {doc.description}
+          </p>
+
+          {/* Info Section */}
+          <div className="mt-4 space-y-2 text-sm">
+            <div className="flex items-center gap-2 text-gray-700">
+              <div className="bg-blue-100 p-1.5 rounded-md">
+                <Clock size={14} className="text-[#023E8A]" />
+              </div>
+              <span>{doc.available}</span>
+            </div>
+
+            <div className="flex items-center gap-2 text-gray-700">
+              <div className="bg-green-100 p-1.5 rounded-md">
+                <Stethoscope size={14} className="text-green-700" />
+              </div>
+              <span>{doc.experience} of experience</span>
+            </div>
+
+            <div className="flex items-center gap-2 text-gray-700">
+              <div className="bg-red-100 p-1.5 rounded-md">
+                <Ambulance size={14} className="text-red-600" />
+              </div>
+              <span className="text-red-600 font-medium">
+                {doc.emergency}
+              </span>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+        ))}
+      </section>
+    </div>
+  );
+};
+
+export default DocPage;

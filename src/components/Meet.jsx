@@ -1,22 +1,23 @@
 import React, { useEffect, useState } from "react";
-import photo24 from "../assets/new/photo24.jpg";
+
 import photo30 from "../assets/new/photo30.jpg";
 import photo31 from "../assets/new/photo31.jpg";
-import photo26 from "../assets/new/photo26.jpg";
+import photo25 from "../assets/new/photo25.jpg";
 import photo27 from "../assets/new/photo27.jpg";
 import photo28 from "../assets/new/photo28.jpg";
 import photo29 from "../assets/new/photo29.jpg";
+import photo90 from "../assets/new/photo90.jpg";
+import photo71 from "../assets/new/photo71.JPG";
+import photo70 from "../assets/new/photo70.JPG";
 import { Link } from 'react-router-dom';
 
 const Meet = () => {
   const doctors = [
-    { img: photo24, name: "Dr. Tatek Belay", role: "Medical Director & General Surgeon" },
-    { img: photo26, name: "Dr. Shibiru Dula", role: "Senior Obstetrician & Gynecologist" },
-    { img: photo27, name: "Dr. Segni Bekele", role: " CEO, General & Laparascopic Surgeon" },
-    { img: photo28, name: "Dr. Dejene Degu", role: "Senior Pediatrician" },
-    { img: photo29, name: "Dr. Yeshi Teshome", role: "Senior Ophthalmologist" },
-    { img: photo30, name: "Dr. Tsion Mekasha", role: "V.Medical Director & General Practitioner" },
-    { img: photo31, name: "Dr. Habib Ebrahim", role: "Pathologist" },
+  
+    { img: photo70, name: "Dr. Segni Bekele", role: " Founding Member & CEO" },
+    { img: photo90, name: "Dr. Tatek Belay", role: "Founding Member & Medical Director" },
+    { img: photo29, name: "Dr. Yeshi Teshome", role: "Founding Member" },
+    { img: photo71, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
   ];
 
   // duplicate for infinite loop
@@ -64,17 +65,14 @@ const Meet = () => {
   const movePercent = 100 / visibleCards;
 
   return (
-    <div className="bg-white py-16 sm:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] -mt-18 sm:-mt-25 mb-3 ">
-
+   <div className="bg-white pt-10 pb-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-10 -mt-10 md:-mt-20 lg:mt-10">
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-          Meet Our Doctors
+             Our Founders & Leadership Team
         </h3>
 
-        <p className="mt-3 sm:mt-4 text-base sm:text-xl font-opensans">
-          Our experienced medical professionals provide compassionate care.
-        </p>
+         
       </div>
 
       {/* Slider */}
@@ -104,11 +102,7 @@ const Meet = () => {
                   </h3>
 
                   <p className="text-base">{doctor.role}</p>
-                  <Link to='/services'>
-                    <button className="mt-3 sm:mt-4 px-5 py-2 bg-[#023E8A] font-opensans text-white rounded-3xl text-sm sm:text-base hover:opacity-90">
-                      Learn more
-                    </button>
-                  </Link>
+                 
                 </div>
 
               </div>

@@ -1,80 +1,82 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import photo11 from "../assets/new/photo11.jpg";
 
 const Treatment = () => {
-  // slide-in from right
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const slideFromRight = {
-    hidden: { x: 120 }, // start offscreen right
-    visible: { x: 0 }, // move to original position
+    hidden: { x: 120, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
   };
 
   return (
-    <div className="-mt-20 flex flex-col lg:flex-row-reverse bg-white items-center justify-between pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
+    <div className="flex flex-col lg:flex-row bg-white items-center justify-between pt-10 pb-10 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
 
-      {/* Image Section — stays on right */}
+      {/* IMAGE SECTION - The Exorcist */}
       <motion.div
-        variants={slideFromRight}
-        initial="hidden"
-        whileInView="visible"
+        variants={isDesktop ? slideFromRight : {}}
+        initial={isDesktop ? "hidden" : false}
+        whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ type: "tween", duration: 0.6 }}
         className="relative w-full lg:w-1/2 flex items-center justify-center py-6"
       >
-        {/* background glow */}
-        <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
+        {/* Romantic glow */}
+        <div className="absolute w-[65%] h-[65%] bg-rose-300/30 rounded-full blur-2xl" />
 
-        {/* image container */}
-        <div className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg aspect-[5/4] overflow-visible">
-          {/* small circle decoration */}
-          <div className="absolute top-[10%] left-[10%] w-6 h-6 bg-[#023E8A] rounded-full z-20 -translate-x-1/2 -translate-y-1/2" />
-
-          {/* blob clip path */}
-          <svg width="0" height="0" className="absolute inset-0">
-            <defs>
-              <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
-                <path d="M0.83,0.14 C0.92,0.28 0.98,0.45 0.96,0.6 C0.94,0.75 0.84,0.88 0.7,0.94 C0.56,1 0.38,0.98 0.23,0.9 C0.08,0.82 -0.02,0.68 0.01,0.52 C0.04,0.36 0.2,0.18 0.38,0.1 C0.56,0.02 0.74,0.01 0.83,0.14 Z" />
-              </clipPath>
-            </defs>
-          </svg>
-
-          {/* image with bigger curve */}
+        {/* Image Container */}
+        <div className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg h-[260px] sm:h-[340px] md:h-[400px] lg:h-[420px]">
           <img
             src={photo11}
-            alt="Operation"
-            className="w-full h-full object-cover shadow-xl rounded-lg"
-            style={{
-              clipPath: "url(#blobClip)",
-              transform: "scale(1.08)", // makes curve bigger
-            }}
+            alt="The Exorcist"
+            className="w-full h-full object-cover shadow-xl rounded-2xl border border-rose-200"
           />
+
+          {/* Dramatic romantic overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-2xl flex items-end p-6">
+            <div className="text-white">
+                <p className="text-xs uppercase tracking-widest text-sky-200">
+                  Experienced Specialists Team
+                </p>
+                <p className="text-xl md:text-lg font-semibold">
+                  Advanced care delivered by medical professionals
+                </p>
+              </div>
+          </div>
         </div>
       </motion.div>
 
-      {/* Text Section */}
+      {/* TEXT SECTION - Dark Romance Version */}
       <motion.div
-        variants={slideFromRight}
-        initial="hidden"
-        whileInView="visible"
+        variants={isDesktop ? slideFromRight : {}}
+        initial={isDesktop ? "hidden" : false}
+        whileInView={isDesktop ? "visible" : false}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ type: "tween", duration: 0.6, delay: 0.2 }}
         className="w-full lg:w-1/2 flex flex-col"
       >
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-          We Take Care of You
+        <h3 className="text-lg sm:text-3xl md:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight md:leading-snug">
+          Our Story
         </h3>
 
-        <p className="mt-4 font-opensans text-lg text-justify">
-          Providing trusted healthcare services with compassion and excellence.
-          Our experienced medical specialists are committed to ensuring the
-          well-being of every patient through advanced treatment and personalized care.
-        </p>
-
-        <p className="mt-4 font-opensans text-lg text-justify">
-          At Grand Bishoftu Hospital, we are dedicated to delivering world-class
-          healthcare with empathy and innovation, ensuring safety, comfort, and
-          trust for every patient we serve.
-        </p>
+      
+        <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify text-gray-700">Established with over 30 experienced specialists and sub-specialists, Grand Bishoftu Hospital is committed to delivering exceptional healthcare across a wide range of medical fields. Our team combines expertise, advanced technology, and compassionate care to ensure every patient receives personalized treatment and guidance.</p>
+         <p className="font-opensans mb-3 sm:text-base lg:text-lg leading-relaxed text-left lg:text-justify text-gray-700">
+            Our hospital is supported by a dedicated team of doctors, nurses, and medical specialists
+            who work across multiple departments including neurology, pediatrics,
+            ophthalmology, orthopedics, and emergency care. 
+          </p>
+        <div className="mt-6 inline-flex items-center gap-3 text-sm text-[#023E8A]">
+          <div className="h-px w-12 bg-rose-200" />
+          <span className="italic">Experienced specialists...</span>
+        </div>
       </motion.div>
 
     </div>

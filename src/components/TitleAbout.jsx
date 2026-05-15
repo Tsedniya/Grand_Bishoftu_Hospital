@@ -1,119 +1,126 @@
-import React from "react";
-import { motion } from "framer-motion";
-import CountUp from "./CountUp";
-import photo5 from "../assets/new/photo5.jpg";
-import photo6 from "../assets/new/photo6.jpg";
-import photo13 from "../assets/new/photo13.jpg";
+import React, { useRef, useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import photo06 from "../assets/new/photo06.JPG";
+import photo41 from "../assets/new/photo41.jpg";
 
 const TitleAbout = () => {
-    const imgStyle = "rounded-2xl object-cover w-full h-full transition-transform duration-300 hover:scale-110";
+  const slideFromRight = {
+    hidden: { x: 120, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
+
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const imageRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ["start end", "center center"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
 
   return (
-    <div className="mt-10 bg-white py-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="bg-white mt-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
 
-      {/* Title */}
-      <motion.div
-        className="flex flex-col items-center"
-        initial={{ y: 80, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-      >
-        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] mt-8 md:mt-10 ">
-            About
-        </p>
-      </motion.div>
+      {/* ROW */}
+      <div className="flex flex-col lg:flex-row-reverse lg:h-[420px] items-stretch gap-6 lg:gap-10">
 
-      {/* MAIN GRID */}
-      <div className="mt-6 md:my-17 grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* IMAGE SIDE */}
+        <motion.div
+          variants={isDesktop ? slideFromRight : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6 }}
+          className="relative w-full lg:w-1/2 h-full flex items-center justify-center"
+        >
+          <div className="absolute w-[65%] h-[65%] bg-sky-300/30 rounded-full blur-2xl" />
 
-        {/* LEFT COLUMN */}
-        <div className="grid grid-rows-[1fr_180px] gap-4">
+          <div className="relative z-10 w-full h-full max-w-sm md:max-w-md lg:max-w-lg">
+            <img
+              src={photo41}
+              alt="Eye treatment hospital care"
+              className="w-full h-full object-cover shadow-2xl rounded-2xl border border-sky-200"
+            />
 
-          {/* Big image (row 1) */}
-          <motion.div
-            className="overflow-hidden h-[320px] sm:h-[360px] md:h-[400px] lg:h-[400px]"
-            initial={{ y: 80, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <img src={photo5} alt="Hospital" className={imgStyle} />
-          </motion.div>
-
-          {/* Small images (row 2) */}
-          <div className="flex gap-4 h-[180px] sm:h-[200px] md:h-[220px]">
-            <motion.div
-              className="flex-1 overflow-hidden"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              <img src={photo6} alt="Doctor" className={imgStyle} />
-            </motion.div>
-
-            <motion.div
-              className="flex-1 overflow-hidden"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              viewport={{ once: true }}
-            >
-              <img src={photo13} alt="Inside" className={imgStyle} />
-            </motion.div>
-          </div>
-        </div>
-
-        {/* RIGHT COLUMN */}
-        <div className="grid grid-rows-[1fr_180px] gap-4">
-
-          {/* Text (row 1) */}
-          <motion.div
-            initial={{ y: 80, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <h3 className="text-3xl sm:text-4xl lg:text-5xl text-[#023E8A] font-poppins leading-tight">
-              Exceptional Patient Care
-            </h3>
-
-            <p className="text-lg mt-4 md:mt-2 text-justify">
-              At Grand Bishoftu Hospital, we are committed to providing exceptional
-              healthcare with compassion and expertise. Our experienced medical
-              specialists work tirelessly to ensure every patient's well-being
-              through advanced treatments and personalized care. Providing trusted
-              healthcare services with compassion and excellence. Our experienced
-              medical specialists are committed to ensuring the well-being of every
-              patient through advanced treatment, personalized care, and a
-              patient-first approach.
-            </p>
-          </motion.div>
-
-          {/* Stats card (row 2) */}
-          <motion.div
-            className="bg-white rounded-2xl shadow-2xl p-6 flex items-center justify-center h-[180px] sm:h-[200px] md:h-[220px] hover:shadow-xl transition"
-            initial={{ y: 50, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            viewport={{ once: true }}
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center w-full">
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
-                  <CountUp end={25} suffix="+" />
-                </div>
-                <p className="mt-2 font-poppins text-base">Years of Experience</p>
-              </div>
-
-              <div>
-                <div className="text-3xl md:text-4xl font-bold text-[#023E8A]">
-                  <CountUp end={50000} suffix="+" />
-                </div>
-                <p className="mt-2 font-poppins text-base">Patients Treated</p>
+            {/* overlay text */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl flex items-end p-6">
+              <div className="text-white">
+                <p className="text-xs uppercase tracking-widest text-sky-200">
+                  Eye Care Department
+                </p>
+                <p className="text-xl md:text-lg font-semibold">
+                  Precision vision treatment with modern technology
+                </p>
               </div>
             </div>
-          </motion.div>
-        </div>
+          </div>
+        </motion.div>
+
+        {/* TEXT SIDE */}
+        <motion.div
+          variants={isDesktop ? slideFromRight : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="w-full lg:w-1/2 h-full flex flex-col justify-center"
+        >
+          <h3 className="text-lg sm:text-3xl md:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight md:leading-snug">
+            Hospital Eye Treatment Services
+          </h3>
+
+          <p className="font-opensans text-base lg:text-lg leading-relaxed text-left lg:text-justify text-gray-700">
+            Our ophthalmology department provides comprehensive eye care including
+            diagnosis, treatment, and surgery for vision-related conditions. We use
+            modern diagnostic tools and evidence-based procedures to protect and
+            restore eyesight.
+          </p>
+
+          <p className="font-opensans text-base lg:text-lg leading-relaxed text-left lg:text-justify mt-6 text-gray-700">
+            From routine eye exams to advanced surgical procedures, our specialists
+            focus on accuracy, safety, and long-term visual health for every patient.
+          </p>
+
+          <div className="mt-6 flex items-center gap-3 text-sm text-[#023E8A]">
+            <div className="h-px w-8 bg-sky-200" />
+            <span>Specialized eye care you can trust</span>
+          </div>
+        </motion.div>
 
       </div>
+
+      {/* FINAL ZOOM IMAGE */}
+      <div
+        ref={imageRef}
+        className="my-12 md:my-20 h-auto lg:h-[80vh] overflow-hidden relative"
+      >
+        <motion.img
+          src={photo06}
+          style={{ scale }}
+          className="w-full h-[280px] sm:h-[380px] md:h-[500px] lg:h-full rounded-2xl shadow-2xl object-cover"
+        />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 rounded-2xl" />
+
+        <div className="absolute bottom-10 left-10 right-10 text-white">
+          <p className="text-3xl md:text-5xl font-medium leading-none">
+            Dedicated hands. <span className="text-sky-500">Trusted care.</span>
+          </p>
+
+          <p className="mt-4 text-sky-200  text-sm uppercase tracking-widest">
+            — Our Medical Staff
+          </p>
+        </div>
+      </div>
+
     </div>
   );
 };
