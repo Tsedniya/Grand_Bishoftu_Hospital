@@ -9,7 +9,6 @@ const TitleAbout = () => {
     visible: { x: 0, opacity: 1 },
   };
 
-  // ✅ Detect desktop (same as your other component)
   const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
 
   useEffect(() => {
@@ -18,7 +17,6 @@ const TitleAbout = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Scroll zoom (bottom image)
   const imageRef = useRef(null);
 
   const { scrollYProgress } = useScroll({
@@ -31,74 +29,96 @@ const TitleAbout = () => {
   return (
     <div className="bg-white mt-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
 
-      {/* CONTENT SECTION */}
-      <div className="flex flex-col lg:flex-row-reverse items-center justify-between gap-6 lg:gap-10">
+      {/* ROW */}
+      <div className="flex flex-col lg:flex-row-reverse lg:h-[420px] items-stretch gap-6 lg:gap-10">
 
-        {/* Image Section (Blob) */}
+        {/* IMAGE SIDE */}
         <motion.div
           variants={isDesktop ? slideFromRight : {}}
           initial={isDesktop ? "hidden" : false}
           whileInView={isDesktop ? "visible" : false}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="relative w-full lg:w-1/2 flex items-center justify-center"
+          className="relative w-full lg:w-1/2 h-full flex items-center justify-center"
         >
-          <div className="absolute w-[65%] h-[65%] bg-sky-200/40 rounded-full blur-2xl" />
+          <div className="absolute w-[65%] h-[65%] bg-sky-300/30 rounded-full blur-2xl" />
 
-          <div className="relative z-10 w-full max-w-sm md:max-w-md lg:max-w-lg aspect-[5/4]">
-            <div className="absolute top-[10%] left-[10%] w-5 h-5 bg-[#023E8A] rounded-full z-20 -translate-x-1/2 -translate-y-1/2" />
-
-            <svg width="0" height="0" className="absolute">
-              <defs>
-                <clipPath id="blobClip" clipPathUnits="objectBoundingBox">
-                  <path d="M0.83,0.14 C0.92,0.28 0.98,0.45 0.96,0.6 C0.94,0.75 0.84,0.88 0.7,0.94 C0.56,1 0.38,0.98 0.23,0.9 C0.08,0.82 -0.02,0.68 0.01,0.52 C0.04,0.36 0.2,0.18 0.38,0.1 C0.56,0.02 0.74,0.01 0.83,0.14 Z" />
-                </clipPath>
-              </defs>
-            </svg>
-
+          <div className="relative z-10 w-full h-full max-w-sm md:max-w-md lg:max-w-lg">
             <img
               src={photo41}
-              alt="Operation"
-              className="w-full h-full object-cover shadow-xl rounded-lg"
-              style={{ clipPath: "url(#blobClip)" }}
+              alt="Eye treatment hospital care"
+              className="w-full h-full object-cover shadow-2xl rounded-2xl border border-sky-200"
             />
+
+            {/* overlay text */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-2xl flex items-end p-6">
+              <div className="text-white">
+                <p className="text-xs uppercase tracking-widest text-sky-200">
+                  Eye Care Department
+                </p>
+                <p className="text-xl md:text-lg font-semibold">
+                  Precision vision treatment with modern technology
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
 
-        {/* Text Section */}
+        {/* TEXT SIDE */}
         <motion.div
           variants={isDesktop ? slideFromRight : {}}
           initial={isDesktop ? "hidden" : false}
           whileInView={isDesktop ? "visible" : false}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="w-full lg:w-1/2 flex flex-col justify-center"
+          className="w-full lg:w-1/2 h-full flex flex-col justify-center"
         >
-          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight md:leading-snug ">
-            Committed to Care
+          <h3 className="text-lg sm:text-3xl md:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight md:leading-snug">
+            Hospital Eye Treatment Services
           </h3>
 
-          <p className="font-opensans mb-3 text-base lg:text-lg leading-relaxed text-left lg:text-justify">
-            We deliver compassionate and trusted healthcare. Our cardiology and neurology teams provide advanced heart and brain care. Orthopedics specialists restore mobility with modern treatments and surgeries. Pediatrics ensures comprehensive, child-friendly medical care for all ages. Oncology offers cutting-edge cancer treatments with expert guidance. Pulmonology and infectious disease departments protect lung and infection health.
+          <p className="font-opensans text-base lg:text-lg leading-relaxed text-left lg:text-justify text-gray-700">
+            Our ophthalmology department provides comprehensive eye care including
+            diagnosis, treatment, and surgery for vision-related conditions. We use
+            modern diagnostic tools and evidence-based procedures to protect and
+            restore eyesight.
           </p>
 
-          <p className="font-opensans text-base lg:text-lg leading-relaxed text-left lg:text-justify">
-            We offer minimally invasive laparoscopic surgery for faster recovery and less pain. Our urology services treat urinary and male reproductive conditions. We also provide expert ophthalmology care for eye health.
+          <p className="font-opensans text-base lg:text-lg leading-relaxed text-left lg:text-justify mt-6 text-gray-700">
+            From routine eye exams to advanced surgical procedures, our specialists
+            focus on accuracy, safety, and long-term visual health for every patient.
           </p>
+
+          <div className="mt-6 flex items-center gap-3 text-sm text-[#023E8A]">
+            <div className="h-px w-8 bg-sky-200" />
+            <span>Specialized eye care you can trust</span>
+          </div>
         </motion.div>
 
       </div>
 
-      {/* FINAL ZOOM IMAGE (FIXED) */}
+      {/* FINAL ZOOM IMAGE */}
       <div
         ref={imageRef}
-        className="my-12 md:my-20 h-auto lg:h-[80vh] overflow-hidden"
+        className="my-12 md:my-20 h-auto lg:h-[80vh] overflow-hidden relative"
       >
         <motion.img
           src={photo06}
           style={{ scale }}
           className="w-full h-[280px] sm:h-[380px] md:h-[500px] lg:h-full rounded-2xl shadow-2xl object-cover"
         />
+
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 rounded-2xl" />
+
+        <div className="absolute bottom-10 left-10 right-10 text-white">
+          <p className="text-3xl md:text-5xl font-medium leading-none">
+            Dedicated hands. <span className="text-sky-500">Trusted care.</span>
+          </p>
+
+          <p className="mt-4 text-sky-200  text-sm uppercase tracking-widest">
+            — Our Medical Staff
+          </p>
+        </div>
       </div>
 
     </div>
