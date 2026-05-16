@@ -5,7 +5,7 @@ import { Users, UserRound, Building2, FlaskConical, Clock, Heart } from "lucide-
 const stats = [
   {
     icon: <Users className="w-10 h-10 text-[#023E8A]" />,
-    number: "15,000+",
+    number: "17,000+",
     label: "Patients Treated",
     suffix: "",
   },

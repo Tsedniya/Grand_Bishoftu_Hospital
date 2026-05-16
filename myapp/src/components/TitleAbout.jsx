@@ -27,7 +27,7 @@ const TitleAbout = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
 
   return (
-    <div className="bg-white mt-3 py-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
+    <div className="bg-white  mt-3 py-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
 
       {/* ROW */}
       <div className="flex flex-col lg:flex-row-reverse lg:h-[420px] items-stretch gap-6 lg:gap-10">

@@ -1,10 +1,11 @@
 import { Link, NavLink } from 'react-router-dom';
 import logo from '../assets/logo.jpeg';
 import menu from '../assets/menu.svg';
-import x from '../assets/x.svg';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { Phone, Mail } from "lucide-react";
+import { X } from 'lucide-react';
+
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
   const [serviceDropdown, setServiceDropdown] = useState(false);
@@ -16,11 +17,11 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto h-full flex items-center justify-center lg:justify-between px-4 sm:px-6 lg:px-8">
           {/* Phone + Socials */}
           <div className="flex items-center gap-6 text-white text-sm font-semibold">
-              <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-white" />
               <h3 className="text-sm">+251-977434445</h3>
             </div>
-           <Link
+            <Link
               to="https://web.facebook.com/p/Grand-Bishoftu-Hospital-100064801448190/"
               target="_blank"
               rel="noopener noreferrer"
@@ -66,7 +67,7 @@ const Navbar = () => {
               `pb-1 transition ${
                 isActive
                   ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
-                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  : "text-gray-600 text-sm hover:text-black hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
               }`
             }
           >
@@ -79,7 +80,7 @@ const Navbar = () => {
               `pb-1 transition ${
                 isActive
                   ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
-                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  : "text-gray-600 hover:text-black hover:font-semibold text-sm hover:border-b-2 hover:border-[#023E8A]"
               }`
             }
           >
@@ -92,7 +93,7 @@ const Navbar = () => {
               `pb-1 transition ${
                 isActive
                   ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
-                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
+                  : "text-gray-600 hover:text-black hover:font-semibold text-sm hover:border-b-2 hover:border-[#023E8A]"
               }`
             }
           >
@@ -106,22 +107,22 @@ const Navbar = () => {
             onMouseLeave={() => setServiceDropdown(false)}
           >
             <NavLink
-            to="/services"
-            className={({ isActive }) =>
-              `pb-1 transition ${
-                isActive
-                  ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
-                  : "text-gray-600 hover:text-black text-sm hover:font-semibold hover:border-b-2 hover:border-[#023E8A]"
-              }`
-            }
-          >
-            Services
-          </NavLink>
+              to="/services"
+              className={({ isActive }) =>
+                `pb-1 transition ${
+                  isActive
+                    ? "text-black font-semibold border-b-2 border-[#023E8A] text-sm"
+                    : "text-gray-600 hover:text-black hover:font-semibold text-sm hover:border-b-2 hover:border-[#023E8A]"
+                }`
+              }
+            >
+              Services
+            </NavLink>
           </li>
 
           <NavLink
             to="/contact"
-            className="px-2 py-2 bg-sky-500 text-sm md:text-center text-white rounded-xl hover:opacity-85 hover:rounded-none transition-all duration-300"
+            className="px-4 py-2 bg-sky-500 text-white rounded-xl text-sm hover:bg-sky-600 transition-all duration-300"
           >
             Contact Us
           </NavLink>
@@ -137,30 +138,57 @@ const Navbar = () => {
 
         {/* Slide-out Mobile Menu */}
         <div
-          className={`fixed top-0 right-0 h-screen bg-white transition-all duration-300 ease-in-out z-[100] ${visible ? 'w-full' : 'w-0'}`}
+          className={`fixed top-0 right-0 h-screen bg-white transition-all duration-300 ease-in-out z-[100] shadow-2xl ${visible ? 'w-full' : 'w-0 overflow-hidden'}`}
         >
-          <div className="flex flex-col p-6">
-            <img
-              src={x}
-              alt="close"
+          <div className="relative h-full w-full p-6">
+            
+            {/* Close Button - Fixed at Top Right */}
+            <X
               onClick={() => setVisible(false)}
-              className="w-8 h-8 self-end cursor-pointer transition-transform duration-200 hover:rotate-90"
+              className="absolute top-6 right-6 w-9 h-9 cursor-pointer text-black transition-transform duration-200 hover:rotate-90"
             />
 
-            <ul className="flex flex-col items-start pl-6 mt-8 space-y-4 text-lg font-medium text-black overflow-hidden">
-              <NavLink to="/" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">Home</NavLink>
-              <NavLink to="/about" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">About</NavLink>
-              <NavLink to="/doctors" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">Doctors</NavLink>
-              <NavLink to="/services" onClick={() => setVisible(false)} className="hover:border-b-2 text-sm">Services</NavLink>
-           
-              <NavLink
-                to="/contact"
-                onClick={() => setVisible(false)}
-                className="px-2 py-2 bg-sky-500 text-sm text-white rounded-2xl hover:opacity-85 hover:rounded-none transition-all duration-300"
-              >
-                Contact Us
-              </NavLink>
-            </ul>
+            {/* Menu Content */}
+            <div className="flex flex-col pt-16 h-full">
+              <ul className="flex flex-col items-start space-y-4 text-lg font-medium text-gray-800">
+                <NavLink 
+                  to="/" 
+                  onClick={() => setVisible(false)} 
+                  className="hover:text-[#023E8A] transition-colors text-sm"
+                >
+                  Home
+                </NavLink>
+                <NavLink 
+                  to="/about" 
+                  onClick={() => setVisible(false)} 
+                  className="hover:text-[#023E8A] transition-colors text-sm"
+                >
+                  About
+                </NavLink>
+                <NavLink 
+                  to="/doctors" 
+                  onClick={() => setVisible(false)} 
+                  className="hover:text-[#023E8A] transition-colors text-sm"
+                >
+                  Doctors
+                </NavLink>
+                <NavLink 
+                  to="/services" 
+                  onClick={() => setVisible(false)} 
+                  className="hover:text-[#023E8A] transition-colors text-sm"
+                >
+                  Services
+                </NavLink>
+
+                <NavLink
+                  to="/contact"
+                  onClick={() => setVisible(false)}
+                  className="mt-1 px-4 py-2 bg-sky-500 text-sm text-white rounded-xl hover:bg-sky-600 transition-all duration-300 inline-block w-fit"
+                >
+                  Contact Us
+                </NavLink>
+              </ul>
+            </div>
           </div>
         </div>
       </nav>
