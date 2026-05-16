@@ -30,7 +30,7 @@ const Mission = () => {
   ];
 
   return (
-    <div className="bg-white mt-20 md:mt-24 lg:mt-20 py-5 md:pt-16 lg:min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="bg-white  pt-14 mt-20 md:mt-24 lg:mt-20 py-5 md:pt-16 lg:min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
       {/* Hero Section - Unchanged */}
       <motion.div

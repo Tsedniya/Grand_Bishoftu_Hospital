@@ -20,6 +20,7 @@ import photo6 from "../assets/new/photo6.jpg";
 import photo12 from "../assets/new/photo12.jpg";
 import photo38 from "../assets/new/photo38.jpg";
 import photo41 from "../assets/new/photo41.jpg";
+import photo08 from "../assets/new/photo08.JPG";
 
 const EmergencyBox = () => {
   const [currentImages, setCurrentImages] = useState([0, 0, 0]);
@@ -55,7 +56,7 @@ const EmergencyBox = () => {
   title: "Patient Appointment Booking",
   subtitle: "Schedule consultations with specialists",
   icon: notebook,
-  bgImages: [photo5, photo12, photo22, photo41],
+  bgImages: [photo5, photo12, photo08, photo41],
 },
   ];
 
@@ -70,9 +71,9 @@ const EmergencyBox = () => {
   }, []);
 
   return (
-    <div className="w-full mt-5 mb-20 px-4 sm:px-8 md:px-16">
+    <div className="w-full mt-5 mb-20 px-4 sm:px-8 md:px-16 ">
       {/* Heading */}
-      <div className="flex flex-col items-center mt-28 md:mt-32 mb-10">
+      <div className="flex flex-col items-center mt-32 mb-10">
         <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] tracking-tighter">
           Contact Us
         </p>

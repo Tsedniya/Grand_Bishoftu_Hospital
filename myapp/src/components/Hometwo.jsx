@@ -22,9 +22,9 @@ const Hometwo = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row-reverse bg-white items-center justify-between py-16 md:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-10 lg:gap-16">
+    <div className="flex flex-col lg:flex-row-reverse bg-white items-center justify-between pt-4 pb-10 sm:pt-8 sm:pb-16 md:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-6 sm:gap-10 lg:gap-16">
 
-      {/* IMAGE SIDE - Apple Style */}
+      {/* IMAGE SIDE */}
       <motion.div
         variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
@@ -41,13 +41,13 @@ const Hometwo = () => {
             alt="Patient Care"
             className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-700 hover:scale-105"
           />
-          
-          {/* Subtle shine overlay */}
+
+          {/* Shine Overlay */}
           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-700" />
         </div>
       </motion.div>
 
-      {/* TEXT SIDE - Apple Style */}
+      {/* TEXT SIDE */}
       <motion.div
         variants={isDesktop ? slideFromLeft : {}}
         initial={isDesktop ? "hidden" : false}
@@ -56,17 +56,18 @@ const Hometwo = () => {
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         className="w-full lg:w-1/2 flex flex-col justify-center"
       >
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-6">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-4 sm:mb-6">
           We Take Care of You
         </h3>
 
-        <p className="text-lg text-gray-700 leading-relaxed mb-6">
-          At Grand Bishoftu Hospital, we deliver compassionate and reliable healthcare 
-          for every patient. Our team of skilled medical professionals is dedicated to 
-          providing personalized treatment, advanced care, and unwavering support.
+        <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
+          At Grand Bishoftu Hospital, we deliver compassionate and reliable
+          healthcare for every patient. Our team of skilled medical
+          professionals is dedicated to providing personalized treatment,
+          advanced care, and unwavering support.
         </p>
 
-        <p className="text-base text-gray-600 leading-relaxed">
+        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
           • Your safety, comfort, and trust are our top priority.
         </p>
       </motion.div>
