@@ -5,8 +5,8 @@ import logo from '../assets/logo.jpeg';
 import ct from "../assets/new/ct.jpg";
 
 // Import your local videos
-import video1 from "../assets/videos/grand.mp4";     // rename your files as needed
-import video2 from "../assets/videos/grand2.mp4";
+import video1 from "../assets/videos/grand3.mp4";     // rename your files as needed
+import video2 from "../assets/videos/grand4.mp4";
 
 const newsAndEvents = [
   {
