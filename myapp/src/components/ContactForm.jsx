@@ -190,7 +190,7 @@ const ContactForm = () => {
 
       {/* Success Toast */}
       {showToast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-[#023E8A] text-white px-8 py-4 rounded-2xl shadow-xl z-50 flex items-center gap-3">
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-green-400 text-white px-8 py-4 rounded-2xl shadow-xl z-80 flex items-center gap-3">
           <span className="text-2xl">✓</span>
           Appointment request sent successfully!
         </div>
