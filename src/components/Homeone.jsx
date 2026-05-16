@@ -24,9 +24,9 @@ const Homeone = () => {
   };
 
   return (
-    <div className="lg:mt-24 flex flex-col lg:flex-row gap-10 lg:gap-16 bg-white items-center justify-between pt-16 lg:pt-10 pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="mt-20 lg:mt-24 flex flex-col lg:flex-row gap-3 sm:gap-6 lg:gap-16 bg-white items-center justify-between pt-4 sm:pt-8 lg:pt-10 pb-10 lg:pb-16 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
 
-      {/* IMAGE SIDE - Apple Style */}
+      {/* IMAGE SIDE */}
       <motion.div
         variants={isDesktop ? slideFromLeft : {}}
         initial={isDesktop ? "hidden" : false}
@@ -43,13 +43,12 @@ const Homeone = () => {
             alt="Patient Care"
             className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-700 hover:scale-105"
           />
-          
-          {/* Subtle shine overlay */}
+
           <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-700" />
         </div>
       </motion.div>
 
-      {/* TEXT SIDE - Apple Style */}
+      {/* TEXT SIDE */}
       <motion.div
         variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
@@ -58,24 +57,24 @@ const Homeone = () => {
         transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
         className="w-full lg:w-1/2 flex flex-col justify-center"
       >
-        <div className="flex items-center gap-3 mb-4">
-          <img src={handheart} alt="Care" className="w-9 h-9" />
-          <img src={heartpulse} alt="Heart" className="w-9 h-9" />
+        <div className="flex items-center gap-2 mb-2">
+          <img src={handheart} alt="Care" className="w-7 h-7 sm:w-9 sm:h-9" />
+          <img src={heartpulse} alt="Heart" className="w-7 h-7 sm:w-9 sm:h-9" />
         </div>
 
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-6">
+        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-3 sm:mb-6">
           Exceptional Patient Care
         </h3>
 
-        <p className="text-lg text-gray-700 leading-relaxed max-w-[520px]">
-          Providing trusted healthcare services with compassion and excellence. 
-          Our experienced medical specialists are committed to ensuring the well-being 
-          of every patient through advanced treatment and personalized care.
+        <p className="text-[15px] sm:text-lg text-gray-700 leading-relaxed max-w-[520px]">
+          Providing trusted healthcare services with compassion and excellence.
+          Our experienced medical specialists are committed to ensuring the
+          well-being of every patient through advanced treatment and personalized
+          care.
         </p>
 
-        <p className="mt-5 text-base text-gray-600">
-          Cardiology • Neurology • Orthopedics • Pediatrics • Oncology • 
-          Pulmonology • Infectious Disease Care
+        <p className="mt-2 sm:mt-5 text-sm sm:text-base text-gray-600">
+          • Neurology • Orthopedics • Pediatrics • Oncology • Pulmonology
         </p>
       </motion.div>
     </div>

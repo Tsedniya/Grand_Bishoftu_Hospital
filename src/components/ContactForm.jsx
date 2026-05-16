@@ -43,7 +43,6 @@ const ContactForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // ... (your existing submit logic remains the same)
     const payload = {
       ...formData,
       date: formData.date ? new Date(formData.date).toISOString() : null,
@@ -69,7 +68,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center py-12 -mt-10 md:mt-0 overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-center justify-center py-12 mt-5 overflow-hidden">
       {/* Background Image */}
       <img
         src={patient}
@@ -77,8 +76,8 @@ const ContactForm = () => {
         className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* Enhanced Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/60 to-black/75" />
+      {/* New Gradient Overlay - Using your brand color */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-[#023E8A]/65 to-[#012c6b]/90" />
 
       <div className="relative z-10 w-full max-w-2xl px-6">
         <motion.div
@@ -191,7 +190,7 @@ const ContactForm = () => {
 
       {/* Success Toast */}
       {showToast && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-[#023E8A] text-white px-8 py-4 rounded-2xl shadow-xl z-50 flex items-center gap-3">
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 bg-green-400 text-white px-8 py-4 rounded-2xl shadow-xl z-80 flex items-center gap-3">
           <span className="text-2xl">✓</span>
           Appointment request sent successfully!
         </div>

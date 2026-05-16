@@ -21,7 +21,7 @@ const testimonials = [
     rating: 4,
     title: "Great Experience",
     review:
-      "A well-equipped hospital with professional staff and compassionate service.",
+      "A well-equipped hospital with professional staff and compassionate service, dedicated to providing quality healthcare and ensuring every patient feels safe, respected, and cared for.",
     name: "Abiy Tadele",
   },
   {
@@ -73,7 +73,7 @@ const TestimonialCard = ({ rating, title, review, name, index }) => (
 
 const TestimonialSection = () => {
   return (
-    <div className="bg-white py-20 md:py-28 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="bg-white py-18 md:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -82,10 +82,10 @@ const TestimonialSection = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold text-[#023E8A] tracking-tighter">
+          <h2 className="text-lg sm:text-3xl md:text-5xl mb-3 text-[#023E8A] font-poppins leading-tight">
             What Our Patients Say
           </h2>
-          <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="mt-4 text-[#023E8A]/70 text-sm md:text-base tracking-[2px] font-medium max-w-2xl mx-auto">
             Real stories from people who experienced our care
           </p>
         </motion.div>
