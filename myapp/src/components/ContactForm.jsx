@@ -68,7 +68,7 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center py-12 -mt-10 md:mt-0 overflow-hidden">
+    <div className="relative w-full min-h-screen flex items-center justify-center py-12 mt-5 overflow-hidden">
       {/* Background Image */}
       <img
         src={patient}

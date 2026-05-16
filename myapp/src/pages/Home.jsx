@@ -7,6 +7,7 @@ import ContactForm from '../components/ContactForm'
 import Frequently from  '../components/Frequently'
 import Partners from "../components/partners";
 import LatestNewsEvents from '../components/LatestNewsEvents';
+import HospitalStats from '../components/HospitalStats'
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
       <Homeone/>
       <Hometwo/>
       <Meet/>
+      <HospitalStats/>
       <ContactForm/>
       <LatestNewsEvents />
       <Partners />

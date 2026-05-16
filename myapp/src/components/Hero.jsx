@@ -32,10 +32,10 @@ const HeroSecond = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, ease: "easeOut" }}
             >
-              <h1 className="text-2xl sm:text-5xl lg:text-7xl font-semibold text-white tracking-tighter leading-none">
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-semibold text-white tracking-tighter leading-none">
                 Grand Bishoftu
                 <br />
-                <span className="text-sky-400">Hospital</span>
+                <span className="text-sky-500">Hospital</span>
               </h1>
             </motion.div>
 
@@ -55,22 +55,25 @@ const HeroSecond = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6, duration: 0.9 }}
-              className="flex flex-wrap gap-4 mt-10"
+              className="flex flex-wrap gap-3 sm:gap-4 mt-6 sm:mt-10"
             >
               {/* Emergency Button */}
               <Link to="/contact">
                 <button
-                  className="group px-8 py-4 bg-white text-[#023E8A] font-medium rounded-2xl
+                  className="group px-4 py-2.5 sm:px-8 sm:py-4
+                  bg-white text-[#023E8A]
+                  text-sm sm:text-base
+                  font-medium rounded-xl sm:rounded-2xl
                   hover:bg-[#023E8A] hover:text-white
                   transition-all duration-300 ease-out
-                  flex items-center gap-3
+                  flex items-center gap-2 sm:gap-3
                   shadow-lg shadow-black/20 hover:shadow-2xl
                   hover:-translate-y-1 hover:scale-105"
                 >
                   <span>Emergency Care</span>
 
                   <span
-                    className="text-xl transition-transform duration-300
+                    className="text-lg sm:text-xl transition-transform duration-300
                     group-hover:translate-x-1 group-hover:rotate-12"
                   >
                     →
@@ -81,8 +84,11 @@ const HeroSecond = () => {
               {/* Services Button */}
               <Link to="/services">
                 <button
-                  className="group px-8 py-4 border border-white/70 text-white font-medium
-                  rounded-2xl backdrop-blur-md
+                  className="group px-4 py-2.5 sm:px-8 sm:py-4
+                  border border-white/70 text-white
+                  text-sm sm:text-base
+                  font-medium rounded-xl sm:rounded-2xl
+                  backdrop-blur-md
                   hover:bg-white hover:text-[#023E8A]
                   transition-all duration-300 ease-out
                   hover:-translate-y-1 hover:scale-105
