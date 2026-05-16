@@ -31,7 +31,7 @@ const stats = [
 
 const HospitalStats = () => {
   return (
-    <section className="py-16 bg-gray-100 mb-14">
+    <section className="py-16 bg-gray-100 mb:14 md:mb-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6 place-items-center">
             {stats.map((stat, index) => (

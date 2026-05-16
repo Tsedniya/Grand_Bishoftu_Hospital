@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
-import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { Calendar, ArrowRight, Play, Pause } from "lucide-react";
 import logo from '../assets/logo.jpeg';
 import ct from "../assets/new/ct.jpg";
+
+// Import your local videos
+import video1 from "../assets/videos/grand.mp4";     // rename your files as needed
+import video2 from "../assets/videos/grand2.mp4";
 
 const newsAndEvents = [
   {
@@ -11,9 +15,8 @@ const newsAndEvents = [
     date: "May 10, 2026",
     time: "9:00 AM",
     category: "News",
-    description:
-      "Grand Bishoftu Hospital proudly introduces advanced CT Scan services with state-of-the-art imaging technology for faster and more accurate diagnoses.",
-    image:  ct, // Replace with your CT Scan image
+    description: "Grand Bishoftu Hospital proudly introduces advanced CT Scan services with state-of-the-art imaging technology for faster and more accurate diagnoses.",
+    image: ct,
   },
   {
     id: 2,
@@ -21,47 +24,61 @@ const newsAndEvents = [
     date: "Feb 22, 2026",
     time: "6:00 PM",
     category: "Event",
-    description:
-      "Join us as we celebrate one year of serving the community with excellence in healthcare, compassion, and innovation.",
-    image:  logo, // Replace with your anniversary image
+    description: "Join us as we celebrate one year of serving the community with excellence in healthcare, compassion, and innovation.",
+    image: logo,
   },
 ];
 
-// TikTok VIDEO IDs from your links
-// Video 1 ID: 7638628098963164436 (Anniversary)
-// Video 2 ID: 7609683501071322388 (CT Scan)
-const tiktokVideos = [
+const videos = [
   {
     id: 1,
-    videoId: "7638628098963164436",
+    src: video1,
     title: "CT Scan at Grand Bishoftu Hospital",
     description: "Advanced CT Scan services",
-   
   },
   {
     id: 2,
-    videoId: "7609683501071322388",
+    src: video2,
     title: "Grand Bishoftu Hospital 1st Anniversary",
     description: "ግራንድ ቢሾፍቱ ሆስፒታል 1ኛ አመት የምስረታ በዓሉ",
-   
   },
 ];
 
 const LatestNewsEvents = () => {
-  const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
 
-  const currentVideo = tiktokVideos[currentVideoIndex];
+  const currentVideo = videos[currentIndex];
 
-  // Correct TikTok embed URL format
-  const embedUrl = `https://www.tiktok.com/embed/v2/${currentVideo.videoId}`;
-
-  const handleNextVideo = () => {
-    setCurrentVideoIndex((prev) => (prev + 1) % tiktokVideos.length);
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    
+    if (isPlaying) {
+      videoRef.current.pause();
+    } else {
+      videoRef.current.play();
+    }
+    setIsPlaying(!isPlaying);
   };
 
-  const handlePrevVideo = () => {
-    setCurrentVideoIndex((prev) => (prev - 1 + tiktokVideos.length) % tiktokVideos.length);
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % videos.length);
+    setIsPlaying(false); // Reset play state
   };
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + videos.length) % videos.length);
+    setIsPlaying(false);
+  };
+
+  // Reset play state when video changes
+  React.useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    }
+  }, [currentIndex]);
 
   return (
     <section className="py-16 bg-gray-50">
@@ -76,7 +93,7 @@ const LatestNewsEvents = () => {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-10 items-start">
-          {/* Left Side - News & Events */}
+          {/* News & Events Cards */}
           <div className="space-y-6">
             {newsAndEvents.map((item, index) => (
               <motion.div
@@ -112,75 +129,84 @@ const LatestNewsEvents = () => {
             ))}
           </div>
 
-          {/* Right Side - TikTok Video Playlist */}
+          {/* Custom Video Player */}
           <div className="lg:sticky lg:top-8">
             <div className="bg-white rounded-3xl overflow-hidden shadow-lg">
-              <div className="relative bg-black">
-                {/* TikTok embed iframe with correct URL */}
-                <iframe
-                  key={currentVideoIndex} // re-mount when video changes
-                  src={embedUrl}
-                  title={currentVideo.title}
-                  className="w-full"
-                  style={{ aspectRatio: "16 / 9" }}
-                  allowFullScreen
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  sandbox="allow-scripts allow-same-origin allow-pointer-lock allow-forms"
+              <div className="relative bg-black aspect-video group">
+                <video
+                  ref={videoRef}
+                  src={currentVideo.src}
+                  className="w-full h-full object-contain"
+                  onClick={togglePlay}
+                  onPlay={() => setIsPlaying(true)}
+                  onPause={() => setIsPlaying(false)}
                 />
 
-                {/* Progress indicators */}
-                <div className="absolute top-4 left-4 flex gap-1">
-                  {tiktokVideos.map((_, idx) => (
+                {/* Circular Wave + Play Button Overlay */}
+                {!isPlaying && (
+                  <div
+                    onClick={togglePlay}
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                  >
+                    {/* Animated Circular Waves */}
+                    <div className="absolute w-32 h-32 rounded-full border-2 border-white/30 animate-ping" />
+                    <div className="absolute w-40 h-40 rounded-full border-2 border-white/20 animate-ping animation-delay-300" />
+                    <div className="absolute w-48 h-48 rounded-full border-2 border-white/10 animate-ping animation-delay-700" />
+
+                    {/* Big Play Button */}
+                    <div className="relative z-10 w-20 h-20 bg-[#023E8A] hover:bg-[#023E8A]/90 rounded-full flex items-center justify-center shadow-2xl transition-all active:scale-95">
+                      <Play className="w-10 h-10 text-white ml-1" fill="white" />
+                    </div>
+                  </div>
+                )}
+
+                {/* Pause Indicator (when playing) */}
+                {isPlaying && (
+                  <div
+                    onClick={togglePlay}
+                    className="absolute inset-0 flex items-center justify-center cursor-pointer"
+                  >
+                    <div className="w-20 h-20 bg-black/50 backdrop-blur-sm rounded-full flex items-center justify-center">
+                      <Pause className="w-9 h-9 text-white" />
+                    </div>
+                  </div>
+                )}
+
+                {/* Video Progress Indicators */}
+                <div className="absolute top-4 left-4 flex gap-1.5">
+                  {videos.map((_, idx) => (
                     <button
                       key={idx}
-                      onClick={() => setCurrentVideoIndex(idx)}
+                      onClick={() => setCurrentIndex(idx)}
                       className={`h-1.5 rounded-full transition-all ${
-                        idx === currentVideoIndex ? "bg-white w-8" : "bg-white/50 w-3"
+                        idx === currentIndex ? "bg-white w-8" : "bg-white/50 w-3"
                       }`}
-                      aria-label={`Go to video ${idx + 1}`}
                     />
                   ))}
                 </div>
-
-                {/* Next/Prev buttons overlay */}
-                <div className="absolute bottom-4 right-4 flex gap-2">
-                  <button
-                    onClick={handlePrevVideo}
-                    className="bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all"
-                    aria-label="Previous video"
-                  >
-                    ←
-                  </button>
-                  <button
-                    onClick={handleNextVideo}
-                    className="bg-black/70 hover:bg-black/90 text-white p-2 rounded-full transition-all"
-                    aria-label="Next video"
-                  >
-                    →
-                  </button>
-                </div>
               </div>
 
+              {/* Video Info */}
               <div className="p-6">
-                <div className="flex items-center justify-between">
-                  <h3 className="font-semibold text-xl text-[#023E8A]">
-                    {currentVideo.title}
-                  </h3>
-                </div>
+                <h3 className="font-semibold text-xl text-[#023E8A]">
+                  {currentVideo.title}
+                </h3>
                 <p className="text-gray-600 mt-2">{currentVideo.description}</p>
 
-                <div className="mt-4 flex gap-3 text-sm text-gray-500">
+                <div className="mt-5 flex gap-3 text-sm">
                   <button
-                    onClick={handlePrevVideo}
-                    className="flex items-center gap-1 hover:text-[#023E8A] transition-colors"
+                    onClick={handlePrev}
+                    className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 rounded-full hover:border-[#023E8A] hover:text-[#023E8A] transition-all"
                   >
-                    <ArrowRight className="w-4 h-4 rotate-180" /> Previous
+                    <ArrowRight className="w-4 h-4 rotate-180" />
+                    Previous
                   </button>
                   <button
-                    onClick={handleNextVideo}
-                    className="flex items-center gap-1 hover:text-[#023E8A] transition-colors"
+                    onClick={handleNext}
+                    className="flex items-center gap-2 px-5 py-2.5 border border-gray-300 rounded-full hover:border-[#023E8A] hover:text-[#023E8A] transition-all"
                   >
-                    Next <ArrowRight className="w-4 h-4" />
+                    Next
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
