@@ -9,13 +9,16 @@ import photo29 from "../assets/new/photo29.jpg";
 import photo90 from "../assets/new/photo90.jpg";
 import photo71 from "../assets/new/photo71.JPG";
 import photo70 from "../assets/new/photo70.JPG";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 const Meet = () => {
   const doctors = [
-  
-    { img: photo70, name: "Dr. Segni Bekele", role: " Founding Member & CEO" },
-    { img: photo90, name: "Dr. Tatek Belay", role: "Founding Member & Medical Director" },
+    { img: photo70, name: "Dr. Segni Bekele", role: "Founding Member & CEO" },
+    {
+      img: photo90,
+      name: "Dr. Tatek Belay",
+      role: "Founding Member & Medical Director",
+    },
     { img: photo29, name: "Dr. Yeshi Teshome", role: "Founding Member" },
     { img: photo71, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
   ];
@@ -36,49 +39,54 @@ const Meet = () => {
     };
 
     handleResize();
+
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // autoplay
+  // faster autoplay
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrent((prev) => prev + 1);
-    }, 2500);
+    }, 1800);
 
     return () => clearInterval(interval);
   }, []);
 
-  // smooth reset
+  // smooth infinite reset
   useEffect(() => {
     if (current === doctors.length) {
       setTimeout(() => {
         setTransition(false);
         setCurrent(0);
-      }, 700);
+      }, 400);
 
-      setTimeout(() => setTransition(true), 750);
+      setTimeout(() => setTransition(true), 450);
     }
   }, [current, doctors.length]);
 
-  // dynamic movement %
+  // movement %
   const movePercent = 100 / visibleCards;
 
   return (
-   <div className="bg-white pt-10 pb-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-2 -mt-10 md:-mt-20 lg:mt-10">
+    <div className="bg-white pt-10 pb-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] mb-2 -mt-10 md:-mt-20 lg:mt-10">
+
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight">
-             Our Founders & Leadership Team
+          Our Founders & Leadership Team
         </h3>
-
-         
       </div>
 
       {/* Slider */}
       <div className="overflow-hidden">
         <div
-          className={`flex ${transition ? "transition-transform duration-700" : ""}`}
+          className={`flex ${
+            transition
+              ? "transition-transform duration-500 ease-out"
+              : ""
+          }`}
           style={{
             transform: `translateX(-${current * movePercent}%)`,
           }}
@@ -88,13 +96,15 @@ const Meet = () => {
               key={index}
               className="w-full sm:w-1/2 lg:w-1/4 px-2 sm:px-4 flex-shrink-0"
             >
-              <div className="bg-white rounded-2xl shadow-lg overflow-hidden text-center">
+              <div className="bg-white rounded-2xl shadow-lg overflow-hidden text-center hover:shadow-2xl transition-shadow duration-300">
 
-                <img
-                  src={doctor.img}
-                  alt={doctor.name}
-                  className="w-full h-56 sm:h-64 object-cover"
-                />
+                <div className="overflow-hidden">
+                  <img
+                    src={doctor.img}
+                    alt={doctor.name}
+                    className="w-full h-56 sm:h-64 object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                </div>
 
                 <div className="p-4 sm:p-6">
                   <h3 className="font-semibold text-base sm:text-lg">
@@ -102,7 +112,6 @@ const Meet = () => {
                   </h3>
 
                   <p className="text-base">{doctor.role}</p>
-                 
                 </div>
 
               </div>
