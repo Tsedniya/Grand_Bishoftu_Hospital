@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 
 const AdminAuth = () => {
   const navigate = useNavigate();
-  const [isSignup, setIsSignup] = useState(false); 
+  const [isSignup, setIsSignup] = useState(false);
+
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -16,46 +17,71 @@ const AdminAuth = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const API = import.meta.env.VITE_API_URL;
 
-    const url = isSignup ? `${API}/auth/signup`: `${API}/auth/login`;
+    // ✅ FIX 1: send clean payload depending on mode
+    const payload = isSignup
+      ? formData
+      : {
+          email: formData.email,
+          password: formData.password
+        };
 
-    const res = await fetch(url, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-      credentials: "include", 
-    });
+    const url = isSignup
+      ? `${API}/auth/signup`
+      : `${API}/auth/login`;
 
-    const data = await res.json();
+    try {
+      const res = await fetch(url, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(payload),
+        credentials: "include"
+        // only use this if you're using cookie-based auth
+      });
 
-    
-    if (res.ok) {
-    if (isSignup) {
-      alert("Signup successful! Please login.");
-      setIsSignup(false);
-    } else {
-      // ✅ tell app admin is logged in
-      localStorage.setItem("admin", JSON.stringify(data));
+      const data = await res.json();
 
-      navigate("/admin/dashboard");
+      if (!res.ok) {
+        console.error("Auth error:", data);
+        alert(data.message || "Authentication failed");
+        return;
+      }
+
+      if (isSignup) {
+        alert("Signup successful! Please login.");
+        setIsSignup(false);
+      } else {
+        localStorage.setItem("admin", JSON.stringify(data));
+        navigate("/admin/dashboard");
+      }
+    } catch (err) {
+      console.error("Network error:", err);
+      alert("Server not reachable");
     }
-  }
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white shadow-lg rounded-xl p-8 w-96">
-        {/* Toggle buttons */}
+        
         <div className="flex mb-6">
           <button
-            className={`flex-1 py-2 rounded-l-xl font-semibold ${!isSignup ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`flex-1 py-2 rounded-l-xl font-semibold ${
+              !isSignup ? "bg-blue-600 text-white" : "bg-gray-200"
+            }`}
             onClick={() => setIsSignup(false)}
           >
             Login
           </button>
+
           <button
-            className={`flex-1 py-2 rounded-r-xl font-semibold ${isSignup ? 'bg-blue-600 text-white' : 'bg-gray-200'}`}
+            className={`flex-1 py-2 rounded-r-xl font-semibold ${
+              isSignup ? "bg-blue-600 text-white" : "bg-gray-200"
+            }`}
             onClick={() => setIsSignup(true)}
           >
             Signup
@@ -74,7 +100,7 @@ const AdminAuth = () => {
               placeholder="Username"
               value={formData.username}
               onChange={handleChange}
-              className="border w-full px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+              className="border w-full px-3 py-2 rounded"
               required
             />
           )}
@@ -85,7 +111,7 @@ const AdminAuth = () => {
             placeholder="Email"
             value={formData.email}
             onChange={handleChange}
-            className="border w-full px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="border w-full px-3 py-2 rounded"
             required
           />
 
@@ -95,13 +121,13 @@ const AdminAuth = () => {
             placeholder="Password"
             value={formData.password}
             onChange={handleChange}
-            className="border w-full px-3 py-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
+            className="border w-full px-3 py-2 rounded"
             required
           />
 
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700 transition"
+            className="w-full bg-blue-600 text-white py-2 rounded font-semibold hover:bg-blue-700"
           >
             {isSignup ? "Sign Up" : "Login"}
           </button>
