@@ -10,16 +10,17 @@ const Homeone = () => {
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const slideFromLeft = {
-    hidden: { x: -120, opacity: 0 },
+    hidden: { x: -60, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
   const slideFromRight = {
-    hidden: { x: 120, opacity: 0 },
+    hidden: { x: 60, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
@@ -31,8 +32,11 @@ const Homeone = () => {
         variants={isDesktop ? slideFromLeft : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{
+          duration: 0.4,
+          ease: [0.25, 0.1, 0.25, 1],
+        }}
         className="relative w-full lg:w-1/2 flex items-center justify-center"
       >
         <div className="absolute w-[68%] h-[68%] bg-sky-200/30 rounded-full blur-3xl" />
@@ -41,10 +45,10 @@ const Homeone = () => {
           <img
             src={photo15}
             alt="Patient Care"
-            className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-500 hover:scale-105"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-500" />
         </div>
       </motion.div>
 
@@ -53,13 +57,26 @@ const Homeone = () => {
         variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{
+          duration: 0.4,
+          delay: 0.05,
+          ease: [0.25, 0.1, 0.25, 1],
+        }}
         className="w-full lg:w-1/2 flex flex-col justify-center"
       >
         <div className="flex items-center gap-2 mb-2">
-          <img src={handheart} alt="Care" className="w-7 h-7 sm:w-9 sm:h-9" />
-          <img src={heartpulse} alt="Heart" className="w-7 h-7 sm:w-9 sm:h-9" />
+          <img
+            src={handheart}
+            alt="Care"
+            className="w-7 h-7 sm:w-9 sm:h-9"
+          />
+
+          <img
+            src={heartpulse}
+            alt="Heart"
+            className="w-7 h-7 sm:w-9 sm:h-9"
+          />
         </div>
 
         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-3 sm:mb-6">

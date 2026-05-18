@@ -7,17 +7,19 @@ const Hometwo = () => {
 
   useEffect(() => {
     const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+
     window.addEventListener("resize", handleResize);
+
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const slideFromLeft = {
-    hidden: { x: -120, opacity: 0 },
+    hidden: { x: -60, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
   const slideFromRight = {
-    hidden: { x: 120, opacity: 0 },
+    hidden: { x: 60, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
@@ -29,8 +31,11 @@ const Hometwo = () => {
         variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{
+          duration: 0.4,
+          ease: [0.25, 0.1, 0.25, 1],
+        }}
         className="relative w-full lg:w-1/2 flex items-center justify-center"
       >
         <div className="absolute w-[68%] h-[68%] bg-sky-200/30 rounded-full blur-3xl" />
@@ -39,11 +44,11 @@ const Hometwo = () => {
           <img
             src={photo12}
             alt="Patient Care"
-            className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-700 hover:scale-105"
+            className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-500 hover:scale-105"
           />
 
           {/* Shine Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-700" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-500" />
         </div>
       </motion.div>
 
@@ -52,8 +57,12 @@ const Hometwo = () => {
         variants={isDesktop ? slideFromLeft : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{
+          duration: 0.4,
+          delay: 0.05,
+          ease: [0.25, 0.1, 0.25, 1],
+        }}
         className="w-full lg:w-1/2 flex flex-col justify-center"
       >
         <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-4 sm:mb-6">
