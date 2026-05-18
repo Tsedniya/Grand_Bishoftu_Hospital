@@ -261,11 +261,27 @@ const Departements = () => {
       {/* Show More Button */}
       {visibleCount < departments.length && (
         <div className="flex justify-center mt-8">
-          <button
+           <button
             onClick={handleShowMore}
-            className="px-6 py-3 rounded-lg bg-[#023E8A] text-white font-semibold hover:bg-[#012A5A] transition"
+            className="group relative px-6 py-3 rounded-2xl bg-[#023E8A] text-white font-semibold text-base overflow-hidden shadow-xl active:scale-95 transition-all duration-200"
           >
-            Show More
+            {/* Continuous Shine */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shine"></div>
+
+            {/* Continuous Wave / Ripple Effect */}
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 border-2 border-white/50 rounded-2xl animate-wave1"></div>
+              <div className="absolute inset-0 border-2 border-white/30 rounded-2xl animate-wave2"></div>
+            </div>
+
+            {/* Extra Glow */}
+            <div className="absolute -inset-2 bg-[#023E8A]/60 rounded-3xl -z-10 blur-xl animate-pulse"></div>
+
+            {/* Text */}
+            <span className="relative z-10 flex items-center justify-center gap-2">
+              Show More
+              <span className="text-xl animate-bounce">↓</span>
+            </span>
           </button>
         </div>
       )}
