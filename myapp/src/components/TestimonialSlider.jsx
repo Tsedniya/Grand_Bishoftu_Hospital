@@ -73,7 +73,7 @@ const TestimonialCard = ({ rating, title, review, name, index }) => (
 
 const TestimonialSection = () => {
   return (
-    <div className="bg-white py-18 md:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+    <div className="bg-white py-14 md:py-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -102,15 +102,20 @@ const TestimonialSection = () => {
         </div>
 
         {/* Trust Bar */}
-        <div className="mt-16 flex justify-center">
-          <div className="flex items-center gap-8 text-sm text-gray-400">
-            <div className="flex items-center gap-2">
-              <span className="text-2xl">★</span> Trusted by hundreds
-            </div>
-            <div className="h-px w-8 bg-gray-300" />
-            <div>4.9 Average Rating</div>
-          </div>
-        </div>
+        <div className="mt-12 flex justify-center">
+  <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-8 text-sm text-gray-400 text-center">
+
+    <div className="flex items-center gap-2">
+      <span className="text-xl sm:text-2xl">★</span>
+      <span>Trusted by hundreds</span>
+    </div>
+
+    <div className="hidden sm:block h-px w-8 bg-gray-300" />
+
+    <div>4.9 Average Rating</div>
+
+  </div>
+</div>
       </div>
     </div>
   );
