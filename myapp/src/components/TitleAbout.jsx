@@ -29,7 +29,7 @@ const TitleAbout = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [0.9, 1.1]);
 
   return (
-    <div className="bg-white sm:-mt-5  md:mt-0 py-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
+    <div className="bg-white -mt-16 sm:-mt-24 md:mt-0 py-10 px-4 sm:px-[5vw] md:px-[6vw] lg:px-[9vw]">
 
       {/* ROW */}
       <div className="flex flex-col lg:flex-row-reverse lg:h-[420px] items-stretch gap-3 lg:gap-10">
@@ -114,7 +114,7 @@ const TitleAbout = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/70 rounded-2xl" />
 
         <div className="absolute bottom-6 md:bottom-10 left-5 md:left-10 right-5 md:right-10 text-white">
-          <p className="text-2xl sm:text-3xl md:text-5xl font-medium leading-tight">
+          <p className="sm:text-2xl md:text-5xl font-medium leading-tight">
             Dedicated hands.{" "}
             <span className="text-sky-500">Trusted care.</span>
           </p>

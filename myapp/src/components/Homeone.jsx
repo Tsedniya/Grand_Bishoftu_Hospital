@@ -91,7 +91,7 @@ const Homeone = () => {
         </p>
 
         <p className="mt-2 sm:mt-5 text-sm sm:text-base text-gray-600">
-          • Neurology • Orthopedics • Pediatrics • Oncology • Pulmonology
+          • Neurology • Orthopedics • Pediatrics • Pathology • Urology
         </p>
       </motion.div>
     </div>

@@ -17,7 +17,7 @@ const Treatment = () => {
   };
 
   return (
-    <div className="flex flex-col lg:flex-row bg-white items-center justify-between pt-5 pb-5 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
+    <div className="flex flex-col lg:flex-row bg-white items-center justify-between -mt-12 sm:-mt-20 md:mt-0 pt-5 pb-5 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] gap-4 lg:gap-8">
 
       {/* IMAGE SECTION - The Exorcist */}
       <motion.div
