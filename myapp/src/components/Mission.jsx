@@ -92,7 +92,7 @@ const Mission = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-black/80 rounded-2xl" />
         
         <div className="absolute bottom-8 left-8 right-8 text-white">
-          <p className="sm:text-2xl md:text-5xl font-medium tracking-tighter leading-none mb-4">
+          <p className="sm:text-3xl md:text-5xl font-medium tracking-tighter leading-none mb-4">
             "Your health is our priority..."
             <br />
             <span className="text-sky-500">we are here to care for you.</span>
