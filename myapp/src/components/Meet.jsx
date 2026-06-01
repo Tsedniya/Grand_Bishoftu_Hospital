@@ -9,6 +9,7 @@ import photo29 from "../assets/new/photo29.jpg";
 import photo90 from "../assets/new/photo90.jpg";
 import photo71 from "../assets/new/photo71.JPG";
 import photo70 from "../assets/new/photo70.JPG";
+import tade from "../assets/new/tade.jpg";
 import { Link } from "react-router-dom";
 
 const Meet = () => {
@@ -21,6 +22,7 @@ const Meet = () => {
     },
     { img: photo29, name: "Dr. Yeshi Teshome", role: "Founding Member" },
     { img: photo71, name: "Dr. Tsion Mekasha", role: "V.Medical Director" },
+    { img: tade, name: "Dr. Tadesse Gonfa", role: "Medical Director & General Surgeon" }
   ];
 
   // duplicate for infinite loop
