@@ -22,148 +22,302 @@ import photo38 from "../assets/new/photo38.jpg";
 import photo41 from "../assets/new/photo41.jpg";
 import photo08 from "../assets/new/photo08.JPG";
 
+const COLORS = {
+  darkest: "#063a3a",
+  deep:    "#084f4f",
+  base:    "#0b6e6e",
+  light:   "#5dc8c8",
+  gold:    "#c8a84b",
+  cream:   "#f5f2ea",
+};
+
+const cards = [
+  {
+    title: "Emergency Care Unit",
+    subtitle: "Immediate medical response for critical cases",
+    icon: heartpulse,
+    bgImages: [cancer, photo6, photo14, photo38],
+    tag: "24 / 7",
+  },
+  {
+    title: "Hospital Location Services",
+    subtitle: "Find our facilities and departments easily",
+    icon: map,
+    bgImages: [photo15, photo13, home, photo12],
+    tag: "On-site",
+  },
+  {
+    title: "Patient Appointment Booking",
+    subtitle: "Schedule consultations with specialists",
+    icon: notebook,
+    bgImages: [photo5, photo12, photo08, photo41],
+    tag: "Online",
+  },
+];
+
+const ContactCard = ({ card, imgIndex }) => {
+  const [hovered, setHovered] = React.useState(false);
+
+  return (
+    <motion.div
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      style={{
+        position: "relative",
+        overflow: "hidden",
+        cursor: "default",
+        height: "480px",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "flex-end",
+        padding: "36px 32px",
+      }}
+    >
+      {/* Background image with crossfade */}
+      {card.bgImages.map((img, i) => (
+        <div
+          key={i}
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage: `url(${img})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center top",
+            transition: "opacity 1s ease",
+            opacity: i === imgIndex ? 1 : 0,
+            transform: hovered ? "scale(1.06)" : "scale(1)",
+            transitionProperty: "opacity, transform",
+            transitionDuration: "1s, 0.8s",
+            filter: "brightness(0.45) saturate(0.7)",
+          }}
+        />
+      ))}
+
+      {/* Deep teal gradient overlay */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        background: `linear-gradient(to top, ${COLORS.darkest}f2 0%, ${COLORS.deep}99 50%, transparent 100%)`,
+      }} />
+
+      {/* Hover teal tint */}
+      <div style={{
+        position: "absolute",
+        inset: 0,
+        background: `${COLORS.deep}55`,
+        opacity: hovered ? 1 : 0,
+        transition: "opacity 0.5s ease",
+      }} />
+
+      {/* Top shimmer line on hover */}
+      <div style={{
+        position: "absolute",
+        top: 0, left: 0, right: 0,
+        height: "2px",
+        background: `linear-gradient(90deg, transparent, ${COLORS.light}, transparent)`,
+        opacity: hovered ? 1 : 0,
+        transition: "opacity 0.5s ease",
+      }} />
+
+      {/* Tag pill — top right */}
+      <div style={{
+        position: "absolute",
+        top: "24px",
+        right: "24px",
+        padding: "5px 14px",
+        border: `1px solid rgba(93,200,200,0.35)`,
+        fontFamily: "'Lato', sans-serif",
+        fontSize: "10px",
+        letterSpacing: "0.15em",
+        textTransform: "uppercase",
+        color: COLORS.light,
+        zIndex: 2,
+      }}>
+        {card.tag}
+      </div>
+
+      {/* Icon */}
+      <div style={{
+        position: "relative",
+        zIndex: 2,
+        width: "52px",
+        height: "52px",
+        borderRadius: 0,
+        border: `1px solid rgba(200,168,75,0.35)`,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        marginBottom: "24px",
+        background: "rgba(6,58,58,0.5)",
+        transition: "border-color 0.3s ease",
+        borderColor: hovered ? COLORS.gold : "rgba(200,168,75,0.35)",
+      }}>
+        <img src={card.icon} alt={card.title} style={{ width: "26px", height: "26px", objectFit: "contain", filter: "brightness(0) invert(1)" }} />
+      </div>
+
+      {/* Gold rule */}
+      <div style={{
+        position: "relative",
+        zIndex: 2,
+        width: hovered ? "48px" : "32px",
+        height: "1px",
+        background: COLORS.gold,
+        marginBottom: "16px",
+        transition: "width 0.4s ease",
+      }} />
+
+      {/* Title */}
+      <h3 style={{
+        position: "relative",
+        zIndex: 2,
+        fontFamily: "'Cormorant Garamond', Georgia, serif",
+        fontSize: "26px",
+        fontWeight: 300,
+        color: COLORS.cream,
+        lineHeight: 1.2,
+        letterSpacing: "-0.01em",
+        margin: "0 0 12px",
+      }}>
+        {card.title}
+      </h3>
+
+      {/* Subtitle */}
+      <p style={{
+        position: "relative",
+        zIndex: 2,
+        fontFamily: "'Lato', sans-serif",
+        fontSize: "13px",
+        fontWeight: 300,
+        color: "rgba(245,242,234,0.6)",
+        letterSpacing: "0.02em",
+        lineHeight: 1.7,
+        margin: "0 0 28px",
+        maxWidth: "240px",
+      }}>
+        {card.subtitle}
+      </p>
+
+      {/* CTA row */}
+      <div style={{
+        position: "relative",
+        zIndex: 2,
+        display: "flex",
+        alignItems: "center",
+        gap: "10px",
+        opacity: hovered ? 1 : 0.5,
+        transform: hovered ? "translateY(0)" : "translateY(6px)",
+        transition: "all 0.4s ease",
+      }}>
+        <span style={{
+          fontFamily: "'Lato', sans-serif",
+          fontSize: "10px",
+          letterSpacing: "0.2em",
+          textTransform: "uppercase",
+          color: COLORS.light,
+        }}>
+          Learn more
+        </span>
+        <div style={{ width: "28px", height: "1px", background: COLORS.light }} />
+      </div>
+    </motion.div>
+  );
+};
+
 const EmergencyBox = () => {
   const [currentImages, setCurrentImages] = useState([0, 0, 0]);
-
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
-  };
-
-  const cardVariants = {
-    hidden: {
-      opacity: 0,
-      y: 80,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.45,
-        ease: "easeOut",
-      },
-    },
-  };
-
-  const cards = [
-    {
-      title: "Emergency Care Unit",
-      subtitle: "Immediate medical response for critical cases",
-      icon: heartpulse,
-      bgImages: [cancer, photo6, photo14, photo38],
-    },
-    {
-      title: "Hospital Location Services",
-      subtitle: "Find our facilities and departments easily",
-      icon: map,
-      bgImages: [photo15, photo13, home, photo12],
-    },
-    {
-      title: "Patient Appointment Booking",
-      subtitle: "Schedule consultations with specialists",
-      icon: notebook,
-      bgImages: [photo5, photo12, photo08, photo41],
-    },
-  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImages((prev) =>
         prev.map((index, i) => (index + 1) % cards[i].bgImages.length)
       );
-    }, 2000); // Faster image rotation
-
+    }, 2800);
     return () => clearInterval(interval);
   }, []);
 
-  return (
-    <div className="w-full mt-5 mb-20 px-4 sm:px-8 md:px-16">
-      {/* Heading */}
-      <div className="flex flex-col items-center mt-32 mb-10">
-        <p className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight">
-          Contact Us
-        </p>
+  const containerVariants = {
+    hidden: {},
+    visible: { transition: { staggerChildren: 0.12 } },
+  };
 
-        <p className="text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium mx-auto leading-relaxed">
+  const cardVariants = {
+    hidden: { opacity: 0, y: 60 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: "easeOut" } },
+  };
+
+  return (
+    <section style={{
+      background: `linear-gradient(180deg, ${COLORS.darkest} 0%, ${COLORS.deep} 100%)`,
+      padding: "100px 40px 120px",
+      position: "relative",
+      overflow: "hidden",
+    }}>
+      {/* Decorative rings */}
+      <div style={{ position: "absolute", bottom: "-80px", right: "-80px", width: "400px", height: "400px", borderRadius: "50%", border: "1px solid rgba(93,200,200,0.08)", pointerEvents: "none" }} />
+      <div style={{ position: "absolute", top: "-60px", left: "-60px", width: "300px", height: "300px", borderRadius: "50%", border: "1px solid rgba(93,200,200,0.07)", pointerEvents: "none" }} />
+
+      {/* Section header */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+        style={{ textAlign: "center", marginBottom: "72px" }}
+      >
+        <div style={{ display: "inline-flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+          <div style={{ height: "1px", width: "36px", background: COLORS.gold }} />
+          <span style={{
+            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontSize: "12px", letterSpacing: "0.3em",
+            textTransform: "uppercase", color: COLORS.gold, fontWeight: 500,
+          }}>
+            Get in Touch
+          </span>
+          <div style={{ height: "1px", width: "36px", background: COLORS.gold }} />
+        </div>
+
+        <h2 style={{
+          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontSize: "clamp(40px, 5vw, 64px)",
+          fontWeight: 300, color: COLORS.cream,
+          lineHeight: 1.1, letterSpacing: "-0.02em",
+          margin: "0 0 16px",
+        }}>
+          Contact <em style={{ fontStyle: "italic", color: COLORS.light }}>Us</em>
+        </h2>
+
+        <p style={{
+          fontFamily: "'Lato', sans-serif",
+          fontSize: "15px", color: "rgba(245,242,234,0.5)",
+          fontWeight: 300, letterSpacing: "0.04em",
+        }}>
           Reach our medical team anytime
         </p>
-      </div>
+      </motion.div>
 
-      {/* Cards */}
+      {/* Cards grid */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-3 w-full gap-6 md:gap-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
+        style={{
+          maxWidth: "1100px",
+          margin: "0 auto",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))",
+          gap: "2px",
+        }}
       >
         {cards.map((card, index) => (
-          <motion.div
-            key={index}
-            variants={cardVariants}
-            className="
-              group relative h-[460px] rounded-3xl overflow-hidden
-              shadow-xl border border-white/10
-              hover:shadow-2xl hover:-translate-y-2
-              transition-all duration-300
-            "
-            animate={{
-              backgroundPosition: ["50% 50%", "52% 50%", "50% 50%"],
-            }}
-            transition={{
-              duration: 2,
-              repeat: Infinity,
-              ease: "easeInOut",
-            }}
-            style={{
-              backgroundImage: `linear-gradient(rgba(2,62,138,0.65), rgba(2,62,138,0.82)), url(${
-                card.bgImages[currentImages[index]]
-              })`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          >
-            {/* Glossy Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/60" />
-
-            {/* Shine Effect */}
-            <div
-              className="
-                absolute inset-0
-                bg-gradient-to-br from-white/20 to-transparent
-                opacity-0 group-hover:opacity-30
-                transition-opacity duration-400
-              "
-            />
-
-            <div className="relative h-full flex flex-col items-center justify-center text-center px-8 z-10">
-              <div className="mb-6 p-4 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20">
-                <img
-                  src={card.icon}
-                  alt={card.title}
-                  className="w-14 h-14 object-contain"
-                />
-              </div>
-
-              <h3 className="text-3xl font-semibold text-white tracking-tight mb-3">
-                {card.title}
-              </h3>
-
-              <p className="text-sky-100/90 text-[15px] max-w-[220px] leading-relaxed">
-                {card.subtitle}
-              </p>
-            </div>
-
-            {/* Bottom Accent */}
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-16 h-[2px] bg-white/80 rounded-full" />
+          <motion.div key={index} variants={cardVariants}>
+            <ContactCard card={card} imgIndex={currentImages[index]} />
           </motion.div>
         ))}
       </motion.div>
-    </div>
+
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Lato:wght@300;400&display=swap');`}</style>
+    </section>
   );
 };
 

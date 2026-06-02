@@ -119,7 +119,7 @@ const Treatment = () => {
         >
           <div className="h-px w-12 bg-[#5dc8c8]" />
           <span className="text-[#0b6e6e] text-sm font-medium tracking-wide">
-            Trusted Clinical Excellence
+            Together for Better Care
           </span>
         </motion.div>
       </motion.div>

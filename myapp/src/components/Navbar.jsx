@@ -16,8 +16,8 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Top Info Bar */}
-      <div className="fixed top-0 left-0 w-full h-[50px] bg-[#0b6e6e] z-70">
+      {/* Top Info Bar - Reduced Height */}
+      <div className="fixed top-0 left-0 w-full h-[42px] bg-[#0b6e6e] z-70">
         <div className="max-w-7xl mx-auto h-full flex items-center justify-center lg:justify-between px-4 sm:px-6 lg:px-8">
 
           <div className="flex items-center gap-6 text-white text-xs font-medium">
@@ -42,17 +42,17 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Main Navbar */}
-      <nav className="fixed top-[50px] left-0 w-full flex items-center justify-between px-6 sm:px-8 py-3 bg-white z-70 shadow-md border-b border-[#5dc8c8]/20">
+      {/* Main Navbar - Increased Height */}
+      <nav className="fixed top-[42px] left-0 w-full flex items-center justify-between px-6 sm:px-8 py-5 bg-white z-70 shadow-md border-b border-[#5dc8c8]/20">
 
-        {/* Logo */}
+        {/* Logo - Slightly Bigger */}
         <div className="flex items-center space-x-3">
           <img
-            className="w-9 h-9 rounded-xl border border-[#5dc8c8]/20"
+            className="w-11 h-11 rounded-2xl border border-[#5dc8c8]/30"
             src={logo}
             alt="Grand Bishoftu Hospital"
           />
-          <span className="font-playfair text-[18px] font-semibold tracking-tight text-[#0b6e6e]">
+          <span className="font-playfair text-[19px] font-semibold tracking-tight text-[#0b6e6e]">
             <span className="hidden sm:inline">Grand Bishoftu Hospital</span>
             <span className="inline sm:hidden">GBH</span>
           </span>

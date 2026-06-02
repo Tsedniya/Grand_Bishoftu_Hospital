@@ -146,7 +146,7 @@ const TitleAbout = () => {
             <div className="h-px w-12 bg-[#5dc8c8]" />
 
             <span className="text-[#0b6e6e] text-sm font-medium tracking-wide">
-              Trusted Healthcare Excellence
+             Your Health, Our Priority
             </span>
           </motion.div>
         </motion.div>

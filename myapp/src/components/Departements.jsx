@@ -52,134 +52,134 @@ import shieldcheck from "../assets/shieldcheck.svg";
 
 const Departements = () => {
 
-    const departments = [
-  {
-    title: "Emergency Services",
-    desc: "24/7 emergency medical care with rapid response teams, advanced life-saving equipment, and experienced physicians ready to handle critical and urgent conditions at any time.",
-    img: men,
-    icon: ambulance,
-  },
-  {
-    title: "Internal Medicine",
-    desc: "Comprehensive adult healthcare focusing on prevention, diagnosis, and treatment of a wide range of diseases, with personalized care plans for a very long-term health management.",
-    img: photo67,
-    icon: stethoscope,
-  },
-  {
-    title: "Surgery",
-    desc: "Advanced surgical services covering a wide range of procedures, performed by skilled surgeons using modern techniques to ensure safe operations and optimal recovery.",
-    img: photo02,
-    icon:  shieldcheck,
-  },
-  {
-    title: "Gynecology",
-    desc: "Specialized care for women’s reproductive health, offering preventive screenings, diagnosis, and treatment of gynecological conditions in a supportive environment.",
-    img: photo25,
-    icon: venus,
-  },
-  {
-    title: "Pediatrics",
-    desc: "Dedicated healthcare for infants, children, and adolescents, providing comprehensive medical services in a safe and child-friendly setting.",
-    img: photo_2,
-    icon: baby,
-  },
-  {
-    title: "Laparoscopic Surgery",
-    desc: "Minimally invasive surgical procedures using small incisions and advanced technology, allowing faster recovery, reduced pain, and shorter hospital stays.",
-    img: photo21,
-    icon: camera,
-  },
-  {
-    title: "Ophthalmology",
-    desc: "Complete eye care services including vision testing, diagnosis, and treatment of eye conditions, as well as advanced surgical procedures for improved vision.",
-    img: photo5,
-    icon: eye,
-  },
-  {
-    title: "Orthopedic Surgery",
-    desc: "Specialized care for bones, joints, and muscles, including trauma care, joint replacement, and rehabilitation to restore mobility and reduce pain.",
-    img: photo35,
-    icon: bone,
-  },
-  {
-    title: "Urology",
-    desc: "Diagnosis and treatment of urinary tract and male reproductive system conditions, including kidney stones, infections, and prostate disorders.",
-    img: photo9,
-    icon: briefcasemedical,
-  },
-  {
-    title: "Neurology",
-    desc: "Expert care for disorders of the brain, spinal cord, and nervous system, including stroke, epilepsy, and neurological conditions.",
-    img: photo36,
-    icon: brain,
-  },
-  {
-    title: "Pathology",
-    desc: "Advanced diagnostic services analyzing tissues and body fluids to accurately detect diseases and guide effective treatment decisions.",
-    img: photo32,
-    icon: microscope,
-  },
-  {
-    title: "Plastic Surgery",
-    desc: "Reconstructive and cosmetic procedures to restore function and improve appearance, including treatment for injuries, burns, and congenital conditions.",
-    img: photo15,
-    icon: syringe,
-  },
-  {
-    title: "Psychiatry",
-    desc: "Mental health services focused on diagnosis, treatment, and support for emotional, psychological, and behavioral conditions.",
-    img: photo69,
-    icon: brain,
-  },
-  {
-    title: "Neurosurgery",
-    desc: "Specialized surgical care for conditions affecting the brain, spine, and nervous system, using advanced techniques for precise and safe procedures.",
-    img: photo70,
-    icon: shield,
-  },
-  {
-    title: "Physiotherapy",
-    desc: "Rehabilitation services designed to restore movement, reduce pain, and improve physical function through personalized therapy programs.",
-    img: photo68,
-    icon: users,
-  },
-  {
-    title: "CT Scan",
-    desc: "Advanced imaging services providing detailed cross-sectional images to support accurate diagnosis and treatment planning.",
-    img: photo71,
-    icon:  searchcheck,
-  },
-  {
-    title: "Laboratory",
-    desc: "Comprehensive diagnostic testing with accurate and timely results to support effective medical decisions and patient care.",
-    img: photo8,
-    icon: testtube,
-  },
-  {
-    title: "Pharmacy",
-    desc: "Reliable medication services including prescription dispensing, patient counseling, and safe medication management.",
-    img: photo33,
-    icon: pill,
-  },
-  {
-    title: "X-Ray",
-    desc: "Fast and reliable imaging services for diagnosing fractures, infections, and other internal conditions using modern radiology equipment.",
-    img: photo66,
-    icon: x,
-  },
-  {
-    title: "Ultrasound",
-    desc: "Safe and non-invasive imaging used to examine internal organs, monitor pregnancies, and assist in accurate diagnosis.",
-    img: photo65,
-    icon:  baby,
-  },
+  const departments = [
     {
-    title: "Anesthesiology",
-    desc: "Specialized in providing safe anesthesia care before, during, and after surgery, ensuring patient comfort and pain management.",
-    img: photo34,
-    icon: pulse,
-  }
-];
+      title: "Emergency Services",
+      desc: "24/7 emergency medical care with rapid response teams, advanced life-saving equipment, and experienced physicians ready to handle critical and urgent conditions at any time.",
+      img: men,
+      icon: ambulance,
+    },
+    {
+      title: "Internal Medicine",
+      desc: "Comprehensive adult healthcare focusing on prevention, diagnosis, and treatment of a wide range of diseases, with personalized care plans for a very long-term health management.",
+      img: photo67,
+      icon: stethoscope,
+    },
+    {
+      title: "Surgery",
+      desc: "Advanced surgical services covering a wide range of procedures, performed by skilled surgeons using modern techniques to ensure safe operations and optimal recovery.",
+      img: photo02,
+      icon:  shieldcheck,
+    },
+    {
+      title: "Gynecology",
+      desc: "Specialized care for women's reproductive health, offering preventive screenings, diagnosis, and treatment of gynecological conditions in a supportive environment.",
+      img: photo25,
+      icon: venus,
+    },
+    {
+      title: "Pediatrics",
+      desc: "Dedicated healthcare for infants, children, and adolescents, providing comprehensive medical services in a safe and child-friendly setting.",
+      img: photo_2,
+      icon: baby,
+    },
+    {
+      title: "Laparoscopic Surgery",
+      desc: "Minimally invasive surgical procedures using small incisions and advanced technology, allowing faster recovery, reduced pain, and shorter hospital stays.",
+      img: photo21,
+      icon: camera,
+    },
+    {
+      title: "Ophthalmology",
+      desc: "Complete eye care services including vision testing, diagnosis, and treatment of eye conditions, as well as advanced surgical procedures for improved vision.",
+      img: photo5,
+      icon: eye,
+    },
+    {
+      title: "Orthopedic Surgery",
+      desc: "Specialized care for bones, joints, and muscles, including trauma care, joint replacement, and rehabilitation to restore mobility and reduce pain.",
+      img: photo35,
+      icon: bone,
+    },
+    {
+      title: "Urology",
+      desc: "Diagnosis and treatment of urinary tract and male reproductive system conditions, including kidney stones, infections, and prostate disorders.",
+      img: photo9,
+      icon: briefcasemedical,
+    },
+    {
+      title: "Neurology",
+      desc: "Expert care for disorders of the brain, spinal cord, and nervous system, including stroke, epilepsy, and neurological conditions.",
+      img: photo36,
+      icon: brain,
+    },
+    {
+      title: "Pathology",
+      desc: "Advanced diagnostic services analyzing tissues and body fluids to accurately detect diseases and guide effective treatment decisions.",
+      img: photo32,
+      icon: microscope,
+    },
+    {
+      title: "Plastic Surgery",
+      desc: "Reconstructive and cosmetic procedures to restore function and improve appearance, including treatment for injuries, burns, and congenital conditions.",
+      img: photo15,
+      icon: syringe,
+    },
+    {
+      title: "Psychiatry",
+      desc: "Mental health services focused on diagnosis, treatment, and support for emotional, psychological, and behavioral conditions.",
+      img: photo69,
+      icon: brain,
+    },
+    {
+      title: "Neurosurgery",
+      desc: "Specialized surgical care for conditions affecting the brain, spine, and nervous system, using advanced techniques for precise and safe procedures.",
+      img: photo70,
+      icon: shield,
+    },
+    {
+      title: "Physiotherapy",
+      desc: "Rehabilitation services designed to restore movement, reduce pain, and improve physical function through personalized therapy programs.",
+      img: photo68,
+      icon: users,
+    },
+    {
+      title: "CT Scan",
+      desc: "Advanced imaging services providing detailed cross-sectional images to support accurate diagnosis and treatment planning.",
+      img: photo71,
+      icon:  searchcheck,
+    },
+    {
+      title: "Laboratory",
+      desc: "Comprehensive diagnostic testing with accurate and timely results to support effective medical decisions and patient care.",
+      img: photo8,
+      icon: testtube,
+    },
+    {
+      title: "Pharmacy",
+      desc: "Reliable medication services including prescription dispensing, patient counseling, and safe medication management.",
+      img: photo33,
+      icon: pill,
+    },
+    {
+      title: "X-Ray",
+      desc: "Fast and reliable imaging services for diagnosing fractures, infections, and other internal conditions using modern radiology equipment.",
+      img: photo66,
+      icon: x,
+    },
+    {
+      title: "Ultrasound",
+      desc: "Safe and non-invasive imaging used to examine internal organs, monitor pregnancies, and assist in accurate diagnosis.",
+      img: photo65,
+      icon:  baby,
+    },
+    {
+      title: "Anesthesiology",
+      desc: "Specialized in providing safe anesthesia care before, during, and after surgery, ensuring patient comfort and pain management.",
+      img: photo34,
+      icon: pulse,
+    }
+  ];
 
   const [visibleCount, setVisibleCount] = useState(6);
   const [isMobile, setIsMobile] = useState(false);
@@ -210,6 +210,11 @@ const Departements = () => {
     }),
   };
 
+  const slideUp = {
+    hidden: { y: 50, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
+
   // Responsive columns
   const getCols = () => {
     if (window.innerWidth >= 1024) return "lg:grid-cols-3"; // desktop
@@ -217,13 +222,51 @@ const Departements = () => {
     return "grid-cols-1"; // mobile
   };
 
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   return (
-    <div className="max-w-[1200px] mx-auto my-12 px-4 sm:px-6">
-      <div className="flex flex-col items-center mt-25 md:mt-16 mb-6 md:mb-15">
-        <p className="font-playfair text-4xl text-[#0d1f2d] tracking-tight leading-tight md:text-6xl  mt-8 md:mt-16">
-          Services
-        </p>
-      </div>
+    <div className="max-w-[1200px] mx-auto my-12 md:pt-10 px-4 sm:px-6">
+      <section className="flex flex-col items-center mt-25 md:mt-16 mb-6 md:mb-15">
+        <motion.span
+            variants={isDesktop ? slideUp : {}}
+            initial={isDesktop ? "hidden" : false}
+            whileInView={isDesktop ? "visible" : false}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-block text-[#0b6e6e] text-sm font-medium tracking-[3px] uppercase mb-4"
+          >
+            Our Specialties
+          </motion.span>
+
+          <motion.h1
+            variants={isDesktop ? slideUp : {}}
+            initial={isDesktop ? "hidden" : false}
+            whileInView={isDesktop ? "visible" : false}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight"
+          >
+            Services
+          </motion.h1>
+
+          <motion.p
+            variants={isDesktop ? slideUp : {}}
+            initial={isDesktop ? "hidden" : false}
+            whileInView={isDesktop ? "visible" : false}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-4 text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium leading-relaxed"
+          >
+            Expert care across 10+ departments, staffed by leading specialists.
+          </motion.p>
+      </section>
 
       <div className={`grid gap-6 ${getCols()}`}>
         {departments.slice(0, visibleCount).map((dept, idx) => (
@@ -242,17 +285,17 @@ const Departements = () => {
               className="rounded-t-2xl w-full h-36 object-cover"
             />
 
-            <div className="absolute -top-7 left-4 sm:left-10 rounded-full bg-[#023E8A] w-14 h-14 flex items-center justify-center overflow-hidden">
-            <img
-              src={dept.icon}
-              alt={`${dept.title} icon`}
-              className="w-8 h-8 object-contain"
-            />
-          </div>
+            <div className="absolute -top-7 left-4 sm:left-10 rounded-full bg-[#5dc8c8] w-14 h-14 flex items-center justify-center overflow-hidden">
+              <img
+                src={dept.icon}
+                alt={`${dept.title} icon`}
+                className="w-8 h-8 object-contain"
+              />
+            </div>
 
             <div className="px-4 sm:px-7 pb-6">
-              <p className="mt-6 text-2xl font-bold text-[#023E8A]">{dept.title}</p>
-              <p className="mt-2 text-gray-700 text-justify">{dept.desc}</p>
+              <p className="mt-6 text-2xl font-bold text-[#0b6e6e]">{dept.title}</p>
+              <p className="mt-2 text-[#6a7c8a] text-justify">{dept.desc}</p>
             </div>
           </motion.div>
         ))}
@@ -263,7 +306,7 @@ const Departements = () => {
         <div className="flex justify-center mt-8">
            <button
             onClick={handleShowMore}
-            className="group relative px-6 py-3 rounded-2xl bg-[#023E8A] text-white font-semibold text-base overflow-hidden shadow-xl active:scale-95 transition-all duration-200"
+            className="group relative px-6 py-3 rounded-2xl bg-[#5dc8c8] text-white font-semibold text-base overflow-hidden shadow-xl active:scale-95 transition-all duration-200"
           >
             {/* Continuous Shine */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -skew-x-12 animate-shine"></div>
@@ -275,7 +318,7 @@ const Departements = () => {
             </div>
 
             {/* Extra Glow */}
-            <div className="absolute -inset-2 bg-[#023E8A]/60 rounded-3xl -z-10 blur-xl animate-pulse"></div>
+            <div className="absolute -inset-2 bg-[#5dc8c8]/60 rounded-3xl -z-10 blur-xl animate-pulse"></div>
 
             {/* Text */}
             <span className="relative z-10 flex items-center justify-center gap-2">

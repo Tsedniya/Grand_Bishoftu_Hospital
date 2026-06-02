@@ -95,7 +95,7 @@ const Homeone = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="font-playfair text-3xl sm:text-4xl md:text-5xl text-[#0d1f2d] leading-tight mb-6"
         >
-          Providing healthcare services  with  excellence
+            Caring Beyond Medical Treatment
          
          
         </motion.h3>
@@ -136,7 +136,7 @@ const Homeone = () => {
         >
           <div className="h-px w-12 bg-[#5dc8c8]" />
           <span className="text-[#0b6e6e] text-sm font-medium tracking-wide">
-            Trusted Clinical Excellence
+            Quality Care Every Day
           </span>
         </motion.div>
       </motion.div>

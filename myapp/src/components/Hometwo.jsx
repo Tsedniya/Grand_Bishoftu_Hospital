@@ -94,7 +94,7 @@ const Hometwo = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="font-playfair text-3xl sm:text-4xl md:text-5xl text-[#0d1f2d] leading-tight mb-6"
         >
-          we deliver compassionate healthcare
+          We deliver compassionate healthcare
         </motion.h3>
 
         {/* Animated PARAGRAPHS */}

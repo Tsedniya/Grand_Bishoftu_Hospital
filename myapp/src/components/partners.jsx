@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-// 👉 imports stay the same
+// Logo imports
 import photo50 from "../assets/new/photo50.jpg";
 import photo51 from "../assets/new/photo51.jpg";
 import photo52 from "../assets/new/photo52.jpg";
@@ -39,34 +39,60 @@ const partners = [
 
 const Partners = () => {
   return (
-    <div className="bg-white py-10 mt-7 md:mt-14">
-      <h2 className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight text-center mb-8">
-        Our Partners
-      </h2>
+    <section className="bg-white py-14 md:py-20 mt-8 md:mt-14 overflow-hidden">
+      {/* Heading */}
+      <div className="text-center mb-12 px-4">
 
-      <div className="relative w-full overflow-hidden h-32 flex items-center py-6">
+        <h2 className="font-playfair text-4xl md:text-5xl lg:text-6xl text-[#0d1f2d] leading-tight mt-3">
+          Our Partners
+        </h2>
+
+        <p className="max-w-2xl mx-auto mt-4 text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium leading-relaxed">
+          Partnering to provide quality healthcare and patient care
+        </p>
+      </div>
+
+      {/* Logos */}
+      <div className="relative w-full overflow-hidden">
         <motion.div
-          className="flex gap-12 items-center"
+          className="flex items-center gap-20 md:gap-24"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
+            duration: 35,
             repeat: Infinity,
-            duration: 25,
             ease: "linear",
           }}
         >
           {partners.concat(partners).map((partner, index) => (
             <div
               key={index}
-              className="min-w-[170px] h-24 flex items-center justify-center bg-gray-100 rounded-xl shadow-md p-4"
+              className="flex-shrink-0 min-w-[180px] h-24 flex items-center justify-center"
             >
               {partner.logo ? (
                 <img
                   src={partner.logo}
                   alt={partner.name}
-                  className="h-full w-full object-contain"
+                  title={partner.name}
+                  className="
+                    max-h-20
+                    w-auto
+                    object-contain
+                    transition-all
+                    duration-500
+                    hover:scale-110
+                    hover:brightness-110
+                  "
                 />
               ) : (
-                <span className="text-sm font-semibold text-gray-700 text-center">
+                <span
+                  className="
+                    text-base
+                    font-medium
+                    text-gray-700
+                    hover:text-[#0b6e6e]
+                    transition-colors
+                  "
+                >
                   {partner.name}
                 </span>
               )}
@@ -74,7 +100,7 @@ const Partners = () => {
           ))}
         </motion.div>
       </div>
-    </div>
+    </section>
   );
 };
 

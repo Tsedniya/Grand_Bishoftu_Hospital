@@ -161,18 +161,53 @@ const DocPage = () => {
       transition: { delay: i * 0.1, duration: 0.6, ease: "easeOut" },
     }),
   };
+  const [isDesktop, setIsDesktop] = useState(() => window.innerWidth >= 1024);
+
+  useEffect(() => {
+    const handleResize = () => setIsDesktop(window.innerWidth >= 1024);
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
   return (
     <div className="min-h-screen bg-[#f8fafa] lg:mb-12 mt-28">
-      {/* Hero */}
-      <section className="relative bg-white py-5 px-4 text-center">
+     
+      {/* Hero Title - Matching Mission Style */}
+      <section className="relative bg-white py-12 px-4 text-center">
         <div className="max-w-3xl mx-auto">
-          <h1 className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight">
+          <motion.span
+            variants={isDesktop ? slideUp : {}}
+            initial={isDesktop ? "hidden" : false}
+            whileInView={isDesktop ? "visible" : false}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="inline-block text-[#0b6e6e] text-sm font-medium tracking-[3px] uppercase mb-4"
+          >
+            Our Team
+          </motion.span>
+
+          <motion.h1
+            variants={isDesktop ? slideUp : {}}
+            initial={isDesktop ? "hidden" : false}
+            whileInView={isDesktop ? "visible" : false}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight"
+          >
             Meet Our Doctors
-          </h1>
-          <p className="mt-3 text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium mx-auto leading-relaxed">
-            Our experienced medical professionals provide compassionate care.
-          </p>
+          </motion.h1>
+
+          <motion.p
+            variants={isDesktop ? slideUp : {}}
+            initial={isDesktop ? "hidden" : false}
+            whileInView={isDesktop ? "visible" : false}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mt-4 text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium leading-relaxed"
+          >
+            Our experienced medical professionals provide compassionate and expert care.
+          </motion.p>
         </div>
       </section>
 

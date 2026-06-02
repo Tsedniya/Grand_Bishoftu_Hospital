@@ -32,7 +32,7 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full bg-gradient-to-b from-slate-50 to-white py-20 px-6">
+    <section className="w-full bg-[#f0f9f9] py-20 px-6">
       <div className="max-w-4xl mx-auto">
         
         {/* Header */}
@@ -56,7 +56,7 @@ const FAQ = () => {
                 onClick={() => toggle(index)}
                 className="w-full flex items-center justify-between px-8 py-6 text-left transition-all hover:bg-gray-50"
               >
-                <span className="text-lg font-semibold text-gray-800 pr-6">
+                <span className="text-lg font-semibold pr-6 tracking-tight whitespace-nowrap font-playfair text-[#0d1f2d] leading-tight">
                   {item.question}
                 </span>
                 
@@ -75,7 +75,7 @@ const FAQ = () => {
                   openIndex === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
                 }`}
               >
-                <div className="px-8 pb-8 text-[17px] leading-relaxed text-gray-600">
+                <div className="px-8 pb-8 text-[17px] tracking-tight whitespace-nowrap font-playfair text-2xl text-[#0d1f2d] leading-tight">
                   {item.answer}
                 </div>
               </div>
