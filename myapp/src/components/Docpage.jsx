@@ -18,7 +18,7 @@ import photo70 from "../assets/new/photo70.JPG";
 import photo72 from "../assets/new/photo72.JPG"; 
 
 const DocPage = () => {
-   const doctors = [
+  const doctors = [
     {
       id: "dr-segni",
       img: photo70,
@@ -142,16 +142,18 @@ const DocPage = () => {
     },
     { 
       id: "dr-addis", 
-      img: photo45, name: "Dr. Addis Gezahegn", 
+      img: photo45, 
+      name: "Dr. Addis Gezahegn", 
       specialty: "Dermatology", 
       description: "Expert in diagnosing and treating skin conditions, with a focus on both medical and cosmetic dermatology.", 
       available: "Saturday 2:30-6:30 LT", 
       experience: "4 years", 
-      emergency: "Emergency available", },
+      emergency: "Emergency available", 
+    },
   ];
 
   // Animation variants
-  const cardVariants = {
+  const slideUp = {
     hidden: { opacity: 0, y: 50 },
     visible: (i) => ({
       opacity: 1,
@@ -161,14 +163,14 @@ const DocPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white lg:mb-12 mt-28">
+    <div className="min-h-screen bg-[#f8fafa] lg:mb-12 mt-28">
       {/* Hero */}
       <section className="relative bg-white py-5 px-4 text-center">
-        <div className="max-w-3xl mx-auto ">
-          <h1 className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] tracking-tighter">
+        <div className="max-w-3xl mx-auto">
+          <h1 className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight">
             Meet Our Doctors
           </h1>
-          <p className="mt-3 text-[#023E8A]/70 text-sm md:text-base tracking-[2px] font-medium">
+          <p className="mt-3 text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium mx-auto leading-relaxed">
             Our experienced medical professionals provide compassionate care.
           </p>
         </div>
@@ -177,65 +179,65 @@ const DocPage = () => {
       {/* Grid */}
       <section className="max-w-6xl mx-auto px-4 py-4 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {doctors.map((doc, idx) => (
-                <motion.div
-        key={doc.id}
-        className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
-        variants={cardVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.2 }}
-        custom={idx}
-      >
-        {/* Image (taller now) */}
-        <div className="w-full h-52 sm:h-56 md:h-60 overflow-hidden">
-          <img
-            src={doc.img}
-            alt={doc.name}
-            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
-          />
-        </div>
-
-        {/* Content */}
-        <div className="px-5 py-5">
-          <h2 className="text-xl font-semibold text-gray-800">
-            {doc.name}
-          </h2>
-
-          <p className="mt-1 text-[#023E8A] font-medium">
-            {doc.specialty}
-          </p>
-
-          <p className="mt-3 sm:text-sm text-gray-600 leading-relaxed">
-            {doc.description}
-          </p>
-
-          {/* Info Section */}
-          <div className="mt-4 space-y-2 text-sm">
-            <div className="flex items-center gap-2 text-gray-700">
-              <div className="bg-blue-100 p-1.5 rounded-md">
-                <Clock size={14} className="text-[#023E8A]" />
-              </div>
-              <span>{doc.available}</span>
+          <motion.div
+            key={doc.id}
+            className="bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden border border-[#5dc8c8]/10"
+            variants={slideUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            custom={idx}
+          >
+            {/* Image (taller now) */}
+            <div className="w-full h-52 sm:h-56 md:h-60 overflow-hidden">
+              <img
+                src={doc.img}
+                alt={doc.name}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+              />
             </div>
 
-            <div className="flex items-center gap-2 text-gray-700">
-              <div className="bg-green-100 p-1.5 rounded-md">
-                <Stethoscope size={14} className="text-green-700" />
-              </div>
-              <span>{doc.experience} of experience</span>
-            </div>
+            {/* Content */}
+            <div className="px-5 py-5">
+              <h2 className="text-xl font-semibold text-[#0d1f2d]">
+                {doc.name}
+              </h2>
 
-            <div className="flex items-center gap-2 text-gray-700">
-              <div className="bg-red-100 p-1.5 rounded-md">
-                <Ambulance size={14} className="text-red-600" />
+              <p className="mt-1 text-[#5dc8c8] font-medium">
+                {doc.specialty}
+              </p>
+
+              <p className="mt-3 sm:text-sm text-[#6a7c8a] leading-relaxed">
+                {doc.description}
+              </p>
+
+              {/* Info Section */}
+              <div className="mt-4 space-y-2 text-sm">
+                <div className="flex items-center gap-2 text-gray-700">
+                  <div className="bg-[#5dc8c8]/20 p-1.5 rounded-md">
+                    <Clock size={14} className="text-[#0b6e6e]" />
+                  </div>
+                  <span>{doc.available}</span>
+                </div>
+
+                <div className="flex items-center gap-2 text-gray-700">
+                  <div className="bg-[#5dc8c8]/20 p-1.5 rounded-md">
+                    <Stethoscope size={14} className="text-[#0b6e6e]" />
+                  </div>
+                  <span>{doc.experience} of experience</span>
+                </div>
+
+                <div className="flex items-center gap-2 text-gray-700">
+                  <div className="bg-[#5dc8c8]/20 p-1.5 rounded-md">
+                    <Ambulance size={14} className="text-[#0b6e6e]" />
+                  </div>
+                  <span className="text-[#0b6e6e] font-medium">
+                    {doc.emergency}
+                  </span>
+                </div>
               </div>
-              <span className="text-red-600 font-medium">
-                {doc.emergency}
-              </span>
             </div>
-          </div>
-        </div>
-      </motion.div>
+          </motion.div>
         ))}
       </section>
     </div>

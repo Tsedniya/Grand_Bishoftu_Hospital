@@ -14,13 +14,18 @@ const Hometwo = () => {
   }, []);
 
   const slideFromLeft = {
-    hidden: { x: -60, opacity: 0 },
+    hidden: { x: -120, opacity: 0 },
     visible: { x: 0, opacity: 1 },
   };
 
   const slideFromRight = {
-    hidden: { x: 60, opacity: 0 },
+    hidden: { x: 120, opacity: 0 },
     visible: { x: 0, opacity: 1 },
+  };
+
+  const slideUp = {
+    hidden: { y: 50, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
   };
 
   return (
@@ -31,24 +36,31 @@ const Hometwo = () => {
         variants={isDesktop ? slideFromRight : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{
-          duration: 0.4,
-          ease: [0.25, 0.1, 0.25, 1],
-        }}
-        className="relative w-full lg:w-1/2 flex items-center justify-center"
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="relative w-full lg:w-1/2 flex justify-center"
       >
-        <div className="absolute w-[68%] h-[68%] bg-sky-200/30 rounded-full blur-3xl" />
+        {/* Soft background glow */}
+        <div className="absolute w-[65%] h-[65%] bg-[#5dc8c8]/25 rounded-full blur-3xl" />
 
-        <div className="relative z-10 w-full max-w-md lg:max-w-lg overflow-hidden rounded-3xl shadow-2xl">
+        <div className="relative z-10 w-full max-w-md lg:max-w-lg h-[260px] sm:h-[340px] md:h-[420px]">
           <img
             src={photo12}
             alt="Patient Care"
-            className="w-full h-auto aspect-[16/13] object-cover transition-transform duration-500 hover:scale-105"
+            className="w-full h-full object-cover rounded-2xl shadow-xl border border-[#5dc8c8]/30"
           />
 
-          {/* Shine Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent opacity-0 hover:opacity-30 transition-opacity duration-500" />
+          {/* Overlay */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent rounded-2xl flex items-end p-5">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-[#5dc8c8]">
+                Compassionate Healthcare
+              </p>
+              <p className="text-white text-lg font-semibold leading-snug">
+                Reliable care you can trust
+              </p>
+            </div>
+          </div>
         </div>
       </motion.div>
 
@@ -57,28 +69,73 @@ const Hometwo = () => {
         variants={isDesktop ? slideFromLeft : {}}
         initial={isDesktop ? "hidden" : false}
         whileInView={isDesktop ? "visible" : false}
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{
-          duration: 0.4,
-          delay: 0.05,
-          ease: [0.25, 0.1, 0.25, 1],
-        }}
+        viewport={{ once: true, amount: 0.3 }}
+        transition={{ duration: 0.7, delay: 0.3 }}
         className="w-full lg:w-1/2 flex flex-col justify-center"
       >
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight mb-4 sm:mb-6">
+        {/* Animated SECTION TAG */}
+        <motion.span
+          variants={isDesktop ? slideUp : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="text-[#0b6e6e] uppercase tracking-[3px] text-sm font-medium mb-3 inline-block"
+        >
           We Take Care of You
-        </h3>
+        </motion.span>
 
-        <p className="text-base sm:text-lg text-gray-700 leading-relaxed mb-4 sm:mb-6">
-          At Grand Bishoftu Hospital, we deliver compassionate and reliable
-          healthcare for every patient. Our team of skilled medical
-          professionals is dedicated to providing personalized treatment,
-          advanced care, and unwavering support.
-        </p>
+        {/* Animated HEADING */}
+        <motion.h3
+          variants={isDesktop ? slideUp : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="font-playfair text-3xl sm:text-4xl md:text-5xl text-[#0d1f2d] leading-tight mb-6"
+        >
+          we deliver compassionate healthcare
+        </motion.h3>
 
-        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
-          • Your safety, comfort, and trust are our top priority.
-        </p>
+        {/* Animated PARAGRAPHS */}
+        <motion.p
+          variants={isDesktop ? slideUp : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="font-dmsans text-base lg:text-lg leading-8 text-[#6a7c8a] text-left lg:text-justify"
+        >
+          Our team of skilled medical professionals is dedicated to providing
+          personalized treatment, advanced care, and unwavering support.
+          We deliver compassionate and reliable healthcare for every patient.
+        </motion.p>
+
+        <motion.p
+          variants={isDesktop ? slideUp : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mt-4 text-[#0b6e6e] text-sm font-medium"
+        >
+          • Your safety, comfort, and trust are our top priority
+        </motion.p>
+
+        {/* Animated DIVIDER LINE */}
+        <motion.div
+          variants={isDesktop ? slideUp : {}}
+          initial={isDesktop ? "hidden" : false}
+          whileInView={isDesktop ? "visible" : false}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.7 }}
+          className="mt-6 flex items-center gap-3"
+        >
+          <div className="h-px w-12 bg-[#5dc8c8]" />
+          <span className="text-[#0b6e6e] text-sm font-medium tracking-wide">
+            Trusted Clinical Excellence
+          </span>
+        </motion.div>
       </motion.div>
     </div>
   );

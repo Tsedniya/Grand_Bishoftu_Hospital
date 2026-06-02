@@ -76,7 +76,7 @@ const Meet = () => {
 
       {/* Title */}
       <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
-        <h3 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight">
+        <h3 className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight">
           Our Founders & Leadership Team
         </h3>
       </div>

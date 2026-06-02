@@ -1,22 +1,33 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
 /* index.css */
 
 @theme {
+  --font-playfair: "Playfair Display", serif;
+  --font-dmsans: "DM Sans", sans-serif;
   --font-poppins: "Poppins", sans-serif;
   --font-opensans: "Open Sans", sans-serif;
 }
 
+/* Base Styles */
 body {
   min-height: 100vh;
   margin: 0;
-  font-family: var(--font-opensans);
+  font-family: var(--font-dmsans);        /* Changed to DM Sans - matches hospital design */
+  color: #1a2332;
+  background: #f8fafa;
 }
 
-.font-poppins {
-  font-family: var(--font-poppins);
+.font-playfair {
+  font-family: var(--font-playfair);
 }
 
+.font-dmsans {
+  font-family: var(--font-dmsans);
+}
+
+/* Keep your existing utilities */
 a.active hr {
   display: block;
 }
@@ -37,14 +48,14 @@ a.active hr {
   transform: rotateY(180deg);
 }
 
-/* Add custom z-index values */
+/* Custom z-index */
 .z-60 { z-index: 60; }
 .z-70 { z-index: 70; }
 .z-80 { z-index: 80; }
 .z-90 { z-index: 90; }
 .z-100 { z-index: 100; }
 
-/* Fade-in animation */
+/* Animations */
 @keyframes fadeIn {
   0% { opacity: 0; transform: translateY(10px); }
   100% { opacity: 1; transform: translateY(0); }
@@ -84,4 +95,16 @@ p {
 
 .animate-wave2 {
   animation: wave2 3s linear infinite 0.6s;
+}
+
+/* Hospital Website Color Palette */
+:root {
+  --primary: #023E8A;
+  --accent: #00A3B8;
+  --light-bg: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --text-dark: #1E2937;
+  --text-muted: #64748B;
+  --success: #10B981;
+  --border: #E2E8F0;
 }

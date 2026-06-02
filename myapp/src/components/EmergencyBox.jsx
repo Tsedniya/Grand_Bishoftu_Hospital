@@ -84,11 +84,11 @@ const EmergencyBox = () => {
     <div className="w-full mt-5 mb-20 px-4 sm:px-8 md:px-16">
       {/* Heading */}
       <div className="flex flex-col items-center mt-32 mb-10">
-        <p className="text-center font-poppins text-3xl md:text-6xl text-[#023E8A] tracking-tighter">
+        <p className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight">
           Contact Us
         </p>
 
-        <p className="text-[#023E8A]/70 text-sm md:text-base mt-2 tracking-[2px] font-medium">
+        <p className="text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium mx-auto leading-relaxed">
           Reach our medical team anytime
         </p>
       </div>

@@ -84,10 +84,10 @@ const LatestNewsEvents = () => {
     <section className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter leading-tight">
+          <h2 className="font-playfair text-4xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight">
             Latest News & Events
           </h2>
-          <p className="mt-3 text-[#023E8A]/70 text-sm md:text-base tracking-[2px] font-medium max-w-md mx-auto">
+          <p className="mt-3 text-[#0b6e6e] text-sm md:text-base tracking-[2px] font-medium leading-relaxed max-w-md mx-auto">
             Stay updated with our recent activities, achievements, and community programs
           </p>
         </div>

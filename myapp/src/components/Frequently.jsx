@@ -1,30 +1,26 @@
 import React, { useState } from "react";
+import { ChevronDown } from "lucide-react"; // Install: npm install lucide-react
 
 const faqData = [
   {
     question: "How long will I be waiting?",
-    answer:
-      "Waiting time depends on your appointment type and patient flow. Most consultations take 15–30 minutes.",
+    answer: "Waiting time depends on your appointment type and patient flow. Most consultations take 15–30 minutes.",
   },
   {
     question: "Do you treat children?",
-    answer:
-      "Yes, we provide pediatric care for children of all ages with specialized medical professionals.",
+    answer: "Yes, we provide pediatric care for children of all ages with specialized medical professionals.",
   },
   {
     question: "Can I book emergency treatment?",
-    answer:
-      "Yes, emergency services are available. Please call our emergency line for immediate assistance.",
+    answer: "Yes, emergency services are available. Please call our emergency line for immediate assistance.",
   },
   {
     question: "What are your opening hours?",
-    answer:
-      "We are open Monday to Friday from 8:00 AM to 8:00 PM and weekends from 9:00 AM to 5:00 PM.",
+    answer: "We are open Monday to Friday from 8:00 AM to 8:00 PM and weekends from 9:00 AM to 5:00 PM.",
   },
   {
     question: "Do you accept insurance?",
-    answer:
-      "We accept most major insurance providers. Contact our reception for details.",
+    answer: "We accept most major insurance providers. Contact our reception for details.",
   },
 ];
 
@@ -36,48 +32,58 @@ const FAQ = () => {
   };
 
   return (
-    <section className="w-full bg-white py-20 px-6  -mt-16 md:-mt-10">
-      <div className="max-w-4xl mx-auto ">
-
-        {/* Title */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-semibold text-[#023E8A] tracking-tighter">
+    <section className="w-full bg-gradient-to-b from-slate-50 to-white py-20 px-6">
+      <div className="max-w-4xl mx-auto">
+        
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="font-playfair text-5xl md:text-6xl text-[#0d1f2d] tracking-tight leading-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 sm:mt-4 text-[#023E8A]/70 text-sm md:text-base tracking-[2px] font-medium">
-            Find answers to common questions about our services and appointments.
+          <p className="mt-4 text-[#0b6e6e] text-lg max-w-md mx-auto">
+            Everything you need to know about our services and appointments
           </p>
         </div>
 
-        {/* FAQ items */}
+        {/* FAQ Items */}
         <div className="space-y-4">
           {faqData.map((item, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-md overflow-hidden"
+              className="group bg-white border border-gray-100 rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300"
             >
-              {/* Question */}
               <button
                 onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center px-6 py-5 text-left font-semibold text-gray-800 hover:bg-gray-100 transition"
+                className="w-full flex items-center justify-between px-8 py-6 text-left transition-all hover:bg-gray-50"
               >
-                {item.question}
-
-                <span className="text-xl">
-                  {openIndex === index ? "−" : "+"}
+                <span className="text-lg font-semibold text-gray-800 pr-6">
+                  {item.question}
                 </span>
+                
+                <div className={`w-9 h-9 rounded-2xl flex items-center justify-center transition-all duration-300 border 
+                  ${openIndex === index 
+                    ? 'bg-teal-600 border-teal-600 text-white rotate-180' 
+                    : 'bg-gray-100 border-gray-200 group-hover:border-teal-200 text-gray-400'}`}
+                >
+                  <ChevronDown className="w-5 h-5" />
+                </div>
               </button>
 
-              {/* Answer */}
-              {openIndex === index && (
-                <div className="px-6 pb-5 text-gray-600">
+              {/* Answer with smooth animation */}
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="px-8 pb-8 text-[17px] leading-relaxed text-gray-600">
                   {item.answer}
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
 
+        
       </div>
     </section>
   );
